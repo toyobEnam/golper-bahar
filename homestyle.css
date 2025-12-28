@@ -6,26 +6,16 @@ body {
 
 header {
     text-align: center;
-    padding: 30px 10px;
+    padding: 20px 10px;
+    background-color: rgb(225, 245, 255);
 }
 
-header h1 {
-    font-size: 36px;
-    margin-bottom: 6px;
-    
+header img {
+    max-width: 220px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
 }
 
-header h3 {
-    font-family: 'SolaimanLipi', 'Noto Serif Bengali', serif;
-    font-size: 16px;
-    font-weight: normal;
-    opacity: 0.8;
-    margin-top: 2px;
-}
 
-.storyContent {
-    max-width: 700px;
-    margin: 40px auto;
-    font-size: 18.5px;
-    line-height: 1.95;
-}
+
