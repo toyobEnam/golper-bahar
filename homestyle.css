@@ -274,8 +274,9 @@ body.dark .theme-btn-icon {
 ========================= */
 .theme-notice {
     position: fixed;
-    bottom: 20px;
+    bottom: 40px;
     left: 50%;
+    text-align: center;
     transform: translateX(-50%);
 
     background-color: rgba(0, 0, 0, 0.85);

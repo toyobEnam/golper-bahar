@@ -50,6 +50,9 @@ function applyTheme(isDark) {
 function toggleTheme() {
     const isDark = !document.body.classList.contains("dark");
     applyTheme(isDark);
+
+    themeClickTimes.push(Date.now());
+    checkThemeSpam();
 }
 
 themeBtnDesktop?.addEventListener("click", toggleTheme);
