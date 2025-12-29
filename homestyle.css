@@ -1,35 +1,100 @@
+/* =========================
+   GLOBAL / RESET
+========================= */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 5px;
     font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+    background-color: #ffffff;
+    color: #111;
 }
 
-/* ================= HEADER ================= */
+/* Dark mode base */
+body.dark {
+    background-color: #0f172a;
+    color: #e5e7eb;
+}
+
+/* =========================
+   HEADER
+========================= */
 header {
-    background-color: rgb(225, 245, 255);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
     height: 150px;
+    padding: 20px;
+    background-color: #e1f5ff;
 }
 
-header img {
+body.dark header {
+    background-color: #020617;
+}
+
+/* =========================
+   LOGO
+========================= */
+.logo {
     max-width: 220px;
     height: auto;
+    display: block;
 }
 
-/* ================= NAV BAR (STICKY) ================= */
+/* default light */
+.logo-dark {
+    display: none;
+}
+
+/* system dark */
+@media (prefers-color-scheme: dark) {
+    .logo-light {
+        display: none;
+    }
+    header {
+    background-color: #0a3c17;
+    }
+    .logo-dark {
+        display: block;
+    }
+}
+
+/* manual dark (JS) */
+body.dark .logo-light {
+    display: none;
+}
+
+body.dark .logo-dark {
+    display: block;
+}
+
+/* =========================
+   NAV BAR
+========================= */
 .nav {
     position: sticky;
     top: 0;
     z-index: 999;
+
+    display: flex;
+    align-items: center;
 
     background-color: #ffffff;
     border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
 }
 
+body.dark .nav {
+    background-color: #020617;
+    border-color: #1e293b;
+}
+
+/* =========================
+   MENU TOGGLE (MOBILE)
+========================= */
 .menu-toggle {
     display: none;
     font-size: 26px;
@@ -38,38 +103,94 @@ header img {
     user-select: none;
 }
 
-/* ================= DESKTOP MENU ================= */
+/* =========================
+   NAV LIST (DESKTOP)
+========================= */
 .nav-list {
     list-style: none;
     margin: 0;
     padding: 0;
+
+    display: flex;
+    width: 100%;
+}
+
+/* 🔥 IMPORTANT FIX */
+.nav-list li {
+    flex: 1;
     display: flex;
 }
 
-.nav-list li {
+/* 🔥 a + button EXACT SAME BEHAVIOR */
+.nav-list li a,
+.nav-list li button.theme-btn {
     flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 14px 0;
+
+    font-size: 16px;
+    font-family: inherit;
+    text-decoration: none;
+
+    color: #111;
+    background: none;
+    border: none;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
+/* Dark text */
+body.dark .nav-list li a,
+body.dark .nav-list li button.theme-btn {
+    color: #e5e7eb;
+}
+
+/* Borders */
 .nav-list li a {
-    display: block;
-    text-align: center;
-    padding: 14px 0;
-    text-decoration: none;
-    font-size: 16px;
-    color: #111;
     border-right: 1px solid #e5e5e5;
-    transition: background-color 0.2s ease;
+}
+
+body.dark .nav-list li a {
+    border-right: 1px solid #1e293b;
 }
 
 .nav-list li:last-child a {
     border-right: none;
 }
 
-.nav-list li a:hover {
+/* Hover = FULL BOX */
+.nav-list li a:hover,
+.nav-list li button.theme-btn:hover {
     background-color: #e1f5ff;
 }
 
-/* ================= MOBILE DRAWER ================= */
+body.dark .nav-list li a:hover,
+body.dark .nav-list li button.theme-btn:hover {
+    background-color: #020617;
+}
+
+/* =========================
+   THEME VISIBILITY
+========================= */
+.desktop-only {
+    display: block;
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* =========================
+   MOBILE DRAWER
+========================= */
 @media (max-width: 768px) {
 
     .menu-toggle {
@@ -77,17 +198,28 @@ header img {
         z-index: 1001;
     }
 
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+        margin-left: auto;
+        padding-right: 16px;
+    }
+
     .nav-list {
         position: fixed;
         top: 0;
         left: 0;
+
         height: 100vh;
         width: 260px;
 
-        background-color: #ffffff;
         flex-direction: column;
-        padding-top: 70px;
+        padding-top: 80px;
 
+        background-color: #ffffff;
         transform: translateX(-100%);
         transition: transform 0.35s ease;
 
@@ -95,18 +227,44 @@ header img {
         z-index: 1000;
     }
 
-    .nav-list li {
-        flex: none;
-    }
-
-    .nav-list li a {
-        text-align: left;
-        padding: 16px;
-        border-right: none;
-        border-bottom: 1px solid #e5e5e5;
+    body.dark .nav-list {
+        background-color: #020617;
     }
 
     .nav-list.active {
         transform: translateX(0);
     }
+
+    .nav-list li {
+        flex: none;
+        display: block;
+    }
+
+    .nav-list li a,
+    .nav-list li button.theme-btn {
+        justify-content: flex-start;
+        padding: 16px;
+        border-right: none;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    body.dark .nav-list li a,
+    body.dark .nav-list li button.theme-btn {
+        border-bottom: 1px solid #1e293b;
+    }
+}
+
+/* =========================
+   MOBILE THEME ICON
+========================= */
+.theme-btn-icon {
+    font-size: 22px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #111;
+}
+
+body.dark .theme-btn-icon {
+    color: #e5e7eb;
 }

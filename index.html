@@ -11,22 +11,46 @@
 </head>
 <body>
 <header>
-    <img src="assets/images/ijij.png" alt="গল্প বাহার">
+   <header class="site-header">
+    <img src="assets/images/white-theme-logo.png"
+         class="logo logo-light"
+         alt="গল্প বাহার লোগো">
+
+    <img src="assets/images/dark-theme-logo.png"
+         class="logo logo-dark"
+         alt="গল্প বাহার লোগো">
+</header>
+
 </header>
 
 <nav class="nav">
+    <!-- Mobile left: hamburger -->
     <div class="menu-toggle" id="menuToggle">
         <span id="menuIcon">☰</span>
     </div>
 
+    <!-- Desktop + Mobile menu -->
     <ul class="nav-list" id="navList">
         <li><a href="index.html" target="_blank">হোম</a></li>
         <li><a href="stories.html" target="_blank">গল্প</a></li>
         <li><a href="about.html" target="_blank">আমাদের কথা</a></li>
         <li><a href="contact.html" target="_blank">যোগাযোগ</a></li>
         <li><a href="writers.html" target="_blank">লেখকবৃন্দ</a></li>
+
+        <!-- Desktop theme toggle -->
+        <li class="theme-item desktop-only">
+            <button id="themeToggleBtn" class="theme-btn">
+                🌙 ডার্ক
+            </button>
+        </li>
     </ul>
+
+    <!-- Mobile right: theme toggle -->
+    <div class="theme-toggle-mobile mobile-only">
+        <button id="themeToggleBtnMobile" class="theme-btn-icon">🌙</button>
+    </div>
 </nav>
+
 
 
 
