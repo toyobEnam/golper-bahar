@@ -108,32 +108,35 @@ body {
 ==================== */
 
 .story-image {
-    margin: 2.5em 0;
+    margin: 2.2em 0;
     text-align: center;
 }
 
 .story-image img {
     width: 100%;
-    max-width: 720px;   /* Desktop */
+    max-width: 480px;   /* Desktop safe */
     height: auto;
-    border-radius: 6px;
     display: block;
     margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    border-radius: 6px;
 }
-
 
 /* Tablet */
 @media (max-width: 1024px) {
     .story-image img {
-        max-width: 420px;
+        max-width: 380px;
     }
 }
 
 /* Mobile */
 @media (max-width: 600px) {
+    .story-image {
+        margin: 1.8em 0;
+    }
+
     .story-image img {
-        max-width: 100%;
+        max-width: 92%;
         border-radius: 4px;
     }
 }
+
