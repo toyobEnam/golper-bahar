@@ -103,3 +103,37 @@ body {
     }
 }
 
+/* ====================
+   STORY IMAGES
+==================== */
+
+.story-image {
+    margin: 2.5em 0;
+    text-align: center;
+}
+
+.story-image img {
+    width: 100%;
+    max-width: 720px;   /* Desktop */
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .story-image img {
+        max-width: 420px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .story-image img {
+        max-width: 100%;
+        border-radius: 4px;
+    }
+}
