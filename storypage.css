@@ -140,3 +140,40 @@ body {
     }
 }
 
+/* =============== Page Switch Button =============== */
+
+.episode-switch {
+  margin: 60px 0 30px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.ep-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.ep-list.start {
+  justify-content: center;
+}
+
+.ep-btn {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 8px 14px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.ep-btn:hover {
+  background: #f0f0f0;
+}
+
+.prev {
+  display: inline-block;
+  margin-bottom: 10px;
+}
