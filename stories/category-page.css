@@ -8,3 +8,98 @@ body {
   font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
   background: #e0e0e0;
 }
+
+/* Header */
+.top-header {
+  background: #efe0ff;
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.top-header h1 {
+  margin: 0;
+}
+
+.top-header p {
+  margin-top: 8px;
+}
+
+/* Navbar */
+.navbar {
+  background: #bfe9ff;
+  padding: 10px;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 26px;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #0a58ca;
+}
+
+/* Category Grid */
+.category-grid {
+  display: grid;
+  gap: 25px;
+  padding: 40px;
+}
+
+/* Card */
+.card {
+  border: 2px solid #3b5cff;
+  border-radius: 12px;
+  background: #f6f3ff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card .img {
+  padding: 40px 0;
+  font-size: 28px;
+  border-bottom: 2px solid #3b5cff;
+}
+
+.card .title {
+  padding: 12px;
+  font-size: 18px;
+}
+
+/* Responsive */
+@media (min-width: 1024px) {
+  .category-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 599px) {
+  .menu {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
