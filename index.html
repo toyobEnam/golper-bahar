@@ -1,67 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="homestyle.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>গল্পের বহর</title>
 
-
+  <link rel="stylesheet" href="homestyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali&display=swap" rel="stylesheet">
 </head>
 <body>
-<header>
-   <header class="site-header">
-    <img src="assets/images/white-theme-logo.png"
-         class="logo logo-light"
-         alt="গল্প বাহার লোগো">
 
-    <img src="assets/images/dark-theme-logo.png"
-         class="logo logo-dark"
-         alt="গল্প বাহার লোগো">
+<!-- Header -->
+<header class="site-header">
+  <h1>গল্পের বাহার</h1>
+  <p>বাংলা গল্প—নিজের মতো করে পড়ার জায়গা</p>
 </header>
 
-</header>
-
-<nav class="nav">
-    <!-- Mobile left: hamburger -->
-    <div class="menu-toggle" id="menuToggle">
-        <span id="menuIcon">☰</span>
-    </div>
-
-    <!-- Desktop + Mobile menu -->
-    <ul class="nav-list" id="navList">
-        <li><a href="index.html" target="_blank">হোম</a></li>
-        <li><a href="stories.html" target="_blank">গল্প</a></li>
-        <li><a href="about.html" target="_blank">আমাদের কথা</a></li>
-        <li><a href="contact.html" target="_blank">যোগাযোগ</a></li>
-        <li><a href="writers.html" target="_blank">লেখকবৃন্দ</a></li>
-
-        <!-- Desktop theme toggle -->
-        <li class="theme-item desktop-only">
-            <button id="themeToggleBtn" class="theme-btn">
-                🌙 ডার্ক
-            </button>
-        </li>
-    </ul>
-
-    <!-- Mobile right: theme toggle -->
-    <div class="theme-toggle-mobile mobile-only">
-        <button id="themeToggleBtnMobile" class="theme-btn-icon">🌙</button>
-    </div>
+<!-- Navigation (Selectable Boxes) -->
+<nav class="site-nav">
+  <a href="index.html" class="nav-item active">হোম</a>
+  <a href="about.html" class="nav-item">আমাদের কথা</a>
+  <a href="categories.html" class="nav-item">সকল গল্প</a>
+  <a href="submit-rules.html" class="nav-item">গল্প পাঠানোর নিয়ম</a>
+  <a href="writers/writers.html" class="nav-item">লেখকবৃন্দ</a>
+  <a href="privacy.html" class="nav-item">প্রাইভেসি পলিসি</a>
 </nav>
 
-<a href="stories/story-category-page.html">
-    <button id="readStory">গল্প পড়ুন</button>
-</a>
+<!-- Main Content -->
+<main class="home-content">
 
+  <!-- Intro Text -->
+  <section class="intro">
+    <p>
+      গল্প মানুষকে থামিয়ে দেয়, আবার সামনে এগোতে সাহসও দেয়।
+      এই জায়গাটা সেই গল্পগুলোর জন্য—যেগুলো শব্দের ভেতর দিয়ে অনুভূতি তৈরি করে।
+    </p>
+    <p>
+      এখানে কোনো তাড়াহুড়া নেই।
+      নিজের সময় নিয়ে পড়ুন, ভাবুন, আবার ফিরে আসুন।
+    </p>
+  </section>
 
+  <!-- Primary Action -->
+  <section class="action-center">
+    <a href="categories.html" target="_blank" class="primary-btn">
+      গল্প পড়ুন
+    </a>
+  </section>
 
+  <!-- Featured Stories -->
+  <section class="featured">
+    <h2>বিশেষ গল্প</h2>
 
+    <div class="featured-grid">
 
-<div id="themeNotice" class="theme-notice">
-    আরও ভালোভাবে দেখতে ডিভাইসের লাইট/ডার্ক থিম পরিবর্তন করুন
-</div>
+      <a href="tasmiya.html" target="_blank" class="featured-card pink">
+        তাসমিয়াতুন নেসা
+      </a>
+
+      <a href="space-species.html" target="_blank" class="featured-card blue">
+        মহাজাগতিক স্পেসিস
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Secondary Action -->
+  <section class="action-center">
+    <a href="submit-rules.html" target="_blank" class="secondary-btn">
+      নিজের গল্প পাঠান
+    </a>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <p>© গল্পের বাহার</p>
+  <p>বাংলা গল্প সংরক্ষণ ও পাঠের একটি স্বাধীন উদ্যোগ</p>
+</footer>
+
 <script src="homefunc.js"></script>
 </body>
 </html>

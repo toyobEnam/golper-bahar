@@ -1,319 +1,178 @@
-/* =========================
-   GLOBAL / RESET
-========================= */
+:root {
+  --bg-main: #f7f7f7;
+  --bg-white: #ffffff;
+
+  --text-main: #222;
+  --text-muted: #555;
+
+  --border-light: #ddd;
+
+  --hover-pink: #fde8ef;
+  --hover-blue: #e8f1fd;
+
+  --btn-border: #222;
+}
+
+/* Reset */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 5px;
-    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-    background-color: #ffffff;
-    color: #111;
+  margin: 0;
+  font-family: 'Kalpurush' ,'Noto Serif Bengali', serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
 }
 
-/* Dark mode base */
-body.dark {
-    background-color: #0f172a;
-    color: #e5e7eb;
+/* Header */
+.site-header {
+  text-align: center;
+  padding: 40px 20px 25px;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
 }
 
-/* =========================
-   HEADER
-========================= */
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 150px;
-    padding: 20px;
-    background-color: #e1f5ff;
+.site-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: normal;
 }
 
-body.dark header {
-    background-color: #020617;
+.site-header p {
+  margin-top: 8px;
+  font-size: 15px;
+  color: var(--text-muted);
 }
 
-/* =========================
-   LOGO
-========================= */
-.logo {
-    max-width: 220px;
-    height: auto;
-    display: block;
+/* Navigation */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
 }
 
-/* default light */
-.logo-dark {
-    display: none;
+.nav-item {
+  text-decoration: none;
+  color: var(--text-main);
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-size: 15px;
 }
 
-/* system dark */
-@media (prefers-color-scheme: dark) {
-    .logo-light {
-        display: none;
-    }
-    header {
-    background-color: #0a3c17;
-    }
-    .logo-dark {
-        display: block;
-    }
+.nav-item:hover {
+  border-color: var(--border-light);
 }
 
-/* manual dark (JS) */
-body.dark .logo-light {
-    display: none;
+.nav-item.active {
+  border-color: var(--text-main);
 }
 
-body.dark .logo-dark {
-    display: block;
+/* Main Content */
+.home-content {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
 
-/* =========================
-   NAV BAR
-========================= */
-.nav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-
-    display: flex;
-    align-items: center;
-
-    background-color: #ffffff;
-    border-top: 1px solid #e5e5e5;
-    border-bottom: 1px solid #e5e5e5;
+/* Intro */
+.intro p {
+  font-size: 17px;
+  line-height: 1.9;
+  margin-bottom: 16px;
 }
 
-body.dark .nav {
-    background-color: #020617;
-    border-color: #1e293b;
+/* Action buttons */
+.action-center {
+  text-align: center;
+  margin: 45px 0;
 }
 
-/* =========================
-   MENU TOGGLE (MOBILE)
-========================= */
-.menu-toggle {
-    display: none;
+.primary-btn,
+.secondary-btn {
+  display: inline-block;
+  padding: 14px 34px;
+  border: 1px solid var(--btn-border);
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 18px;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  background: #f0f0f0;
+}
+
+/* Featured */
+.featured {
+  margin: 50px 0;
+}
+
+.featured h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.featured-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.featured-card {
+  display: block;
+  padding: 30px 20px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  color: var(--text-main);
+  font-size: 20px;
+
+  transition: background-color 0.2s ease;
+}
+
+.featured-card.pink:hover {
+  background-color: var(--hover-pink);
+}
+
+.featured-card.blue:hover {
+  background-color: var(--hover-blue);
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 25px 15px;
+  font-size: 14px;
+  color: var(--text-muted);
+  background: var(--bg-white);
+  border-top: 1px solid var(--border-light);
+}
+
+/* Responsive */
+@media (min-width: 700px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header h1 {
     font-size: 26px;
-    padding: 12px 16px;
-    cursor: pointer;
-    user-select: none;
-}
+  }
 
-/* =========================
-   NAV LIST (DESKTOP)
-========================= */
-.nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-
-    display: flex;
-    width: 100%;
-}
-
-/* 🔥 IMPORTANT FIX */
-.nav-list li {
-    flex: 1;
-    display: flex;
-}
-
-/* 🔥 a + button EXACT SAME BEHAVIOR */
-.nav-list li a,
-.nav-list li button.theme-btn {
-    flex: 1;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 100%;
-    height: 100%;
-
-    padding: 14px 0;
-
+  .intro p {
     font-size: 16px;
-    font-family: inherit;
-    text-decoration: none;
+  }
 
-    color: #111;
-    background: none;
-    border: none;
-
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-/* Dark text */
-body.dark .nav-list li a,
-body.dark .nav-list li button.theme-btn {
-    color: #e5e7eb;
-}
-
-/* Borders */
-.nav-list li a {
-    border-right: 1px solid #e5e5e5;
-}
-
-body.dark .nav-list li a {
-    border-right: 1px solid #1e293b;
-}
-
-.nav-list li:last-child a {
-    border-right: none;
-}
-
-/* Hover = FULL BOX */
-.nav-list li a:hover,
-.nav-list li button.theme-btn:hover {
-    background-color: #e1f5ff;
-}
-
-body.dark .nav-list li a:hover,
-body.dark .nav-list li button.theme-btn:hover {
-    background-color: #020617;
-}
-
-/* =========================
-   THEME VISIBILITY
-========================= */
-.desktop-only {
-    display: block;
-}
-
-.mobile-only {
-    display: none;
-}
-
-/* =========================
-   MOBILE DRAWER
-========================= */
-@media (max-width: 768px) {
-
-    .menu-toggle {
-        display: block;
-        z-index: 1001;
-    }
-
-    .desktop-only {
-        display: none;
-    }
-
-    .mobile-only {
-        display: block;
-        margin-left: auto;
-        padding-right: 16px;
-    }
-
-    .nav-list {
-        position: fixed;
-        top: 0;
-        left: 0;
-
-        height: 100vh;
-        width: 260px;
-
-        flex-direction: column;
-        padding-top: 80px;
-
-        background-color: #ffffff;
-        transform: translateX(-100%);
-        transition: transform 0.35s ease;
-
-        box-shadow: 2px 0 10px rgba(0,0,0,0.15);
-        z-index: 1000;
-    }
-
-    body.dark .nav-list {
-        background-color: #020617;
-    }
-
-    .nav-list.active {
-        transform: translateX(0);
-    }
-
-    .nav-list li {
-        flex: none;
-        display: block;
-    }
-
-    .nav-list li a,
-    .nav-list li button.theme-btn {
-        justify-content: flex-start;
-        padding: 16px;
-        border-right: none;
-        border-bottom: 1px solid #e5e5e5;
-    }
-
-    body.dark .nav-list li a,
-    body.dark .nav-list li button.theme-btn {
-        border-bottom: 1px solid #1e293b;
-    }
-}
-
-/* =========================
-   MOBILE THEME ICON
-========================= */
-.theme-btn-icon {
-    font-size: 22px;
-    border: none;
-    background: none;
-    cursor: pointer;
-    color: #111;
-}
-
-body.dark .theme-btn-icon {
-    color: #e5e7eb;
-}
-
-/* =========================
-   THEME SPAM NOTICE (MOBILE)
-========================= */
-.theme-notice {
-    position: fixed;
-    bottom: 40px;
-    left: 50%;
-    text-align: center;
-    transform: translateX(-50%);
-
-    background-color: rgba(0, 0, 0, 0.85);
-    color: #ffffff;
-
-    padding: 8px 14px;
-    font-size: 13px;
-    border-radius: 20px;
-
-    opacity: 0;
-    pointer-events: none;
-
-    transition: opacity 0.4s ease;
-    z-index: 2000;
-}
-
-/* show state */
-.theme-notice.show {
-    opacity: 1;
-}
-
-#readStory {
-    height: 50px;
-    width: 100px;
-    border: 2px solid white;
-    color: white;
-    background-color: #07511b;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#readStory:hover {
-    background-color: #034515;
-    border: 3px solid rgb(199, 199, 199);
-}
-
-#readStory:active {
-    background-color: #088529;
-    border: 3px solid rgb(199, 199, 199);
+  .primary-btn,
+  .secondary-btn {
+    font-size: 16px;
+  }
 }
