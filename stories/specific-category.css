@@ -81,3 +81,99 @@ body {
     font-size: 18px;
   }
 }
+
+/* ---------------------------------------------------------------------
+-------------------    Footer Component    -----------------------------
+--------------------------------------------------------------------- */
+
+.site-footer {
+  background-color: #0f0f0f;
+  color: #cfcfcf;
+  padding: 40px 20px;
+  
+  font-family: 'Kalpurush', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Brand */
+.footer-brand {
+  flex: 1;
+}
+
+.footer-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.footer-title:hover {
+  text-decoration: underline;
+}
+
+.footer-tagline {
+  font-size: 0.95rem;
+  color: #aaaaaa;
+}
+
+/* Meta */
+.footer-meta {
+  flex: 2;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Footer nav */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+.footer-nav a {
+  font-size: 0.85rem;
+  color: #bdbdbd;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Texts */
+.footer-disclaimer {
+  margin-bottom: 14px;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: #8f8f8f;
+}
+
+/* 📱 Mobile */
+@media (max-width: 640px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer-title {
+    font-size: 1.6rem;
+  }
+
+  .footer-nav {
+    gap: 10px 16px;
+  }
+}
