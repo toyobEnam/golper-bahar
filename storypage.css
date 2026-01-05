@@ -152,14 +152,18 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
+/* .upperNAV {
+  padding: 8px 14px;
+} */
 
 .ep-list {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 15px;
+  
 }
 
 .ep-list.start {
@@ -284,3 +288,4 @@ body {
     gap: 10px 16px;
   }
 }
+
