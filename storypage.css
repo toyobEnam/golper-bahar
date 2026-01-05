@@ -155,14 +155,17 @@ body {
   flex-wrap: wrap;
 }
 
-/* .upperNAV {
-  padding: 8px 14px;
-} */
+.upperNAV {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+  margin: 10px 0;
+}
 
 .ep-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 10px 10px;
   
 }
 
