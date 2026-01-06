@@ -3,6 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 body {
@@ -221,6 +222,57 @@ body {
 #theEndText {
   text-align: center;
 }
+
+
+
+/* ---------------------------------------------------------------------
+-------------------    Right Space Bar    -----------------------------
+--------------------------------------------------------------------- */
+
+/* Writer Card */
+.writer-card {
+  background: rgb(0, 114, 15);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 25px;
+  text-align: center;
+  color: white;
+}
+
+
+
+.writer-photo {
+  width: 170px;
+  height: 170px;
+  border: 2px solid white;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0;
+}
+
+.writer-name {
+  margin: 5px 0 10px 0;
+  font-size: 30px;
+}
+
+.writer-bio {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+
+
+.verified {
+    border: 0.5px solid rgb(0, 119, 14);
+    background-color: #dfffdf;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    color: rgb(0, 89, 0);
+}
+
+
 
 /* ---------------------------------------------------------------------
 -------------------    Footer Component    -----------------------------
