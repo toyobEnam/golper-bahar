@@ -1,5 +1,5 @@
 :root {
-  --bg-main: #f7f7f7;
+  --bg-main: #f2f2f2;
   --bg-white: #ffffff;
 
   --text-main: #222;
@@ -7,8 +7,8 @@
 
   --border-light: #ddd;
 
-  --hover-pink: #fde8ef;
-  --hover-blue: #e8f1fd;
+  --hover-pink: #ffdfea;
+  --hover-blue: #daeaff;
 
   --btn-border: #222;
 }
@@ -98,14 +98,22 @@ body {
   display: inline-block;
   padding: 14px 34px;
   border: 1px solid var(--btn-border);
+  border-radius: 5px;
   text-decoration: none;
   color: var(--text-main);
   font-size: 18px;
+
+    transition: 
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 }
 
 .primary-btn:hover,
 .secondary-btn:hover {
-  background: #f0f0f0;
+  background: #ffe7e7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
 }
 
 /* Featured */
@@ -139,10 +147,14 @@ body {
 
 .featured-card.pink:hover {
   background-color: var(--hover-pink);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
 }
 
 .featured-card.blue:hover {
   background-color: var(--hover-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.10);
 }
 
 /* Footer */
@@ -188,6 +200,8 @@ body {
   margin-top: 80px;
   font-family: 'Kalpurush', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
+
+
 
 .footer-inner {
   max-width: 1100px;

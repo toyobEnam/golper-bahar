@@ -1,0 +1,262 @@
+:root {
+  --bg-main: #f2f2f2;
+  --bg-white: #ffffff;
+  --text-main: #222;
+  --text-muted: #555;
+  --border-light: #ddd;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Kalpurush','Noto Serif Bengali', serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Header */
+.site-header {
+  text-align: center;
+  padding: 40px 20px 25px;
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.site-header p {
+    font-size: 20px;
+}
+
+/* Layout */
+.writer-layout {
+  max-width: 1100px;
+  margin: 50px auto;
+  margin-top: 20px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+}
+
+/* Writer Card */
+.writer-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 25px;
+  text-align: center;
+}
+
+.writer-photo {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0;
+}
+
+.writer-name {
+  margin: 5px 0 10px 0;
+  font-size: 30px;
+}
+
+.writer-bio {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+
+
+.verified {
+    border: 0.5px solid rgb(0, 119, 14);
+    background-color: #dfffdf;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+}
+
+/* Content */
+.writer-content > div {
+  margin-bottom: 40px;
+}
+
+/* Writer Story Buttons */
+.writer-stories {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* সামান্য gap */
+}
+
+.story-btn {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  background: var(--bg-white);
+  text-decoration: none;
+  color: var(--text-main);
+  font-size: 15px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.story-btn:hover {
+  background-color: #f7f7f7;
+  transform: translateY(-1px);
+}
+
+
+/* Gallery */
+.writer-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.writer-gallery img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  margin: 50px auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Contact */
+.writer-contact .contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.contact-item {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text-main);
+  background: var(--bg-white);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .writer-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .writer-card {
+    text-align: center;
+  }
+
+  .writer-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------------------
+-------------------    Footer Component    -----------------------------
+--------------------------------------------------------------------- */
+
+/* .site-footer {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  background: var(--bg-white);
+  border-top: 1px solid var(--border-light);
+} */
+
+.site-footer {
+  text-align: center;
+  background-color: #0f0f0f;
+  color: #cfcfcf;
+  padding: 40px 20px;
+  margin-top: 80px;
+  font-family: 'Kalpurush', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Brand */
+.footer-brand {
+  flex: 1;
+}
+
+.footer-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.footer-title:hover {
+  text-decoration: underline;
+}
+
+.footer-tagline {
+  font-size: 0.95rem;
+  color: #aaaaaa;
+}
+
+/* Meta */
+.footer-meta {
+  flex: 2;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Footer nav */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+.footer-nav a {
+  font-size: 0.85rem;
+  color: #bdbdbd;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Texts */
+.footer-disclaimer {
+  margin-bottom: 14px;
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: #8f8f8f;
+}
+
+/* 📱 Mobile */
+@media (max-width: 640px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .footer-title {
+    font-size: 1.6rem;
+  }
+
+  .footer-nav {
+    gap: 10px 16px;
+  }
+}
