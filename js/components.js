@@ -1,72 +1,57 @@
-// ===================== Start Footer Component ===========================
+/* ================================
+   GitHub Pages Safe Footer Loader
+   ================================ */
 
-// detect base path automatically
 const isGitHub = location.hostname.includes("github.io");
-const basePath = isGitHub ? "/golper-bahar" : "";
+const REPO_NAME = "golper-bahar";
+const basePath = isGitHub ? `/${REPO_NAME}` : "";
 
+/* ---------- Component Loader ---------- */
 function loadComponent(id, file) {
   fetch(`${basePath}${file}`)
     .then(res => res.text())
     .then(html => {
       const el = document.getElementById(id);
-      if (el) el.innerHTML = html;
+      if (!el) return;
+
+      el.innerHTML = html;
+
+      // Footer load হলে GitHub link fix চালাও
+      if (id === "footer") {
+        fixFooterLinksForGitHub();
+      }
     })
     .catch(err => console.error("Component load error:", err));
 }
 
-// load footer
-loadComponent("footer", "/components/footer/footer.html");
+/* ---------- GitHub Pages Footer Link Fix ---------- */
+function fixFooterLinksForGitHub() {
+  if (!isGitHub) return;
 
-(function () {
-  // All footer links
-  const footerLinks = document.querySelectorAll(
-    '.site-footer a[href]'
-  );
+  const footer = document.querySelector(".site-footer");
+  if (!footer) return;
 
-  // Ignore mailto, tel, external links
-  const isSkippable = (href) =>
-    href.startsWith('mailto:') ||
-    href.startsWith('tel:') ||
-    href.startsWith('http');
+  const links = footer.querySelectorAll("a[href]");
 
-  // Calculate base path dynamically
-  const pathParts = window.location.pathname
-    .split('/')
-    .filter(Boolean);
+  links.forEach(link => {
+    const href = link.getAttribute("href");
 
-  /*
-    Examples:
-    /index.html                         -> []
-    /stories/a/b.html                   -> ["stories","a","b.html"]
-    /Practice-Play/stories/a/b.html     -> ["Practice-Play","stories","a","b.html"]
-  */
+    // Skip external / mail / tel / hash
+    if (
+      href.startsWith("http") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:") ||
+      href.startsWith("#")
+    ) {
+      return;
+    }
 
-  // Remove filename
-  if (pathParts.length && pathParts[pathParts.length - 1].includes('.')) {
-    pathParts.pop();
-  }
-
-  // If hosted on GitHub Pages with repo name
-  let depth = pathParts.length;
-
-  // When custom domain root (no repo folder)
-  if (location.hostname !== 'localhost' && !location.hostname.includes('github.io')) {
-    depth = pathParts.length;
-  }
-
-  const basePath = depth === 0 ? '' : '../'.repeat(depth);
-
-  footerLinks.forEach(link => {
-    const href = link.getAttribute('href');
-
-    if (isSkippable(href)) return;
-
-    // Only fix absolute-root links like "/writers/writers.html"
-    if (href.startsWith('/')) {
-      link.setAttribute('href', basePath + href.replace(/^\/+/, ''));
+    // Fix root-absolute links like "/privacy.html"
+    if (href.startsWith("/")) {
+      link.setAttribute("href", `/${REPO_NAME}${href}`);
     }
   });
-})();
+}
 
-
-// ===================== End Footer Component ===========================
+/* ---------- Load Footer ---------- */
+loadComponent("footer", "/components/footer/footer.html");
