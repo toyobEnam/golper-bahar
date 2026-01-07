@@ -1,3 +1,5 @@
+// ===================== Start Footer Component ===========================
+
 // detect base path automatically
 const isGitHub = location.hostname.includes("github.io");
 const basePath = isGitHub ? "/golper-bahar" : "";
@@ -14,3 +16,5 @@ function loadComponent(id, file) {
 
 // load footer
 loadComponent("footer", "/components/footer/footer.html");
+
+// ===================== End Footer Component ===========================

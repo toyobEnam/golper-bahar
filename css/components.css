@@ -16,9 +16,11 @@
 .footer-inner {
   max-width: 1100px;
   margin: 0 auto;
-  display: flex;
-  gap: 40px;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* left | center | right */
   align-items: center;
+  gap: 40px;
 }
 
 /* Brand */
@@ -47,7 +49,7 @@
 
 /* Meta */
 .footer-meta {
-  flex: 2;
+  flex: 1;
   font-size: 0.9rem;
   line-height: 1.6;
 }
@@ -95,5 +97,43 @@
 
   .footer-nav {
     gap: 10px 16px;
+  }
+}
+
+/* Footer center actions */
+.footer-actions {
+  flex: 0;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+}
+
+/* Icon buttons */
+.footer-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #3a3a3a;
+  background: transparent;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+
+
+/* Hover — still white */
+.footer-icon:hover {
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
