@@ -1,0 +1,240 @@
+body {
+  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+  text-decoration: none;
+}
+
+
+/* ===== Story Series Header ===== */
+.story-series-header {
+  text-align: center;
+  padding: 40px 16px 20px;
+}
+
+.story-title {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.story-author {
+  font-size: 1.2rem;
+}
+
+.story-author a {
+  color: #0b6b3a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ===== Episode Grid ===== */
+.episode-grid {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  grid-auto-rows: min-content;
+  align-items: start;
+}
+
+/* Desktop: 6 columns */
+@media (min-width: 1200px) {
+  .episode-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Tablet: 3 columns */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .episode-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile: 2 columns */
+@media (max-width: 767px) {
+  .episode-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===== Episode Card ===== */
+.episode-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  will-change: transform;
+
+  transition:
+    transform 0.22s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.episode-card:hover {
+  transform: translateY(-4px); /* 👈 subtle but visible lift */
+  background-color: rgba(0, 120, 255, 0.08);
+  box-shadow: 0 10px 22px rgba(162, 159, 255, 0.45);
+}
+
+
+/* 16:9 image */
+.episode-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.episode-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text */
+.episode-info {
+  padding: 5px 8px;
+  text-align: center;
+}
+
+.episode-info h3 {
+  margin: 15px 0px 0px 0px;
+  padding: 0;
+  line-height: 1.2;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0b6b3a;
+}
+
+
+.episode-info p {
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.2;
+}
+
+/* Force remove underline everywhere */
+a, a:hover, a:focus, a:active {
+  text-decoration: none !important;
+}
+
+/* ============= Mouse Pointer Default Start ================ */
+
+/* ===== Disable Text Selection ===== */
+body {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* ===== Disable cursor change on text ===== */
+span, h1, h2, h4, h5, h6 {
+  cursor: default;
+}
+
+
+/* ===== Allow pointer only on links & buttons ===== */
+a, button {
+  cursor: pointer !important;
+  user-select: auto;
+}
+
+.episode-card:hover {
+  cursor: pointer;
+}
+
+/* ============== Mouse Pointer Default End ================= */
+
+
+/* ==================================================
+   Optional Mini Navigation (Compact Version)
+================================================== */
+
+.back-btn {
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+
+.mini-episode-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 10px;
+  margin-bottom: 0;
+
+  background-color: #0f0f0f; /* footer match */
+}
+
+/* ===== Single Item ===== */
+.mini-nav-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 72px;           /* 👈 desktop smaller */
+  padding: 6px 12px;         /* 👈 compact */
+
+  background-color: #1e1e1e;
+  color: #ffffff;
+
+  font-size: 0.85rem;        /* 👈 desktop smaller text */
+  font-weight: 500;
+  line-height: 1.2;
+
+  border-radius: 5px;
+  text-decoration: none;
+
+  transition:
+    color 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.18s ease;
+}
+
+
+
+/* ===== Hover Effect ===== */
+.mini-nav-item:hover {
+  color: #2f80ff;
+  background-color: #e6e6e6;
+
+  box-shadow:
+    0 0 0 1px rgba(47, 128, 255, 0.35),
+    0 0 8px rgba(47, 128, 255, 0.3);
+
+  transform: translateY(-1px);
+}
+
+/* ================= Tablet ================= */
+@media (max-width: 768px) {
+  .mini-episode-nav {
+    gap: 8px;
+    padding: 10px 8px;
+  }
+
+  .mini-nav-item {
+    min-width: 68px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ================= Mobile ================= */
+@media (max-width: 480px) {
+  .mini-episode-nav {
+    gap: 6px;
+    padding: 8px 6px;
+  }
+
+  .mini-nav-item {
+    min-width: auto;       /* text-based width */
+    padding: 5px 9px;
+    font-size: 0.78rem;
+    border-radius: 4px;
+  }
+}
