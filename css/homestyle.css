@@ -224,13 +224,13 @@ body {
   align-items: center;
   justify-content: center;
 
-  min-width: 72px;           /* 👈 desktop smaller */
-  padding: 6px 12px;         /* 👈 compact */
+  min-width: 72px;
+  padding: 6px 12px;
 
   background-color: #1e1e1e;
   color: #ffffff;
 
-  font-size: 0.85rem;        /* 👈 desktop smaller text */
+  font-size: 0.85rem;       
   font-weight: 500;
   line-height: 1.2;
 
