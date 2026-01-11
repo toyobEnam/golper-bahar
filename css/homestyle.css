@@ -23,6 +23,13 @@ body {
   font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
   background-color: var(--bg-main);
   color: var(--text-main);
+/* 
+   background-image: url("https://res.cloudinary.com/dhj4ovvav/image/upload/v1768135051/cover-bg_se7ttf.webp");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; */
+
 }
 
 /* ================= Header ================= */

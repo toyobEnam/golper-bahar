@@ -8,7 +8,7 @@ body {
 /* ===== Story Series Header ===== */
 .story-series-header {
   text-align: center;
-  padding: 40px 16px 20px;
+  padding: 10px 16px 5px;
 }
 
 .story-title {
@@ -74,8 +74,8 @@ body {
 
 .episode-card:hover {
   transform: translateY(-4px); /* 👈 subtle but visible lift */
-  background-color: rgba(0, 120, 255, 0.08);
-  box-shadow: 0 10px 22px rgba(162, 159, 255, 0.45);
+  /* background-color: rgba(0, 120, 255, 0.08); */
+  box-shadow: 0 10px 22px rgba(21, 17, 131, 0.549);
 }
 
 
