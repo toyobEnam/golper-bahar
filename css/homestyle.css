@@ -20,7 +20,7 @@
 
 body {
   margin: 0;
-  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+  font-family:'Kalpurush', 'Noto Serif Bengali', serif;
   background-color: var(--bg-main);
   color: var(--text-main);
 /* 
