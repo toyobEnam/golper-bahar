@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  font-family: 'Noto Serif Bengali', serif;
+  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
   background-color: #f7f7f7;
   color: #222;
 }
@@ -42,7 +42,7 @@ body {
 /* Story card */
 .story-card {
   display: block;
-  padding: 22px 18px;
+  padding: 18px 18px;
   text-decoration: none;
   background: #ffffff;
   border: 1px solid #ddd;
@@ -51,7 +51,9 @@ body {
 
   transition:
     box-shadow 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    background-color 0.4s ease,
+    color 0.4s ease;
 }
 
 .story-card h2 {
@@ -63,9 +65,11 @@ body {
 
 /* Hover effect */
 .story-card:hover {
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
 }
+
+
 
 /* Tablet */
 @media (max-width: 1024px) {
@@ -187,3 +191,41 @@ body {
    Optional Mini Navigation (Compact Version) End
 ================================================== */
 
+/* Soft colors */
+.story-card:nth-child(1)  { background:#e3f2fd; }
+.story-card:nth-child(2)  { background:#fce4ec; }
+.story-card:nth-child(3)  { background:#e8f5e9; }
+.story-card:nth-child(4)  { background:#ede7f6; }
+.story-card:nth-child(5)  { background:#fff3e0; }
+.story-card:nth-child(6)  { background:#e0f2f1; }
+.story-card:nth-child(7)  { background:#f3e5f5; }
+.story-card:nth-child(8)  { background:#fbe9e7; }
+.story-card:nth-child(9)  { background:#e1f5fe; }
+.story-card:nth-child(10) { background:#ede7f6; }
+
+/* Hover deep color */
+.story-card:nth-child(1):hover  { background:#1e88e5; color:white; }
+.story-card:nth-child(2):hover  { background:#d81b60; color:white; }
+.story-card:nth-child(3):hover  { background:#43a047; color:white; }
+.story-card:nth-child(4):hover  { background:#5e35b1; color:white; }
+.story-card:nth-child(5):hover  { background:#ef6c00; color:white; }
+.story-card:nth-child(6):hover  { background:#00897b; color:white; }
+.story-card:nth-child(7):hover  { background:#8e24aa; color:white; }
+.story-card:nth-child(8):hover  { background:#e53935; color:white; }
+.story-card:nth-child(9):hover  { background:#039be5; color:white; }
+.story-card:nth-child(10):hover { background:#5e35b1; color:white; }
+
+
+/* ===== Soft repeating colors ===== */
+.story-card:nth-child(5n+1) { background:#e3f2fd; }
+.story-card:nth-child(5n+2) { background:#fce4ec; }
+.story-card:nth-child(5n+3) { background:#e8f5e9; }
+.story-card:nth-child(5n+4) { background:#ede7f6; }
+.story-card:nth-child(5n+5) { background:#fff3e0; }
+
+/* ===== Hover deep colors ===== */
+.story-card:nth-child(5n+1):hover { background:#1e88e5; color:white; }
+.story-card:nth-child(5n+2):hover { background:#d81b60; color:white; }
+.story-card:nth-child(5n+3):hover { background:#43a047; color:white; }
+.story-card:nth-child(5n+4):hover { background:#5e35b1; color:white; }
+.story-card:nth-child(5n+5):hover { background:#ef6c00; color:white; }

@@ -75,3 +75,57 @@ body {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+
+/* Base Card */
+.category-card {
+  display: block;
+  padding: 22px 15px;
+  text-align: center;
+  text-decoration: none;
+  color: #222;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 18px;
+
+  transition: 
+    background-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+
+
+/* Soft Colors */
+.category-card:nth-child(1) { background:#e3f2fd; } /* light blue */
+.category-card:nth-child(2) { background:#fce4ec; } /* light pink */
+.category-card:nth-child(3) { background:#e8f5e9; } /* light green */
+.category-card:nth-child(4) { background:#ede7f6; } /* light purple */
+.category-card:nth-child(5) { background:#fff3e0; } /* light orange */
+.category-card:nth-child(6) { background:#e0f2f1; } /* light teal */
+.category-card:nth-child(7) { background:#f3e5f5; } /* lavender */
+.category-card:nth-child(8) { background:#fbe9e7; } /* soft red */
+.category-card:nth-child(9) { background:#e1f5fe; }
+.category-card:nth-child(10){ background:#ede7f6; }
+.category-card:nth-child(11){ background:#e8f5e9; }
+
+/* Hover Deep Color */
+.category-card:nth-child(1):hover { background:#1e88e5; color:white; }
+.category-card:nth-child(2):hover { background:#d81b60; color:white; }
+.category-card:nth-child(3):hover { background:#43a047; color:white; }
+.category-card:nth-child(4):hover { background:#5e35b1; color:white; }
+.category-card:nth-child(5):hover { background:#ef6c00; color:white; }
+.category-card:nth-child(6):hover { background:#00897b; color:white; }
+.category-card:nth-child(7):hover { background:#8e24aa; color:white; }
+.category-card:nth-child(8):hover { background:#e53935; color:white; }
+.category-card:nth-child(9):hover { background:#039be5; color:white; }
+.category-card:nth-child(10):hover{ background:#5e35b1; color:white; }
+.category-card:nth-child(11):hover{ background:#43a047; color:white; }
+
+/* Hover effect */
+.category-card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+}
