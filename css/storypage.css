@@ -509,3 +509,13 @@ a, button {
 /* ==================================================
    Optional Mini Navigation (Compact Version) End
 ================================================== */
+
+.active {
+  background-color: #2f80ff;
+  color: white;
+}
+
+.active:hover {
+  background-color: #ff0000;
+  color: #ffffff;
+}
