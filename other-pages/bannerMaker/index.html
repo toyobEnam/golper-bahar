@@ -155,7 +155,12 @@ function getBanglaDate(){
   return d.getDate()+" "+months[d.getMonth()]+", "+d.getFullYear();
 }
 
-document.getElementById("generateBtn").onclick=()=>{
+document.getElementById("generateBtn").onclick=async ()=>{
+
+  await document.fonts.load("60px Kalpurush");
+  await document.fonts.load("58px Kalpurush");
+  await document.fonts.load("32px Kalpurush");
+
   const headline=document.getElementById("headline").value;
   const tagline=document.getElementById("tagline").value;
   const labelText=document.getElementById("labelInput").value;
