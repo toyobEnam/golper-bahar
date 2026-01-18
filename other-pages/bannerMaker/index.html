@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<title>News Image Generator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kalpurush&display=swap" rel="stylesheet">
+
+<style>
+body{
+  font-family: Kalpurush, Arial;
+  background:#111;
+  color:white;
+  padding:20px;
+  text-align:center;
+  margin:0;
+}
+
+.wrapper{
+  width:100%;
+  max-width:420px;
+  margin:auto;
+}
+
+h2{
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+input,button{
+  padding:10px;
+  margin:6px 0;
+  width:100%;
+  border-radius:6px;
+  border:none;
+  font-size:14px;
+  box-sizing:border-box;
+}
+
+button{
+  background:#e63946;
+  color:white;
+  cursor:pointer;
+}
+
+.canvas-wrap{
+  margin-top:15px;
+  width:100%;
+}
+
+canvas{
+  width:100%;
+  height:auto;
+  border:1px solid #444;
+  max-width:100%;
+  display:block;
+}
+
+/* Tablet */
+@media (min-width:600px){
+  .wrapper{
+    max-width:600px;
+  }
+  h2{
+    font-size:22px;
+  }
+  input,button{
+    font-size:15px;
+  }
+}
+
+/* Desktop */
+@media (min-width:992px){
+  body{
+    padding:30px;
+  }
+  .wrapper{
+    max-width:700px;
+  }
+  h2{
+    font-size:24px;
+  }
+  input,button{
+    font-size:16px;
+  }
+}
+
+/* Large desktop */
+@media (min-width:1200px){
+  .wrapper{
+    max-width:800px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<h2>News Thumbnail Generator</h2>
+
+<input type="file" id="imgInput">
+<input id="labelInput" placeholder="উপরের বাম লেখা লিখুন">
+<input id="headline" placeholder="Headline লিখুন">
+<input id="tagline" placeholder="Tagline লিখুন">
+
+<button id="generateBtn">Generate</button>
+<button id="downloadBtn">Download (150KB)</button>
+
+<div class="canvas-wrap">
+<canvas id="canvas" width="1350" height="900"></canvas>
+</div>
+
+</div>
+
+<script>
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+
+let baseImage=new Image();
+
+document.getElementById("imgInput").addEventListener("change",e=>{
+  const file=e.target.files[0];
+  if(!file)return;
+  baseImage.src=URL.createObjectURL(file);
+});
+
+function getBanglaDate(){
+  const months=["জানুয়ারী","ফেব্রুয়ারী","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর"];
+  const d=new Date();
+  return d.getDate()+" "+months[d.getMonth()]+", "+d.getFullYear();
+}
+
+document.getElementById("generateBtn").onclick=()=>{
+  const headline=document.getElementById("headline").value;
+  const tagline=document.getElementById("tagline").value;
+  const labelText=document.getElementById("labelInput").value;
+
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  // 16:9 center crop
+  const iw = baseImage.width;
+  const ih = baseImage.height;
+  const targetAspect = 16/9;
+
+  let sw, sh, sx, sy;
+
+  if(iw/ih > targetAspect){
+    sh = ih;
+    sw = ih * targetAspect;
+    sx = (iw - sw) / 2;
+    sy = 0;
+  }else{
+    sw = iw;
+    sh = iw / targetAspect;
+    sx = 0;
+    sy = (ih - sh) / 2;
+  }
+
+  ctx.drawImage(baseImage, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+
+  // bottom red overlay
+  ctx.fillStyle="#b00000";
+  ctx.fillRect(0, canvas.height-220, canvas.width, 220);
+
+  const bannerTop = canvas.height - 220;
+  const bannerMiddle = bannerTop + 110;
+
+  ctx.textAlign="center";
+  ctx.textBaseline="middle";
+
+  // headline (gap increased by 5px total)
+  ctx.fillStyle="white";
+  ctx.font="bold 60px Kalpurush";
+  ctx.fillText(headline, canvas.width/2, bannerMiddle-32.5);
+
+  // tagline
+  ctx.fillStyle="#ffe08a";
+  ctx.font="bold 58px Kalpurush";
+  ctx.fillText(tagline, canvas.width/2, bannerMiddle+32.5);
+
+  ctx.textBaseline="alphabetic";
+
+  // gradient bg for top labels
+  const grad=ctx.createLinearGradient(0,0,0,45);
+  grad.addColorStop(0,"rgba(0,0,0,0.85)");
+  grad.addColorStop(1,"rgba(0,0,0,0.2)");
+
+  // top left (input based)
+  ctx.font="32px Kalpurush";
+  let tagWidth=ctx.measureText(labelText).width;
+  ctx.fillStyle=grad;
+  ctx.fillRect(15,15,tagWidth+30,45);
+  ctx.fillStyle="white";
+  ctx.textAlign="left";
+  ctx.fillText(labelText,30,48);
+
+  // top right date (auto)
+  let dateText=getBanglaDate();
+  let dateWidth=ctx.measureText(dateText).width;
+  ctx.fillStyle=grad;
+  ctx.fillRect(canvas.width-dateWidth-45,15,dateWidth+30,45);
+  ctx.fillStyle="white";
+  ctx.textAlign="right";
+  ctx.fillText(dateText,canvas.width-30,48);
+};
+
+document.getElementById("downloadBtn").onclick=()=>{
+  let quality=0.9;
+  let dataURL;
+
+  do{
+    dataURL=canvas.toDataURL("image/jpeg",quality);
+    quality-=0.05;
+  }while(dataURL.length/1024>150 && quality>0.1);
+
+  const a=document.createElement("a");
+  a.href=dataURL;
+  a.download="news-thumbnail.jpg";
+  a.click();
+};
+</script>
+
+</body>
+</html>
