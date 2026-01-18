@@ -9,16 +9,19 @@
 <style>
 body{
   font-family: Kalpurush, Arial, sans-serif;
-  background:#111;
+  background:#000;
   color:white;
   margin:0;
   padding:0;
 }
 
+/* Desktop center */
 .app{
   min-height:100vh;
   display:grid;
   grid-template-columns: 1fr 1.2fr;
+  max-width:1200px;
+  margin:auto;
 }
 
 .panel{
@@ -43,13 +46,20 @@ h2{
 }
 
 input,button{
-  padding:10px;
+  padding:11px;
   margin:6px 0;
   width:100%;
-  border-radius:6px;
+  border-radius:8px;
   border:none;
   font-size:15px;
   box-sizing:border-box;
+  font-family: Kalpurush, Arial;
+}
+
+input{
+  background:#1a1a1a;
+  color:white;
+  border:1px solid #333;
 }
 
 button{
@@ -72,15 +82,28 @@ canvas{
   height:auto;
   border:1px solid #444;
   display:block;
+  border-radius:10px;
 }
 
-/* Tablet & Mobile */
+/* Mobile App style */
 @media (max-width:1024px){
   .app{
     grid-template-columns:1fr;
   }
-}
 
+  .panel{
+    padding:15px;
+  }
+
+  h2{
+    font-size:20px;
+  }
+
+  button{
+    font-size:16px;
+    padding:13px;
+  }
+}
 </style>
 </head>
 
