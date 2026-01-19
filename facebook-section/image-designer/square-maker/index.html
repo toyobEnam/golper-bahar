@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interactive Square Photo Editor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="../../../css/facebk/square-maker.css">
+<script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+</head>
+<body>
+<h1>স্কয়ার সাইজের পিক তৈরি করুন</h1>
+<p>👇 এখান থেকে আপনার ছবি চয়েস করুন</p>
+<div class="upload">
+  <input type="file" id="fileInput" accept="image/*">
+</div>
+<canvas id="editor"></canvas>
+<div class="controls">
+  <button class="btn" onclick="rotateLeft()">বামে ঘুড়ান</button>
+  <button class="btn" onclick="rotateRight()">ডানে ঘুড়ান</button>
+  <button class="btn" onclick="flipHorizontal()">সমান্তরালে ফ্লিপ</button>
+  <button class="btn" onclick="flipVertical()">খাড়াভাবে ফ্লিপ</button>
+  <button class="btn" onclick="centerHorizontal()">সমান্তরালে মাঝে আনুন</button>
+  <button class="btn" onclick="centerVertical()">উপর-নিচ থেকে মাঝে আনুন</button>
+  <button class="btn" onclick="resetEdits()">রিসেট</button>
+  
+  <div class="slider-container">
+    <label>Bright: </label>
+    <input type="range" id="brightness" min="50" max="200" value="100" oninput="applyFilters()">
+  </div>
+  <div class="slider-container">
+    <label>Contrast: </label>
+    <input type="range" id="contrast" min="50" max="200" value="100" oninput="applyFilters()">
+  </div>
+  <div class="slider-container">
+    <label>Sat: </label>
+    <input type="range" id="saturation" min="0" max="200" value="100" oninput="applyFilters()">
+  </div>
+  <button class="btn" onclick="toggleGrayscale()">Grayscale: Off</button>
+  <button class="btn" onclick="toggleBlurBackground()">Blur Bg: Off</button>
+  <div class="slider-container">
+    <label>Blur: </label>
+    <input type="range" id="blurAmount" min="0" max="50" value="10" oninput="applyBlur()">
+  </div>
+</div>
+<button class="btn" onclick="saveImage()">এখন সেইভ করুন</button>
+
+<script src="../../../js/square-maker.js"></script>
+</body>
+</html>
