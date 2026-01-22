@@ -23,12 +23,7 @@ body {
   font-family:'Kalpurush', 'Noto Serif Bengali', serif;
   background-color: var(--bg-main);
   color: var(--text-main);
-/* 
-   background-image: url("https://res.cloudinary.com/dhj4ovvav/image/upload/v1768135051/cover-bg_se7ttf.webp");
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; */
+
 
 }
 
@@ -104,12 +99,13 @@ body {
 .primary-btn,
 .secondary-btn {
   display: inline-block;
+  width: 18rem;
   padding: 14px 34px;
   border: 1px solid var(--btn-border);
   border-radius: 5px;
   text-decoration: none;
   color: var(--text-main);
-  font-size: 18px;
+  font-size: 20px;
 
   transition:
     background-color 0.25s ease,
