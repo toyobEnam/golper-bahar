@@ -16,6 +16,7 @@
 /* Reset */
 * {
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 body {
@@ -76,119 +77,195 @@ body {
   border-color: var(--text-main);
 }
 
-/* ================= Main Content ================= */
-.home-content {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
+/* -------------------------গ্রিড এলিমেন্টস শুরু------------------------------ */
 
-/* ================= Intro ================= */
-.intro p {
-  font-size: 17px;
-  line-height: 1.9;
-  margin-bottom: 16px;
-}
-
-/* ================= Action Buttons ================= */
-.action-center {
-  text-align: center;
-  margin: 45px 0;
-}
-
-.primary-btn,
-.secondary-btn {
-  display: inline-block;
-  width: 18rem;
-  padding: 14px 34px;
-  border: 1px solid var(--btn-border);
-  border-radius: 5px;
-  text-decoration: none;
-  color: var(--text-main);
-  font-size: 20px;
-
-  transition:
-    background-color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
-}
-
-.primary-btn:hover,
-.secondary-btn:hover {
-  background: #ffe7e7;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.10);
-}
-
-/* ================= Featured Section ================= */
-.featured {
-  margin: 50px 0;
-}
-
-.featured h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-weight: normal;
-}
-
-.featured-grid {
+/* =========================
+   Home Grid (Desktop)
+========================= */
+.homeContainer {
   display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 5px;
+  margin: 5px;
+}
+
+.homeContainer div {
+  border-radius: 10px;
+}
+
+/* grid placement */
+.spaceA { grid-column: 1 / 3; }
+.intro  { grid-column: 3 / 7; }
+.spaceC { grid-column: 7 / 9; }
+
+.spaceD { grid-column: 1 / 5; }
+.spaceE { grid-column: 5 / 9; }
+
+.spaceF,
+.spaceG {
+  padding: 10px;
+}
+
+.spaceF { grid-column: 1 / 5; }
+.spaceG { grid-column: 5 / 9; }
+
+/* =========================
+   Content Blocks
+========================= */
+.content-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.upperHead {
+  display: flex;
+  justify-content: center;
+}
+
+.upperHead h2 {
+  margin: 0;
+  font-size: 18px;
+  padding: 10px;
+}
+
+/* =========================
+   Card Grid – Desktop
+========================= */
+.spaceF .lowerBox,
+.spaceG .lowerBox {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-/* ================= Featured Card ================= */
-.featured-card {
-  display: block;
-  padding: 30px 20px;
-  text-align: center;
+/* =========================
+   Story Card
+========================= */
+.storyCard {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
   text-decoration: none;
-  border: 1px solid var(--border-light);
-  border-radius: 8px;
-  color: var(--text-main);
-  font-size: 20px;
-
-  transform: translateY(0);
-
-  transition:
-    background-color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
-.featured-card.pink:hover {
-  background-color: var(--hover-pink);
+.storyCard:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
 }
 
-.featured-card.blue:hover {
-  background-color: var(--hover-blue);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.10);
+/* square image */
+.storyImg {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
 }
 
-/* ================= Responsive ================= */
-@media (min-width: 700px) {
-  .featured-grid {
+.storyImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* info */
+.storyInfo {
+  padding: 10px 12px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.storyInfo h3 {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.storyInfo p {
+  margin: 0;
+  font-size: 13px;
+  color: #666;
+}
+
+/* =========================
+   Tablet Layout
+========================= */
+@media (max-width: 1023px) {
+
+  .spaceA,
+  .spaceC {
+    display: none;
+  }
+
+  .homeContainer {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 8px;
+  }
+
+  .intro,
+  .spaceD,
+  .spaceE,
+  .spaceF,
+  .spaceG {
+    grid-column: 1 / -1;
+  }
+
+  .spaceF .lowerBox,
+  .spaceG .lowerBox {
     grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 }
 
-@media (max-width: 600px) {
-  .site-header h1 {
-    font-size: 26px;
+/* =========================
+   Mobile – 2 Card + Peek Slider
+========================= */
+@media (max-width: 599px) {
+
+  body {
+    overflow-x: hidden;
   }
 
-  .intro p {
-    font-size: 16px;
+  .spaceF,
+  .spaceG {
+    padding: 4px;
   }
 
-  .primary-btn,
-  .secondary-btn {
-    font-size: 16px;
+  .spaceF .lowerBox,
+  .spaceG .lowerBox {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 2px 8px;
+  }
+
+  .spaceF .storyCard,
+  .spaceG .storyCard {
+    flex: 0 0 calc((100% - 12px) / 2.3);
+    scroll-snap-align: start;
+  }
+
+  .spaceF .lowerBox::-webkit-scrollbar,
+  .spaceG .lowerBox::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  .spaceF .lowerBox::-webkit-scrollbar-thumb,
+  .spaceG .lowerBox::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.25);
+    border-radius: 10px;
   }
 }
 
+/* -------------------------গ্রিড এলিমেন্টস শেষ------------------------------ */
 
 /* ==================================================
    Optional Mini Navigation (Compact Version) Start
