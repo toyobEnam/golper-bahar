@@ -82,6 +82,9 @@ body {
 /* =========================
    Home Grid (Desktop)
 ========================= */
+/* =========================
+   Home Grid – Desktop
+========================= */
 .homeContainer {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -101,13 +104,13 @@ body {
 .spaceD { grid-column: 1 / 5; }
 .spaceE { grid-column: 5 / 9; }
 
+.spaceF { grid-column: 1 / 5; }
+.spaceG { grid-column: 5 / 9; }
+
 .spaceF,
 .spaceG {
   padding: 10px;
 }
-
-.spaceF { grid-column: 1 / 5; }
-.spaceG { grid-column: 5 / 9; }
 
 /* =========================
    Content Blocks
@@ -197,14 +200,16 @@ body {
 ========================= */
 @media (max-width: 1023px) {
 
+  /* hide spacers */
   .spaceA,
   .spaceC {
     display: none;
   }
 
+  /* single column layout */
   .homeContainer {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
     margin: 8px;
   }
 
@@ -216,25 +221,27 @@ body {
     grid-column: 1 / -1;
   }
 
+  /* tablet card gap increased */
   .spaceF .lowerBox,
   .spaceG .lowerBox {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 22px;
   }
 }
 
 /* =========================
-   Mobile – 2 Card + Peek Slider
+   Mobile – Slider Fix
 ========================= */
 @media (max-width: 599px) {
 
-  body {
+  body,
+  .homeContainer {
     overflow-x: hidden;
   }
 
   .spaceF,
   .spaceG {
-    padding: 4px;
+    padding: 6px 4px;
   }
 
   .spaceF .lowerBox,
@@ -244,15 +251,20 @@ body {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    padding: 4px 2px 8px;
+
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 6px 2px 10px;
   }
 
+  /* 2 full cards + 3rd peek */
   .spaceF .storyCard,
   .spaceG .storyCard {
-    flex: 0 0 calc((100% - 12px) / 2.3);
+    flex: 0 0 calc((100% - 12px) / 2.25);
     scroll-snap-align: start;
   }
 
+  /* scrollbar */
   .spaceF .lowerBox::-webkit-scrollbar,
   .spaceG .lowerBox::-webkit-scrollbar {
     height: 5px;
