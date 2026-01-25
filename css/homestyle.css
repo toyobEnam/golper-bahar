@@ -7,13 +7,12 @@
 
   --border-light: #ddd;
 
-  --hover-pink: #ffdfea;
   --hover-blue: #daeaff;
 
   --btn-border: #222;
 }
 
-/* Reset */
+/* ================= Reset ================= */
 * {
   box-sizing: border-box;
   text-decoration: none;
@@ -21,11 +20,9 @@
 
 body {
   margin: 0;
-  font-family:'Kalpurush', 'Noto Serif Bengali', serif;
+  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
   background-color: var(--bg-main);
   color: var(--text-main);
-
-
 }
 
 /* ================= Header ================= */
@@ -60,7 +57,6 @@ body {
 }
 
 .nav-item {
-  text-decoration: none;
   color: var(--text-main);
   padding: 8px 14px;
   border-radius: 6px;
@@ -77,26 +73,14 @@ body {
   border-color: var(--text-main);
 }
 
-/* -------------------------গ্রিড এলিমেন্টস শুরু------------------------------ */
-
-/* =========================
-   Home Grid (Desktop)
-========================= */
-
+/* ================= Home Grid ================= */
 .homeContainer {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
-  gap: 5px;
-  margin: 5px;
 }
 
-.homeContainer div {
-
-}
-
-/* grid placement */
 .spaceA { grid-column: 1 / 3; }
-.intro  { grid-column: 3 / 7; }
+.intro  { grid-column: 3 / 7; text-align: center; }
 .spaceC { grid-column: 7 / 9; }
 
 .spaceD { grid-column: 1 / 5; }
@@ -105,12 +89,42 @@ body {
 .spaceF { grid-column: 1 / 5; }
 .spaceG { grid-column: 5 / 9; }
 
-.spaceF,
-.spaceG {
-  padding: 10px;
+/* ================= CTA Buttons ================= */
+.spaceD,
+.spaceE {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
 }
 
+.bigBtn {
+  width: 100%;
+  max-width: 360px;
+  padding: 14px 22px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-main);
+  background: var(--bg-white);
+  border: 1.5px solid var(--btn-border);
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
 
+.bigBtn:hover {
+  background-color: var(--hover-blue);
+  border-color: #2f80ff;
+  box-shadow: 0 6px 18px rgba(47, 128, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.bigBtn:active {
+  transform: translateY(0);
+}
+
+/* ================= Content Blocks ================= */
 .content-block {
   display: flex;
   flex-direction: column;
@@ -123,33 +137,43 @@ body {
 }
 
 .upperHead h2 {
-  margin: 0;
-  font-size: 18px;
+  margin: 30px 0 0;
+  font-size: 1.5rem;
+}
+
+/* ================= Section Background ================= */
+.spaceF {
+  background-color: #ffd3bb;
   padding: 10px;
 }
 
+.spaceG {
+  background-color: #eec8ff;
+  padding: 10px;
+}
 
+/* ================= Story Grid ================= */
 .spaceF .lowerBox,
 .spaceG .lowerBox {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  margin: 20px;
 }
 
-
+/* ================= Story Card ================= */
 .storyCard {
   display: flex;
   flex-direction: column;
+  background: #ffffff;
   border-radius: 12px;
   overflow: hidden;
-  text-decoration: none;
-  background: #fff;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .storyCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  transform: translateY(-2px);
 }
 
 /* image */
@@ -163,22 +187,17 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
 /* info */
 .storyInfo {
   padding: 10px 12px 14px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
 }
 
 .storyInfo h3 {
   margin: 0;
   font-size: 15px;
-  line-height: 1.3;
 }
 
 .storyInfo p {
@@ -187,10 +206,20 @@ body {
   color: #666;
 }
 
+/* ================= Hover Light Shift ================= */
+.spaceF .storyCard:hover {
+  box-shadow:
+    0 10px 28px rgba(0,0,0,0.30),
+    0 0 0 1px rgba(47,128,255,0.45);
+}
 
-/* =========================
-   Tablet Layout
-========================= */
+.spaceG .storyCard:hover {
+  box-shadow:
+    0 10px 28px rgba(0,0,0,0.30),
+    0 0 0 1px rgba(72,180,140,0.45);
+}
+
+/* ================= Tablet ================= */
 @media (max-width: 993px) {
 
   .spaceA,
@@ -200,7 +229,6 @@ body {
 
   .homeContainer {
     grid-template-columns: 1fr;
-    gap: 14px;
     margin: 8px;
   }
 
@@ -212,7 +240,6 @@ body {
     grid-column: 1 / -1;
   }
 
-  /* tablet → 3 cards per row */
   .spaceF .lowerBox,
   .spaceG .lowerBox {
     grid-template-columns: repeat(3, 1fr);
@@ -220,127 +247,46 @@ body {
   }
 }
 
-/* =========================
-   Mobile – 2 Card Grid (No Slider)
-========================= */
+/* ================= Mobile ================= */
 @media (max-width: 599px) {
 
-  body,
-  .homeContainer {
+  body {
     overflow-x: hidden;
-  }
-
-  .spaceF,
-  .spaceG {
-    padding: 6px 4px;
   }
 
   .spaceF .lowerBox,
   .spaceG .lowerBox {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* এক রোতে ২টা */
+    grid-template-columns: repeat(2, 1fr);
     gap: 14px;
-    padding: 6px 2px;
-  }
-
-}
-
-
-/* -------------------------গ্রিড এলিমেন্টস শেষ------------------------------ */
-
-/* ==================================================
-   Optional Mini Navigation (Compact Version) Start
-================================================== */
-
-.back-btn {
-  border: none;
-  background: none;
-  font-family: inherit;
-  cursor: pointer;
-}
-
-
-.mini-episode-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-
-  padding: 12px 10px;
-  margin-bottom: 0;
-
-  background-color: #0f0f0f; /* footer match */
-}
-
-/* ===== Single Item ===== */
-.mini-nav-item {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 72px;
-  padding: 6px 12px;
-
-  background-color: #1e1e1e;
-  color: #ffffff;
-
-  font-size: 0.85rem;       
-  font-weight: 500;
-  line-height: 1.2;
-
-  border-radius: 5px;
-  text-decoration: none;
-
-  transition:
-    color 0.22s ease,
-    background-color 0.22s ease,
-    box-shadow 0.22s ease,
-    transform 0.18s ease;
-}
-
-
-
-/* ===== Hover Effect ===== */
-.mini-nav-item:hover {
-  color: #2f80ff;
-  background-color: #e6e6e6;
-
-  box-shadow:
-    0 0 0 1px rgba(47, 128, 255, 0.35),
-    0 0 8px rgba(47, 128, 255, 0.3);
-
-  transform: translateY(-1px);
-}
-
-/* ================= Tablet ================= */
-@media (max-width: 768px) {
-  .mini-episode-nav {
-    gap: 8px;
-    padding: 10px 8px;
-  }
-
-  .mini-nav-item {
-    min-width: 68px;
-    padding: 6px 10px;
-    font-size: 0.8rem;
+    margin: 10px;
   }
 }
 
-/* ================= Mobile ================= */
-@media (max-width: 480px) {
-  .mini-episode-nav {
-    gap: 6px;
-    padding: 8px 6px;
+/* ================= Force Light Card in Dark Mode ================= */
+@media (prefers-color-scheme: dark) {
+
+  .storyCard {
+    background-color: #ffffff;
+    color: #222;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
   }
 
-  .mini-nav-item {
-    min-width: auto;       /* text-based width */
-    padding: 5px 9px;
-    font-size: 0.78rem;
-    border-radius: 4px;
+  .storyCard:hover {
+    box-shadow:
+      0 12px 30px rgba(0,0,0,0.55),
+      0 0 0 1px rgba(255,255,255,0.12);
   }
 }
 
-/* ==================================================
-   Optional Mini Navigation (Compact Version) End
-================================================== */
+/* =========================
+   Top Unified Section Color
+========================= */
+
+.spaceA,
+.intro,
+.spaceC,
+.spaceD,
+.spaceE {
+  background-color: #d6e6ff; /* soft neutral, same vibe */
+}
+
