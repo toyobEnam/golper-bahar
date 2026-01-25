@@ -82,9 +82,7 @@ body {
 /* =========================
    Home Grid (Desktop)
 ========================= */
-/* =========================
-   Home Grid – Desktop
-========================= */
+
 .homeContainer {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -93,7 +91,7 @@ body {
 }
 
 .homeContainer div {
-  border-radius: 10px;
+
 }
 
 /* grid placement */
@@ -112,13 +110,11 @@ body {
   padding: 10px;
 }
 
-/* =========================
-   Content Blocks
-========================= */
+
 .content-block {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 22px;
 }
 
 .upperHead {
@@ -132,26 +128,22 @@ body {
   padding: 10px;
 }
 
-/* =========================
-   Card Grid – Desktop
-========================= */
+
 .spaceF .lowerBox,
 .spaceG .lowerBox {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 30px;
 }
 
-/* =========================
-   Story Card
-========================= */
+
 .storyCard {
   display: flex;
   flex-direction: column;
-  background: #fff;
   border-radius: 12px;
   overflow: hidden;
   text-decoration: none;
+  background: #fff;
   transition: transform .2s ease, box-shadow .2s ease;
 }
 
@@ -160,7 +152,7 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,.08);
 }
 
-/* square image */
+/* image */
 .storyImg {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -195,18 +187,17 @@ body {
   color: #666;
 }
 
+
 /* =========================
    Tablet Layout
 ========================= */
-@media (max-width: 1023px) {
+@media (max-width: 993px) {
 
-  /* hide spacers */
   .spaceA,
   .spaceC {
     display: none;
   }
 
-  /* single column layout */
   .homeContainer {
     grid-template-columns: 1fr;
     gap: 14px;
@@ -221,16 +212,16 @@ body {
     grid-column: 1 / -1;
   }
 
-  /* tablet card gap increased */
+  /* tablet → 3 cards per row */
   .spaceF .lowerBox,
   .spaceG .lowerBox {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 22px;
   }
 }
 
 /* =========================
-   Mobile – Slider Fix
+   Mobile – 2 Card Grid (No Slider)
 ========================= */
 @media (max-width: 599px) {
 
@@ -246,36 +237,14 @@ body {
 
   .spaceF .lowerBox,
   .spaceG .lowerBox {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 6px 2px 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* এক রোতে ২টা */
+    gap: 14px;
+    padding: 6px 2px;
   }
 
-  /* 2 full cards + 3rd peek */
-  .spaceF .storyCard,
-  .spaceG .storyCard {
-    flex: 0 0 calc((100% - 12px) / 2.25);
-    scroll-snap-align: start;
-  }
-
-  /* scrollbar */
-  .spaceF .lowerBox::-webkit-scrollbar,
-  .spaceG .lowerBox::-webkit-scrollbar {
-    height: 5px;
-  }
-
-  .spaceF .lowerBox::-webkit-scrollbar-thumb,
-  .spaceG .lowerBox::-webkit-scrollbar-thumb {
-    background: rgba(0,0,0,.25);
-    border-radius: 10px;
-  }
 }
+
 
 /* -------------------------গ্রিড এলিমেন্টস শেষ------------------------------ */
 
