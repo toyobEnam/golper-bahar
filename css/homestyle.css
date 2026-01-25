@@ -229,7 +229,7 @@ body {
 
   .homeContainer {
     grid-template-columns: 1fr;
-    margin: 8px;
+    margin: 0px;
   }
 
   .intro,
@@ -238,6 +238,7 @@ body {
   .spaceF,
   .spaceG {
     grid-column: 1 / -1;
+    padding: 10px;
   }
 
   .spaceF .lowerBox,
@@ -254,11 +255,22 @@ body {
     overflow-x: hidden;
   }
 
+  .spaceD,
+  .spaceE,
+  .spaceF,
+  .spaceG {
+    padding: 15px;
+  }
+
+  .intro {
+    padding: 20px;
+  }
+
   .spaceF .lowerBox,
   .spaceG .lowerBox {
     grid-template-columns: repeat(2, 1fr);
     gap: 14px;
-    margin: 10px;
+    margin: 0;
   }
 }
 
