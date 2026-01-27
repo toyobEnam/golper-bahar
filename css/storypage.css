@@ -546,7 +546,7 @@ a, button {
   justify-items: center;
   padding: 10px;
   text-align: center;
-
+  gap: 30px;
 }
 
 /* anchor = real grid item */
