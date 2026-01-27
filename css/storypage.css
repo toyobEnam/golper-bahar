@@ -526,3 +526,86 @@ a, button {
   background-color: #ff0000;
   color: #ffffff;
 }
+
+
+          /* ডান পাশে থাকা আরও গল্পের কার্ড ডিজাইন Start */
+.rightLinks {
+  padding: 20px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.bigP {
+  font-size: 1.8rem;
+}
+
+.rightStoryCards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  padding: 10px;
+  text-align: center;
+
+}
+
+/* anchor = real grid item */
+.rightStoryCards a {
+  display: block;
+  width: 100%;
+  text-decoration: none;   /* underline off */
+  color: inherit;          /* text color inherit */
+  cursor: pointer;         /* hand cursor */
+}
+
+.story-card {
+  border: 1px solid #2e7d32;
+  border-radius: 10px;
+  margin: 7px 0;
+  padding: 7px;
+  background-color: white;
+  transition: 
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* hover effect */
+.rightStoryCards a:hover .story-card {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border-color: #1b5e20;
+}
+
+/* keyboard accessibility */
+.rightStoryCards a:focus-visible .story-card {
+  outline: 2px solid #1b5e20;
+  outline-offset: 3px;
+}
+
+/* image square */
+.cardImg {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.cardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cardInfo h3 {
+  font-size: 1.3rem;
+  margin: 15px 0px;
+}
+
+.cardInfo p {
+  margin-bottom: 10px;
+}
+
+
+          /* ডান পাশে থাকা আরও গল্পের কার্ড ডিজাইন End */
