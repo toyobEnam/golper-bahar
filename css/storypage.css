@@ -16,7 +16,7 @@
 body {
   margin: 0;
   font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-  background: #f5f5f5;
+  background: #d8d8d8;
 }
 
 /* ===== Grid Container ===== */
@@ -25,7 +25,7 @@ body {
   display: grid;
 
   /* Desktop layout */
-  grid-template-columns: 240px 1fr 350px;
+  grid-template-columns: 350px 1fr 350px;
   grid-template-rows: auto 1fr auto;
 
   grid-template-areas:
@@ -55,7 +55,7 @@ body {
 .leftBar {
   grid-area: left;
   padding: 20px;
-  background: #dcdcdc;
+  background: #d8d8d8;
 }
 
 .mainContent {
@@ -68,7 +68,7 @@ body {
 .rightBar {
   grid-area: right;
   padding: 20px;
-  background: #dcdcdc;
+  background: #d8d8d8;
 }
 
 .footer {
@@ -78,7 +78,7 @@ body {
   text-align: center;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
     .mainContent {
     grid-area: main;
     padding: 25px 25px;
@@ -86,7 +86,7 @@ body {
 }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1000px) {
   .gridContainer {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto auto;
@@ -111,18 +111,16 @@ body {
   align-self: start;
 }
 
-
 .mainContent p {
-    font-size: 20px;
+    font-size: 26px;
     line-height: 1.5;
     margin-bottom: 1.3em;
     letter-spacing: 0.01em;
 }
 
-/* Tablet */
-@media (max-width: 1024px) {
+@media (max-width: 1000px) {
     .mainContent p {
-        font-size: 18px;
+        font-size: 19px;
         line-height: 1.5;
     }
 }
@@ -142,33 +140,12 @@ body {
 
 .story-image img {
     width: 100%;
-    max-width: 480px;   /* Desktop safe */
+    max-width: 800px;
     height: auto;
     display: block;
     margin: 0 auto;
     border-radius: 6px;
 }
-
-/* Tablet */
-@media (max-width: 1024px) {
-    .story-image img {
-        max-width: 380px;
-    }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .story-image {
-        margin: 1.8em 0;
-    }
-
-    .story-image img {
-        max-width: 92%;
-        border-radius: 4px;
-    }
-}
-
-/* =============== Page Switch Button =============== */
 
 
 .episode-switch {
@@ -187,8 +164,6 @@ body {
   gap: 10px; 
   margin: 10px 0;
 }
-
-/* ============= Top Nav ============== */
 
 .topSwitch {
   margin: 2px 0 10px;
@@ -230,199 +205,115 @@ body {
   background: #f0f0f0;
 }
 
-/* .prev {
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.next {
-  display: inline-block;
-  margin-bottom: 10px;
-} */
 
 #theEndText {
   text-align: center;
 }
 
-
-
-/* ---------------------------------------------------------------------
--------------------    Right Space Bar    -----------------------------
---------------------------------------------------------------------- */
-
-/* Writer Card */
-.writer-card {
-  background: rgb(0, 114, 15);
-  border: 1px solid rgb(0, 0, 0);
-  border-radius: 10px;
-  padding: 25px;
+          /* ডান পাশে থাকা আরও গল্পের কার্ড ডিজাইন Start */
+.rightLinks {
+  padding: 20px;
+  margin-top: 50px;
   text-align: center;
-  color: white;
 }
 
-
-
-.writer-photo {
-  width: 170px;
-  height: 170px;
-  border: 2px solid white;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 0;
-}
-
-.writer-name {
-  margin: 5px 0 10px 0;
-  font-size: 30px;
-}
-
-.writer-bio {
-  font-size: 18px;
-  line-height: 1.8;
-  color: var(--text-muted);
-}
-
-
-
-.verified {
-    border: 0.5px solid rgb(0, 119, 14);
-    background-color: #dfffdf;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 1.2rem;
-    color: rgb(0, 89, 0);
-}
-
-
-
-/* ---------------------------------------------------------------------
--------------------    Footer Component    -----------------------------
---------------------------------------------------------------------- */
-
-.site-footer {
-  background-color: #0f0f0f;
-  color: #cfcfcf;
-  padding: 40px 20px;
-  
-  font-family: 'Kalpurush', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  gap: 40px;
-  align-items: center;
-}
-
-/* Brand */
-.footer-brand {
-  flex: 1;
-}
-
-.footer-title {
+.bigP {
   font-size: 1.8rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 6px;
 }
 
-.footer-title:hover {
-  text-decoration: underline;
+.rightStoryCards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  padding: 10px;
+  text-align: center;
+  gap: 30px;
+  align-items: stretch;
 }
 
-.footer-tagline {
-  font-size: 0.95rem;
-  color: #aaaaaa;
+/* anchor = real grid item */
+.rightStoryCards a {
+  display: block;
+  width: 100%;
+  text-decoration: none;   /* underline off */
+  color: inherit;          /* text color inherit */
+  cursor: pointer;         /* hand cursor */
+  height: 100%;
 }
 
-/* Meta */
-.footer-meta {
-  flex: 2;
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-/* Footer nav */
-.footer-nav {
+.story-card {
+  border: 1px solid #2e7d32;
+  border-radius: 10px;
+  margin: 7px 0;
+  padding: 7px;
+  height: 100%;
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px 22px;
-  margin-bottom: 16px;
-  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  transition: 
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
 }
 
-.footer-nav a {
-  font-size: 0.85rem;
-  color: #bdbdbd;
-  text-decoration: none;
+/* hover effect */
+.rightStoryCards a:hover .story-card {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border-color: #1b5e20;
 }
 
-.footer-nav a:hover {
-  color: #ffffff;
-  text-decoration: underline;
+/* keyboard accessibility */
+.rightStoryCards a:focus-visible .story-card {
+  outline: 2px solid #1b5e20;
+  outline-offset: 3px;
 }
 
-/* Texts */
-.footer-disclaimer {
-  margin-bottom: 14px;
+/* image square */
+.cardImg {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
-.footer-copy {
-  font-size: 0.85rem;
-  color: #8f8f8f;
+.cardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* 📱 Mobile */
-@media (max-width: 640px) {
-  .footer-inner {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .footer-title {
-    font-size: 1.6rem;
-  }
-
-  .footer-nav {
-    gap: 10px 16px;
-  }
+.cardInfo h3 {
+  font-size: 1.3rem;
+  margin: 15px 0px;
 }
 
-/* ============= Mouse Pointer Default Start ================ */
+.cardInfo p {
+  margin-bottom: 10px;
+}
 
-/* ===== Disable Text Selection ===== */
+
 body {
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
 }
 
-/* ===== Disable cursor change on text ===== */
 p, span, h1, h2, h3, h4, h5, h6, div {
   cursor: default;
 }
 
-/* ===== Allow pointer only on links & buttons ===== */
 a, button {
   cursor: pointer !important;
   user-select: auto;
 }
 
-/* ===== Extra safety for story content ===== */
+
 .story-content {
   user-select: none;
 }
-
-/* ============== Mouse Pointer Default End ================= */
-
-
-
-/* ==================================================
-   Optional Mini Navigation (Compact Version) Start
-================================================== */
 
 .back-btn {
   border: none;
@@ -485,7 +376,7 @@ a, button {
 }
 
 /* ================= Tablet ================= */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   .mini-episode-nav {
     gap: 8px;
     padding: 10px 8px;
@@ -499,7 +390,7 @@ a, button {
 }
 
 /* ================= Mobile ================= */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .mini-episode-nav {
     gap: 6px;
     padding: 8px 6px;
@@ -513,9 +404,6 @@ a, button {
   }
 }
 
-/* ==================================================
-   Optional Mini Navigation (Compact Version) End
-================================================== */
 
 .active {
   background-color: #2f80ff;
@@ -528,84 +416,59 @@ a, button {
 }
 
 
-          /* ডান পাশে থাকা আরও গল্পের কার্ড ডিজাইন Start */
+/* Tablet */
+@media (max-width: 1000px) {
+  .story-image img {
+    max-width: 380px;
+  }
+
+  .rightBar {
+    padding: 0px 100px;
+  }
+
+  .rightStoryCards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+    gap: 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .rightBar {
+    padding: 10px 30px;
+  }
+    .story-image {
+        margin: 1.8em 0;
+    }
+
+    .story-image img {
+        max-width: 92%;
+        border-radius: 4px;
+    }
+  .story-card {
+    margin: 0;
+    padding: 5px;
+  }
+
 .rightLinks {
-  padding: 20px;
-  margin-top: 50px;
-  text-align: center;
+  padding: 5px;
+  margin-top: 10px;
 }
-
-.bigP {
-  font-size: 1.8rem;
-}
-
-.rightStoryCards {
+  .rightStoryCards {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  padding: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: stretch;
+  padding: 20px 0px;
   text-align: center;
   gap: 30px;
 }
-
-/* anchor = real grid item */
-.rightStoryCards a {
-  display: block;
-  width: 100%;
-  text-decoration: none;   /* underline off */
-  color: inherit;          /* text color inherit */
-  cursor: pointer;         /* hand cursor */
+  .rightStoryCards a {
+    width: auto;
+  }
 }
-
-.story-card {
-  border: 1px solid #2e7d32;
-  border-radius: 10px;
-  margin: 7px 0;
-  padding: 7px;
-  background-color: white;
-  transition: 
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
-}
-
-/* hover effect */
-.rightStoryCards a:hover .story-card {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  border-color: #1b5e20;
-}
-
-/* keyboard accessibility */
-.rightStoryCards a:focus-visible .story-card {
-  outline: 2px solid #1b5e20;
-  outline-offset: 3px;
-}
-
-/* image square */
-.cardImg {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.cardImg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.cardInfo h3 {
-  font-size: 1.3rem;
-  margin: 15px 0px;
-}
-
-.cardInfo p {
-  margin-bottom: 10px;
-}
-
-
-          /* ডান পাশে থাকা আরও গল্পের কার্ড ডিজাইন End */

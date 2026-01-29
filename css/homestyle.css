@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --bg-main: #f2f2f2;
   --bg-white: #ffffff;
   --text-main: #222;
@@ -6,7 +6,7 @@
   --border-light: #ddd;
   --hover-blue: #daeaff;
   --btn-border: #222;
-}
+} */
 
 /* ================= Reset ================= */
 * {
@@ -25,20 +25,20 @@ body {
 .site-header {
   text-align: center;
   padding: 40px 20px 25px;
-  background: var(--bg-white);
-  border-bottom: 1px solid var(--border-light);
+  background: linear-gradient(to right, #cafff3, #c0d2ff);
+
 }
 
 .site-header h1 {
   margin: 0;
-  font-size: 32px;
+  font-size: 40px;
   font-weight: normal;
 }
 
 .site-header p {
   margin-top: 8px;
-  font-size: 15px;
-  color: var(--text-muted);
+  font-size: 21px;
+  color: #2a2a2a;
 }
 
 /* ================= Navigation ================= */
@@ -48,12 +48,12 @@ body {
   justify-content: center;
   gap: 12px;
   padding: 15px;
-  background: var(--bg-white);
-  border-bottom: 1px solid var(--border-light);
+  background: #ffffff;
+
 }
 
 .nav-item {
-  color: var(--text-main);
+  color: #000000;
   padding: 8px 14px;
   border-radius: 6px;
   border: 1px solid transparent;
@@ -62,11 +62,11 @@ body {
 }
 
 .nav-item:hover {
-  border-color: var(--border-light);
+  border-color: #000000;
 }
 
 .nav-item.active {
-  border-color: var(--text-main);
+  border-color: #222;
 }
 
 /* ================= Home Grid ================= */
@@ -100,9 +100,9 @@ body {
   padding: 14px 22px;
   font-size: 16px;
   font-weight: 500;
-  color: var(--text-main);
-  background: var(--bg-white);
-  border: 1.5px solid var(--btn-border);
+  color: #000000;
+  background: #ffffff;
+  border: 1.5px solid #000000;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
@@ -110,8 +110,8 @@ body {
 }
 
 .bigBtn:hover {
-  background-color: var(--hover-blue);
-  border-color: #2f80ff;
+  background-color: #faeeff;
+  border-color: #af0568;
   box-shadow: 0 6px 18px rgba(47, 128, 255, 0.25);
   transform: translateY(-2px);
 }
@@ -246,6 +246,18 @@ body {
 
 /* ================= Mobile ================= */
 @media (max-width: 599px) {
+
+  .site-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: normal;
+}
+
+.site-header p {
+  margin-top: 8px;
+  font-size: 15px;
+  color: #2a2a2a;
+}
 
   body {
     overflow-x: hidden;
