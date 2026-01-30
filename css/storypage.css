@@ -440,7 +440,7 @@ a, button {
 /* Mobile */
 @media (max-width: 600px) {
     .rightBar {
-    padding: 10px 30px;
+    padding: 10px 10px;
   }
     .story-image {
         margin: 1.8em 0;
@@ -456,7 +456,7 @@ a, button {
   }
 
 .rightLinks {
-  padding: 5px;
+  padding: 0px;
   margin-top: 10px;
 }
   .rightStoryCards {
@@ -466,7 +466,7 @@ a, button {
   justify-items: stretch;
   padding: 20px 0px;
   text-align: center;
-  gap: 30px;
+  gap: 20px;
 }
   .rightStoryCards a {
     width: auto;
