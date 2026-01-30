@@ -292,6 +292,7 @@ body {
 
 .cardInfo p {
   margin-bottom: 10px;
+  color: #4f4f4f;
 }
 
 
@@ -471,4 +472,14 @@ a, button {
   .rightStoryCards a {
     width: auto;
   }
+
+  .cardInfo h3 {
+  font-size: 1.1rem;
+  margin: 6px 0px;
+}
+
+.cardInfo p {
+  margin-bottom: 3px;
+  font-size: 0.9rem;
+}
 }
