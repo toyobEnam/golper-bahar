@@ -9,7 +9,6 @@
   --hover-bg: #f1f5ff;
 }
 
-/* Reset */
 * {
   box-sizing: border-box;
 }
@@ -21,7 +20,6 @@ body {
   color: var(--text-main);
 }
 
-/* Header */
 .page-header {
   text-align: center;
   padding: 36px 20px 28px;
@@ -41,7 +39,6 @@ body {
   color: var(--text-muted);
 }
 
-/* Writers container */
 .writers-container {
   width: 100%;
   margin: 30px auto 40px;
@@ -51,21 +48,18 @@ body {
   gap: 22px;
 }
 
-/* Desktop: 4 columns */
 @media (min-width: 1200px) {
   .writers-container {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* Tablet: 2 columns */
 @media (min-width: 768px) and (max-width: 1199px) {
   .writers-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Mobile: 1 column */
 @media (max-width: 767px) {
   .writers-container {
     grid-template-columns: 1fr;
@@ -110,7 +104,6 @@ body {
 }
 
 
-/* Avatar */
 .avatar {
   width: 82px;
   height: 82px;
@@ -131,7 +124,6 @@ body {
   object-fit: cover;
 }
 
-/* Writer info */
 .writer-info h1 {
   margin: 0 0 6px;
   font-size: 21px;
@@ -146,7 +138,6 @@ body {
   line-height: 1.5;
 }
 
-/* Small mobile adjustments */
 @media (max-width: 520px) {
   .writer-card {
     flex-direction: column;
@@ -168,19 +159,6 @@ body {
   }
 }
 
-/* Footer */
-/* .site-footer {
-  text-align: center;
-  padding: 25px 15px;
-  font-size: 14px;
-  color: var(--text-muted);
-  background: var(--bg-white);
-  border-top: 1px solid var(--border-light);
-} */
-
-/* ==================================================
-   Optional Mini Navigation (Compact Version)
-================================================== */
 
 .back-btn {
   border: none;
