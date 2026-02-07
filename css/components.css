@@ -2,6 +2,10 @@
 -------------------    Footer Component    -----------------------------
 --------------------------------------------------------------------- */
 
+* {
+    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+}
+
 .site-footer {
   text-align: center;
   background-color: #0f0f0f;
@@ -135,5 +139,81 @@
   .footer-inner {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+}
+
+/* --------------- Upper Nav Bar -------------- */
+
+.upnav-wrap{
+  width:100%;
+  background:#2b2b2b;
+  display:flex;
+  justify-content:center;
+  margin: 0;
+  position:sticky;
+  top:0;
+  z-index:999;
+   transition: transform .3s ease;
+}
+
+.upnav-wrap.hide{
+  transform: translateY(-100%);
+}
+
+/* container */
+.upnav{
+  width:100%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* items */
+.upnav a{
+  flex:1 1 100px;   /* equal blocks */
+  text-align:center;
+  padding:14px 10px;
+  text-decoration:none;
+  font-size:15px;
+
+  background:#ffffff;
+  color:#000000;
+
+  /* border-right:1px solid rgba(34, 34, 34, 0.608);
+  border-bottom:1px solid rgba(0,0,0,.3); */
+
+  transition:.25s ease;
+}
+
+/* remove last border feel automatically */
+.upnav a:last-child{
+  border-right:none;
+}
+
+/* hover */
+.upnav a:hover{
+  background:#212121;
+  color:#fff;
+}
+
+/* active tab */
+.upnav a.active{
+  background:#0097a7;
+  color:#fff;
+}
+
+@media (max-width:1000px){
+  .upnav a{
+    font-size:14px;
+    padding:12px 8px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width:600px){
+  .upnav a{
+    font-size:13px;
+    padding:10px 6px;
   }
 }

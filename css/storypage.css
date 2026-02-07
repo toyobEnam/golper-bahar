@@ -13,6 +13,14 @@
   font-style: normal;
 }
 
+
+#upNav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+
 body {
   margin: 0;
   font-family: 'Kalpurush', 'Noto Serif Bengali', serif;

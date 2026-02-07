@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+#upNav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
 body {
   margin: 0;
   font-family: 'Noto Serif Bengali', serif;

@@ -20,6 +20,12 @@ body {
   color: var(--text-main);
 }
 
+#upNav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
 .page-header {
   text-align: center;
   padding: 36px 20px 28px;

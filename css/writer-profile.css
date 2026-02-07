@@ -18,6 +18,14 @@ body {
   color: var(--text-main);
 }
 
+
+#upNav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+
 /* Header */
 .site-header {
   text-align: center;

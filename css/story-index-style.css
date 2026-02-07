@@ -1,7 +1,17 @@
+* {
+  margin: 0;
+}
+
 body {
   font-family: 'Kalpurush', 'LiPurnoPran', 'Noto Serif Bengali', serif;
   text-decoration: none;
   background-color: #f0f0f0;
+}
+
+#upNav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
 

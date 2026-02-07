@@ -5,6 +5,12 @@
   padding: 0;
 }
 
+#upNav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
 /* ===== Body ===== */
 body {
   font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
