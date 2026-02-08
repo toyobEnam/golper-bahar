@@ -63,7 +63,7 @@ function goBack() {
 (function(){
 
   const menus = [
-    { name: "হোমপেইজ", link: "https://golperbahar.com/" },
+    { name: "গল্পের বাহার", link: "https://golperbahar.com/" },
     { name: "আমাদের কথা", link: "#" },
     { name: "সকল গল্প", link: "https://golperbahar.com/category-hub/all-categories/" },
     { name: "নোটিফিকেশন", link: "#" },

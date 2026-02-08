@@ -54,6 +54,12 @@ body {
   align-items: center;
   flex-direction: column;
   gap: 6px; 
+
+  background-image: linear-gradient(rgba(255, 255, 255, 0.566), rgba(255,255,255,0.25)), url("https://res.cloudinary.com/dhj4ovvav/image/upload/v1770527495/covers_vjzom4.webp");
+  background-size: cover;      /* পুরো header ভরবে */
+  background-position: center; /* মাঝখানে থাকবে */
+  background-repeat: no-repeat;
+
 }
 
 .header h1 {
@@ -120,6 +126,7 @@ body {
 }
 
 .mainContent p {
+    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
     font-size: 26px;
     line-height: 1.5;
     margin-bottom: 1.3em;
