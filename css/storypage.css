@@ -59,12 +59,17 @@ body {
   background-size: cover;      /* পুরো header ভরবে */
   background-position: center; /* মাঝখানে থাকবে */
   background-repeat: no-repeat;
-
 }
 
 .header h1 {
   font-size: 30px;
 }
+
+body.dark .header,
+body.dark .header *{
+  color: #000;
+}
+
 
 .leftBar {
   grid-area: left;
