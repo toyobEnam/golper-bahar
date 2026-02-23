@@ -461,7 +461,7 @@ header {
 }
 
 .cardG .g-down .reviewBox .reader-image {
-    width: 29%;
+    width: 28%;
     height: fit-content;
     display: flex;
     justify-content: right;
@@ -478,7 +478,7 @@ header {
 }
 
 .cardG .g-down .reviewBox .reader-review {
-    width: 71%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -584,7 +584,7 @@ header {
     display: block;
     text-decoration: none;
     padding: 20px;
-    margin: 10px;
+    margin: 0px;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     /* transition: all 0.1s ease; */
@@ -651,7 +651,7 @@ header {
 
 .cardH .h-lower a {
     padding: 10px;
-    margin: 2px;
+    margin: 0px;
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
 }
