@@ -5,9 +5,6 @@
     box-sizing: border-box;
 }
 
-* {
-    outline: 1px solid red;
-}
 
 a {
     text-decoration: none;
@@ -250,8 +247,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    align-self: center;
-    max-width: 99%;
+    width: 100%;
+    overflow: hidden;
 }
 
 @media (max-width: 1000px) {
