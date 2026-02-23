@@ -235,6 +235,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 99%;
 }
 
 
@@ -516,7 +517,7 @@ header {
     }
 
     .cardG .g-down .reviewBox .reader-review .review-text p {
-        font-size: 14px;
+        font-size: 16px;
     }
 
 }
