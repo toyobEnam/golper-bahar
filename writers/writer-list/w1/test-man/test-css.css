@@ -33,15 +33,15 @@ header {
 
 .main-container {
   display: grid;
-  grid-template-columns: 32% 68%;
-  gap: 10px;
+  grid-template-columns: 32% 67%;
+  gap: 0px;
 }
 
 .left-col,
 .right-col {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0px;
 }
 
 .card {
@@ -56,7 +56,7 @@ header {
 }
 
 .right-col {
-    flex: 1 1 68%;
+    flex: 1 1 67%;
 }
 
 
