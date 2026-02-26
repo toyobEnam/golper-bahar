@@ -29,9 +29,16 @@ header {
     flex-direction: column;
     justify-content: center;
     padding: 25px 0px;
-    background-color: rgb(185, 178, 178);
+    background-color: rgb(255, 184, 184);
+    min-height: 250px;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.566), rgba(255,255,255,0.25)), url("https://res.cloudinary.com/dhj4ovvav/image/upload/v1770527495/covers_vjzom4.webp");
+    background-size: cover;      /* পুরো header ভরবে */
+    background-position: center; /* মাঝখানে থাকবে */
+    background-repeat: no-repeat;
 }
 
+
+/* ============ Page Grid Start ============= */
 
 .main-container {
   display: grid;
@@ -83,6 +90,7 @@ header {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    min-height: 600px;
 }
 
 /* Profile Image */
@@ -113,7 +121,7 @@ header {
 .cardA .id-number {
     display: inline-block;
     padding: 8px 18px;
-    background: #002788;
+    background: #0b5009;
     color: #ffffff;
     border-radius: 50px;
     font-size: 14px;
@@ -442,7 +450,19 @@ header {
 }
 
 .cardF .f-contact-icons #bt-btn:hover {
-    background: #00a6cf;
+    background: #005a70;
+    color: white;
+    font-weight: 600;
+}
+
+.cardF .f-contact-icons #ct-btn:hover {
+    background: #731da2;
+    color: white;
+    font-weight: 600;
+}
+
+.cardF .f-contact-icons #ms-btn:hover {
+    background: #0009bb;
     color: white;
     font-weight: 600;
 }
@@ -485,7 +505,7 @@ header {
     flex-wrap: wrap;
     flex-direction: row;
     padding: 25px;
-    gap: 15px;
+    gap: 10px;
     border-bottom: 2px solid #007a3d71;
     
 }
@@ -495,11 +515,11 @@ header {
 }
 
 .cardG .g-down .reviewBox .reader-image {
-    width: 28%;
+    width: 10%;
     height: fit-content;
     display: flex;
     justify-content: right;
-    border-radius: 20px;
+    border-radius: 50%;
     overflow: hidden;
     aspect-ratio: 1 / 1;
     margin-top: 35px;
@@ -512,7 +532,7 @@ header {
 }
 
 .cardG .g-down .reviewBox .reader-review {
-    width: 70%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -586,6 +606,8 @@ header {
         font-size: 16px;
     }
 
+
+
 }
 
 .cardH {
@@ -653,10 +675,13 @@ header {
 }
 
 .cardH .h-lower .book-name p {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
 }
 
 @media (max-width: 600px) {
+
+
     .cardH {
     background: #ffffff;
     display: flex;
@@ -698,4 +723,95 @@ header {
 .cardH .h-lower .book-name p {
     font-size: 1.1rem;
 }
+
+.card {
+    min-height: min-content;
 }
+
+
+}
+
+
+/* ============ Page Grid End ============= */
+
+
+/* ========= Mini Nav Start =========== */
+
+.mini-episode-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 10px;
+  margin-bottom: 0;
+
+  background-color: #0f0f0f;
+}
+
+.mini-nav-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 72px;
+  padding: 6px 12px;
+
+  background-color: #1e1e1e;
+  color: #ffffff;
+
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.2;
+
+  border-radius: 5px;
+  text-decoration: none;
+
+  transition:
+    color 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.18s ease;
+}
+
+.mini-nav-item:hover {
+  color: #2f80ff;
+  background-color: #e6e6e6;
+
+  box-shadow:
+    0 0 0 1px rgba(47, 128, 255, 0.35),
+    0 0 8px rgba(47, 128, 255, 0.3);
+
+  transform: translateY(-1px);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .mini-episode-nav {
+    gap: 8px;
+    padding: 10px 8px;
+  }
+
+  .mini-nav-item {
+    min-width: 68px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .mini-episode-nav {
+    gap: 6px;
+    padding: 8px 6px;
+  }
+
+  .mini-nav-item {
+    min-width: auto;
+    padding: 5px 9px;
+    font-size: 0.78rem;
+    border-radius: 4px;
+  }
+}
+
+ /* =============== Mini Nav END ============= */

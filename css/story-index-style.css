@@ -122,13 +122,14 @@ body {
   transform: translateY(-4px); /* 👈 subtle but visible lift */
   /* background-color: rgba(0, 120, 255, 0.08); */
   box-shadow: 0 10px 22px rgba(21, 17, 131, 0.549);
+  background-color: #fbffd0;
 }
 
 
 /* 16:9 image */
 .episode-thumb {
   position: relative;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 11;
   overflow: hidden;
 }
 
@@ -158,6 +159,7 @@ body {
   font-size: 0.85rem;
   color: #555;
   line-height: 1.2;
+  margin-bottom: 20px;
 }
 
 /* Force remove underline everywhere */
