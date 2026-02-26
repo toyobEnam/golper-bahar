@@ -37,6 +37,12 @@ header {
     background-repeat: no-repeat;
 }
 
+@media (max-width: 1000px) {
+    header {
+        min-height: 180px;
+    }
+}
+
 
 /* ============ Page Grid Start ============= */
 
