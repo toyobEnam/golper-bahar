@@ -129,7 +129,7 @@ body {
 /* 16:9 image */
 .episode-thumb {
   position: relative;
-  aspect-ratio: 16 / 11;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
 }
 
