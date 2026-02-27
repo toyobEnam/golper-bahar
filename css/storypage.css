@@ -48,12 +48,13 @@ body {
   padding: 20px;
   background: #eaeaea;
   text-align: center;
-  height: 150px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 6px; 
+  gap: 6px;
+  border-bottom: 1px solid black;
 
   background-image: linear-gradient(rgba(255, 255, 255, 0.566), rgba(255,255,255,0.25)), url("https://res.cloudinary.com/dhj4ovvav/image/upload/v1770527495/covers_vjzom4.webp");
   background-size: cover;      /* পুরো header ভরবে */
@@ -62,13 +63,36 @@ body {
 }
 
 .header h1 {
-  font-size: 30px;
+  font-size: 35px;
+}
+
+.header p {
+  font-size: 20px;
+  border: 1px solid rgba(5, 5, 5, 0.301);
+  padding: 7px 35px;
+  border-radius: 7px;
+  background-color: #ffffffa3;
+}
+
+@media (max-width: 700px) {
+  .header p {
+    font-size: 15px;
+  }
+
+  .header h1 {
+    font-size: 25px;
+  }
+
+  .header {
+    height: 150px;
+  }
 }
 
 body.dark .header,
 body.dark .header *{
   color: #000;
 }
+
 
 
 .leftBar {
@@ -103,6 +127,19 @@ body.dark .header *{
     padding: 25px 25px;
     background: #d8d8d8;
 }
+}
+
+@media (max-width: 1400px) {
+  .leftBar {
+    display: none;
+  }
+  .gridContainer{
+  grid-template-columns: auto 350px;
+  grid-template-areas:
+    "header header"
+    "main   right"
+    "footer footer";
+  }
 }
 
 @media (max-width: 1000px) {
