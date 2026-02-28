@@ -193,6 +193,9 @@ body.dark .header *{
 .story-image {
     margin: 2.2em 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .story-image img {
@@ -203,7 +206,6 @@ body.dark .header *{
     margin: 0 auto;
     border-radius: 6px;
 }
-
 
 .episode-switch {
   margin: 60px 0 30px;
