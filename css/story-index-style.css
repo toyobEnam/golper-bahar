@@ -18,11 +18,12 @@ body {
 /* ===== Story Series Header ===== */
 .story-series-header {
   text-align: center;
-  padding: 10px 16px 5px;
+  padding: 50px 16px 5px;
+  min-height: 130px;
 }
 
 .story-title {
-  font-size: 2rem;
+  font-size: 2.9rem;
   margin-bottom: 8px;
 }
 
@@ -60,6 +61,11 @@ body {
     max-width: 100%;
     margin: 12px 20px 26px 20px;
   }
+
+  .story-title {
+  font-size: 2.3rem;
+  margin-bottom: 6px;
+}
 }
 
 /* ===== Mobile ===== */
@@ -69,6 +75,11 @@ body {
     font-size: 1rem;
     padding: 12px 14px;
   }
+
+  .story-title {
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
 }
 
 
