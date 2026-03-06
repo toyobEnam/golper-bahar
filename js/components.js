@@ -159,4 +159,19 @@ text.textContent="Copy Link";
 }
 
 
-//  ===== change =====
+
+// Google Analytics
+document.addEventListener("DOMContentLoaded", function(){
+
+var gaScript = document.createElement("script");
+gaScript.async = true;
+gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-0FZ5HZ5B7V";
+document.head.appendChild(gaScript);
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+gtag('js', new Date());
+gtag('config', 'G-0FZ5HZ5B7V');
+
+});
