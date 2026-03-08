@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Kalpurush";
+  src: url("../assets/fonts/Kalpurush.ttf") format("truetype");
+}
+
+body {
+    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+    background: #e3e3e3;
+}
+
+a {
+    text-decoration: none;
+}
+
+@font-face {
+  font-family: "LiPurnoPran";
+  src: url("../assets/fonts/LiPurnoPran.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+#upNav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+
+
+
+header {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(233, 244, 240);
+}
+
+header h1 {
+    font-size: 35px;
+}
+
+header h2 {
+    font-size: 23px;
+}
+
+.story-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    min-height: 200px;
+}
+
+.story-container .left-bar {
+    display: block;
+}
+
+.story-container .story-bar {
+    padding: 10px 30px;
+}
+
+.story-container .story-bar p {
+    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
+    font-size: 26px;
+    line-height: 1.5;
+    margin-bottom: 1.3em;
+    letter-spacing: 0.01em;
+}
+
+@media (max-width: 1000px) {
+    .story-container .story-bar p {
+        font-size: 19px;
+        line-height: 1.5;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    header h2 {
+    font-size: 20px;
+}
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .story-container .story-bar p {
+        font-size: 17px;
+        line-height: 1.4;
+    }
+
+    .story-container .story-bar {
+    padding: 30px 30px;
+}
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header h2 {
+    font-size: 18px;
+}
+}
+
+.story-image {
+    margin: 2.2em 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.story-image img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+.story-container .right-bar {
+    min-width: 300px;
+}
+
+@media (max-width: 1200px) {
+    .story-container .left-bar {
+        display: none;
+    }
+
+    .story-container {
+        grid-template-columns: 3fr 1fr;
+    }
+}
+
+
+
+@media (max-width: 1000px) {
+    .story-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.story-bar {
+  user-select: none;
+}
