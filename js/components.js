@@ -24,42 +24,6 @@ function goBack() {
 }
 
 
-// Upper Nav Bar
-
-// (function(){
-
-//   const menus = [
-//     { name: "হোমপেইজ", link: "home.html" },
-//     { name: "আমাদের কথা", link: "about.html" },
-//     { name: "সকল গল্প", link: "stories.html" },
-//     { name: "নোটিফিকেশন", link: "notifications.html" },
-//     { name: "লেখকবৃন্দ", link: "writers.html" },
-//     { name: "প্রাইভেসি পলিসি", link: "privacy.html" },
-//     { name: "অন্যান্য ফিচার", link: "features.html" },
-//     { name: "গল্প খুজুন", link: "search.html" }
-//   ];
-
-//   const current = location.pathname.split("/").pop();
-
-//   let html = '<div class="upnav-wrap"><nav class="upnav">';
-
-//   menus.forEach(item=>{
-//     const active = current === item.link ? "active" : "";
-//     html += `<a href="${item.link}" class="${active}">${item.name}</a>`;
-//   });
-
-//   html += '</nav></div>';
-
-//   const target = document.getElementById("upNav");
-//   if(target){
-//     target.innerHTML = html;
-//   }
-
-// })();
-
-
-// Upper Nav Bar
-
 (function(){
 
   const menus = [
