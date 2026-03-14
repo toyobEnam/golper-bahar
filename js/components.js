@@ -30,7 +30,7 @@ function goBack() {
     { name: "গল্পের বাহার", link: "https://golperbahar.com/" },
     { name: "আমাদের কথা", link: "#" },
     { name: "সকল গল্প", link: "https://golperbahar.com/category-hub/all-categories/" },
-    { name: "নোটিফিকেশন", link: "#" },
+    { name: "অনুগল্প", link: "https://golperbahar.com/onugolpo/page-1/" },
     { name: "লেখকবৃন্দ", link: "https://golperbahar.com/writers/writers-front-page/" },
     { name: "প্রাইভেসি পলিসি", link: "#" },
     { name: "অন্যান্য ফিচার", link: "#" },
