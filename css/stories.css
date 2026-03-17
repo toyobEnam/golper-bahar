@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "Kalpurush";
+  src: url("../assets/fonts/kalpurush.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "LiPurnoPran";
+  src: url("../assets/fonts/LiPurnoPran.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+#upNav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+  background: #d8d8d8;
+}
