@@ -84,16 +84,17 @@ navigation {
 
 navigation a {
     text-decoration: none;
-    background-color: #eee;
+    background-color: #00553c;
     padding: 6px 14px;
     border-radius: 6px;
     font-size: 15px;
-    color: #333;
+    color: #ffffff;
     transition: 0.2s ease;
 }
 
 navigation a:hover {
-    background-color: #ddd;
+    background-color: #014400;
+    box-shadow: 0 5px 12px #4f514f39
 }
 
 /* =========================
