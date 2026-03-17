@@ -31,5 +31,219 @@ a {
 body {
   margin: 0;
   font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-  background: #d8d8d8;
+  background: #e7e7e7;
+}
+
+
+header {
+    text-align: center;
+    padding: 30px 15px 10px;
+    background-color: #ccf1e8;
+    border-bottom: 1px solid black;
+}
+
+/* =========================
+   Typography Scale
+========================= */
+
+/* Desktop >1000px */
+header h1 {
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+
+header h2 {
+    font-size: 20px;
+    font-weight: normal;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   Notice + Navigation
+========================= */
+
+notice {
+    display: block;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+notice p {
+    font-size: 16px;
+    color: #555;
+}
+
+navigation {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 15px 0 25px;
+}
+
+navigation a {
+    text-decoration: none;
+    background-color: #eee;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 15px;
+    color: #333;
+    transition: 0.2s ease;
+}
+
+navigation a:hover {
+    background-color: #ddd;
+}
+
+/* =========================
+   Grid Layout
+========================= */
+
+.contents {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 12px;
+    padding: 0 15px 30px;
+}
+
+/* =========================
+   Card Design
+========================= */
+
+.story-card {
+    display: block;
+    text-decoration: none;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 12px 10px;
+    border: 1px solid #598e50;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.story-card:hover {
+    background-color: #eeffde;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+.story-name p {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    color: #222;
+}
+
+.story-category {
+    display: inline-block;
+    font-size: 14px;
+    background-color: #1d5761;
+    padding: 3px 8px;
+    border-radius: 5px;
+    margin-bottom: 6px;
+    color: #ffffff;
+}
+
+.author-name p {
+    font-size: 15px;
+    margin: 0;
+    color: #666;
+}
+
+.total-episode p {
+    font-size: 14px;
+    margin: 2px 0 0;
+    color: #888;
+}
+
+/* =========================
+   Tablet ≤1000px
+========================= */
+
+@media (max-width: 1000px) {
+
+    .contents {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+
+    header h2 {
+        font-size: 18px;
+    }
+
+    notice p {
+        font-size: 15px;
+    }
+
+    navigation a {
+        font-size: 14px;
+    }
+
+    .story-name p {
+        font-size: 16px;
+    }
+
+    .story-category {
+        font-size: 13px;
+    }
+
+    .author-name p {
+        font-size: 14px;
+    }
+
+    .total-episode p {
+        font-size: 13px;
+    }
+}
+
+/* =========================
+   Mobile ≤600px
+========================= */
+
+@media (max-width: 600px) {
+
+    .contents {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .story-card {
+        padding: 10px 8px;
+    }
+
+    /* Your defined ratio */
+    header h1 {
+        font-size: 20px;
+    }
+
+    header h2 {
+        font-size: 16px;
+    }
+
+    notice p {
+        font-size: 14px;
+    }
+
+    navigation a {
+        font-size: 14px;
+    }
+
+    .story-name p {
+        font-size: 16px;
+    }
+
+    .story-category {
+        font-size: 12px;
+    }
+
+    .author-name p {
+        font-size: 14px;
+    }
+
+    .total-episode p {
+        font-size: 14px;
+    }
 }
