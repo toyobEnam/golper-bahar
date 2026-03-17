@@ -28,11 +28,11 @@ function goBack() {
 
   const menus = [
     { name: "গল্পের বাহার", link: "https://golperbahar.com/" },
-    { name: "আমাদের কথা", link: "#" },
+    { name: "আমাদের কথা", link: "https://golperbahar.com/about/" },
     { name: "সকল গল্প", link: "https://golperbahar.com/category-hub/all-categories/" },
     { name: "অনুগল্প", link: "https://golperbahar.com/onugolpo/page-1/" },
     { name: "লেখকবৃন্দ", link: "https://golperbahar.com/writers/writers-front-page/" },
-    { name: "প্রাইভেসি পলিসি", link: "#" },
+    { name: "প্রাইভেসি পলিসি", link: "https://golperbahar.com/privacy-policy/" },
     { name: "অন্যান্য ফিচার", link: "#" },
     { name: "গল্প খুজুন", link: "#" }
   ];
