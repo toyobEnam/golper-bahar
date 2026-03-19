@@ -5,6 +5,13 @@
 }
 
 @font-face {
+  font-family: "LiPurnoPran";
+  src: url("../assets/fonts/LiPurnoPran.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Kalpurush";
   src: url("../assets/fonts/Kalpurush.ttf") format("truetype");
 }
@@ -59,6 +66,7 @@ body {
 
 .about-section p {
     font-size: 20px;
+    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
 }
 
 .about-section li {
@@ -168,71 +176,6 @@ body {
 
 }
 
-
-.site-stats {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.site-stats h2 {
-    font-size: 28px;
-    margin-bottom: 25px;
-}
-
-.stats-box {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.stat-item {
-    background: #f5f5f5;
-    padding: 20px 30px;
-    border-radius: 12px;
-    min-width: 120px;
-}
-
-.stat-number {
-    font-size: 26px;
-    font-weight: bold;
-    color: #007517;
-    margin-bottom: 5px;
-}
-
-.stat-label {
-    font-size: 18px;
-    color: #333;
-}
-
-.update-date {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #777;
-}
-
-/* 📱 Mobile (≤600px) */
-@media (max-width: 600px) {
-    .site-stats h2 {
-        font-size: 22px;
-    }
-
-    .stat-number {
-        font-size: 22px;
-    }
-
-    .stat-label {
-        font-size: 14px;
-    }
-}
-
-/* 📲 Tablet (≤1000px) */
-@media (max-width: 1000px) {
-    .site-stats h2 {
-        font-size: 24px;
-    }
-
-    .stat-label {
-        font-size: 16px;
-    }
+.blue {
+    background-color: rgb(189, 255, 255);
 }
