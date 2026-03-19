@@ -1,4 +1,3 @@
-/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -11,29 +10,18 @@
 }
 
 body {
-    font-family: system-ui, -apple-system, sans-serif;
     background: #dfe0e6;
     color: #222;
     line-height: 1.7;
     font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
 }
 
-
-/* Breadcrumb */
-.breadcrumb {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 0 20px;
-    font-size: 14px;
-    color: #777;
+#upNav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
-.breadcrumb a {
-    text-decoration: none;
-    color: #444;
-}
-
-/* Header */
 .about-header {
     text-align: center;
     padding: 60px 20px 40px;
@@ -44,8 +32,8 @@ body {
 }
 
 .about-header p {
-    font-size: 18px;
-    color: #666;
+    font-size: 20px;
+    color: #262525;
 }
 
 /* Container */
@@ -70,7 +58,7 @@ body {
 }
 
 .about-section p {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .about-section li {
@@ -103,6 +91,7 @@ body {
     display: flex;
     gap: 20px;
     justify-content: center;
+    margin-top: 7px;
 }
 
 .contact-btn a {
@@ -127,6 +116,10 @@ body {
         font-size: 30px;
     }
 
+    .about-header p {
+        font-size: 17px;
+    }
+
     .about-section p,
     .about-section li {
         font-size: 16px;
@@ -138,7 +131,7 @@ body {
 
     .contact-btn a {
     font-size: 15px;
-    padding: 6px 25px;
+    padding: 6px 20px;
     border-radius: 7px;
     }
 
@@ -148,6 +141,10 @@ body {
 @media (max-width: 600px) {
     .about-header h1 {
         font-size: 26px;
+    }
+
+    .about-header p {
+        font-size: 15px;
     }
 
     .about-section {
@@ -160,12 +157,12 @@ body {
     }
 
     .contact-btn {
-    gap: 15px;
+    gap: 12px;
     }
 
     .contact-btn a {
     font-size: 13px;
-    padding: 5px 20px;
+    padding: 5px 15px;
     border-radius: 5px;
     }
 
