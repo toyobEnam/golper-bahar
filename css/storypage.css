@@ -274,7 +274,21 @@ body.dark .header *{
 
 #theEndText {
   text-align: center;
+  font-size: 26px;
 }
+
+@media (max-width: 1000px) {
+    #theEndText {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 600px) {
+    #theEndText {
+        font-size: 17px;
+    }
+}
+
 
           /* ডান পাশে থাকা আরও গল্পের কার্ড ডিজাইন Start */
 .rightLinks {
