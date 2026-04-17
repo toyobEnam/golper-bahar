@@ -213,3 +213,21 @@ header h2 {
 .story-bar {
   user-select: none;
 }
+
+
+#theEndText {
+  text-align: center;
+  font-size: 26px;
+}
+
+@media (max-width: 1000px) {
+    #theEndText {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 600px) {
+    #theEndText {
+        font-size: 17px;
+    }
+}
