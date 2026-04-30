@@ -33,7 +33,7 @@ function goBack() {
     { name: "অনুগল্প", link: "https://golperbahar.com/onugolpo/page-1/" },
     { name: "লেখকবৃন্দ", link: "https://golperbahar.com/writers/writers-front-page/" },
     { name: "প্রাইভেসি পলিসি", link: "https://golperbahar.com/privacy-policy/" },
-    { name: "অন্যান্য ফিচার", link: "#" },
+    { name: "গিফট পেইজ", link: "https://golperbahar.com/gift/" },
     { name: "গল্প খুজুন", link: "#" }
   ];
 
