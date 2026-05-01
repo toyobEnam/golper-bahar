@@ -519,7 +519,7 @@ a, button {
 }
 
 /* Mobile */
-@media (max-width: 600px) {
+  @media (max-width: 600px) {
     .rightBar {
       padding: 10px 16px;
     }
@@ -531,35 +531,36 @@ a, button {
       max-width: 92%;
       border-radius: 4px;
     }
-  .story-card {
-    margin: 0;
-    padding: 5px;
+    .story-card {
+      margin: 0;
+      padding: 5px;
+    }
+
+  .rightLinks {
+    padding: 0px;
+    margin-top: 10px;
   }
 
-.rightLinks {
-  padding: 0px;
-  margin-top: 10px;
-}
   .rightStoryCards {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: stretch;
-  padding: 20px 0px;
-  text-align: center;
-  gap: 12px;
-}
-  .rightStoryCards a {
-    width: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: stretch;
+    padding: 20px 0px;
+    text-align: center;
+    gap: 12px;
+  }
+    .rightStoryCards a {
+      width: auto;
+    }
+
+    .cardInfo h3 {
+    font-size: 1.1rem;
+    margin: 6px 0px;
   }
 
-  .cardInfo h3 {
-  font-size: 1.1rem;
-  margin: 6px 0px;
-}
-
-.cardInfo p {
-  margin-bottom: 3px;
-  font-size: 0.9rem;
-}
+  .cardInfo p {
+    margin-bottom: 3px;
+    font-size: 0.9rem;
+  }
 }
