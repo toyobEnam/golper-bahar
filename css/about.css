@@ -198,17 +198,19 @@ body {
 }
 
 .cp-btn {
-    padding: 0.5rem;
+    padding: 0.5rem 0.7rem;
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgb(0, 64, 7);
     color: white;
     border: 1px solid black;
     border-radius: 6px;
+    transition: all 0.3s ease;
 }
 
 .cp-btn:hover {
     cursor: pointer;
     background-color: rgb(0, 129, 15);
+    box-shadow: 0 0 5px rgba(19, 0, 0, 0.557);
 }
 
 .cp-btn:active {
