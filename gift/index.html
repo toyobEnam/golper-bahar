@@ -75,8 +75,7 @@
 
     <section class="about-section highlight">
         <p>
-            আপনার পছন্দের লেখক লেখিকার উদ্দেশ্যে গিফট হিসেবে নগদ অর্থ উপহার দিতে চাইলে নিম্নোক্ত মাধ্যমে পাঠাতে পারেন। এক্ষেত্রে অবশ্যই রেফারেন্স এ লেখকের নাম উল্লেখ করুন। <br><br>
-            তাছাড়া "গল্পের বাহার" এর উন্নতিকল্পে অনুদান পাঠাতে চাইলে রেফারেন্সে "অনুদান" লিখে পাঠাতে পারেন। 
+            আপনার পছন্দের লেখক লেখিকার উদ্দেশ্যে গিফট হিসেবে নগদ অর্থ উপহার দিতে চাইলে নিম্নোক্ত মাধ্যমে পাঠাতে পারেন। এক্ষেত্রে অবশ্যই রেফারেন্স এ লেখকের নাম উল্লেখ করুন।
         </p>
     </section>
 <!-- 
@@ -102,20 +101,30 @@
         <p>
             আমরা লেখকদের সৃষ্টিশীল কাজকে সর্বোচ্চ সম্মান করি। তাই এখানে প্রকাশিত প্রতিটি গল্প লেখকের নাম ও পরিচয়সহ যথাযথভাবে উপস্থাপন করা হয় এবং লেখকের অনুমতি নিয়েই গল্প প্রকাশের চেষ্টা করা হয়। কোনো লেখক যদি তার লেখা সরিয়ে নিতে চান বা কোনো সংশোধন প্রয়োজন মনে করেন, তাহলে আমাদের সাথে যোগাযোগ করতে পারেন।
         </p>
-    </section>
-
-    <section class="about-section">
-        <p>
-            এই প্ল্যাটফর্মের মাধ্যমে আমরা ধীরে ধীরে বাংলা গল্পের একটি সমৃদ্ধ সংগ্রহশালা গড়ে তুলতে চাই, যেখানে পাঠকরা সহজেই নতুন নতুন গল্প পড়তে পারবেন এবং লেখকরা তাদের সৃষ্টিশীল কাজগুলো সংরক্ষণ করতে পারবেন।
-        </p>
     </section> -->
 
 
-    <section class="about-section numberboard">
-        <br><p>বিকাশ, নগদ, রকেট, সেলফিন (send money):</p> <div class="numx">01761748100  <button class="cp-btn" onclick="navigator.clipboard.writeText('01761748100')">Copy</button> </div> <br>
-        <p>উপায়ঃ </p> <div class="numx"> 01518734221  <button class="cp-btn" onclick="navigator.clipboard.writeText('01518734221')">Copy</button></div> <br>
-    
+<section class="about-section numberboard">
+    <br><p>বিকাশ, নগদ, রকেট, সেলফিন (send money):</p> 
+    <div class="numx">
+        01761748100  
+        <button class="cp-btn" onclick="copyNow('01761748100')">Copy</button> 
+    </div> <br>
+
+    <p>উপায়ঃ </p> 
+    <div class="numx"> 
+        01518734221  
+        <button class="cp-btn" onclick="copyNow('01518734221')">Copy</button>
+    </div> <br>
+</section>
+
+    <section class="about-section midtext">
+        <p>
+            এছাড়া আপনারা জানেন "গল্পের বাহার" কোনো আয়মূলক প্লাটফর্ম নয়, এখানে বিজ্ঞাপন দেখানো হয় না। তাই ডেভেলপারদের জন্য আপনাদের পক্ষ থেকে উপহার পাঠাতে চাইলে উক্ত নাম্বারে পাঠাতে পারেন। এক্ষেত্রে রেফারেন্স এ "GB" লিখে দিবেন। 
+        </p>
     </section>
+
+<div id="toast">Copied</div>
 
     <!-- <div class="numberboard">
         <p>বিকাশ, নগদ, রকেট, সেলফিনঃ</p> <div class="numx">01761748100  <button class="cp-btn" onclick="navigator.clipboard.writeText('01761748100')">Copy</button> </div> <br>
@@ -133,7 +142,7 @@
         <p>এছাড়াও নিম্নোক্ত মাধ্যমে সরাসরি আমাদের সাথে কথা বলে নিতে পারেন:</p>
         <div class="contact-btn">
             <a href="https://wa.me/8801761748100?text=Hello%20Golper%20Bahar%2C%20ami%20apnader%20site%20niye%20kotha%20bolte%20chai" target="_blank">WhatsApp</a>
-            <a href="https://www.facebook.com/enamology" target="_blank">Facebook</a>
+            <a href="https://www.facebook.com/golperbahar.fb" target="_blank">Facebook</a>
             <a href="mailto:help.golpo@gmail.com" target="_blank">Email</a>
         </div>
     </section>
@@ -141,5 +150,6 @@
 </main>
 <div id="footer"></div>
 <script src="../js/components.js"></script>
+<script src="../js/about.js"></script>
 </body>
 </html>
