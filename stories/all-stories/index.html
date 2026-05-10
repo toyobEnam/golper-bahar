@@ -18,9 +18,16 @@
     </header>
 
     <notice>
-        <p>সম্পূর্ণ গল্পের বাহার প্লাটফর্ম এর সকল ধারাবাহিক বা সিরিজ গল্প এখান থেকে এক নজরে দেখে নিতে পারবেন। 
-            বর্তমানে আমাদের সংগ্রহে আছে চমৎকার ২৩ টি ধারাবাহিক গল্প।</p>
-        <p>সর্বশেষ আপডেটঃ ১০ মে, ২০২৬</p>
+    <p>
+        সম্পূর্ণ গল্পের বাহার প্লাটফর্ম এর সকল ধারাবাহিক বা সিরিজ গল্প এখান থেকে এক নজরে দেখে নিতে পারবেন। 
+        বর্তমানে আমাদের সংগ্রহে আছে চমৎকার 
+        <span id="storyCount"></span> টি ধারাবাহিক গল্প।
+    </p>
+    <p>
+        সর্বশেষ আপডেটঃ 
+            <span id="updateDate"></span>
+    </p>
+
     </notice>
 
     <navigation>
@@ -384,20 +391,21 @@
         </a>
 
         <a href="../family-drama/fd-0004-mr-and-mrs-twins/index/" class="story-card">
-   		<div class="story-name">
-      			<p>Mr and Mrs Twins</p>
-   		</div>
-   		<div class="story-category">
-      			ফ্যামিলি ড্রামা
-   		</div>
-   		<div class="author-name">
-     			<p>অভ্রায়ীনি ঐশি</p>
-   		</div>
-    		<div class="total-episode">
-       			<p>মোট পর্বসংখ্যাঃ ৪২</p>
-    		</div>
-	</a>
+            <div class="story-name">
+                    <p>Mr and Mrs Twins</p>
+            </div>
+            <div class="story-category">
+                    ফ্যামিলি ড্রামা
+            </div>
+            <div class="author-name">
+                    <p>অভ্রায়ীনি ঐশি</p>
+            </div>
+            <div class="total-episode">
+                <p>মোট পর্বসংখ্যাঃ ৪২</p>
+            </div>
+	    </a>
 
+        
 
 
 
@@ -438,5 +446,43 @@
 
 <div id="footer"></div>
 <script src="../../js/components.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const totalStories =
+        document.querySelectorAll(".story-card").length;
+
+    document.getElementById("storyCount").innerText =
+        totalStories.toLocaleString('bn-BD');
+
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    // মোট গল্প সংখ্যা
+    const totalStories =
+        document.querySelectorAll(".story-card").length;
+
+    document.getElementById("storyCount").innerText =
+        totalStories.toLocaleString('bn-BD');
+
+
+    // বাংলাদেশের তারিখ
+    const today = new Date();
+
+    const banglaDate =
+        today.toLocaleDateString('bn-BD', {
+            timeZone: 'Asia/Dhaka',
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+
+    document.getElementById("updateDate").innerText =
+        banglaDate;
+
+});
+</script>
 </body>
 </html>
