@@ -260,3 +260,11 @@ body {
 .midtext {
     text-align: center;
 }
+
+
+#serialCount,
+#shortCount,
+#totalCount,
+#updateDate {
+    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
+}
