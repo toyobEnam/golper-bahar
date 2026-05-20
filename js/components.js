@@ -67,7 +67,7 @@ function goBack() {
   /* ========= hide / show on scroll ========= */
 
 let lastScroll = window.pageYOffset;
-const threshold = 300;   // কত scroll হলে hide start করবে
+const threshold = 250;   // কত scroll হলে hide start করবে
 
 window.addEventListener("scroll", function(){
   const currentScroll = window.pageYOffset;
@@ -87,6 +87,286 @@ window.addEventListener("scroll", function(){
 
   lastScroll = currentScroll;
 });
+
+})();
+const categoryMap = {
+
+"romantic-thriller":"রোমান্টিক থ্রিলার",
+"thriller":"দুর্দান্ত থ্রিলার",
+"bangla-love-story":"রোমান্টিক",
+"family-drama":"ফ্যামিলি ড্রামা",
+"social-plot":"সামাজিক",
+"teenager-special":"টিনেজার স্পেশাল",
+"sangsarik":"সাংসারিক",
+"onugolpo":"অনুগল্প",
+"bangla-suspense":"রহস্যের বেড়াজাল"
+
+};
+
+function toBanglaNumber(num){
+
+return String(num).replace(/\d/g, d =>
+"০১২৩৪৫৬৭৮৯"[d]
+);
+
+}
+
+(function(){
+
+const target = document.getElementById("upNav");
+
+if(!target) return;
+
+const path = location.pathname
+.replace(/^\/|\/$/g,"")
+.split("/");
+
+if(path[0] !== "stories") return;
+
+const wrap = document.createElement("div");
+
+wrap.className = "gb-breadcrumb-wrap";
+
+const nav = document.createElement("nav");
+
+nav.className = "gb-breadcrumb";
+
+/* ===== Stories Home ===== */
+
+if(path.length === 1){
+
+wrap.innerHTML = `
+<div class="gb-breadcrumb">
+<a href="https://golperbahar.com/">হোমপেজ</a>
+<span>›</span>
+<span class="current">সকল গল্প</span>
+</div>
+`;
+
+target.insertAdjacentElement("afterend", wrap);
+
+return;
+
+}
+
+let html = `
+<a href="https://golperbahar.com/">হোমপেজ</a>
+<span>›</span>
+
+<a href="https://golperbahar.com/stories/">সকল গল্প</a>
+`;
+
+/* ===== Category ===== */
+
+if(path[1]){
+
+const categoryName =
+categoryMap[path[1]]
+|| decodeURIComponent(path[1]).replace(/-/g," ");
+
+if(path.length === 2){
+
+html += `
+<span>›</span>
+<span class="current">${categoryName}</span>
+`;
+
+}else{
+
+html += `
+<span>›</span>
+<a href="https://golperbahar.com/stories/${path[1]}/">
+${categoryName}
+</a>
+`;
+
+}
+
+}
+
+/* ===== Story ===== */
+
+if(path[2]){
+
+const storyTitleElement =
+document.querySelector(".story-title");
+
+const storyName =
+storyTitleElement
+? storyTitleElement.textContent.trim()
+: decodeURIComponent(path[2]).replace(/-/g," ");
+
+/* episode page */
+if(path[3]){
+
+html += `
+<span>›</span>
+<a href="https://golperbahar.com/stories/${path[1]}/${path[2]}/">
+${storyName}
+</a>
+`;
+
+}else{
+
+/* story index page */
+
+html += `
+<span>›</span>
+<span class="current">${storyName}</span>
+`;
+
+}
+
+}
+
+/* ===== Episode ===== */
+
+if(path[3]){
+
+const rawEpisode =
+decodeURIComponent(path[3]);
+
+const episodeNumber =
+rawEpisode.replace(/[^\d]/g,"");
+
+const ep = toBanglaNumber(
+episodeNumber || rawEpisode
+);
+
+html += `
+<span>›</span>
+<span class="current">পর্ব ${ep}</span>
+`;
+
+}
+
+wrap.innerHTML = `<div class="gb-breadcrumb">${html}</div>`;
+
+target.insertAdjacentElement("afterend", wrap);
+
+})();
+
+/* ===== Dynamic Breadcrumb Schema ===== */
+
+(function(){
+
+const path = location.pathname
+.replace(/^\/|\/$/g,"")
+.split("/");
+
+if(path[0] !== "stories") return;
+
+const breadcrumbItems = [];
+
+/* ===== Home ===== */
+
+breadcrumbItems.push({
+
+"@type":"ListItem",
+"position":1,
+"name":"হোমপেজ",
+"item":"https://golperbahar.com/"
+
+});
+
+/* ===== Stories ===== */
+
+breadcrumbItems.push({
+
+"@type":"ListItem",
+"position":2,
+"name":"সকল গল্প",
+"item":"https://golperbahar.com/stories/"
+
+});
+
+/* ===== Category ===== */
+
+if(path[1]){
+
+const categoryName =
+categoryMap[path[1]]
+|| decodeURIComponent(path[1]).replace(/-/g," ");
+
+breadcrumbItems.push({
+
+"@type":"ListItem",
+"position":breadcrumbItems.length + 1,
+"name":categoryName,
+"item":`https://golperbahar.com/stories/${path[1]}/`
+
+});
+
+}
+
+/* ===== Story ===== */
+
+if(path[2]){
+
+const storyTitleElement =
+document.querySelector(".story-title");
+
+const storyName =
+storyTitleElement
+? storyTitleElement.textContent.trim()
+: decodeURIComponent(path[2]).replace(/-/g," ");
+
+breadcrumbItems.push({
+
+"@type":"ListItem",
+"position":breadcrumbItems.length + 1,
+"name":storyName,
+"item":`https://golperbahar.com/stories/${path[1]}/${path[2]}/`
+
+});
+
+}
+
+/* ===== Episode ===== */
+
+if(path[3]){
+
+const rawEpisode =
+decodeURIComponent(path[3]);
+
+const episodeNumber =
+rawEpisode.replace(/[^\d]/g,"");
+
+const ep =
+toBanglaNumber(
+episodeNumber || rawEpisode
+);
+
+breadcrumbItems.push({
+
+"@type":"ListItem",
+"position":breadcrumbItems.length + 1,
+"name":`পর্ব ${ep}`,
+"item":window.location.href
+
+});
+
+}
+
+/* ===== Inject Schema ===== */
+
+const schema = {
+
+"@context":"https://schema.org",
+"@type":"BreadcrumbList",
+"itemListElement":breadcrumbItems
+
+};
+
+const script =
+document.createElement("script");
+
+script.type = "application/ld+json";
+
+script.textContent =
+JSON.stringify(schema);
+
+document.head.appendChild(script);
 
 })();
 

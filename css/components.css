@@ -225,6 +225,87 @@
   }
 }
 
+/* ===== Minimal & Beautiful Breadcrumb Nav ===== */
+/* সুন্দর, আধুনিক এবং একদম clean design — তোমার পুরনো fancy arrow কোডের পরিবর্তে এটা ব্যবহার করো */
+
+.gb-breadcrumb-wrap {
+    width: 100%;
+    padding: 16px 20px;
+    background: #ffffff;
+    border-bottom: 1px solid #f1f1f1;
+    box-sizing: border-box;
+}
+
+.gb-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    font-size: 14.5px;
+    color: #666;
+    overflow-x: auto;
+    padding: 3px 0;
+    gap: 6px;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.gb-breadcrumb a,
+.gb-breadcrumb .current {
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.gb-breadcrumb a:hover {
+    background: #f8f8f8;
+    color: #000;
+}
+
+.gb-breadcrumb .current {
+    background: #f5f5f5;
+    font-weight: 600;
+    color: #111;
+}
+
+/* সুন্দর Chevron Separator */
+.gb-breadcrumb a::after {
+    content: "›";
+    margin-left: 8px;
+    color: #ccc;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.gb-breadcrumb a:last-child::after {
+    display: none;
+}
+
+/* পুরনো separator লুকানো (যদি HTML এ span থাকে) */
+.gb-breadcrumb span {
+    display: none;
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 600px) {
+    .gb-breadcrumb-wrap {
+        padding: 14px 16px;
+    }
+    .gb-breadcrumb {
+        font-size: 13.5px;
+        gap: 4px;
+    }
+    .gb-breadcrumb a,
+    .gb-breadcrumb .current {
+        padding: 5px 10px;
+    }
+    .gb-breadcrumb a::after {
+        margin-left: 6px;
+        font-size: 16px;
+    }
+}
 
 /* ===== Copy Link ===== */
 
