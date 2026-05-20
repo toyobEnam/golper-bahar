@@ -189,7 +189,8 @@ ${categoryName}
 if(path[2]){
 
 const storyTitleElement =
-document.querySelector(".story-title");
+document.querySelector(".story-title")
+|| document.querySelector(".header h1");
 
 const storyName =
 storyTitleElement
@@ -304,7 +305,8 @@ breadcrumbItems.push({
 if(path[2]){
 
 const storyTitleElement =
-document.querySelector(".story-title");
+document.querySelector(".story-title")
+|| document.querySelector(".header h1");
 
 const storyName =
 storyTitleElement

@@ -2,6 +2,11 @@
 -------------------    Footer Component    -----------------------------
 --------------------------------------------------------------------- */
 
+@font-face {
+  font-family: "Kalpurush";
+  src: url("../assets/fonts/kalpurush.ttf") format("truetype");
+}
+
 * {
     font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
 }
@@ -245,7 +250,7 @@
     overflow-x: auto;
     padding: 3px 0;
     gap: 6px;
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family:'Kalpurush','Noto Serif Bengali',serif;
 }
 
 .gb-breadcrumb a,
