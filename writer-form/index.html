@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    লেখক প্রোফাইল
+  </title>
+
+<link rel="stylesheet" href="../css/about.css">
+<link rel="stylesheet" href="../css/components.css">
+
+</head>
+
+<body>
+
+  <header class="about-header">
+
+    <h1>
+      লেখক প্রোফাইল
+    </h1>
+
+    <p>
+      আপনার লেখক পরিচিতি জমা দিন
+    </p>
+
+  </header>
+
+  <main class="about-container">
+
+    <section class="about-section highlight">
+
+      <form id="authorForm">
+
+        <!-- নাম -->
+
+        <div class="form-group">
+
+          <label>
+            লেখক এর সম্পূর্ণ নাম
+          </label>
+
+          <input
+            type="text"
+            name="fullname"
+            required
+          >
+
+        </div>
+
+        <!-- ছদ্মনাম -->
+
+        <div class="form-group">
+
+          <label>
+            ছদ্মনাম (যদি থাকে)
+          </label>
+
+          <input
+            type="text"
+            name="nickname"
+          >
+
+        </div>
+
+        <!-- জন্মস্থান -->
+
+        <div class="form-group">
+
+          <label>
+            জন্মস্থান
+          </label>
+
+          <input
+            type="text"
+            name="birthplace"
+          >
+
+        </div>
+
+        <!-- ঠিকানা -->
+
+        <div class="form-group">
+
+          <label>
+            বর্তমান ঠিকানা
+          </label>
+
+          <textarea
+            name="address"
+          ></textarea>
+
+        </div>
+
+        <!-- পেশা -->
+
+        <div class="form-group">
+
+          <label>
+            পেশাগত জীবন
+          </label>
+
+          <textarea
+            name="profession"
+          ></textarea>
+
+        </div>
+
+        <!-- শখ -->
+
+        <div class="form-group">
+
+          <label>
+            শখের কাজ
+          </label>
+
+          <textarea
+            name="hobby"
+          ></textarea>
+
+        </div>
+
+        <!-- পাঠকদের উদ্দেশ্যে -->
+
+        <div class="form-group">
+
+          <label>
+            পাঠকদের উদ্দেশ্যে
+          </label>
+
+          <textarea
+            name="message"
+          ></textarea>
+
+        </div>
+
+        <!-- ওয়েবসাইট -->
+
+        <div class="form-group">
+
+          <label>
+            ওয়েবসাইট
+          </label>
+
+          <input
+            type="url"
+            name="website"
+          >
+
+        </div>
+
+        <!-- ফেসবুক -->
+
+        <div class="form-group">
+
+          <label>
+            ফেসবুক প্রোফাইল লিংক
+          </label>
+
+          <input
+            type="url"
+            name="facebook"
+          >
+
+        </div>
+
+        <!-- ইমেইল -->
+
+        <div class="form-group">
+
+          <label>
+            ই-মেইল
+          </label>
+
+          <input
+            type="email"
+            name="email"
+          >
+
+        </div>
+
+        <!-- anonymous -->
+
+        <div class="form-group">
+
+          <label>
+            এনোনিমাস মেসেজ বক্স
+          </label>
+
+          <input
+            type="text"
+            name="anonymous"
+          >
+
+        </div>
+
+        <!-- social -->
+
+        <div class="form-group">
+
+          <label>
+            অন্যান্য সোশ্যাল মিডিয়া
+          </label>
+
+          <textarea
+            name="social"
+          ></textarea>
+
+        </div>
+
+        <!-- button -->
+
+        <button
+          class="submit-btn"
+          type="submit"
+        >
+          তথ্য জমা দিন
+        </button>
+
+      </form>
+
+    </section>
+
+  </main>
+
+  <div id="toast">
+    সফলভাবে জমা হয়েছে
+  </div>
+
+<script src="../js/components.js"></script>
+<script src="../js/writerform.js"></script>
+
+</body>
+</html>

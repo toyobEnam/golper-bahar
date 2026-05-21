@@ -268,3 +268,139 @@ body {
 #updateDate {
     font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
 }
+
+
+
+ /* ============ Author Form Submit Page =========== */
+
+
+ /* ================= FORM STYLE ================= */
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #222;
+}
+
+.form-group small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #555;
+
+    font-size: 15px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #c7c7c7;
+
+    background: #fafafa;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    font-family:
+    "LiPurnoPran",
+    "Kalpurush",
+    sans-serif;
+
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+
+    outline: none;
+
+    border-color: #007517;
+
+    background: #fff;
+
+    box-shadow: 0 0 5px rgba(0,117,23,0.2);
+}
+
+.form-group textarea {
+
+    min-height: 140px;
+
+    resize: vertical;
+}
+
+.submit-btn {
+
+    width: 100%;
+
+    border: none;
+
+    background: #007517;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+
+    background: #004f10;
+}
+
+.loading {
+
+    opacity: 0.7;
+
+    pointer-events: none;
+}
+
+@media (max-width: 600px) {
+
+    .form-group label {
+        font-size: 17px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+
+        font-size: 15px;
+
+        padding: 12px;
+    }
+
+    .submit-btn {
+
+        font-size: 17px;
+    }
+
+}

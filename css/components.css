@@ -336,7 +336,7 @@
 
 .gb-breadcrumb a:hover {
     background: #f8f8f8;
-    color: #000;
+    color: #206400;
 }
 
 .gb-breadcrumb .current {
@@ -345,11 +345,11 @@
     color: #111;
 }
 
-/* সুন্দর Chevron Separator */
+
 .gb-breadcrumb a::after {
     content: "›";
     margin-left: 8px;
-    color: #ccc;
+    color: #33907f;
     font-size: 18px;
     line-height: 1;
 }
@@ -358,27 +358,25 @@
     display: none;
 }
 
-/* পুরনো separator লুকানো (যদি HTML এ span থাকে) */
 .gb-breadcrumb span {
     display: none;
 }
 
-/* ===== Mobile Responsive ===== */
 @media (max-width: 600px) {
     .gb-breadcrumb-wrap {
-        padding: 14px 16px;
+        padding: 10px;
     }
     .gb-breadcrumb {
         font-size: 13.5px;
-        gap: 4px;
+        gap: 2px;
     }
     .gb-breadcrumb a,
     .gb-breadcrumb .current {
         padding: 5px 10px;
     }
     .gb-breadcrumb a::after {
-        margin-left: 6px;
-        font-size: 16px;
+        margin-left: 3px;
+        font-size: 14px;
     }
 }
 
