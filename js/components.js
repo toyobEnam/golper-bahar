@@ -29,12 +29,12 @@ function goBack() {
   const menus = [
     { name: "গল্পের বাহার", link: "https://golperbahar.com/" },
     { name: "আমাদের কথা", link: "https://golperbahar.com/about/" },
-    { name: "সকল গল্প", link: "https://golperbahar.com/stories/" },
-    { name: "অনুগল্প", link: "https://golperbahar.com/onugolpo/" },
-    { name: "লেখকবৃন্দ", link: "https://golperbahar.com/writers/" },
+    { name: "গল্পের ক্যাটাগরি", link: "https://golperbahar.com/stories/" },
+    // { name: "অনুগল্প", link: "https://golperbahar.com/onugolpo/" },
+    { name: "লেখক প্যানেল", link: "https://golperbahar.com/writers/" },
     { name: "প্রাইভেসি পলিসি", link: "https://golperbahar.com/privacy-policy/" },
-    { name: "উপহার", link: "https://golperbahar.com/gift/" },
-    { name: "গল্প খুজুন", link: "#" }
+    { name: "উপহার পাতা", link: "https://golperbahar.com/gift/" },
+    // { name: "গল্প খুজুন", link: "#" }
   ];
 
   const current = location.pathname.split("/").pop();
@@ -139,7 +139,7 @@ wrap.innerHTML = `
 <div class="gb-breadcrumb">
 <a href="https://golperbahar.com/">হোমপেজ</a>
 <span>›</span>
-<span class="current">সকল গল্প</span>
+<span class="current">ক্যাটাগরি</span>
 </div>
 `;
 
@@ -153,7 +153,7 @@ let html = `
 <a href="https://golperbahar.com/">হোমপেজ</a>
 <span>›</span>
 
-<a href="https://golperbahar.com/stories/">সকল গল্প</a>
+<a href="https://golperbahar.com/stories/">ক্যাটাগরি</a>
 `;
 
 /* ===== Category ===== */
