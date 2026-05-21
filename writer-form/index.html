@@ -21,14 +21,16 @@
 
 <body>
 
+  <div id="upNav"></div>
+
   <header class="about-header">
 
     <h1>
-      লেখক প্রোফাইল
+      লেখক প্রোফাইল এর ফর্ম
     </h1>
 
     <p>
-      আপনার লেখক পরিচিতি জমা দিন
+      লেখক পরিচিতি পাতার জন্য তথ্য জমা দিন
     </p>
 
   </header>
@@ -36,183 +38,171 @@
   <main class="about-container">
 
     <section class="about-section highlight">
+      <p>
+        সম্মানিত লেখক / লেখিকা, <br>
+        গল্পের বাহার- প্লাটফর্মে আপনার লিখিত মূল্যবাণ গল্পগুলো আপনার নিজের নামে বা নিজ-স্বত্ত্বাধিকারে সবসময়ের জন্য 
+        সংরক্ষণ করতে আমরা সাধারণত লেখক পরিচিতি পাতা প্রকাশ করে থাকি। যা আপনাকে বাংলা ভাষার একজন স্বীকৃত লেখক বা লেখিকা হিসেবে উপস্থাপণ করে।
+      </p>
+<br>
+      <p>
+        এই বাংলা গল্পের উন্মুক্ত প্লাটফর্মে আপনার সৃষ্টিশীল লেখা লাইফ-টাইম সংরক্ষণের জন্য অনুগ্রহ করে নিচের ফর্ম টি পূরণ করে তথ্যগুলো জমা দিন।</p>
+        <br> <div class="smallText">বিঃদ্রঃ যেসব তথ্য শেয়ার করতে আগ্রহী নন, যেই ঘরগুলো ফাকা রাখুন। মূল নাম শেয়ার করতে না চাইলে ছদ্মনাম দিতে পারেন। এক্ষেত্রে কোনো বাধ্যবাধকতা নেই।</div>
+    </section>
 
+    <section class="about-section">
       <form id="authorForm">
 
-        <!-- নাম -->
 
         <div class="form-group">
-
           <label>
             লেখক এর সম্পূর্ণ নাম
           </label>
-
           <input
             type="text"
             name="fullname"
             required
           >
-
         </div>
 
-        <!-- ছদ্মনাম -->
+        
 
         <div class="form-group">
-
           <label>
             ছদ্মনাম (যদি থাকে)
           </label>
-
           <input
             type="text"
             name="nickname"
           >
-
         </div>
 
-        <!-- জন্মস্থান -->
+        
 
         <div class="form-group">
-
           <label>
             জন্মস্থান
           </label>
-
           <input
             type="text"
             name="birthplace"
           >
-
         </div>
 
-        <!-- ঠিকানা -->
+        
 
         <div class="form-group">
-
           <label>
-            বর্তমান ঠিকানা
+            বর্তমান ঠিকানা ⛪
           </label>
-
-          <textarea
-            name="address"
-          ></textarea>
-
+          <input
+          type="text"
+          name="address"
+          >
         </div>
 
-        <!-- পেশা -->
+        
 
         <div class="form-group">
-
           <label>
-            পেশাগত জীবন
+            পেশাগত জীবন 🕔
           </label>
-
-          <textarea
+          <input
+            type="text"
             name="profession"
-          ></textarea>
-
+          >
         </div>
 
-        <!-- শখ -->
+        
 
         <div class="form-group">
-
           <label>
-            শখের কাজ
+            শখের কাজ 🥰
           </label>
-
-          <textarea
+          <input
+            type="text"
             name="hobby"
-          ></textarea>
-
+          >
         </div>
 
-        <!-- পাঠকদের উদ্দেশ্যে -->
+        
 
         <div class="form-group">
-
           <label>
-            পাঠকদের উদ্দেশ্যে
+            পাঠকদের উদ্দেশ্যে কিছু কথা (৪-৫ লাইন)
           </label>
-
           <textarea
             name="message"
           ></textarea>
-
         </div>
 
-        <!-- ওয়েবসাইট -->
 
         <div class="form-group">
-
           <label>
-            ওয়েবসাইট
+            "বইটই"-এর প্রোফাইল লিংক <i>(যদি থাকে)</i>
           </label>
-
           <input
-            type="url"
+            type="text"
             name="website"
           >
-
         </div>
 
-        <!-- ফেসবুক -->
+
+
 
         <div class="form-group">
-
           <label>
-            ফেসবুক প্রোফাইল লিংক
+            ফেসবুক প্রোফাইল বা পেইজ লিংক 
           </label>
-
           <input
-            type="url"
+            type="text"
             name="facebook"
           >
-
         </div>
 
-        <!-- ইমেইল -->
+        
 
         <div class="form-group">
-
           <label>
-            ই-মেইল
+            ই-মেইল (যদি প্রকাশ করতে চান)
           </label>
-
           <input
-            type="email"
+            type="text"
             name="email"
           >
-
         </div>
 
-        <!-- anonymous -->
+
 
         <div class="form-group">
-
           <label>
-            এনোনিমাস মেসেজ বক্স
+            এনোনিমাস মেসেজ বক্স (যদি থাকে)
           </label>
-
           <input
             type="text"
             name="anonymous"
           >
-
         </div>
 
-        <!-- social -->
+        
 
         <div class="form-group">
-
           <label>
             অন্যান্য সোশ্যাল মিডিয়া
           </label>
-
           <textarea
             name="social"
           ></textarea>
+        </div>
 
+
+        <div class="form-group">
+          <label>
+            একটি গল্পের পোস্ট লিংক (যা গল্পের বাহারে সংরক্ষিত হবে)
+          </label>
+          <input
+            type="text"
+            name="favorite_writer"
+          >
         </div>
 
         <!-- button -->
@@ -233,7 +223,7 @@
   <div id="toast">
     সফলভাবে জমা হয়েছে
   </div>
-
+<div id="footer"></div>
 <script src="../js/components.js"></script>
 <script src="../js/writerform.js"></script>
 

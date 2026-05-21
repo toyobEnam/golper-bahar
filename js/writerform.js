@@ -58,7 +58,10 @@ async function(e){
         form.anonymous.value,
 
         social:
-        form.social.value
+        form.social.value,
+
+        favorite_writer:
+        form.favorite_writer.value
 
     };
 
