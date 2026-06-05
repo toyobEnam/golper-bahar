@@ -370,3 +370,75 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ================= Social Connect ================= */
+
+.socialConnect {
+  background: #eef5ff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.socialConnect h3 {
+  margin: 0 0 25px;
+  font-size: 28px;
+}
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.socialBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70px;
+  padding: 15px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.socialBtn:hover {
+  transform: translateY(-3px);
+}
+
+/* Facebook */
+.facebookPage,
+.facebookGroup {
+  background: #1877f2;
+}
+
+/* Telegram */
+.telegramChannel,
+.telegramGroup {
+  background: #229ED9;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .socialGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .socialGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .socialConnect h3 {
+    font-size: 24px;
+  }
+
+  .socialBtn {
+    font-size: 16px;
+    min-height: 60px;
+  }
+}

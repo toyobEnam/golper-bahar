@@ -99,7 +99,8 @@ body {
 
 .contact-btn {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
     justify-content: center;
     margin-top: 7px;
 }
@@ -118,6 +119,51 @@ body {
     text-decoration: none;
     background-color: #004f10;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.501);
+}
+
+/* WhatsApp */
+.wa-btn{
+    background:#1cc55a !important;
+}
+
+.wa-btn:hover{
+    background:#109c48 !important;
+}
+
+/* Facebook Page */
+.fb-btn{
+    background:#1877F2 !important;
+}
+
+.fb-btn:hover{
+    background:#0f63d8 !important;
+}
+
+/* Facebook Group */
+.group-btn{
+    background:#4267B2 !important;
+}
+
+.group-btn:hover{
+    background:#34518d !important;
+}
+
+/* Telegram */
+.tg-btn{
+    background:#229ED9 !important;
+}
+
+.tg-btn:hover{
+    background:#1787bc !important;
+}
+
+/* Email */
+.mail-btn{
+    background:#EA4335 !important;
+}
+
+.mail-btn:hover{
+    background:#c73629 !important;
 }
 
 
