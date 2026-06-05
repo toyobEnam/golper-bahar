@@ -96,7 +96,7 @@
 /* 📱 Mobile */
 @media (max-width: 640px) {
   .footer-inner {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 24px;
   }
 
@@ -140,12 +140,12 @@
   transform: translateY(-2px);
 }
 
-@media (max-width: 640px) {
+/* @media (max-width: 640px) {
   .footer-inner {
     grid-template-columns: 1fr;
     gap: 24px;
   }
-}
+} */
 
 /* --------------- Upper Nav Bar -------------- */
 /* 
