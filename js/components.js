@@ -739,21 +739,11 @@ align-items:flex-start;
 
 <div>
 
-<div
-style="
-font-size:16px;
-font-weight:600;
-line-height:1.3;
-">
+<div class="gb-comment-author-name">
 ${comment.name}
 </div>
 
-<div
-style="
-font-size:12px;
-opacity:.65;
-margin-top:2px;
-">
+<div class="gb-comment-date">
 ${new Date(comment.date).toLocaleDateString(
 "bn-BD",
 {
@@ -775,11 +765,7 @@ ${comment.pinned ? "❤️" : "✅"}
 
 </div>
 
-<div
-class="gb-comment-text"
-style="
-margin-top:8px;
-">
+<div class="gb-comment-text">
 ${comment.comment}
 </div>
 `;
