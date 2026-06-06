@@ -603,8 +603,24 @@ card.className =
 "gb-comment";
 
 card.innerHTML = `
-<div class="gb-comment-author">
+<div
+class="gb-comment-author"
+style="
+display:flex;
+justify-content:space-between;
+align-items:center;
+">
+
+<span>
 ${comment.name}
+</span>
+
+<span
+class="gb-pin-icon"
+data-id="${comment.id}">
+${comment.pinned ? "❤️" : "✅"}
+</span>
+
 </div>
 
 <div class="gb-comment-text">
