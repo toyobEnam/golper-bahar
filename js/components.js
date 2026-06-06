@@ -700,25 +700,28 @@ code
 
 .then(res => res.text())
 
-.then(()=>{
+.then(data=>{
 
-if(isPinned){
+console.log(data);
+alert(data);
 
-pinIcon.textContent =
-"✅";
+// if(isPinned){
 
-pinIcon.dataset.pinned =
-"false";
+// pinIcon.textContent =
+// "✅";
 
-}else{
+// pinIcon.dataset.pinned =
+// "false";
 
-pinIcon.textContent =
-"❤️";
+// }else{
 
-pinIcon.dataset.pinned =
-"true";
+// pinIcon.textContent =
+// "❤️";
 
-}
+// pinIcon.dataset.pinned =
+// "true";
+
+// }
 
 })
 
