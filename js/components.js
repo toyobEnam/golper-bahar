@@ -739,7 +739,12 @@ align-items:flex-start;
 
 <div>
 
-<div>
+<div
+style="
+font-size:16px;
+font-weight:600;
+line-height:1.3;
+">
 ${comment.name}
 </div>
 
@@ -749,7 +754,14 @@ font-size:12px;
 opacity:.65;
 margin-top:2px;
 ">
-${new Date(comment.date).toLocaleDateString("bn-BD")}
+${new Date(comment.date).toLocaleDateString(
+"bn-BD",
+{
+day:"numeric",
+month:"long",
+year:"numeric"
+}
+)}
 </div>
 
 </div>
@@ -763,7 +775,11 @@ ${comment.pinned ? "❤️" : "✅"}
 
 </div>
 
-<div class="gb-comment-text">
+<div
+class="gb-comment-text"
+style="
+margin-top:8px;
+">
 ${comment.comment}
 </div>
 `;
