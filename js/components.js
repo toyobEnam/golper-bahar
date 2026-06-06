@@ -551,19 +551,23 @@ comment
 
 };
 
+const formData =
+new FormData();
+
+formData.append(
+"data",
+JSON.stringify(
+payload
+)
+);
+
 const response =
 await fetch(
 COMMENTS_API,
 {
 method:"POST",
-headers:{
-"Content-Type":
-"application/json"
-},
 body:
-JSON.stringify(
-payload
-)
+formData
 }
 );
 
