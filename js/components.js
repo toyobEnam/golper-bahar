@@ -636,29 +636,23 @@ async function loadApprovedComments(){
 
 try{
 
+const currentUrl =
+window.location.href
+.replace(/\/$/,"");
+
 const res =
 await fetch(
 COMMENTS_API +
-"?comments=1"
+"?live=1&pageUrl=" +
+encodeURIComponent(
+currentUrl
+)
 );
 
 const data =
 await res.json();
 
-const currentUrl =
-window.location.href
-.replace(/\/$/,"");
-
-allComments =
-data.filter(comment => {
-
-return (
-comment.pageUrl
-.replace(/\/$/,"") ===
-currentUrl
-);
-
-});
+allComments = data;
 
 allComments.sort((a,b)=>{
 
