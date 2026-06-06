@@ -685,25 +685,56 @@ isPinned
 : "pin";
 
 fetch(
+COMMENTS_API,
+{
+method:"POST",
+body:new URLSearchParams({
 
-COMMENTS_API +
-"?action=" +
-action +
-"&id=" +
-comment.id +
-"&code=" +
-encodeURIComponent(
-code
+action:action,
+id:comment.id,
+code:code
+
+})
+
+}
 )
 
-)
-
-.then(res => res.text())
+.then(res => res.json())
 
 .then(data=>{
 
 console.log(data);
-alert(data);
+
+if(
+data.success
+){
+
+if(isPinned){
+
+pinIcon.textContent =
+"✅";
+
+pinIcon.dataset.pinned =
+"false";
+
+}else{
+
+pinIcon.textContent =
+"❤️";
+
+pinIcon.dataset.pinned =
+"true";
+
+}
+
+}else{
+
+alert(
+data.message ||
+"দুঃখিত কাজটি সম্পন্ন হয়নি"
+);
+
+}
 
 // if(isPinned){
 
