@@ -591,7 +591,9 @@ alert(
 console.error(error);
 
 alert(
-JSON.stringify(error)
+error?.message ||
+error?.toString() ||
+"Unknown Error"
 );
 
 }
