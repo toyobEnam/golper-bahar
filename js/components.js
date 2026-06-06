@@ -617,7 +617,8 @@ ${comment.name}
 
 <span
 class="gb-pin-icon"
-data-id="${comment.id}">
+data-id="${comment.id}"
+data-pinned="${comment.pinned}">
 ${comment.pinned ? "❤️" : "✅"}
 </span>
 
@@ -629,6 +630,46 @@ ${comment.comment}
 `;
 
 list.appendChild(card);
+
+const pinIcon =
+card.querySelector(
+".gb-pin-icon"
+);
+
+let clickCount = 0;
+let clickTimer;
+
+pinIcon.addEventListener(
+"click",
+function(){
+
+clickCount++;
+
+clearTimeout(
+clickTimer
+);
+
+clickTimer =
+setTimeout(function(){
+
+clickCount = 0;
+
+},1500);
+
+if(
+clickCount < 5
+){
+return;
+}
+
+clickCount = 0;
+
+alert(
+"Step 3 এ Code Prompt বসাবো"
+);
+
+}
+);
 
 });
 
