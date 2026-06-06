@@ -469,11 +469,198 @@ class="gb-comment-submit">
 
 <div id="gbCommentToast"></div>
 
+<div
+id="gbCommentsSection"
+style="display:none;">
+
+<h3 class="gb-comments-heading">
+পাঠকদের মন্তব্য দেখুন
+</h3>
+
+<div
+id="gbCommentsList"
+class="gb-comments-list">
+</div>
+
+<button
+id="gbLoadMoreComments"
+class="gb-comments-more"
+style="display:none;">
+আরও মতামত দেখুন
+</button>
+
+</div>
+
 </section>
 
 `;
 
 })();
+
+let allComments = [];
+let visibleComments = 5;
+
+async function loadApprovedComments(){
+
+try{
+
+const res =
+await fetch(
+COMMENTS_API +
+"?comments=1"
+);
+
+const data =
+await res.json();
+
+const currentUrl =
+window.location.href
+.replace(/\/$/,"");
+
+allComments =
+data.filter(comment => {
+
+return (
+comment.pageUrl
+.replace(/\/$/,"") ===
+currentUrl
+);
+
+});
+
+allComments.sort((a,b)=>{
+
+if(
+a.pinned &&
+!b.pinned
+) return -1;
+
+if(
+!a.pinned &&
+b.pinned
+) return 1;
+
+return 0;
+
+});
+
+renderComments();
+
+}catch(err){
+
+console.error(err);
+
+}
+
+}
+
+function renderComments(){
+
+const section =
+document.getElementById(
+"gbCommentsSection"
+);
+
+const list =
+document.getElementById(
+"gbCommentsList"
+);
+
+const loadMore =
+document.getElementById(
+"gbLoadMoreComments"
+);
+
+if(
+!section ||
+!list
+) return;
+
+if(
+allComments.length === 0
+){
+
+section.style.display =
+"none";
+
+return;
+
+}
+
+section.style.display =
+"block";
+
+list.innerHTML = "";
+
+allComments
+.slice(0,visibleComments)
+.forEach(comment=>{
+
+const card =
+document.createElement("div");
+
+card.className =
+"gb-comment";
+
+card.innerHTML = `
+<div class="gb-comment-author">
+${comment.name}
+</div>
+
+<div class="gb-comment-text">
+${comment.comment}
+</div>
+`;
+
+list.appendChild(card);
+
+});
+
+if(
+allComments.length >
+visibleComments
+){
+
+loadMore.style.display =
+"block";
+
+}else{
+
+loadMore.style.display =
+"none";
+
+}
+
+}
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+loadApprovedComments();
+
+const btn =
+document.getElementById(
+"gbLoadMoreComments"
+);
+
+if(btn){
+
+btn.addEventListener(
+"click",
+function(){
+
+visibleComments += 5;
+
+renderComments();
+
+}
+);
+
+}
+
+}
+);
 
 /* ===== Comment Submit ===== */
 
@@ -576,7 +763,17 @@ await response.json();
 
 if(result.success){
 
-form.reset();
+document
+.getElementById(
+"gbCommentName"
+)
+.value = "";
+
+document
+.getElementById(
+"gbCommentText"
+)
+.value = "";
 
 alert(
 "আপনার মতামতটি খুব শীঘ্রই এখানে প্রকাশিত হবে, ইনশাআল্লাহ।"
