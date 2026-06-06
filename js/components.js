@@ -675,10 +675,62 @@ if(
 return;
 }
 
-alert(
-"Code Entered: " +
+const isPinned =
+pinIcon.dataset.pinned ===
+"true";
+
+const action =
+isPinned
+? "unpin"
+: "pin";
+
+fetch(
+
+COMMENTS_API +
+"?action=" +
+action +
+"&id=" +
+comment.id +
+"&code=" +
+encodeURIComponent(
 code
+)
+
+)
+
+.then(res => res.text())
+
+.then(()=>{
+
+if(isPinned){
+
+pinIcon.textContent =
+"✅";
+
+pinIcon.dataset.pinned =
+"false";
+
+}else{
+
+pinIcon.textContent =
+"❤️";
+
+pinIcon.dataset.pinned =
+"true";
+
+}
+
+})
+
+.catch(err=>{
+
+console.error(err);
+
+alert(
+"দুঃখিত, কাজটি সম্পন্ন হয়নি।"
 );
+
+});
 
 }
 );
