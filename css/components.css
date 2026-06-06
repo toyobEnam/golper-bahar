@@ -434,6 +434,129 @@ transition:color .25s ease;
 color:#000000;
 }
 
+/* ---------------------------------------------------------------------
+-------------------    Story Comments Component    ----------------------
+--------------------------------------------------------------------- */
+
+.gb-comments{
+  margin:40px 0;
+}
+
+.gb-comments-title{
+  font-size:1.8rem;
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.gb-comment-form{
+  max-width:700px;
+  margin:0 auto 35px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.gb-comment-input,
+.gb-comment-textarea{
+  width:100%;
+  border:1px solid #cfcfcf;
+  border-radius:6px;
+  padding:12px 14px;
+  background:#ffffff;
+  font-size:16px;
+  font-family:'Kalpurush','Noto Serif Bengali',serif;
+}
+
+.gb-comment-input:focus,
+.gb-comment-textarea:focus{
+  outline:none;
+  border-color:#2e7d32;
+}
+
+.gb-comment-textarea{
+  min-height:140px;
+  resize:vertical;
+}
+
+.gb-comment-submit{
+  align-self:flex-start;
+  background:#2e7d32;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  padding:12px 20px;
+  font-size:16px;
+  cursor:pointer;
+  transition:background .2s ease;
+}
+
+.gb-comment-submit:hover{
+  background:#1b5e20;
+}
+
+.gb-comments-heading{
+  font-size:1.4rem;
+  margin:40px 0 20px;
+  padding-top:20px;
+  border-top:1px solid #cfcfcf;
+}
+
+.gb-comments-list{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.gb-comment{
+  background:#ffffff;
+  border:1px solid #d9d9d9;
+  border-radius:8px;
+  padding:18px;
+  box-shadow:0 2px 6px rgba(0,0,0,.04);
+}
+
+
+
+.gb-comment-author{
+  font-size:18px;
+  font-weight:700;
+  margin-bottom:4px;
+}
+
+.gb-comment-date{
+  font-size:12px;
+  color:#777;
+  margin-bottom:12px;
+}
+
+.gb-comment-text{
+  font-size:17px;
+  line-height:1.7;
+}
+
+
+
+@media (max-width:600px){
+
+  .gb-comments-title{
+    font-size:1.4rem;
+  }
+
+  .gb-comments-heading{
+    font-size:1.15rem;
+  }
+
+  .gb-comment-author{
+    font-size:16px;
+  }
+
+  .gb-comment-text{
+    font-size:15px;
+    line-height:1.6;
+  }
+
+}
+
 
 
 @media (max-width:600px){

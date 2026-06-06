@@ -404,6 +404,208 @@ text.textContent="Copy Link";
 
 }
 
+/* ---------------------------------------------------------------------
+-------------------    Story Comments Component    ----------------------
+--------------------------------------------------------------------- */
+
+// (function(){
+
+// const form =
+// document.getElementById("gbCommentForm");
+
+// if(!form) return;
+
+// form.addEventListener("submit",function(e){
+
+// e.preventDefault();
+
+// });
+
+// })();
+
+const COMMENTS_API =
+"https://script.google.com/macros/s/AKfycbzeh6I6N7ChaYY6wfYM5llYftpmBWs8U2sunrIYLHfrZ_9hDCs53B1Tifv0XLmpSKV3Rg/exec";
+
+(function(){
+
+const target =
+document.getElementById("story-comments");
+
+if(!target) return;
+
+target.innerHTML = `
+
+<section class="gb-comments">
+
+<h2 class="gb-comments-title">
+আপনার মতামত জানান
+</h2>
+
+<form
+id="gbCommentForm"
+class="gb-comment-form">
+
+<input
+id="gbCommentName"
+type="text"
+required
+class="gb-comment-input"
+placeholder="আপনার নাম">
+
+<textarea
+id="gbCommentText"
+required
+class="gb-comment-textarea"
+placeholder="আপনার মন্তব্য লিখুন"></textarea>
+
+<button
+id="gbCommentSubmit"
+type="submit"
+class="gb-comment-submit">
+মতামত পাঠান
+</button>
+
+</form>
+
+<div id="gbCommentToast"></div>
+
+</section>
+
+`;
+
+})();
+
+/* ===== Comment Submit ===== */
+
+document.addEventListener(
+"submit",
+async function(e){
+
+const form =
+e.target;
+
+if(
+form.id !==
+"gbCommentForm"
+) return;
+
+e.preventDefault();
+
+const name =
+document
+.getElementById(
+"gbCommentName"
+)
+.value
+.trim();
+
+const comment =
+document
+.getElementById(
+"gbCommentText"
+)
+.value
+.trim();
+
+if(
+!name ||
+!comment
+){
+return;
+}
+
+const submitBtn =
+document
+.getElementById(
+"gbCommentSubmit"
+);
+
+submitBtn.disabled = true;
+
+submitBtn.textContent =
+"পাঠানো হচ্ছে...";
+
+try{
+
+const path =
+location.pathname
+.replace(/^\/|\/$/g,"")
+.split("/");
+
+const payload = {
+
+storySlug:
+path[2] || "",
+
+episode:
+path[3] || "",
+
+pageUrl:
+location.href,
+
+name:
+name,
+
+comment:
+comment
+
+};
+
+const response =
+await fetch(
+COMMENTS_API,
+{
+method:"POST",
+headers:{
+"Content-Type":
+"application/json"
+},
+body:
+JSON.stringify(
+payload
+)
+}
+);
+
+const result =
+await response.json();
+
+if(result.success){
+
+form.reset();
+
+alert(
+"আপনার মতামতটি খুব শীঘ্রই এখানে প্রকাশিত হবে, ইনশাআল্লাহ।"
+);
+
+}else{
+
+alert(
+"দুঃখিত, মন্তব্য পাঠানো যায়নি।"
+);
+
+}
+
+}catch(error){
+
+console.error(error);
+
+alert(
+"ইন্টারনেট সংযোগ সমস্যা হয়েছে।"
+);
+
+}
+
+submitBtn.disabled = false;
+
+submitBtn.textContent =
+"মতামত পাঠান";
+
+}
+);
+
+
+/* ===== End Comment Submit ===== */
 
 
 // Google Analytics
