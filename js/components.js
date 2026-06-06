@@ -664,8 +664,20 @@ return;
 
 clickCount = 0;
 
+const code =
+prompt(
+"সেক্রেট পিন প্রবেশ করান"
+);
+
+if(
+!code
+){
+return;
+}
+
 alert(
-"Step 3 এ Code Prompt বসাবো"
+"Code Entered: " +
+code
 );
 
 }
