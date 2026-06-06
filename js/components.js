@@ -426,6 +426,138 @@ text.textContent="Copy Link";
 const COMMENTS_API =
 "https://script.google.com/macros/s/AKfycbzeh6I6N7ChaYY6wfYM5llYftpmBWs8U2sunrIYLHfrZ_9hDCs53B1Tifv0XLmpSKV3Rg/exec";
 
+function showSecretPinModal(){
+
+return new Promise(resolve=>{
+
+const overlay =
+document.createElement("div");
+
+overlay.className =
+"gb-pin-modal-overlay";
+
+overlay.innerHTML = `
+
+<div class="gb-pin-modal">
+
+<div class="gb-pin-modal-title">
+সেক্রেট পিন কোড
+</div>
+
+<input
+type="password"
+class="gb-pin-modal-input"
+placeholder="সেক্রেট পিন প্রবেশ করান">
+
+<div class="gb-pin-modal-actions">
+
+<button
+class="gb-pin-btn gb-pin-btn-cancel">
+বাতিল
+</button>
+
+<button
+class="gb-pin-btn gb-pin-btn-confirm">
+নিশ্চিত করুন
+</button>
+
+</div>
+
+</div>
+
+`;
+
+document.body.appendChild(
+overlay
+);
+
+document.body.classList.add(
+"gb-modal-open"
+);
+
+const input =
+overlay.querySelector(
+".gb-pin-modal-input"
+);
+
+input.focus();
+
+function closeModal(value){
+
+overlay.remove();
+
+document.body.classList.remove(
+"gb-modal-open"
+);
+
+resolve(value);
+
+}
+
+overlay
+.querySelector(
+".gb-pin-btn-cancel"
+)
+.addEventListener(
+"click",
+()=>closeModal(null)
+);
+
+overlay
+.querySelector(
+".gb-pin-btn-confirm"
+)
+.addEventListener(
+"click",
+()=>closeModal(
+input.value.trim()
+)
+);
+
+overlay.addEventListener(
+"click",
+function(e){
+
+if(
+e.target === overlay
+){
+
+closeModal(null);
+
+}
+
+}
+);
+
+input.addEventListener(
+"keydown",
+function(e){
+
+if(
+e.key === "Enter"
+){
+
+closeModal(
+input.value.trim()
+);
+
+}
+
+if(
+e.key === "Escape"
+){
+
+closeModal(null);
+
+}
+
+}
+);
+
+});
+
+}
+
 (function(){
 
 const target =
@@ -664,10 +796,9 @@ return;
 
 clickCount = 0;
 
-const code =
-prompt(
-"সেক্রেট পিন প্রবেশ করান"
-);
+showSecretPinModal()
+
+.then(code=>{
 
 if(
 !code
@@ -766,6 +897,7 @@ err.toString()
 
 });
 
+});
 }
 );
 
