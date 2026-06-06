@@ -734,12 +734,25 @@ class="gb-comment-author"
 style="
 display:flex;
 justify-content:space-between;
-align-items:center;
+align-items:flex-start;
 ">
 
-<span>
+<div>
+
+<div>
 ${comment.name}
-</span>
+</div>
+
+<div
+style="
+font-size:12px;
+opacity:.65;
+margin-top:2px;
+">
+${new Date(comment.date).toLocaleDateString("bn-BD")}
+</div>
+
+</div>
 
 <span
 class="gb-pin-icon"
