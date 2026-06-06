@@ -727,7 +727,7 @@ pinIcon.dataset.pinned =
 console.error(err);
 
 alert(
-"দুঃখিত, কাজটি সম্পন্ন হয়নি।"
+err.toString()
 );
 
 });
