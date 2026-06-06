@@ -591,7 +591,7 @@ alert(
 console.error(error);
 
 alert(
-"ইন্টারনেট সংযোগ সমস্যা হয়েছে।"
+JSON.stringify(error)
 );
 
 }
