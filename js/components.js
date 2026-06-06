@@ -426,6 +426,34 @@ text.textContent="Copy Link";
 const COMMENTS_API =
 "https://script.google.com/macros/s/AKfycbzeh6I6N7ChaYY6wfYM5llYftpmBWs8U2sunrIYLHfrZ_9hDCs53B1Tifv0XLmpSKV3Rg/exec";
 
+function getReaderId(){
+
+let readerId =
+localStorage.getItem(
+"gb_reader_id"
+);
+
+if(!readerId){
+
+readerId =
+"gb_" +
+Date.now() +
+"_" +
+Math.random()
+.toString(36)
+.substring(2,10);
+
+localStorage.setItem(
+"gb_reader_id",
+readerId
+);
+
+}
+
+return readerId;
+
+}
+
 function showSecretPinModal(){
 
 return new Promise(resolve=>{
@@ -1030,7 +1058,10 @@ name:
 name,
 
 comment:
-comment
+comment,
+
+readerId:
+getReaderId()
 
 };
 
@@ -1078,6 +1109,7 @@ alert(
 }else{
 
 alert(
+result.message ||
 "দুঃখিত, মন্তব্য পাঠানো যায়নি।"
 );
 
