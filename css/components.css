@@ -516,9 +516,10 @@ color:#000000;
 }
 
 
-
-
-
+.gb-comment-textarea{
+  min-height:140px;
+  resize:none;
+}
 
 
 @media (max-width:600px){
@@ -560,6 +561,7 @@ width:24px;
 height:24px;
 }
 }
+
 
 
 /* ===== Secret Pin Modal ===== */

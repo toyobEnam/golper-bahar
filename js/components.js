@@ -708,7 +708,7 @@ target.innerHTML = `
 <section class="gb-comments">
 
 <h2 class="gb-comments-title">
-আপনার মতামত জানান
+আপনার মন্তব্য জানান
 </h2>
 
 <form
@@ -725,6 +725,7 @@ placeholder="আপনার নাম">
 <textarea
 id="gbCommentText"
 required
+maxlength="1300"
 class="gb-comment-textarea"
 placeholder="আপনার মন্তব্য লিখুন"></textarea>
 
@@ -732,7 +733,7 @@ placeholder="আপনার মন্তব্য লিখুন"></textarea>
 id="gbCommentSubmit"
 type="submit"
 class="gb-comment-submit">
-মতামত পাঠান
+মন্তব্য পোস্ট করুন
 </button>
 
 </form>
@@ -1104,6 +1105,41 @@ renderComments();
 }
 );
 
+
+// === Max 10 Line Break ===
+
+document.addEventListener(
+"keydown",
+function(e){
+
+if(
+e.target.id !==
+"gbCommentText"
+){
+return;
+}
+
+if(
+e.key !== "Enter"
+){
+return;
+}
+
+const text =
+e.target.value;
+
+const lineBreaks =
+(text.match(/\n/g) || []).length;
+
+if(lineBreaks >= 10){
+
+e.preventDefault();
+
+}
+
+}
+);
+
 /* ===== Comment Submit ===== */
 
 document.addEventListener(
@@ -1141,6 +1177,33 @@ if(
 !comment
 ){
 return;
+}
+
+/* ===== Validation ===== */
+
+if(comment.length > 1300){
+
+await showMessageModal(
+"⚠ মন্তব্য খুব বড়",
+"সর্বোচ্চ ১৩০০ অক্ষরের মন্তব্য করা যাবে।"
+);
+
+return;
+
+}
+
+const lineBreaks =
+(comment.match(/\n/g) || []).length;
+
+if(lineBreaks > 10){
+
+await showMessageModal(
+"⚠ অতিরিক্ত লাইন",
+"সর্বোচ্চ ১০টি লাইন ব্রেক ব্যবহার করা যাবে।"
+);
+
+return;
+
 }
 
 const submitBtn =
@@ -1260,7 +1323,7 @@ error?.toString() ||
 submitBtn.disabled = false;
 
 submitBtn.textContent =
-"মতামত পাঠান";
+"মন্তব্য পোস্ট করুন";
 
 }
 );

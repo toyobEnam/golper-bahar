@@ -11,7 +11,7 @@
 
 body {
     font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-    background: #e3e3e3;
+    background-color: rgb(233, 228, 223);
 }
 
 a {
@@ -32,9 +32,9 @@ a {
     z-index: 999;
 }
 
-body {
+/* body {
     background-color: rgb(233, 228, 223);
-}
+} */
 
 
 header {
@@ -230,4 +230,38 @@ header h2 {
     #theEndText {
         font-size: 17px;
     }
+}
+
+
+/* ============ Position of CommentBox ============= */
+
+/* ===== Story Comments Position ===== */
+
+#story-comments{
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 40px auto;
+
+    padding: 0 20px;
+
+    box-sizing: border-box;
+}
+
+@media (max-width:1000px){
+
+    #story-comments{
+        max-width: 900px;
+        padding: 0 20px;
+    }
+
+}
+
+@media (max-width:600px){
+
+    #story-comments{
+        margin: 30px auto;
+        padding: 0 22px;
+    }
+
 }
