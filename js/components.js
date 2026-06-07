@@ -586,6 +586,116 @@ closeModal(null);
 
 }
 
+function showMessageModal(title,message){
+
+return new Promise(resolve=>{
+
+const overlay =
+document.createElement("div");
+
+overlay.className =
+"gb-pin-modal-overlay";
+
+overlay.innerHTML = `
+
+<div class="gb-pin-modal">
+
+<div class="gb-pin-modal-title">
+${title}
+</div>
+
+<div
+style="
+padding:10px 0 20px;
+text-align:center;
+line-height:1.7;
+font-size:15px;
+">
+${message}
+</div>
+
+<div class="gb-pin-modal-actions">
+
+<button
+class="gb-pin-btn gb-pin-btn-confirm"
+style="width:100%;">
+ঠিক আছে
+</button>
+
+</div>
+
+</div>
+
+`;
+
+document.body.appendChild(
+overlay
+);
+
+document.body.classList.add(
+"gb-modal-open"
+);
+
+function closeModal(){
+
+overlay.remove();
+
+document.body.classList.remove(
+"gb-modal-open"
+);
+
+resolve();
+
+}
+
+overlay
+.querySelector(
+".gb-pin-btn-confirm"
+)
+.addEventListener(
+"click",
+closeModal
+);
+
+overlay.addEventListener(
+"click",
+function(e){
+
+if(
+e.target === overlay
+){
+
+closeModal();
+
+}
+
+}
+);
+
+document.addEventListener(
+"keydown",
+function escHandler(e){
+
+if(
+e.key === "Escape"
+){
+
+document.removeEventListener(
+"keydown",
+escHandler
+);
+
+closeModal();
+
+}
+
+}
+);
+
+});
+
+}
+
 (function(){
 
 const target =
@@ -897,9 +1007,13 @@ pinIcon.dataset.pinned =
 
 }else{
 
-alert(
+showMessageModal(
+
+"⚠ পিন করা যায়নি",
+
 data.message ||
 "দুঃখিত কাজটি সম্পন্ন হয়নি"
+
 );
 
 }
@@ -928,8 +1042,12 @@ data.message ||
 
 console.error(err);
 
-alert(
+showMessageModal(
+
+"⚠ ত্রুটি",
+
 err.toString()
+
 );
 
 });
@@ -1102,15 +1220,23 @@ document
 )
 .value = "";
 
-alert(
+await showMessageModal(
+
+"✓ মন্তব্য গ্রহণ করা হয়েছে",
+
 "আপনার মতামতটি খুব শীঘ্রই এখানে প্রকাশিত হবে, ইনশাআল্লাহ।"
+
 );
 
 }else{
 
-alert(
+await showMessageModal(
+
+"⚠ মন্তব্য জমা হয়নি",
+
 result.message ||
 "দুঃখিত, মন্তব্য পাঠানো যায়নি।"
+
 );
 
 }
@@ -1119,10 +1245,14 @@ result.message ||
 
 console.error(error);
 
-alert(
+await showMessageModal(
+
+"⚠ ত্রুটি",
+
 error?.message ||
 error?.toString() ||
 "Unknown Error"
+
 );
 
 }
