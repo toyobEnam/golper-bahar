@@ -1,11 +1,23 @@
-/* ---------------------------------------------------------------------
--------------------    Footer Component    -----------------------------
---------------------------------------------------------------------- */
 
 @font-face {
   font-family: "Kalpurush";
   src: url("../assets/fonts/kalpurush.ttf") format("truetype");
 }
+
+
+
+@font-face {
+  font-family: "LiPurnoPran";
+  src: url("../assets/fonts/LiPurnoPran.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* ---------------------------------------------------------------------
+-------------------    Footer Component    -----------------------------
+--------------------------------------------------------------------- */
+
 
 * {
     font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
@@ -456,8 +468,7 @@ color:#000000;
   gap:14px;
 }
 
-.gb-comment-input,
-.gb-comment-textarea{
+.gb-comment-input{
   width:100%;
   border:1px solid #cfcfcf;
   border-radius:6px;
@@ -467,16 +478,28 @@ color:#000000;
   font-family:'Kalpurush','Noto Serif Bengali',serif;
 }
 
+.gb-comment-textarea{
+  width:100%;
+  border:1px solid #cfcfcf;
+  border-radius:6px;
+  padding:12px 14px;
+  background:#ffffff;
+
+  font-size:16px;
+
+  font-family:'LiPurnoPran','Kalpurush','Noto Serif Bengali',serif;
+}
+
 .gb-comment-input:focus,
 .gb-comment-textarea:focus{
   outline:none;
   border-color:#2e7d32;
 }
 
-.gb-comment-textarea{
+/* .gb-comment-textarea{
   min-height:140px;
   resize:vertical;
-}
+} */
 
 .gb-comment-submit{
   align-self:flex-start;
@@ -686,13 +709,18 @@ margin-top:4px;
 
 .gb-comment-text{
 margin-top:12px;
+
+font-family:'LiPurnoPran','Kalpurush','Noto Serif Bengali',serif;
+
+line-height:1.6;
+letter-spacing:0.01em;
 }
 
 /* Desktop */
 @media (min-width:1001px){
 
 .gb-comment-author-name{
-font-size:22px;
+font-size:28px;
 }
 
 .gb-comment-date{
@@ -700,7 +728,7 @@ font-size:14px;
 }
 
 .gb-comment-text{
-font-size:18px;
+font-size:26px;
 }
 
 }
@@ -709,7 +737,7 @@ font-size:18px;
 @media (min-width:601px) and (max-width:1000px){
 
 .gb-comment-author-name{
-font-size:18px;
+font-size:21px;
 }
 
 .gb-comment-date{
@@ -717,7 +745,7 @@ font-size:13px;
 }
 
 .gb-comment-text{
-font-size:15px;
+font-size:19px;
 }
 
 }
@@ -726,7 +754,7 @@ font-size:15px;
 @media (max-width:600px){
 
 .gb-comment-author-name{
-font-size:17px;
+font-size:18px;
 }
 
 .gb-comment-date{
@@ -734,7 +762,7 @@ font-size:12px;
 }
 
 .gb-comment-text{
-font-size:14px;
+font-size:17px;
 }
 
 }
