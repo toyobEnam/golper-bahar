@@ -609,3 +609,44 @@ header {
         border-radius: 4px;
     }
 }
+
+
+
+            /* ================ 
+            Single Book Layout
+            =================== */
+
+.cardH .h-lower.one-book {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.cardH .h-lower.one-book a {
+    width: min(100%, 340px);
+    padding: 20px;
+}
+
+.cardH .h-lower.one-book .book-image {
+    width: 100%;
+}
+
+.cardH .h-lower.one-book .book-name p {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .cardH .h-lower.one-book {
+        padding: 10px;
+    }
+
+    .cardH .h-lower.one-book a {
+        width: min(100%, 260px);
+        padding: 10px;
+    }
+
+    .cardH .h-lower.one-book .book-name p {
+        font-size: 1.2rem;
+    }
+}
