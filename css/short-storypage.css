@@ -1,0 +1,564 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "Kalpurush";
+  src: url("../assets/fonts/kalpurush.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "LiPurnoPran";
+  src: url("../assets/fonts/LiPurnoPran.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+#upNav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+  background: #d8d8d8;
+}
+
+/* ===== Grid Container ===== */
+.gridContainer {
+  min-height: 100vh;
+  display: grid;
+
+  /* Desktop layout */
+  grid-template-columns: 350px 1fr 350px;
+  grid-template-rows: auto 1fr auto;
+
+  grid-template-areas:
+    "header header header"
+    "left   main   right"
+    "footer footer footer";
+}
+
+/* ===== Grid Areas ===== */
+.header {
+  grid-area: header;
+  padding: 20px;
+  background: #eaeaea;
+  text-align: center;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 6px;
+  border-bottom: 1px solid black;
+
+  background-image: linear-gradient(rgba(255, 255, 255, 0.566), rgba(255,255,255,0.25)), url("https://res.cloudinary.com/dhj4ovvav/image/upload/v1770527495/covers_vjzom4.webp");
+  background-size: cover;      /* পুরো header ভরবে */
+  background-position: center; /* মাঝখানে থাকবে */
+  background-repeat: no-repeat;
+}
+
+.header h1 {
+  font-size: 35px;
+}
+
+.header p {
+  font-size: 20px;
+  border: 1px solid rgba(5, 5, 5, 0.301);
+  padding: 7px 35px;
+  border-radius: 7px;
+  background-color: #ffffffa3;
+}
+
+@media (max-width: 700px) {
+  .header p {
+    font-size: 15px;
+  }
+
+  .header h1 {
+    font-size: 25px;
+  }
+
+  .header {
+    height: 150px;
+  }
+}
+
+body.dark .header,
+body.dark .header *{
+  color: #000;
+}
+
+
+
+.leftBar {
+  grid-area: left;
+  padding: 20px;
+  background: #d8d8d8;
+}
+
+.mainContent {
+  font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
+  grid-area: main;
+  padding: 25px 80px;
+  background: #d8d8d8;
+}
+
+.rightBar {
+  grid-area: right;
+  padding: 20px;
+  background: #d8d8d8;
+}
+
+.footer {
+  grid-area: footer;
+  padding: 0px;
+  background: #eaeaea;
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+    .mainContent {
+    grid-area: main;
+    padding: 25px 25px;
+    background: #d8d8d8;
+}
+}
+
+@media (max-width: 1400px) {
+  .gridContainer{
+  grid-template-columns: auto 350px;
+  grid-template-areas:
+    "header header"
+    "main   right"
+    "footer footer";
+  }
+}
+
+@media (max-width: 1000px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "left"
+      "right"
+      "footer";
+  }
+
+  .leftBar {
+    display: block;
+    padding: 10px 16px;
+  }
+
+  .rightBar {
+    display: block;
+  }
+}
+
+.rightBar {
+  height: auto;
+  align-self: start;
+}
+
+.mainContent p {
+    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
+    font-size: 26px;
+    line-height: 1.5;
+    margin-bottom: 1.3em;
+    letter-spacing: 0.01em;
+}
+
+@media (max-width: 1000px) {
+    .mainContent p {
+        font-size: 19px;
+        line-height: 1.5;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .mainContent p {
+        font-size: 17px;
+        line-height: 1.4;
+    }
+}
+
+.story-image {
+    margin: 2.2em 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.story-image img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+.episode-switch {
+  margin: 60px 0 30px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.upperNAV {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+  margin: 10px 0;
+}
+
+.topSwitch {
+  margin: 2px 0 10px;
+  padding-top: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.topNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; 
+  margin: 0;
+}
+
+.ep-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  
+}
+
+.ep-list.start {
+  justify-content: center;
+}
+
+.ep-btn {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  border: 1px solid #ccc;
+  padding: 8px 14px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.ep-btn:hover {
+  background: #f0f0f0;
+}
+
+
+#theEndText {
+  text-align: center;
+  font-size: 26px;
+}
+
+@media (max-width: 1000px) {
+    #theEndText {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 600px) {
+    #theEndText {
+        font-size: 17px;
+    }
+}
+
+
+          /* ডান পাশে থাকা আরও গল্পের কার্ড ডিজাইন Start */
+.rightLinks {
+  padding: 20px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.bigP {
+  font-size: 1.8rem;
+}
+
+.rightStoryCards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  padding: 10px;
+  text-align: center;
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* anchor = real grid item */
+.rightStoryCards a {
+  display: block;
+  width: 100%;
+  text-decoration: none;   /* underline off */
+  color: inherit;          /* text color inherit */
+  cursor: pointer;         /* hand cursor */
+  height: 100%;
+}
+
+.story-card {
+  border: 1px solid #2e7d32;
+  border-radius: 10px;
+  margin: 7px 0;
+  padding: 7px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  transition: 
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* hover effect */
+.rightStoryCards a:hover .story-card {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border-color: #1b5e20;
+}
+
+/* keyboard accessibility */
+.rightStoryCards a:focus-visible .story-card {
+  outline: 2px solid #1b5e20;
+  outline-offset: 3px;
+}
+
+/* image square */
+.cardImg {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.cardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cardInfo h3 {
+  font-size: 1.3rem;
+  margin: 15px 0px;
+}
+
+.cardInfo p {
+  margin-bottom: 10px;
+  color: #4f4f4f;
+}
+
+
+body {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+p, span, h1, h2, h3, h4, h5, h6, div {
+  cursor: default;
+}
+
+a, button {
+  cursor: pointer !important;
+  user-select: auto;
+}
+
+
+.story-content {
+  user-select: none;
+}
+
+.back-btn {
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+
+.mini-episode-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 10px;
+  margin-bottom: 0;
+
+  background-color: #0f0f0f; /* footer match */
+}
+
+/* ===== Single Item ===== */
+.mini-nav-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 72px;           /* 👈 desktop smaller */
+  padding: 6px 12px;         /* 👈 compact */
+
+  background-color: #1e1e1e;
+  color: #ffffff;
+
+  font-size: 0.85rem;        /* 👈 desktop smaller text */
+  font-weight: 500;
+  line-height: 1.2;
+
+  border-radius: 5px;
+  text-decoration: none;
+
+  transition:
+    color 0.22s ease,
+    background-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.18s ease;
+}
+
+
+
+/* ===== Hover Effect ===== */
+.mini-nav-item:hover {
+  color: #2f80ff;
+  background-color: #e6e6e6;
+
+  box-shadow:
+    0 0 0 1px rgba(47, 128, 255, 0.35),
+    0 0 8px rgba(47, 128, 255, 0.3);
+
+  transform: translateY(-1px);
+}
+
+/* ================= Tablet ================= */
+@media (max-width: 1000px) {
+  .mini-episode-nav {
+    gap: 8px;
+    padding: 10px 8px;
+  }
+
+  .mini-nav-item {
+    min-width: 68px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ================= Mobile ================= */
+@media (max-width: 600px) {
+  .mini-episode-nav {
+    gap: 6px;
+    padding: 8px 6px;
+  }
+
+  .mini-nav-item {
+    min-width: auto;       /* text-based width */
+    padding: 5px 9px;
+    font-size: 0.78rem;
+    border-radius: 4px;
+  }
+}
+
+
+.active {
+  background-color: #2f80ff;
+  color: white;
+}
+
+.active:hover {
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .story-image img {
+    max-width: 380px;
+  }
+
+  .rightBar {
+    padding: 0px 100px;
+  }
+
+  .rightStoryCards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+    gap: 30px;
+  }
+}
+
+/* Mobile */
+  @media (max-width: 600px) {
+    .rightBar {
+      padding: 10px 16px;
+    }
+    .story-image {
+      margin: 1.8em 0;
+    }
+
+    .story-image img {
+      max-width: 92%;
+      border-radius: 4px;
+    }
+    .story-card {
+      margin: 0;
+      padding: 5px;
+    }
+
+  .rightLinks {
+    padding: 0px;
+    margin-top: 10px;
+  }
+
+  .rightStoryCards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: stretch;
+    padding: 20px 0px;
+    text-align: center;
+    gap: 12px;
+  }
+    .rightStoryCards a {
+      width: auto;
+    }
+
+    .cardInfo h3 {
+    font-size: 1.1rem;
+    margin: 6px 0px;
+  }
+
+  .cardInfo p {
+    margin-bottom: 3px;
+    font-size: 0.9rem;
+  }
+}
