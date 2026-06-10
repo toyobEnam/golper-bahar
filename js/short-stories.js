@@ -44,11 +44,17 @@ wrap.className =
 let html = `
 <a href="https://golperbahar.com/">হোমপেজ</a>
 <span>›</span>
+`;
 
+if(path.length > 1){
+
+html += `
 <a href="https://golperbahar.com/short-stories/">
 ছোটোগল্প
 </a>
 `;
+
+}
 
 /* ===== Category ===== */
 
@@ -58,14 +64,7 @@ const categoryName =
 shortStoryCategoryMap[path[1]]
 || decodeURIComponent(path[1]).replace(/-/g," ");
 
-if(path.length === 2){
-
-html += `
-<span>›</span>
-<span class="current">${categoryName}</span>
-`;
-
-}else{
+if(path.length > 2){
 
 html += `
 <span>›</span>
@@ -100,35 +99,15 @@ ${storyName}
 </a>
 `;
 
-}else{
-
-html += `
-<span>›</span>
-<span class="current">${storyName}</span>
-`;
-
 }
 
 }
 
 /* ===== Episode ===== */
 
-if(path[3]){
+/* Episode page এ Current Episode দেখানো হবে না */
 
-const rawEpisode =
-decodeURIComponent(path[3]);
-
-const episodeNumber =
-rawEpisode.replace(/[^\d]/g,"");
-
-html += `
-<span>›</span>
-<span class="current">
-পর্ব ${toBanglaNumber(episodeNumber)}
-</span>
-`;
-
-}
+html += `<span>›</span>`;
 
 wrap.innerHTML =
 `<div class="gb-breadcrumb">${html}</div>`;
@@ -160,16 +139,22 @@ const breadcrumbItems = [
 "position":1,
 "name":"হোমপেজ",
 "item":"https://golperbahar.com/"
-},
+}
 
-{
+];
+
+if(path.length > 1){
+
+breadcrumbItems.push({
+
 "@type":"ListItem",
 "position":2,
 "name":"ছোটোগল্প",
 "item":"https://golperbahar.com/short-stories/"
-}
 
-];
+});
+
+}
 
 if(path[1]){
 
@@ -179,7 +164,7 @@ breadcrumbItems.push({
 "position":breadcrumbItems.length + 1,
 "name":
 shortStoryCategoryMap[path[1]]
-|| path[1],
+|| decodeURIComponent(path[1]).replace(/-/g," "),
 
 "item":
 `https://golperbahar.com/short-stories/${path[1]}/`
