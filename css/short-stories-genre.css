@@ -1,3 +1,16 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Kalpurush', 'LiPurnoPran', 'Noto Serif Bengali', serif;
+  background-color: #e1e1e1;
+}
+
+
+
 /* =================================
    Short Stories Genre Pages
 ================================= */
@@ -29,7 +42,8 @@
 .genre-hero p {
     max-width: 700px;
     margin: 0 auto;
-    line-height: 1.8;
+    line-height: 1.5;
+    font-size: 18px;
 }
 
 
@@ -39,7 +53,12 @@
 
 .popular-stories h2,
 .all-stories h2 {
-    margin-bottom: 18px;
+    margin-bottom: 24px;
+    font-size: 21px;
+    background: #ffffff;
+    padding: 14px 20px;
+    border-left: 6px solid #076300;
+    border-radius: 8px;
 }
 
 
@@ -63,6 +82,7 @@
     border: 1px solid #e8e8e8;
     border-radius: 12px;
     overflow: hidden;
+    height: 100%;
 }
 
 .story-card img {
@@ -74,22 +94,23 @@
 
 .story-content {
     padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
 }
 
 .story-content h3 {
-    margin: 0 0 10px;
-    font-size: 1rem;
-}
-
-.story-content h3 a {
-    text-decoration: none;
-    color: inherit;
+    margin: 0;
+    font-size: 1.4rem;
 }
 
 .story-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+    justify-content: center;
 }
 
 .story-tags span {
@@ -99,6 +120,13 @@
     background: #f4f4f4;
 }
 
+.story-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
+
 
 /* ================================
    All Story List
@@ -106,17 +134,25 @@
 
 .story-list {
     margin: 0;
-    padding-left: 24px;
+    padding-left: 60px;
+    column-count: 3;
+    column-gap: 40px;
 }
 
 .story-list li {
     margin-bottom: 12px;
     line-height: 1.8;
+    break-inside: avoid;
+}
+
+.story-list li::marker {
+    font-size: 20px;
 }
 
 .story-list a {
     text-decoration: none;
     color: inherit;
+    font-size: 20px;
 }
 
 
@@ -124,10 +160,24 @@
    Tablet
 ================================ */
 
-@media (max-width: 992px) {
+@media (max-width: 999px) and (min-width: 600px) {
 
     .story-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .story-list {
+        column-count: 2;
+    }
+
+    .popular-stories h2,
+    .all-stories h2 {
+        font-size: 18px;
+    }
+
+    .genre-hero p,
+    .story-list a {
+        font-size: 19px;
     }
 
 }
@@ -137,7 +187,7 @@
    Mobile
 ================================ */
 
-@media (max-width: 768px) {
+@media (max-width: 599px) {
 
     .genre-hero h1 {
         font-size: 1.7rem;
@@ -158,6 +208,20 @@
 
     .story-tags span {
         font-size: 0.75rem;
+    }
+
+    .story-list {
+        column-count: 1;
+    }
+
+    .popular-stories h2,
+    .all-stories h2 {
+        font-size: 19px;
+    }
+
+    .genre-hero p,
+    .story-list a {
+        font-size: 17px;
     }
 
 }
