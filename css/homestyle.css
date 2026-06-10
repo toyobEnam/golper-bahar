@@ -311,66 +311,6 @@ body {
   background-color: #d6e6ff;
 }
 
-/* ======= 18/2 Update ======== */
-
-.homeCategory {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  background: #e4edff;
-  padding: 10px 20px;
-}
-
-.headCatText { grid-column: 1 / 3; display: flex; justify-content: center; align-items: center; }
-.headCatText h3 { font-size: 20px; }
-.bodyCatText { grid-column: 3 / 9; }
-
-.bodyCatText {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  text-align: center;
-}
-
-.bodyCatText .hc-item {
- border: 1px solid black;
- border-radius: 5px;
- margin: 5px;
- padding: 6px 10px;
- display: flex;
- justify-content: center;
- align-items: center;
- font-size: 18px;
- color: #d6e6ff;
- background: #190029;
- background: linear-gradient(90deg, rgb(0, 17, 83) 0%, rgb(52, 0, 129) 100%);
- transition: all 0.5s ease;
-}
-
-.bodyCatText .hc-item:hover {
-   background: linear-gradient(90deg, rgb(99, 0, 30) 0%, rgb(121, 28, 0) 100%);
-}
-
-@media (max-width: 1000px) {
-  .headCatText {
-    grid-column: 1 / -1;
-  }
-
-  .bodyCatText {
-    grid-column: 1 / -1;
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .headCatText {
-    grid-column: 1 / -1;
-  }
-
-  .bodyCatText {
-    grid-column: 1 / -1;
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 /* ================= Social Connect ================= */
 
 .socialConnect {
