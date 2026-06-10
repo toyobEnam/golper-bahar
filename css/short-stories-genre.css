@@ -190,7 +190,7 @@ body {
 @media (max-width: 599px) {
 
     .genre-hero h1 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
 
     .story-grid {
@@ -216,12 +216,15 @@ body {
 
     .popular-stories h2,
     .all-stories h2 {
-        font-size: 19px;
+        font-size: 16px;
     }
 
-    .genre-hero p,
+    .genre-hero p {
+        line-height: 1.4;
+        font-size: 15px;
+    }
     .story-list a {
-        font-size: 17px;
+        font-size: 16px;
     }
 
 }
