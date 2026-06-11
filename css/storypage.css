@@ -564,3 +564,48 @@ a, button {
     font-size: 0.9rem;
   }
 }
+
+
+
+/* ===== Writer Note ===== */
+.writer-note {
+  background: #ffffff;
+  padding: 12px 15px;
+  margin-bottom: 25px;
+  border-radius: 6px;
+}
+
+.writer-note p {
+  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.writer-note .tag-btn {
+  display: inline-block;
+  background: #002c73;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 3px 8px;
+  margin: 0 2px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.writer-note .tag-btn:hover {
+  background: #000000;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .writer-note {
+    padding: 10px 12px;
+    margin-bottom: 20px;
+  }
+
+  .writer-note p {
+    font-size: 15px;
+  }
+}
