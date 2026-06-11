@@ -63,7 +63,7 @@ body {
   gap: 6px;
   border-bottom: 1px solid black;
 
-  background-image: linear-gradient(rgba(255, 255, 255, 0.566), rgba(255,255,255,0.25)), url("https://res.cloudinary.com/dhj4ovvav/image/upload/v1770527495/covers_vjzom4.webp");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.566), rgba(255,255,255,0.25)), url("https://res.cloudinary.com/dhj4ovvav/image/upload/v1781107408/image_dhu7fx.webp");
   background-size: cover;      /* পুরো header ভরবে */
   background-position: center; /* মাঝখানে থাকবে */
   background-repeat: no-repeat;

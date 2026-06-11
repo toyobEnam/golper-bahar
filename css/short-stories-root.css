@@ -1,3 +1,33 @@
+
+@font-face {
+  font-family: "Kalpurush";
+  src: url("../assets/fonts/kalpurush.ttf") format("truetype");
+}
+
+
+
+@font-face {
+  font-family: "LiPurnoPran";
+  src: url("../assets/fonts/LiPurnoPran.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+    text-decoration: none;
+}
+
+
+.mid-text {
+    text-align: center;
+}
+
+
 /* =========================
    Short Stories Root Page
    File: /css/short-story-root.css
@@ -44,6 +74,7 @@
 .genre-section h2,
 .popular-stories h2 {
     margin-bottom: 16px;
+    text-align: center;
 }
 
 .short-info p {
@@ -161,13 +192,11 @@
     font-size: 0.9rem;
 }
 
+/* ----- footer placement ------ */
 
-/* =========================
-   Footer Placeholder
-========================= */
 
-footer {
-    margin-top: 40px;
+#footer {
+    margin-top: 30px;
 }
 
 
@@ -221,3 +250,65 @@ footer {
     }
 
 }
+
+
+
+/* =========================
+   Genre Colors
+========================= */
+
+.genre-card:nth-child(1){
+    background:#ffe5e5;
+}
+
+.genre-card:nth-child(1):hover{
+    background:#d62828;
+    color:#fff;
+}
+
+.genre-card:nth-child(2){
+    background:#fff0d6;
+}
+
+.genre-card:nth-child(2):hover{
+    background:#8a7c00;
+    color:#fff;
+}
+
+.genre-card:nth-child(3){
+    background:#e3f2fd;
+}
+
+.genre-card:nth-child(3):hover{
+    background:#1976d2;
+    color:#fff;
+}
+
+.genre-card:nth-child(4){
+    background:#e8f5e9;
+}
+
+.genre-card:nth-child(4):hover{
+    background:#2e7d32;
+    color:#fff;
+}
+
+.genre-card:nth-child(5){
+    background:#f3e5f5;
+}
+
+.genre-card:nth-child(5):hover{
+    background:#7b1fa2;
+    color:#fff;
+}
+
+.genre-card:nth-child(6){
+    background:#eceff1;
+}
+
+.genre-card:nth-child(6):hover{
+    background:#37474f;
+    color:#fff;
+}
+
+
