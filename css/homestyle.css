@@ -88,15 +88,12 @@ body {
 .spaceMiddle,
 .spaceWriter,
 .spaceE {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 14px;
+  padding: 7px;
 }
 
 .bigBtn {
   width: 100%;
-  max-width: 360px;
+  height: 100%;
   padding: 14px 22px;
   font-size: 16px;
   font-weight: 500;
@@ -107,6 +104,9 @@ body {
   text-align: center;
   cursor: pointer;
   transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bigBtn:hover {
@@ -238,12 +238,12 @@ body {
     padding: 10px;
   }
 
-  .spaceD,
-  .spaceMiddle,
-  .spaceWriter,
-  .spaceE {
-    padding: 10px;
-  }
+.spaceD,
+.spaceMiddle,
+.spaceWriter,
+.spaceE {
+  padding: 5px;
+}
 
   .spaceD { grid-column: 1; }
   .spaceMiddle { grid-column: 2; }
@@ -278,14 +278,17 @@ body {
     overflow-x: hidden;
   }
 
-  .spaceD,
-  .spaceMiddle,
-  .spaceWriter,
-  .spaceE,
-  .spaceF,
-  .spaceG {
-    padding: 15px;
-  }
+.spaceD,
+.spaceMiddle,
+.spaceWriter,
+.spaceE {
+  padding: 5px;
+}
+
+.spaceF,
+.spaceG {
+  padding: 15px;
+}
 
   .intro {
     padding: 20px;
