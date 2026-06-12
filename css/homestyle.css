@@ -75,14 +75,18 @@ body {
 .intro  { grid-column: 3 / 7; text-align: center; }
 .spaceC { grid-column: 7 / 9; }
 
-.spaceD { grid-column: 1 / 5; }
-.spaceE { grid-column: 5 / 9; }
+.spaceD { grid-column: 1 / 3; }
+.spaceMiddle { grid-column: 3 / 5; }
+.spaceWriter { grid-column: 5 / 7; }
+.spaceE { grid-column: 7 / 9; }
 
 .spaceF { grid-column: 1 / 5; }
 .spaceG { grid-column: 5 / 9; }
 
 
 .spaceD,
+.spaceMiddle,
+.spaceWriter,
 .spaceE {
   display: flex;
   justify-content: center;
@@ -223,18 +227,28 @@ body {
   }
 
   .homeContainer {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     margin: 0px;
   }
 
   .intro,
-  .spaceD,
-  .spaceE,
   .spaceF,
   .spaceG {
     grid-column: 1 / -1;
     padding: 10px;
   }
+
+  .spaceD,
+  .spaceMiddle,
+  .spaceWriter,
+  .spaceE {
+    padding: 10px;
+  }
+
+  .spaceD { grid-column: 1; }
+  .spaceMiddle { grid-column: 2; }
+  .spaceWriter { grid-column: 1; }
+  .spaceE { grid-column: 2; }
 
   .spaceF .lowerBox,
   .spaceG .lowerBox {
@@ -265,6 +279,8 @@ body {
   }
 
   .spaceD,
+  .spaceMiddle,
+  .spaceWriter,
   .spaceE,
   .spaceF,
   .spaceG {
@@ -307,6 +323,8 @@ body {
 .intro,
 .spaceC,
 .spaceD,
+.spaceMiddle,
+.spaceWriter,
 .spaceE {
   background-color: #d6e6ff;
 }
