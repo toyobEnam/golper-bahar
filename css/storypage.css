@@ -31,7 +31,7 @@ a {
 body {
   margin: 0;
   font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-  background: #d8d8d8;
+  background: #dbdbdb;
 }
 
 /* ===== Grid Container ===== */
@@ -105,20 +105,20 @@ body.dark .header *{
 .leftBar {
   grid-area: left;
   padding: 20px;
-  background: #d8d8d8;
+  background: #dbdbdb;
 }
 
 .mainContent {
   font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
   grid-area: main;
   padding: 25px 80px;
-  background: #d8d8d8;
+  background: #dbdbdb;
 }
 
 .rightBar {
   grid-area: right;
   padding: 20px;
-  background: #d8d8d8;
+  background: #dbdbdb;
 }
 
 .footer {
@@ -132,7 +132,7 @@ body.dark .header *{
     .mainContent {
     grid-area: main;
     padding: 25px 25px;
-    background: #d8d8d8;
+    background: #dbdbdb;
 }
 }
 
