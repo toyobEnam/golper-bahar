@@ -664,5 +664,14 @@
     "categorySlug": null,
     "storySlug": "9-ovilashir-aboron",
     "writerSlug": "a006-navnita-chowdhury"
-  }
+  },
+{
+  "storyName": "শ্রাবণধারায়",
+  "writerName": "মৌরিন আহমেদ",
+  "writerSlug": "a004-mourin",
+  "storyType": "short-story",
+  "categoryName": "রোমান্টিক",
+  "categorySlug": "romantic",
+  "storySlug": "sh-rom-0004-srabondharay"
+}
 ]
