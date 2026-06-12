@@ -25,6 +25,7 @@
 
 * {
     font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+    box-sizing: border-box;
 }
 
 .site-footer {
