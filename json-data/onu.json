@@ -2,6 +2,7 @@
   {
     "storyName": "ফুল চোর",
     "writerName": "নুসরাত জাহান লিজা",
+    "writerSlug": "a001-nusrat-jahan-liza",
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
@@ -13,7 +14,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "10-dui-golpe-vinnota"
+    "storySlug": "10-dui-golpe-vinnota",
+    "writerSlug": "a008-tiyasha"
   },
   {
     "storyName": "অপ্রত্যাশিত পূর্ণতা",
@@ -21,7 +23,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "11-oprottashito-purnota"
+    "storySlug": "11-oprottashito-purnota",
+    "writerSlug": "a008-tiyasha"
   },
   {
     "storyName": "মধুমিতা",
@@ -29,7 +32,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "12-modhumita"
+    "storySlug": "12-modhumita",
+    "writerSlug": "a008-tiyasha"
   },
   {
     "storyName": "প্রেমরঙা ক্যানভাস",
@@ -37,7 +41,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "13-premronga-canvas"
+    "storySlug": "13-premronga-canvas",
+    "writerSlug": "a008-tiyasha"
   },
   {
     "storyName": "উপাখ্যানের এক পাতা",
@@ -45,7 +50,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "14-upakkhaner-ek-pata"
+    "storySlug": "14-upakkhaner-ek-pata",
+    "writerSlug": "a008-tiyasha"
   },
   {
     "storyName": "হঠাৎ করে",
@@ -53,7 +59,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "15-hothat-kore"
+    "storySlug": "15-hothat-kore",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "চোখের আলোয় দেখেছিলেম",
@@ -61,7 +68,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "16-cokher-aloy-dekhechilem"
+    "storySlug": "16-cokher-aloy-dekhechilem",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "মেঘমুক্ত নীলাকাশ",
@@ -69,7 +77,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "17-meghmukto-nilakash"
+    "storySlug": "17-meghmukto-nilakash",
+    "writerSlug": "a003-saiful-islam"
   },
   {
     "storyName": "অরণ্যে প্রেমপ্রহর",
@@ -77,7 +86,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "18-oronne-premprohor"
+    "storySlug": "18-oronne-premprohor",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "মন বসে না শহরে",
@@ -85,11 +95,13 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "19-mon-bose-na-sohore"
+    "storySlug": "19-mon-bose-na-sohore",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "আমি এবং রুমু খালামনি",
     "writerName": "নুসরাত জাহান লিজা",
+    "writerSlug": "a001-nusrat-jahan-liza",
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
@@ -101,7 +113,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "20-nirliptota-ebong-se"
+    "storySlug": "20-nirliptota-ebong-se",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "বিভ্রান্তির দায়",
@@ -109,7 +122,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "21-bivrantir-dayy"
+    "storySlug": "21-bivrantir-dayy",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "চলো কথা রাখি",
@@ -117,7 +131,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "3-cholo-kotha-rakhi"
+    "storySlug": "3-cholo-kotha-rakhi",
+    "writerSlug": "a005-mohuya-amrin"
   },
   {
     "storyName": "অর্নবের বোকা প্রেমিকা",
@@ -125,7 +140,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "4-ornober-boka-premika"
+    "storySlug": "4-ornober-boka-premika",
+    "writerSlug": "a005-mohuya-amrin"
   },
   {
     "storyName": "ভালো থেকো",
@@ -133,7 +149,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "5-valo-theko"
+    "storySlug": "5-valo-theko",
+    "writerSlug": "a003-saiful-islam"
   },
   {
     "storyName": "মেঘে ঢাকা দিনে",
@@ -141,7 +158,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "6-meghe-dhaka-dine"
+    "storySlug": "6-meghe-dhaka-dine",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "In Search of You",
@@ -149,7 +167,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "7-in-search-of-you"
+    "storySlug": "7-in-search-of-you",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "বিষাদ চৈত্র",
@@ -157,7 +176,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "8-bishad-coitro-mourin"
+    "storySlug": "8-bishad-coitro-mourin",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "অভিলাষীর আবরণ",
@@ -165,7 +185,7 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "9-ovilashir-aboron"
+    "storySlug": "9-ovilashir-aboron",
+    "writerSlug": "a006-navnita-chowdhury"
   }
-
 ]

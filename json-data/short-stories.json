@@ -1,0 +1,38 @@
+[
+    {
+  "storyName": "রেড ফ্ল্যাগ্স",
+  "writerName": "সূচনা জাফরিন",
+  "storyType": "short-story",
+  "categoryName": "পারিবারিক",
+  "categorySlug": "family",
+  "storySlug": "sh-fam-0001-red-flags",
+  "writerSlug": "a015-suchana-jafrin"
+},
+{
+  "storyName": "চোরাবালি",
+  "writerName": "আজেরিন হিরানুর",
+  "storyType": "short-story",
+  "categoryName": "রোমান্টিক",
+  "categorySlug": "romantic",
+  "storySlug": "sh-rom-0001-corabali",
+  "writerSlug": "a014-azerin-hiranur"
+},
+{
+  "storyName": "কস্মিনকালে",
+  "writerName": "সূচনা জাফরিন",
+  "storyType": "short-story",
+  "categoryName": "রোমান্টিক",
+  "categorySlug": "romantic",
+  "storySlug": "sh-rom-0002-kosminkale",
+  "writerSlug": "a015-suchana-jafrin"
+},
+{
+  "storyName": "অভিমান",
+  "writerName": "মৌরিন আহমেদ",
+  "storyType": "short-story",
+  "categoryName": "রোমান্টিক",
+  "categorySlug": "romantic",
+  "storySlug": "sh-rom-0003-oviman",
+  "writerSlug": "a004-mourin"
+}
+]

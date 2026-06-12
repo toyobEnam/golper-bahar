@@ -6,7 +6,7 @@
 async function getStoryCounts() {
 
     const response =
-        await fetch("/data/story-index.json");
+        await fetch("/json-data/story-index.json");
 
     const stories =
         await response.json();
@@ -37,20 +37,46 @@ async function getStoryCounts() {
         ).size;
 
     return {
-
         total,
-
         serial,
-
         shortStory,
-
         onu,
+        writers
+    };
+
+}
+
+
+/* ==========================================
+   Custom JSON Count
+========================================== */
+
+async function getJsonCounts(jsonFile) {
+
+    const response =
+        await fetch(jsonFile);
+
+    const stories =
+        await response.json();
+
+    const writers =
+        new Set(
+            stories.map(
+                s => s.writerName
+            )
+        ).size;
+
+    return {
+
+        total:
+            stories.length,
 
         writers
 
     };
 
 }
+
 
 /* ==========================================
    Bangla Number Helper
@@ -60,8 +86,9 @@ function toBanglaNumber(num) {
 
     return num
         .toLocaleString("en-US")
-        .replace(/\d/g, d =>
-            "০১২৩৪৫৬৭৮৯"[d]
+        .replace(
+            /\d/g,
+            d => "০১২৩৪৫৬৭৮৯"[d]
         );
 
 }

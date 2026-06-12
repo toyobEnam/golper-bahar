@@ -93,23 +93,23 @@
 <div class="stats-grid">
 
     <div class="stat-card">
-        <strong id="shortStoryCount">০</strong>
         <span>মোট গল্প</span>
+        <strong id="shortStoryCount">০</strong>
     </div>
 
     <div class="stat-card">
-        <strong id="totalEpisodeCount">০</strong>
-        <span>মোট পর্ব</span>
+        <span>মোট ক্যাটাগরি</span>
+        <strong>৬</strong>
     </div>
 
     <div class="stat-card">
-        <strong id="writerCount">০</strong>
         <span>লেখক</span>
+        <strong id="writerCount">০</strong>
     </div>
 
     <div class="stat-card">
-        <strong id="lastUpdate">আজ</strong>
         <span>সর্বশেষ আপডেট</span>
+        <strong>আজ</strong>
     </div>
 
 </div>
@@ -167,7 +167,9 @@
 
             <div class="story-grid">
 
-                <!-- Card 1 -->
+
+
+
                 <a href="romantic/sh-rom-0001-corabali/" class="story-card-link">
 
                     <article class="story-card">
@@ -183,7 +185,7 @@
 
                 </a>
 
-                <!-- Card 2 -->
+
                 <a href="family/sh-fam-0001-red-flags/" class="story-card-link">
 
                     <article class="story-card">
@@ -199,7 +201,7 @@
 
                 </a>
 
-                <!-- Card 3 -->
+
 <a href="romantic/sh-rom-0002-kosminkale/" class="story-card-link">
 
     <article class="story-card">
@@ -215,7 +217,7 @@
 
 </a>
 
-                <!-- Card 4 -->
+
 <a href="romantic/sh-rom-0003-oviman/" class="story-card-link">
 
     <article class="story-card">
@@ -243,11 +245,19 @@
 
     <ol class="story-list">
 
-        <li>
-            <a href="romantic/sh-rom-0001-corabali/">
-                চোরাবালি (রোমান্টিক • ৩ পর্ব)
-            </a>
-        </li>
+ <!-- ====   ====   ==== এখানে তালিকা যুক্ত করো ====   ====   ====
+                            |||                         === -->
+
+
+
+
+
+<li>
+    <a href="romantic/sh-rom-0001-corabali/">
+        চোরাবালি (রোমান্টিক • ৩ পর্ব)
+    </a>
+</li>
+
 
 <li>
     <a href="family/sh-fam-0001-red-flags/">
@@ -255,29 +265,19 @@
     </a>
 </li>
 
+
 <li>
     <a href="romantic/sh-rom-0002-kosminkale/">
         কস্মিনকালে (রোমান্টিক • ২ পর্ব)
     </a>
 </li>
 
+
 <li>
     <a href="romantic/sh-rom-0003-oviman/">
         অভিমান (রোমান্টিক • ৫ পর্ব)
     </a>
 </li>
-
-        <li>
-            <a href="#">
-                গল্পের নাম (লাভ থ্রিলার • ৬ পর্ব)
-            </a>
-        </li>
-
-        <li>
-            <a href="#">
-                গল্পের নাম (ট্রাজেডি • ৩ পর্ব)
-            </a>
-        </li>
 
     </ol>
 
@@ -289,5 +289,31 @@
 <script src="../js/components.js"></script>
 <script src="../js/count.js"></script>
 <script src="../js/short-stories.js"></script>
+<script>
+document.addEventListener(
+"DOMContentLoaded",
+async () => {
+
+const counts =
+    await getJsonCounts(
+        "/json-data/short-stories.json"
+    );
+
+document.getElementById(
+    "shortStoryCount"
+).innerText =
+    toBanglaNumber(
+        counts.total
+    );
+
+document.getElementById(
+    "writerCount"
+).innerText =
+    toBanglaNumber(
+        counts.writers
+    );
+
+});
+</script>
 </body>
 </html>

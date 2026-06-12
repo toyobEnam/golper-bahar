@@ -5,7 +5,8 @@
     "storyType": "short-story",
     "categoryName": "পারিবারিক",
     "categorySlug": "family",
-    "storySlug": "sh-fam-0001-red-flags"
+    "storySlug": "sh-fam-0001-red-flags",
+    "writerSlug": "a015-suchana-jafrin"
   },
   {
     "storyName": "চোরাবালি",
@@ -13,7 +14,8 @@
     "storyType": "short-story",
     "categoryName": "রোমান্টিক",
     "categorySlug": "romantic",
-    "storySlug": "sh-rom-0001-corabali"
+    "storySlug": "sh-rom-0001-corabali",
+    "writerSlug": "a014-azerin-hiranur"
   },
   {
     "storyName": "কস্মিনকালে",
@@ -21,7 +23,8 @@
     "storyType": "short-story",
     "categoryName": "রোমান্টিক",
     "categorySlug": "romantic",
-    "storySlug": "sh-rom-0002-kosminkale"
+    "storySlug": "sh-rom-0002-kosminkale",
+    "writerSlug": "a015-suchana-jafrin"
   },
   {
     "storyName": "অভিমান",
@@ -29,11 +32,13 @@
     "storyType": "short-story",
     "categoryName": "রোমান্টিক",
     "categorySlug": "romantic",
-    "storySlug": "sh-rom-0003-oviman"
+    "storySlug": "sh-rom-0003-oviman",
+    "writerSlug": "a004-mourin"
   },
-    {
+  {
     "storyName": "বিবাহ বিভ্রাট ডটকম",
     "writerName": "নুসরাত জাহান লিজা",
+    "writerSlug": "a001-nusrat-jahan-liza",
     "storyType": "serial",
     "categoryName": "সাংসারিক",
     "categorySlug": "sangsarik",
@@ -45,7 +50,8 @@
     "storyType": "serial",
     "categoryName": "টিনেজার স্পেশাল",
     "categorySlug": "teenager-special",
-    "storySlug": "ts-0001-oporicitar-preme"
+    "storySlug": "ts-0001-oporicitar-preme",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "উদাস পূরবী হাওয়া",
@@ -53,7 +59,8 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক থ্রিলার",
     "categorySlug": "romantic-thriller",
-    "storySlug": "rt-0002-udash-purobi-hawa"
+    "storySlug": "rt-0002-udash-purobi-hawa",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "গল্পটা তুমিময়",
@@ -61,7 +68,8 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক",
     "categorySlug": "bangla-love-story",
-    "storySlug": "bls-0001-golpota-tumimoy"
+    "storySlug": "bls-0001-golpota-tumimoy",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "গুঞ্জরনের নীড়ে",
@@ -69,11 +77,13 @@
     "storyType": "serial",
     "categoryName": "টিনেজার স্পেশাল",
     "categorySlug": "teenager-special",
-    "storySlug": "ts-0002-gunjoroner-neere"
+    "storySlug": "ts-0002-gunjoroner-neere",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "তোমার নিমন্ত্রণে",
     "writerName": "নুসরাত জাহান লিজা",
+    "writerSlug": "a001-nusrat-jahan-liza",
     "storyType": "serial",
     "categoryName": "রোমান্টিক",
     "categorySlug": "bangla-love-story",
@@ -85,7 +95,8 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক",
     "categorySlug": "bangla-love-story",
-    "storySlug": "bls-0003-fire-dekha"
+    "storySlug": "bls-0003-fire-dekha",
+    "writerSlug": "a007-noureen"
   },
   {
     "storyName": "বৈরীতা ও অনুরক্তি",
@@ -93,7 +104,8 @@
     "storyType": "serial",
     "categoryName": "সামাজিক",
     "categorySlug": "social-plot",
-    "storySlug": "sp-0001-boirita-o-onurokti"
+    "storySlug": "sp-0001-boirita-o-onurokti",
+    "writerSlug": "a008-tiyasha"
   },
   {
     "storyName": "মন ছুয়েছে সে",
@@ -101,7 +113,8 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক থ্রিলার",
     "categorySlug": "romantic-thriller",
-    "storySlug": "rt-0001-mon-chuyeche-se"
+    "storySlug": "rt-0001-mon-chuyeche-se",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "প্রণয়ের সুর",
@@ -109,7 +122,8 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক",
     "categorySlug": "bangla-love-story",
-    "storySlug": "bls-0004-pronoyer-sur"
+    "storySlug": "bls-0004-pronoyer-sur",
+    "writerSlug": "a005-mohuya-amrin"
   },
   {
     "storyName": "হাওয়ার সুরে ভেসে আসা তুমি",
@@ -117,7 +131,8 @@
     "storyType": "serial",
     "categoryName": "রহস্যের বেড়াজাল",
     "categorySlug": "bangla-suspense",
-    "storySlug": "bs-0001-hawar-sure-veshe"
+    "storySlug": "bs-0001-hawar-sure-veshe",
+    "writerSlug": "a009-oyontika-rafiath"
   },
   {
     "storyName": "সে আমার পূর্ণতা",
@@ -125,7 +140,8 @@
     "storyType": "serial",
     "categoryName": "ফ্যামিলি ড্রামা",
     "categorySlug": "family-drama",
-    "storySlug": "fd-0001-se-amar-purnota"
+    "storySlug": "fd-0001-se-amar-purnota",
+    "writerSlug": "a006-navnita-chowdhury"
   },
   {
     "storyName": "মৌনপ্রেম",
@@ -133,11 +149,13 @@
     "storyType": "serial",
     "categoryName": "ফ্যামিলি ড্রামা",
     "categorySlug": "family-drama",
-    "storySlug": "fd-0002-mounoprem"
+    "storySlug": "fd-0002-mounoprem",
+    "writerSlug": "a009-oyontika-rafiath"
   },
   {
     "storyName": "মাইনাসে মাইনাসে প্লাস",
     "writerName": "নুসরাত জাহান লিজা",
+    "writerSlug": "a001-nusrat-jahan-liza",
     "storyType": "serial",
     "categoryName": "সাংসারিক",
     "categorySlug": "sangsarik",
@@ -149,7 +167,8 @@
     "storyType": "serial",
     "categoryName": "সামাজিক",
     "categorySlug": "social-plot",
-    "storySlug": "sp-0002-noishobder-premalap"
+    "storySlug": "sp-0002-noishobder-premalap",
+    "writerSlug": "a005-mohuya-amrin"
   },
   {
     "storyName": "প্রেমভুবনের অতসী",
@@ -157,7 +176,8 @@
     "storyType": "serial",
     "categoryName": "ফ্যামিলি ড্রামা",
     "categorySlug": "family-drama",
-    "storySlug": "fd-0003-premvuboner-otoshi"
+    "storySlug": "fd-0003-premvuboner-otoshi",
+    "writerSlug": "a009-oyontika-rafiath"
   },
   {
     "storyName": "এক ফাগুনের গল্প",
@@ -165,7 +185,8 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক",
     "categorySlug": "bangla-love-story",
-    "storySlug": "bls-0005-ek-faguner-golpo"
+    "storySlug": "bls-0005-ek-faguner-golpo",
+    "writerSlug": "a003-saiful-islam"
   },
   {
     "storyName": "আধফোটা প্রেমের ফুল",
@@ -173,7 +194,8 @@
     "storyType": "serial",
     "categoryName": "সামাজিক",
     "categorySlug": "social-plot",
-    "storySlug": "sp-0003-adhfota-premer-ful"
+    "storySlug": "sp-0003-adhfota-premer-ful",
+    "writerSlug": "a007-noureen"
   },
   {
     "storyName": "হৃদয়ের রঙিন ক্যানভাস",
@@ -181,7 +203,8 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক",
     "categorySlug": "bangla-love-story",
-    "storySlug": "bls-0006-hridoyer-rongin-canvas"
+    "storySlug": "bls-0006-hridoyer-rongin-canvas",
+    "writerSlug": "a008-tiyasha"
   },
   {
     "storyName": "হৃদয়ের সবকথা নীরবতা",
@@ -189,11 +212,13 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক",
     "categorySlug": "bangla-love-story",
-    "storySlug": "bls-0007-sobkotha-nirobota"
+    "storySlug": "bls-0007-sobkotha-nirobota",
+    "writerSlug": "a003-saiful-islam"
   },
   {
     "storyName": "আঁধারের তারাবাজি",
     "writerName": "অভ্রায়ীনি ঐশি",
+    "writerSlug": "a002-avrayini-oishi",
     "storyType": "serial",
     "categoryName": "রোমান্টিক থ্রিলার",
     "categorySlug": "romantic-thriller",
@@ -202,6 +227,7 @@
   {
     "storyName": "Mr and Mrs Twins",
     "writerName": "অভ্রায়ীনি ঐশি",
+    "writerSlug": "a002-avrayini-oishi",
     "storyType": "serial",
     "categoryName": "ফ্যামিলি ড্রামা",
     "categorySlug": "family-drama",
@@ -213,11 +239,13 @@
     "storyType": "serial",
     "categoryName": "ফ্যামিলি ড্রামা",
     "categorySlug": "family-drama",
-    "storySlug": "fd-0005-se-amar-apon-jon"
+    "storySlug": "fd-0005-se-amar-apon-jon",
+    "writerSlug": "a006-navnita-chowdhury"
   },
   {
     "storyName": "আদ্রের সম্মোহীনি",
     "writerName": "অভ্রায়ীনি ঐশি",
+    "writerSlug": "a002-avrayini-oishi",
     "storyType": "serial",
     "categoryName": "টিনেজার স্পেশাল",
     "categorySlug": "teenager-special",
@@ -226,6 +254,7 @@
   {
     "storyName": "তুমি থাকো সিন্ধুপারে",
     "writerName": "নুসরাত জাহান লিজা",
+    "writerSlug": "a001-nusrat-jahan-liza",
     "storyType": "serial",
     "categoryName": "সামাজিক",
     "categorySlug": "social-plot",
@@ -234,6 +263,7 @@
   {
     "storyName": "সেই তমসায়",
     "writerName": "নুসরাত জাহান লিজা",
+    "writerSlug": "a001-nusrat-jahan-liza",
     "storyType": "serial",
     "categoryName": "থ্রিলার",
     "categorySlug": "thriller",
@@ -242,6 +272,7 @@
   {
     "storyName": "Mr and Mrs Twins Return",
     "writerName": "অভ্রায়ীনি ঐশি",
+    "writerSlug": "a002-avrayini-oishi",
     "storyType": "serial",
     "categoryName": "রোমান্টিক",
     "categorySlug": "bangla-love-story",
@@ -250,6 +281,7 @@
   {
     "storyName": "রেখো তোমার বাহুডোরে",
     "writerName": "অভ্রায়ীনি ঐশি",
+    "writerSlug": "a002-avrayini-oishi",
     "storyType": "serial",
     "categoryName": "রহস্যের বেড়াজাল",
     "categorySlug": "bangla-suspense",
@@ -261,11 +293,13 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক থ্রিলার",
     "categorySlug": "romantic-thriller",
-    "storySlug": "rt-0004-she-is-my-obsession"
+    "storySlug": "rt-0004-she-is-my-obsession",
+    "writerSlug": "a006-navnita-chowdhury"
   },
   {
     "storyName": "নব ফাল্গুনের দিনে",
     "writerName": "নুসরাত জাহান লিজা",
+    "writerSlug": "a001-nusrat-jahan-liza",
     "storyType": "serial",
     "categoryName": "ফ্যামিলি ড্রামা",
     "categorySlug": "family-drama",
@@ -274,6 +308,7 @@
   {
     "storyName": "তুমি কোন কাননের ফুল",
     "writerName": "অভ্রায়ীনি ঐশি",
+    "writerSlug": "a002-avrayini-oishi",
     "storyType": "serial",
     "categoryName": "সাংসারিক",
     "categorySlug": "sangsarik",
@@ -285,11 +320,13 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক থ্রিলার",
     "categorySlug": "romantic-thriller",
-    "storySlug": "rt-0005-ora-moner-gopon-cene-na"
+    "storySlug": "rt-0005-ora-moner-gopon-cene-na",
+    "writerSlug": "a010-bristy-sheikh"
   },
   {
     "storyName": "অবেলার অতিথি",
     "writerName": "অভ্রায়ীনি ঐশি",
+    "writerSlug": "a002-avrayini-oishi",
     "storyType": "serial",
     "categoryName": "রোমান্টিক থ্রিলার",
     "categorySlug": "romantic-thriller",
@@ -301,11 +338,13 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক থ্রিলার",
     "categorySlug": "romantic-thriller",
-    "storySlug": "rt-0007-snigdho-premer-maya"
+    "storySlug": "rt-0007-snigdho-premer-maya",
+    "writerSlug": "a008-tiyasha"
   },
   {
     "storyName": "বিবর্ণ বসন্ত",
     "writerName": "নুসরাত জাহান লিজা",
+    "writerSlug": "a001-nusrat-jahan-liza",
     "storyType": "serial",
     "categoryName": "রহস্যের বেড়াজাল",
     "categorySlug": "bangla-suspense",
@@ -314,6 +353,7 @@
   {
     "storyName": "হৃদয় পথে এ কার ছায়া",
     "writerName": "নুসরাত জাহান লিজা",
+    "writerSlug": "a001-nusrat-jahan-liza",
     "storyType": "serial",
     "categoryName": "ফ্যামিলি ড্রামা",
     "categorySlug": "family-drama",
@@ -325,7 +365,8 @@
     "storyType": "serial",
     "categoryName": "ফ্যামিলি ড্রামা",
     "categorySlug": "family-drama",
-    "storySlug": "fd-0008-bihonginir-bekul-mon"
+    "storySlug": "fd-0008-bihonginir-bekul-mon",
+    "writerSlug": "a011-bonna-sikder"
   },
   {
     "storyName": "নেশাময় আসক্তি",
@@ -333,7 +374,8 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক",
     "categorySlug": "bangla-love-story",
-    "storySlug": "bls-0009-neshamoy-asokti"
+    "storySlug": "bls-0009-neshamoy-asokti",
+    "writerSlug": "a011-bonna-sikder"
   },
   {
     "storyName": "অলিতে গলিতে প্রেম",
@@ -341,7 +383,8 @@
     "storyType": "serial",
     "categoryName": "ফ্যামিলি ড্রামা",
     "categorySlug": "family-drama",
-    "storySlug": "fd-0009-olite-golite-prem"
+    "storySlug": "fd-0009-olite-golite-prem",
+    "writerSlug": "a012-khusbu-akter"
   },
   {
     "storyName": "নীল চোখের অপেক্ষায়",
@@ -349,7 +392,8 @@
     "storyType": "serial",
     "categoryName": "সাংসারিক",
     "categorySlug": "sangsarik",
-    "storySlug": "ss-0004-nil-cokher-opekkhay"
+    "storySlug": "ss-0004-nil-cokher-opekkhay",
+    "writerSlug": "a013-jannati-akter-simi"
   },
   {
     "storyName": "তোর পিরীতে পাগল হইলাম রে",
@@ -357,7 +401,8 @@
     "storyType": "serial",
     "categoryName": "সামাজিক",
     "categorySlug": "social-plot",
-    "storySlug": "sp-0005-tor-pirite-pagol-hoilam-re"
+    "storySlug": "sp-0005-tor-pirite-pagol-hoilam-re",
+    "writerSlug": "a012-khusbu-akter"
   },
   {
     "storyName": "বিলম্বিত উপলব্ধি",
@@ -365,7 +410,8 @@
     "storyType": "serial",
     "categoryName": "সাংসারিক",
     "categorySlug": "sangsarik",
-    "storySlug": "ss-0005-bilombito-upolobdhi"
+    "storySlug": "ss-0005-bilombito-upolobdhi",
+    "writerSlug": "a013-jannati-akter-simi"
   },
   {
     "storyName": "ধুলো মাখা গলিতে",
@@ -373,7 +419,8 @@
     "storyType": "serial",
     "categoryName": "ফ্যামিলি ড্রামা",
     "categorySlug": "family-drama",
-    "storySlug": "fd-0010-dhulo-makha-golite"
+    "storySlug": "fd-0010-dhulo-makha-golite",
+    "writerSlug": "a012-khusbu-akter"
   },
   {
     "storyName": "ভ্রমর কইও গিয়া",
@@ -381,7 +428,8 @@
     "storyType": "serial",
     "categoryName": "ফ্যামিলি ড্রামা",
     "categorySlug": "family-drama",
-    "storySlug": "fd-0011-vromor-koiyo-giya"
+    "storySlug": "fd-0011-vromor-koiyo-giya",
+    "writerSlug": "a012-khusbu-akter"
   },
   {
     "storyName": "রিক্ত বসন্ত",
@@ -389,7 +437,8 @@
     "storyType": "serial",
     "categoryName": "সাংসারিক",
     "categorySlug": "sangsarik",
-    "storySlug": "ss-0006-rikto-bosonto"
+    "storySlug": "ss-0006-rikto-bosonto",
+    "writerSlug": "a012-khusbu-akter"
   },
   {
     "storyName": "অগ্নিকন্যা মহুয়া",
@@ -397,7 +446,8 @@
     "storyType": "serial",
     "categoryName": "সামাজিক",
     "categorySlug": "social-plot",
-    "storySlug": "sp-0006-agnikonna-mohuya"
+    "storySlug": "sp-0006-agnikonna-mohuya",
+    "writerSlug": "a014-azerin-hiranur"
   },
   {
     "storyName": "আমার প্রিয়তা",
@@ -405,7 +455,8 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক",
     "categorySlug": "bangla-love-story",
-    "storySlug": "bls-0010-amar-priyota"
+    "storySlug": "bls-0010-amar-priyota",
+    "writerSlug": "a015-suchana-jafrin"
   },
   {
     "storyName": "আই হেইট রেড ফ্ল্যাগস",
@@ -413,7 +464,8 @@
     "storyType": "serial",
     "categoryName": "রোমান্টিক থ্রিলার",
     "categorySlug": "romantic-thriller",
-    "storySlug": "rt-0008-i-hate-red-flags"
+    "storySlug": "rt-0008-i-hate-red-flags",
+    "writerSlug": "a015-suchana-jafrin"
   },
   {
     "storyName": "শতাব্দী পেরিয়ে",
@@ -421,11 +473,13 @@
     "storyType": "serial",
     "categoryName": "রহস্যের বেড়াজাল",
     "categorySlug": "bangla-suspense",
-    "storySlug": "bs-0004-shotabdi-periye"
+    "storySlug": "bs-0004-shotabdi-periye",
+    "writerSlug": "a015-suchana-jafrin"
   },
-   {
+  {
     "storyName": "ফুল চোর",
     "writerName": "নুসরাত জাহান লিজা",
+    "writerSlug": "a001-nusrat-jahan-liza",
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
@@ -437,7 +491,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "10-dui-golpe-vinnota"
+    "storySlug": "10-dui-golpe-vinnota",
+    "writerSlug": "a008-tiyasha"
   },
   {
     "storyName": "অপ্রত্যাশিত পূর্ণতা",
@@ -445,7 +500,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "11-oprottashito-purnota"
+    "storySlug": "11-oprottashito-purnota",
+    "writerSlug": "a008-tiyasha"
   },
   {
     "storyName": "মধুমিতা",
@@ -453,7 +509,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "12-modhumita"
+    "storySlug": "12-modhumita",
+    "writerSlug": "a008-tiyasha"
   },
   {
     "storyName": "প্রেমরঙা ক্যানভাস",
@@ -461,7 +518,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "13-premronga-canvas"
+    "storySlug": "13-premronga-canvas",
+    "writerSlug": "a008-tiyasha"
   },
   {
     "storyName": "উপাখ্যানের এক পাতা",
@@ -469,7 +527,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "14-upakkhaner-ek-pata"
+    "storySlug": "14-upakkhaner-ek-pata",
+    "writerSlug": "a008-tiyasha"
   },
   {
     "storyName": "হঠাৎ করে",
@@ -477,7 +536,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "15-hothat-kore"
+    "storySlug": "15-hothat-kore",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "চোখের আলোয় দেখেছিলেম",
@@ -485,7 +545,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "16-cokher-aloy-dekhechilem"
+    "storySlug": "16-cokher-aloy-dekhechilem",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "মেঘমুক্ত নীলাকাশ",
@@ -493,7 +554,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "17-meghmukto-nilakash"
+    "storySlug": "17-meghmukto-nilakash",
+    "writerSlug": "a003-saiful-islam"
   },
   {
     "storyName": "অরণ্যে প্রেমপ্রহর",
@@ -501,7 +563,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "18-oronne-premprohor"
+    "storySlug": "18-oronne-premprohor",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "মন বসে না শহরে",
@@ -509,11 +572,13 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "19-mon-bose-na-sohore"
+    "storySlug": "19-mon-bose-na-sohore",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "আমি এবং রুমু খালামনি",
     "writerName": "নুসরাত জাহান লিজা",
+    "writerSlug": "a001-nusrat-jahan-liza",
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
@@ -525,7 +590,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "20-nirliptota-ebong-se"
+    "storySlug": "20-nirliptota-ebong-se",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "বিভ্রান্তির দায়",
@@ -533,7 +599,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "21-bivrantir-dayy"
+    "storySlug": "21-bivrantir-dayy",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "চলো কথা রাখি",
@@ -541,7 +608,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "3-cholo-kotha-rakhi"
+    "storySlug": "3-cholo-kotha-rakhi",
+    "writerSlug": "a005-mohuya-amrin"
   },
   {
     "storyName": "অর্নবের বোকা প্রেমিকা",
@@ -549,7 +617,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "4-ornober-boka-premika"
+    "storySlug": "4-ornober-boka-premika",
+    "writerSlug": "a005-mohuya-amrin"
   },
   {
     "storyName": "ভালো থেকো",
@@ -557,7 +626,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "5-valo-theko"
+    "storySlug": "5-valo-theko",
+    "writerSlug": "a003-saiful-islam"
   },
   {
     "storyName": "মেঘে ঢাকা দিনে",
@@ -565,7 +635,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "6-meghe-dhaka-dine"
+    "storySlug": "6-meghe-dhaka-dine",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "In Search of You",
@@ -573,7 +644,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "7-in-search-of-you"
+    "storySlug": "7-in-search-of-you",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "বিষাদ চৈত্র",
@@ -581,7 +653,8 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "8-bishad-coitro-mourin"
+    "storySlug": "8-bishad-coitro-mourin",
+    "writerSlug": "a004-mourin"
   },
   {
     "storyName": "অভিলাষীর আবরণ",
@@ -589,7 +662,7 @@
     "storyType": "onu",
     "categoryName": null,
     "categorySlug": null,
-    "storySlug": "9-ovilashir-aboron"
+    "storySlug": "9-ovilashir-aboron",
+    "writerSlug": "a006-navnita-chowdhury"
   }
-  
 ]
