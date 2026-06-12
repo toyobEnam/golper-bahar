@@ -1,5 +1,20 @@
 [
 
+  {
+  "storyName": "চোরাবালি",
+  "storySlug": "sh-rom-0001-corabali",
+  "writerName": "আজেরিন হিরানুর",
+  "writerSlug": "a014-azerin-hiranur",
+  "categoryName": "রোমান্টিক",
+  "categorySlug": "romantic",
+  "subCategory": "",
+  "episodeCount": 3,
+  "coverImage": "https://res.cloudinary.com/didbcg0dd/image/upload/v1780967678/corabali-azerin_fmgwnb.webp",
+  "episodeImage": "https://res.cloudinary.com/didbcg0dd/image/upload/q_auto/f_auto/v1780967505/corabali3_dtpy1x.webp",
+  "squareImage": "https://res.cloudinary.com/didbcg0dd/image/upload/v1780967504/corabali1_mpkaib.webp",
+  "createdDate": "2026-06-09"
+},
+
 {
   "storyName": "কস্মিনকালে",
   "storySlug": "sh-rom-0002-kosminkale",

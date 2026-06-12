@@ -1,0 +1,50 @@
+[
+  {
+    "storyName": "বৈরীতা ও অনুরক্তি",
+    "writerName": "তিয়াশা চৌধুরী",
+    "storyType": "serial",
+    "categoryName": "সামাজিক",
+    "categorySlug": "social-plot",
+    "storySlug": "sp-0001-boirita-o-onurokti"
+  },
+  {
+    "storyName": "নৈঃশব্দ্যের প্রেমালাপ",
+    "writerName": "মহুয়া আমরিন বিন্দু",
+    "storyType": "serial",
+    "categoryName": "সামাজিক",
+    "categorySlug": "social-plot",
+    "storySlug": "sp-0002-noishobder-premalap"
+  },
+  {
+    "storyName": "আধফোটা প্রেমের ফুল",
+    "writerName": "নওরিন ইথিকা",
+    "storyType": "serial",
+    "categoryName": "সামাজিক",
+    "categorySlug": "social-plot",
+    "storySlug": "sp-0003-adhfota-premer-ful"
+  },
+  {
+    "storyName": "তুমি থাকো সিন্ধুপারে",
+    "writerName": "নুসরাত জাহান লিজা",
+    "storyType": "serial",
+    "categoryName": "সামাজিক",
+    "categorySlug": "social-plot",
+    "storySlug": "sp-0004-tumi-thako-sindhupare"
+  },
+  {
+    "storyName": "তোর পিরীতে পাগল হইলাম রে",
+    "writerName": "খুশবু আকতার",
+    "storyType": "serial",
+    "categoryName": "সামাজিক",
+    "categorySlug": "social-plot",
+    "storySlug": "sp-0005-tor-pirite-pagol-hoilam-re"
+  },
+  {
+    "storyName": "অগ্নিকন্যা মহুয়া",
+    "writerName": "আজেরিন হিরানুর",
+    "storyType": "serial",
+    "categoryName": "সামাজিক",
+    "categorySlug": "social-plot",
+    "storySlug": "sp-0006-agnikonna-mohuya"
+  }
+]

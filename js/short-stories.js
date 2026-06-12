@@ -229,3 +229,80 @@ JSON.stringify(schema);
 document.head.appendChild(script);
 
 })();
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    async () => {
+
+        const counts =
+            await getStoryCounts();
+
+        document.getElementById(
+            "shortStoryCount"
+        ).innerText =
+            toBanglaNumber(
+                counts.shortStory
+            );
+
+        document.getElementById(
+            "writerCount"
+        ).innerText =
+            toBanglaNumber(
+                counts.writers
+            );
+
+        let totalEpisodes = 0;
+
+        const categories = [
+            "romantic",
+            "family",
+            "love-thriller",
+            "social",
+            "suspense",
+            "tragedy"
+        ];
+
+        for (const category of categories) {
+
+            try {
+
+                const response =
+                    await fetch(
+                        `/data/short-stories/${category}/index.json`
+                    );
+
+                const stories =
+                    await response.json();
+
+                stories.forEach(story => {
+
+                    totalEpisodes +=
+                        story.episodeCount || 0;
+
+                });
+
+            } catch (err) {
+
+                console.log(
+                    `${category} not found`
+                );
+
+            }
+
+        }
+
+        document.getElementById(
+            "totalEpisodeCount"
+        ).innerText =
+            toBanglaNumber(
+                totalEpisodes
+            );
+
+        document.getElementById(
+            "lastUpdate"
+        ).innerText =
+            "আজ";
+
+    }
+);

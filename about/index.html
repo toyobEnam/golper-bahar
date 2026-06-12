@@ -101,9 +101,10 @@
         সর্বশেষ আপডেট (
         <span id="updateDate"></span>
         ) অনুসারে বর্তমানে আমাদের সংগ্রহে 
-        <span id="serialCount"></span> টি ধারাবাহিক গল্প এবং 
-        <span id="shortCount"></span> টি অনুগল্পসহ মোট 
-        <span id="totalCount"></span> টি গল্প লাইভ রয়েছে। 
+            <span id="serialCount"></span> টি ধারাবাহিক গল্প,
+            <span id="shortStoryCount"></span> টি ছোটগল্প এবং
+            <span id="onuCount"></span> টি অনুগল্পসহ মোট
+            <span id="totalCount"></span> টি গল্প লাইভ রয়েছে।
         পাঠকবৃন্দ খুব সহজেই আমাদের গল্পের পেইজ থেকে গল্পগুলো পড়ে নিতে পারবেন।
     </p>
 </section>
@@ -152,77 +153,61 @@
 </main>
 <div id="footer"></div>
 <script src="../js/components.js"></script>
+<script src="../js/count.js"></script>
 
 <script>
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener(
+"DOMContentLoaded",
+async () => {
 
-    // ধারাবাহিক গল্প page fetch
-    const serialResponse =
-        await fetch("/stories/all-stories/");
+    const counts =
+        await getStoryCounts();
 
-    const serialHTML =
-        await serialResponse.text();
-
-    const serialDoc =
-        new DOMParser().parseFromString(
-            serialHTML,
-            "text/html"
+    document.getElementById(
+        "serialCount"
+    ).innerText =
+        toBanglaNumber(
+            counts.serial
         );
 
-    const serialStories =
-        serialDoc.querySelectorAll(
-            ".story-card"
-        ).length;
-
-
-    // অনুগল্প page fetch
-    const shortResponse =
-        await fetch("/onugolpo/");
-
-    const shortHTML =
-        await shortResponse.text();
-
-    const shortDoc =
-        new DOMParser().parseFromString(
-            shortHTML,
-            "text/html"
+    document.getElementById(
+        "shortStoryCount"
+    ).innerText =
+        toBanglaNumber(
+            counts.shortStory
         );
 
-    const shortStories =
-        shortDoc.querySelectorAll(
-            ".stories-container a"
-        ).length;
+    document.getElementById(
+        "onuCount"
+    ).innerText =
+        toBanglaNumber(
+            counts.onu
+        );
 
+document.getElementById(
+    "totalCount"
+).innerText =
+    toBanglaNumber(
+        counts.total
+    );
 
-    // মোট গল্প
-    const totalStories =
-        serialStories + shortStories;
+const today = new Date();
 
+const banglaDate =
+    today.toLocaleDateString(
+        "bn-BD",
+        {
+            timeZone: "Asia/Dhaka",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }
+    );
 
-    // সংখ্যা বসানো
-    document.getElementById("serialCount").innerText =
-        serialStories.toLocaleString('bn-BD');
-
-    document.getElementById("shortCount").innerText =
-        shortStories.toLocaleString('bn-BD');
-
-    document.getElementById("totalCount").innerText =
-        totalStories.toLocaleString('bn-BD');
-
-
-    // বাংলাদেশের বর্তমান তারিখ
-    const today = new Date();
-
-    const banglaDate =
-        today.toLocaleDateString('bn-BD', {
-            timeZone: 'Asia/Dhaka',
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric'
-        });
-
-    document.getElementById("updateDate").innerText =
-        banglaDate;
+document.getElementById(
+    "updateDate"
+).innerText =
+    banglaDate;
 
 });
 </script>

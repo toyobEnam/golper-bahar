@@ -480,3 +480,11 @@ body {
         font-size: 30px;
     }
 }
+
+#serialCount,
+#shortStoryCount,
+#onuCount,
+#totalCount,
+#updateDate {
+    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
+}
