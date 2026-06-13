@@ -43,5 +43,14 @@
   "categoryName": "রোমান্টিক",
   "categorySlug": "romantic",
   "storySlug": "sh-rom-0004-srabondharay"
+},
+{
+  "storyName": "ছোট মামার বিয়ে",
+  "writerName": "মৌরিন আহমেদ",
+  "writerSlug": "a004-mourin",
+  "storyType": "short-story",
+  "categoryName": "ফ্যামিলি",
+  "categorySlug": "family",
+  "storySlug": "sh-fam-0002-choto-mamar-biye"
 }
 ]
