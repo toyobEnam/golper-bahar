@@ -682,5 +682,14 @@
   "categoryName": "ফ্যামিলি",
   "categorySlug": "family",
   "storySlug": "sh-fam-0002-choto-mamar-biye"
+},
+{
+  "storyName": "লোকে পাগল বলুক",
+  "writerName": "অভ্রায়ীনি ঐশি",
+  "writerSlug": "a002-avrayini-oishi",
+  "storyType": "onu",
+  "categoryName": null,
+  "categorySlug": null,
+  "storySlug": "22-loke-pagol-boluk"
 }
 ]
