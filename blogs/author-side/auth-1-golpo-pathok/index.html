@@ -41,7 +41,8 @@ body{
     --text-primary:#111827;
     --text-white:#ffffff;
 
-    --hero-category-green:34,197,94;
+--hero-category-green:#22c55e;
+--hero-accent-color:#dc2626;
 
     --top-zone-bg:#92400e;
 
@@ -54,16 +55,16 @@ body{
 
 
     --other-blogs-bg:#2563eb;
-    --blog-card-bg:#60a5fa;
+    --blog-card-bg:#ffffff00;
     --blog-thumb-bg:#dbeafe;
     --blog-title-bg:#bfdbfe;
 
 
-    --blog-hover-bg:#dc2626;
+    --blog-hover-bg:#000000;
 
 
 --vertical-ad-bg:#7c3aed;
---square-ad-bg:#c026d3;
+--square-ad-bg:#d7e2ff;
 
 
 --radius-sm:5px;
@@ -82,15 +83,35 @@ body{
 ========================= */
 
 .hero{
-    background:var(--hero-bg);
+    position:relative;
+
     padding:clamp(20px, 3vw, 40px);
-    border-radius:var(--radius-lg);
+
+    overflow:hidden;
+
+    background:#ffffff;
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:none;
+
+    pointer-events:none;
+}
+
+.heroInner{
+    position:relative;
+    z-index:1;
 }
 
 .heroInner{
     display:grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap:clamp(20px, 3vw, 40px);
+    grid-template-columns:1.1fr 0.9fr;
+    gap:clamp(20px,3vw,40px);
     align-items:start;
 }
 
@@ -102,21 +123,22 @@ body{
 
 .heroCategory{
     width:100%;
-    padding:10px 18px;
+
+    padding:12px 20px;
+    margin-bottom:25px;
+
+    color:#ffffff;
+
+    font-family:'LiPurnoPran','Kalpurush',serif;
+    font-size:clamp(20px,1.8vw,30px);
+    font-weight:700;
 
     background:linear-gradient(
         to right,
-        rgba(var(--hero-category-green),0.25) 0%,
-        rgba(var(--hero-category-green),0.12) 45%,
-        rgba(var(--hero-category-green),0) 100%
+        #000000 0%,
+        #000000 60%,
+        transparent 100%
     );
-
-    font-size:clamp(16px, 1.7vw, 24px);
-    font-weight:700;
-    letter-spacing:1px;
-
-    display:flex;
-    align-items:center;
 }
 
 .heroTitle{
@@ -183,6 +205,7 @@ body{
     line-height:1.3;
     text-align:center;
     margin-bottom:15px;
+    margin-top: 40px;
     grid-column:1 / -1;
 }
 
@@ -356,6 +379,7 @@ body{
 
 .featuredBox{
     min-height:300px;
+    margin-top: 30px;
     border-radius:var(--radius-lg);
     background:var(--square-ad-bg);
 }
@@ -445,35 +469,180 @@ body{
 
 .bottomLayout{
     display:grid;
-    grid-template-columns: 2fr 3fr;
-    gap:0;
+    grid-template-columns:2fr 3fr;
+    gap:15px;
+
+    margin-top:20px;
+    padding:14px;
+}
+
+.sliderTitle{
+    text-align:center;
+    margin-bottom:15px;
+
+    font-size:24px;
+    font-weight:700;
+}
+
+.horizontalSlider{
+    width:100%;
+
+    display:flex;
+    gap:12px;
+
+    overflow-x:auto;
+    overflow-y:hidden;
+
+    padding-bottom:10px;
+
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+
+    scroll-behavior:smooth;
+
+    
+}
+
+.sliderWrapper{
+    position:relative;
+
+    width:100%;
+    max-width:100%;
+
+    padding:0 20px;
+}
+
+.sliderArrow{
+    position:absolute;
+
+    top:50%;
+    transform:translateY(-50%);
+
+    width:42px;
+    height:42px;
+
+    border:none;
+    border-radius:50%;
+
+    cursor:pointer;
+
+    font-size:20px;
+    font-weight:700;
+
+    z-index:10;
+
+    background:#ffffff;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.leftArrow{
+    left:0;
+}
+
+.rightArrow{
+    right:0;
+}
+
+.horizontalSlider::-webkit-scrollbar{
+    display:none;
+}
+
+
+
+.sliderCard{
+    flex:0 0 220px;
+
+    text-decoration:none;
+
+    color:var(--text-primary);
+
+    background:var(--blog-card-bg);
+
+    border-radius:var(--radius-md);
+
+    overflow:hidden;
+
+    transition:.25s ease;
+}
+
+.sliderCard:hover{
+    background:var(--blog-hover-bg);
+    color:var(--text-white);
+}
+
+.sliderThumb{
+    width:calc(100% - 16px);
+
+    margin:8px;
+
+    aspect-ratio:1/1;
+
+    overflow:hidden;
+
+    border-radius:var(--radius-sm);
+
+    background:var(--blog-thumb-bg);
+}
+
+.sliderThumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.sliderText{
+    padding:12px;
+
+    font-size:18px;
+    font-weight:600;
+    line-height:1.4;
+}
+
+.downLeft,
+.downRight{
+    min-height:320px;
+    padding:20px;
+    border-radius:var(--radius-lg);
+
+    overflow:hidden;
 }
 
 .downLeft{
-    min-height:300px;
-    border-radius:var(--radius-lg);
-    background:var(--bottom-left-bg);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:1.5rem;
-    font-weight:bold;
+    background:#f8fafc;
 }
 
 .downRight{
-    min-height:300px;
-    border-radius:var(--radius-lg);
-    background:var(--bottom-right-bg);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:1.5rem;
-    font-weight:bold;
+    background:#fef3c7;
+}
+
+@media (hover:hover){
+
+    .horizontalSlider{
+        cursor:grab;
+    }
+
+    .horizontalSlider:active{
+        cursor:grabbing;
+    }
+
 }
 
 @media (max-width:1199px){
+
+    .bottomLayout{
+    grid-template-columns:1fr 1fr;
+    }
+
     .heroInner{
-        grid-template-columns:1fr;
+        grid-template-columns:1.25fr 0.75fr;
+        gap:25px;
+        align-items:center;
+    }
+
+    .heroImage{
+        max-width:420px;
+        margin-left:auto;
     }
     .mainLayout{
         grid-template-columns:3fr 1.2fr;
@@ -503,10 +672,51 @@ body{
 }
     .otherBlogs{
         grid-template-columns:repeat(3,1fr);
+    }    
+
+}
+
+@media (min-width:768px){
+
+    .horizontalSlider{
+        overflow:hidden;
     }
+
 }
 
 @media (max-width:767px){
+
+    .bottomLayout{
+    grid-template-columns:1fr;
+}
+
+.downLeft,
+.downRight{
+    width:100%;
+}
+
+    .sliderArrow {
+    display:none;
+    }
+
+    .hero::before{
+    background:linear-gradient(
+        to top,
+        #ff9c5e94 0%,
+        #ff9c5e94 25%,
+        #ff9c5e94 40%,
+        transparent 60%
+    );
+}
+
+    .heroInner{
+        grid-template-columns:1fr;
+    }
+
+    .heroImage{
+        max-width:none;
+        margin-left:0;
+    }
 
     .verticalAd{
         display:none;
@@ -544,15 +754,15 @@ body{
 
 <section class="hero">
 
-    <div class="heroInner">
+<div class="heroCategory">
+    গল্প বিশ্লেষণ
+</div>
 
-        <div class="heroText">
+<div class="heroInner">
 
-            <div class="heroCategory">
-                গল্প বিশ্লেষণ
-            </div>
+    <div class="heroText">
 
-            <h1 class="heroTitle">
+        <h1 class="heroTitle">
                 ছোট মামার বিয়ে: গল্পটি পাঠকদের এত ভালো লাগার কারণ কী?
             </h1>
 
@@ -664,6 +874,35 @@ body{
         বাংলা ছোটোগল্প পাঠকদের কাছে সবসময়ই বিশেষ জনপ্রিয়। একটি গল্প যখন সাধারণ মানুষের অনুভূতি, সম্পর্ক, স্মৃতি এবং বাস্তব জীবনের অভিজ্ঞতাকে স্পর্শ করতে পারে, তখন সেটি দ্রুত পাঠকের মনে জায়গা করে নেয়। ‘ছোট মামার বিয়ে’ ঠিক তেমনই একটি গল্প।
     </p>
 
+        <p>
+        গল্পের পরিবেশ বর্ণনা এবং চরিত্রগুলোর স্বাভাবিক আচরণ কাহিনিকে বাস্তবসম্মত করেছে। পাঠক মনে করেন ঘটনাগুলো যেন তাদের আশপাশেই ঘটছে।
+    </p>
+
+    <p>
+        এ ধরনের গল্প দীর্ঘ সময় ধরে মানুষের মনে থেকে যায়। কারণ এগুলো শুধুমাত্র বিনোদন দেয় না, বরং সম্পর্ক, স্মৃতি এবং অনুভূতির একটি সুন্দর প্রতিফলনও তুলে ধরে।
+    </p>
+        <p>
+        গল্পের পরিবেশ বর্ণনা এবং চরিত্রগুলোর স্বাভাবিক আচরণ কাহিনিকে বাস্তবসম্মত করেছে। পাঠক মনে করেন ঘটনাগুলো যেন তাদের আশপাশেই ঘটছে।
+    </p>
+
+    <p>
+        এ ধরনের গল্প দীর্ঘ সময় ধরে মানুষের মনে থেকে যায়। কারণ এগুলো শুধুমাত্র বিনোদন দেয় না, বরং সম্পর্ক, স্মৃতি এবং অনুভূতির একটি সুন্দর প্রতিফলনও তুলে ধরে।
+    </p>
+        <p>
+        গল্পের পরিবেশ বর্ণনা এবং চরিত্রগুলোর স্বাভাবিক আচরণ কাহিনিকে বাস্তবসম্মত করেছে। পাঠক মনে করেন ঘটনাগুলো যেন তাদের আশপাশেই ঘটছে।
+    </p>
+
+    <p>
+        এ ধরনের গল্প দীর্ঘ সময় ধরে মানুষের মনে থেকে যায়। কারণ এগুলো শুধুমাত্র বিনোদন দেয় না, বরং সম্পর্ক, স্মৃতি এবং অনুভূতির একটি সুন্দর প্রতিফলনও তুলে ধরে।
+    </p>
+        <p>
+        গল্পের পরিবেশ বর্ণনা এবং চরিত্রগুলোর স্বাভাবিক আচরণ কাহিনিকে বাস্তবসম্মত করেছে। পাঠক মনে করেন ঘটনাগুলো যেন তাদের আশপাশেই ঘটছে।
+    </p>
+
+    <p>
+        এ ধরনের গল্প দীর্ঘ সময় ধরে মানুষের মনে থেকে যায়। কারণ এগুলো শুধুমাত্র বিনোদন দেয় না, বরং সম্পর্ক, স্মৃতি এবং অনুভূতির একটি সুন্দর প্রতিফলনও তুলে ধরে।
+    </p>
+
     <p>
         গল্পটির চরিত্র নির্মাণ, সংলাপ এবং ঘটনাপ্রবাহ পাঠকদের শুরু থেকে শেষ পর্যন্ত ধরে রাখতে সক্ষম হয়েছে। বিশেষ করে পারিবারিক সম্পর্কের উপস্থাপন এবং আবেগঘন মুহূর্তগুলো গল্পটিকে আরও বেশি গ্রহণযোগ্য করেছে।
     </p>
@@ -678,6 +917,30 @@ body{
         গল্পের অন্যতম শক্তি হলো এর সরলতা। লেখক অপ্রয়োজনীয় জটিলতা এড়িয়ে সহজ ভাষায় একটি আকর্ষণীয় কাহিনি উপস্থাপন করেছেন। ফলে সব বয়সের পাঠক গল্পটির সঙ্গে সহজেই সংযোগ স্থাপন করতে পারেন।
     </p>
 
+        <p>
+        গল্পের পরিবেশ বর্ণনা এবং চরিত্রগুলোর স্বাভাবিক আচরণ কাহিনিকে বাস্তবসম্মত করেছে। পাঠক মনে করেন ঘটনাগুলো যেন তাদের আশপাশেই ঘটছে।
+    </p>
+
+    <p>
+        এ ধরনের গল্প দীর্ঘ সময় ধরে মানুষের মনে থেকে যায়। কারণ এগুলো শুধুমাত্র বিনোদন দেয় না, বরং সম্পর্ক, স্মৃতি এবং অনুভূতির একটি সুন্দর প্রতিফলনও তুলে ধরে।
+    </p>
+
+        <p>
+        গল্পের পরিবেশ বর্ণনা এবং চরিত্রগুলোর স্বাভাবিক আচরণ কাহিনিকে বাস্তবসম্মত করেছে। পাঠক মনে করেন ঘটনাগুলো যেন তাদের আশপাশেই ঘটছে।
+    </p>
+
+    <p>
+        এ ধরনের গল্প দীর্ঘ সময় ধরে মানুষের মনে থেকে যায়। কারণ এগুলো শুধুমাত্র বিনোদন দেয় না, বরং সম্পর্ক, স্মৃতি এবং অনুভূতির একটি সুন্দর প্রতিফলনও তুলে ধরে।
+    </p>
+
+        <p>
+        গল্পের পরিবেশ বর্ণনা এবং চরিত্রগুলোর স্বাভাবিক আচরণ কাহিনিকে বাস্তবসম্মত করেছে। পাঠক মনে করেন ঘটনাগুলো যেন তাদের আশপাশেই ঘটছে।
+    </p>
+
+    <p>
+        এ ধরনের গল্প দীর্ঘ সময় ধরে মানুষের মনে থেকে যায়। কারণ এগুলো শুধুমাত্র বিনোদন দেয় না, বরং সম্পর্ক, স্মৃতি এবং অনুভূতির একটি সুন্দর প্রতিফলনও তুলে ধরে।
+    </p>
+
     <!-- HORIZONTAL AD -->
 
     <div class="contentAd">
@@ -688,6 +951,22 @@ body{
         শুধু গল্পের কাহিনি নয়, এর আবেগও পাঠকদের কাছে সমানভাবে গুরুত্বপূর্ণ। অনেক পাঠক নিজেদের জীবনের বিভিন্ন ঘটনার সঙ্গে গল্পটির মিল খুঁজে পান, যা গল্পটির জনপ্রিয়তা আরও বাড়িয়ে দিয়েছে।
     </p>
 
+        <p>
+        গল্পের পরিবেশ বর্ণনা এবং চরিত্রগুলোর স্বাভাবিক আচরণ কাহিনিকে বাস্তবসম্মত করেছে। পাঠক মনে করেন ঘটনাগুলো যেন তাদের আশপাশেই ঘটছে।
+    </p>
+
+    <p>
+        এ ধরনের গল্প দীর্ঘ সময় ধরে মানুষের মনে থেকে যায়। কারণ এগুলো শুধুমাত্র বিনোদন দেয় না, বরং সম্পর্ক, স্মৃতি এবং অনুভূতির একটি সুন্দর প্রতিফলনও তুলে ধরে।
+    </p>
+
+        <p>
+        গল্পের পরিবেশ বর্ণনা এবং চরিত্রগুলোর স্বাভাবিক আচরণ কাহিনিকে বাস্তবসম্মত করেছে। পাঠক মনে করেন ঘটনাগুলো যেন তাদের আশপাশেই ঘটছে।
+    </p>
+
+    <p>
+        এ ধরনের গল্প দীর্ঘ সময় ধরে মানুষের মনে থেকে যায়। কারণ এগুলো শুধুমাত্র বিনোদন দেয় না, বরং সম্পর্ক, স্মৃতি এবং অনুভূতির একটি সুন্দর প্রতিফলনও তুলে ধরে।
+    </p>
+
     <!-- 3:1 IMAGE -->
 
     <figure class="contentImage ratio31">
@@ -695,6 +974,22 @@ body{
     </figure>
 
     <p>
+        গল্পের পরিবেশ বর্ণনা এবং চরিত্রগুলোর স্বাভাবিক আচরণ কাহিনিকে বাস্তবসম্মত করেছে। পাঠক মনে করেন ঘটনাগুলো যেন তাদের আশপাশেই ঘটছে।
+    </p>
+
+    <p>
+        এ ধরনের গল্প দীর্ঘ সময় ধরে মানুষের মনে থেকে যায়। কারণ এগুলো শুধুমাত্র বিনোদন দেয় না, বরং সম্পর্ক, স্মৃতি এবং অনুভূতির একটি সুন্দর প্রতিফলনও তুলে ধরে।
+    </p>
+
+        <p>
+        গল্পের পরিবেশ বর্ণনা এবং চরিত্রগুলোর স্বাভাবিক আচরণ কাহিনিকে বাস্তবসম্মত করেছে। পাঠক মনে করেন ঘটনাগুলো যেন তাদের আশপাশেই ঘটছে।
+    </p>
+
+    <p>
+        এ ধরনের গল্প দীর্ঘ সময় ধরে মানুষের মনে থেকে যায়। কারণ এগুলো শুধুমাত্র বিনোদন দেয় না, বরং সম্পর্ক, স্মৃতি এবং অনুভূতির একটি সুন্দর প্রতিফলনও তুলে ধরে।
+    </p>
+
+        <p>
         গল্পের পরিবেশ বর্ণনা এবং চরিত্রগুলোর স্বাভাবিক আচরণ কাহিনিকে বাস্তবসম্মত করেছে। পাঠক মনে করেন ঘটনাগুলো যেন তাদের আশপাশেই ঘটছে।
     </p>
 
@@ -722,70 +1017,6 @@ body{
 
     <div class="featuredBox">
         FEATURED BOX
-    </div>
-
-    <!-- SERIAL STORIES -->
-
-    <div class="serialStories">
-
-        <h3 class="serialStoriesTitle">
-            ধারাবাহিক উপন্যাস
-        </h3>
-
-        <a href="#" class="serialCard">
-            <div class="serialThumb">
-                <img src="" alt="">
-            </div>
-            <div class="serialTitle">
-                রিক্ত বসন্ত
-            </div>
-        </a>
-
-        <a href="#" class="serialCard">
-            <div class="serialThumb">
-                <img src="" alt="">
-            </div>
-            <div class="serialTitle">
-                মেঘের আড়ালে
-            </div>
-        </a>
-
-        <a href="#" class="serialCard">
-            <div class="serialThumb">
-                <img src="" alt="">
-            </div>
-            <div class="serialTitle">
-                নীল প্রহর
-            </div>
-        </a>
-
-        <a href="#" class="serialCard">
-            <div class="serialThumb">
-                <img src="" alt="">
-            </div>
-            <div class="serialTitle">
-                অবেলায় ভালোবাসা
-            </div>
-        </a>
-
-        <a href="#" class="serialCard">
-            <div class="serialThumb">
-                <img src="" alt="">
-            </div>
-            <div class="serialTitle">
-                অচেনা পথ
-            </div>
-        </a>
-
-        <a href="#" class="serialCard">
-            <div class="serialThumb">
-                <img src="" alt="">
-            </div>
-            <div class="serialTitle">
-                শেষ বিকেল
-            </div>
-        </a>
-
     </div>
 
     <!-- MINI STORIES -->
@@ -825,15 +1056,218 @@ body{
 
 <section class="bottomLayout">
 
-    <div class="downLeft">
-        DOWN LEFT
+    <section class="downLeft">
+
+        <h3 class="sliderTitle">
+            জনপ্রিয় লেখক
+        </h3>
+
+        <div class="sliderWrapper">
+
+    <button class="sliderArrow leftArrow">
+        &#10094;
+    </button>
+
+    <div class="horizontalSlider">
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    মৌরিন আহমেদ
+                </div>
+            </a>
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    খুশবু আক্তার
+                </div>
+            </a>
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    আজেরিন হিরানুর
+                </div>
+            </a>
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    খুশবু আক্তার
+                </div>
+            </a>
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    আজেরিন হিরানুর
+                </div>
+            </a>
+
+            </div>
+
+    <button class="sliderArrow rightArrow">
+        &#10095;
+    </button>
+
+</div>
+
+    </section>
+
+    <section class="downRight">
+
+<h3 class="sliderTitle">
+    জনপ্রিয় ধারাবাহিক
+</h3>
+
+<div class="sliderWrapper">
+
+    <button class="sliderArrow leftArrow">
+        &#10094;
+    </button>
+
+    <div class="horizontalSlider">
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    রিক্ত বসন্ত
+                </div>
+            </a>
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    মেঘের আড়ালে
+                </div>
+            </a>
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    অবেলায় ভালোবাসা
+                </div>
+            </a>
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    রিক্ত বসন্ত
+                </div>
+            </a>
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    মেঘের আড়ালে
+                </div>
+            </a>
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    অবেলায় ভালোবাসা
+                </div>
+            </a>
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    রিক্ত বসন্ত
+                </div>
+            </a>
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    মেঘের আড়ালে
+                </div>
+            </a>
+
+            <a href="#" class="sliderCard">
+                <div class="sliderThumb">
+                    <img src="" alt="">
+                </div>
+                <div class="sliderText">
+                    অবেলায় ভালোবাসা
+                </div>
+            </a>
+
     </div>
 
-    <div class="downRight">
-        DOWN RIGHT
-    </div>
+    <button class="sliderArrow rightArrow">
+        &#10095;
+    </button>
+
+</div>
 
 </section>
+
+</section>
+
+<script>
+
+document.querySelectorAll(".sliderWrapper").forEach(wrapper => {
+
+    const slider =
+        wrapper.querySelector(".horizontalSlider");
+
+    const card =
+        slider.querySelector(".sliderCard");
+
+    const scrollAmount =
+        card.offsetWidth + 12;
+
+    wrapper.querySelector(".leftArrow")
+        .addEventListener("click", () => {
+
+        slider.scrollBy({
+            left:-scrollAmount,
+            behavior:"smooth"
+        });
+
+    });
+
+    wrapper.querySelector(".rightArrow")
+        .addEventListener("click", () => {
+
+        slider.scrollBy({
+            left:scrollAmount,
+            behavior:"smooth"
+        });
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
