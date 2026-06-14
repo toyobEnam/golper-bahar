@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Layout Structure</title>
+
+<style>
+
+
+
+@font-face {
+  font-family: "Kalpurush";
+  src: url("/assets/fonts/kalpurush.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "LiPurnoPran";
+  src: url("/assets/fonts/LiPurnoPran.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+    box-sizing: border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+:root{
+
+
+    --text-primary:#111827;
+    --text-white:#ffffff;
+
+    --hero-category-green:34,197,94;
+
+    --top-zone-bg:#92400e;
+
+    --left-zone-bg:#1e3a8a;
+
+    --right-zone-bg:#581c87;
+
+    --bottom-left-bg:#0f766e;
+    --bottom-right-bg:#374151;
+
+
+    --other-blogs-bg:#2563eb;
+    --blog-card-bg:#60a5fa;
+    --blog-thumb-bg:#dbeafe;
+    --blog-title-bg:#bfdbfe;
+
+
+    --blog-hover-bg:#dc2626;
+
+
+--vertical-ad-bg:#7c3aed;
+--square-ad-bg:#c026d3;
+
+
+--radius-sm:5px;
+--radius-md:8px;
+--radius-lg:10px;
+}
+
+body{
+    font-family:sans-serif;
+    background:var(--body-bg);
+    color:var(--text-primary);
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
+    background:var(--hero-bg);
+    padding:clamp(20px, 3vw, 40px);
+    border-radius:var(--radius-lg);
+}
+
+.heroInner{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap:clamp(20px, 3vw, 40px);
+    align-items:start;
+}
+
+.heroText{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.heroCategory{
+    width:100%;
+    padding:10px 18px;
+
+    background:linear-gradient(
+        to right,
+        rgba(var(--hero-category-green),0.25) 0%,
+        rgba(var(--hero-category-green),0.12) 45%,
+        rgba(var(--hero-category-green),0) 100%
+    );
+
+    font-size:clamp(16px, 1.7vw, 24px);
+    font-weight:700;
+    letter-spacing:1px;
+
+    display:flex;
+    align-items:center;
+}
+
+.heroTitle{
+    font-size:clamp(32px, 4vw, 56px);
+    line-height:1.15;
+    font-weight:700;
+}
+
+.heroExcerpt{
+    font-size:clamp(18px, 2vw, 27px);
+    line-height:1.7;
+}
+
+.heroMeta{
+    font-size:clamp(15px, 1.5vw, 21px);
+    opacity:.9;
+}
+
+.heroImage img{
+    width:100%;
+    height:auto;
+    display:block;
+    border-radius:var(--radius-md);
+}
+
+
+.mainLayout{
+    display:grid;
+    grid-template-columns:1fr 3fr 1fr;
+    gap:15px;
+    align-items:start;
+}
+
+.leftZone{
+    min-height:1200px;
+
+
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+
+    padding:10px;
+    gap:10px;
+}
+
+.contentZone{
+    min-height:1500px;
+    border-radius:var(--radius-lg);
+    background:var(--content-zone-bg);
+
+    padding:12px;
+}
+
+.otherBlogs{
+    border-radius:var(--radius-lg);
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+}
+
+.otherBlogsTitle{
+    font-size:24px;
+    font-weight:700;
+    line-height:1.3;
+    text-align:center;
+    margin-bottom:15px;
+    grid-column:1 / -1;
+}
+
+.blogCard{
+    display:flex;
+    border-radius:var(--radius-md);
+    flex-direction:column;
+    text-decoration:none;
+    color:var(--text-primary);
+    background:var(--blog-card-bg);
+    overflow:hidden;
+    transition:.25s ease;
+}
+
+.blogThumb{
+    width:calc(100% - 16px);
+    border-radius:var(--radius-sm);
+    overflow:hidden;
+    margin:8px 8px 0;
+    aspect-ratio:3/2;
+    background:var(--blog-thumb-bg);
+}
+
+.blogThumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.contentImage{
+    max-width:650px;
+    margin:30px auto;
+}
+
+.ratio31{
+    max-width:none;
+}
+
+.contentImage img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+
+    border-radius:var(--radius-md);
+}
+
+
+.ratio32{
+    aspect-ratio:3/2;
+}
+
+
+.ratio31{
+    aspect-ratio:3/1;
+}
+
+
+.ratio11{
+    aspect-ratio:1/1;
+}
+
+.blogTitle{
+    min-height:70px;
+    padding:12px;
+
+    font-size:18px;
+    line-height:1.4;
+    font-weight:600;
+
+    background:transparent;
+    transition:.25s ease;
+}
+
+.blogCard:hover{
+    background:var(--blog-hover-bg);
+    color:var(--text-white);
+}
+
+.verticalAd{
+    min-height:600px;
+    border-radius:var(--radius-lg);
+    background:var(--vertical-ad-bg);
+}
+
+.squareAd{
+    width:100%;
+    max-width:320px;
+    min-height:300px;
+    margin:15px auto 0;
+    border-radius:var(--radius-lg);
+    background:var(--square-ad-bg);
+}
+
+.laptopHorizontalAd{
+    display:none;
+    width:100%;
+    min-height:120px;
+    margin-top:15px;
+    border-radius:var(--radius-lg);
+    background:var(--square-ad-bg);
+}
+
+@media (max-width:900px){
+
+    .otherBlogs{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .verticalAd{
+        display:none;
+    }
+
+}
+
+@media (max-width:600px){
+
+    .otherBlogs{
+        grid-template-columns:1fr;
+    }
+
+}
+
+.blogContent{
+    width:100%;
+    padding: 10px;
+    margin:0 auto;
+}
+
+.blogContent p{
+    font-family:'LiPurnoPran','Kalpurush',sans-serif;
+    font-size:clamp(18px,1.25vw,22px);
+    line-height:1.6;
+    margin-bottom:18px;
+    font-weight:400;
+}
+
+.blogContent h2{
+    font-size:clamp(28px,2.5vw,40px);
+    line-height:1.3;
+    margin:40px 0 20px;
+}
+
+.blogContent h3{
+    font-size:clamp(22px,2vw,32px);
+    line-height:1.3;
+    margin:35px 0 18px;
+}
+
+.contentAd{
+    min-height:250px;
+    margin:30px 0;
+    border-radius:var(--radius-lg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    font-weight:700;
+}
+
+.rightZone{
+    min-height:1200px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:12px;
+    padding:10px;
+}
+
+.featuredBox{
+    min-height:300px;
+    border-radius:var(--radius-lg);
+    background:var(--square-ad-bg);
+}
+
+.serialStories{
+    display:grid;
+    gap:10px;
+}
+
+.serialStoriesTitle,
+.miniStoriesTitle{
+    font-size:24px;
+    font-weight:700;
+}
+
+.serialCard{
+    display:flex;
+    flex-direction:column;
+    text-decoration:none;
+    color:var(--text-primary);
+    background:var(--blog-card-bg);
+    border-radius:var(--radius-md);
+    overflow:hidden;
+    transition:.25s ease;
+}
+
+.serialCard:hover{
+    background:var(--blog-hover-bg);
+    color:var(--text-white);
+}
+
+.serialThumb{
+    width:calc(100% - 16px);
+    margin:8px 8px 0;
+    aspect-ratio:1/1;
+    overflow:hidden;
+    border-radius:var(--radius-sm);
+}
+
+.serialThumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.serialTitle{
+    padding:12px;
+    font-size:18px;
+    font-weight:600;
+    line-height:1.4;
+}
+
+.miniStories{
+    border-radius:var(--radius-lg);
+}
+
+.miniStoryList{
+    list-style:none;
+}
+
+.miniStoryList li{
+    border-bottom:1px solid rgba(0,0,0,.08);
+}
+
+.miniStoryList a{
+    display:block;
+    padding:10px 0;
+    text-decoration:none;
+    color:var(--text-primary);
+    font-size:18px;
+    line-height:1.4;
+}
+
+.miniStoryList a:hover{
+    color:var(--blog-hover-bg);
+}
+
+.randomStoryBtn{
+    border:none;
+    cursor:pointer;
+    padding:14px 18px;
+    border-radius:var(--radius-md);
+    font-size:18px;
+    font-weight:700;
+}
+
+.bottomLayout{
+    display:grid;
+    grid-template-columns: 2fr 3fr;
+    gap:0;
+}
+
+.downLeft{
+    min-height:300px;
+    border-radius:var(--radius-lg);
+    background:var(--bottom-left-bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.5rem;
+    font-weight:bold;
+}
+
+.downRight{
+    min-height:300px;
+    border-radius:var(--radius-lg);
+    background:var(--bottom-right-bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.5rem;
+    font-weight:bold;
+}
+
+@media (max-width:1199px){
+    .heroInner{
+        grid-template-columns:1fr;
+    }
+    .mainLayout{
+        grid-template-columns:3fr 1.2fr;
+        gap:15px;
+    }
+    .contentZone{
+        order:1;
+    }
+    .rightZone{
+        order:2;
+    }
+.leftZone{
+    order:3;
+    grid-column:1 / -1;
+    display:block;
+}
+.verticalAd{
+    display:none;
+}
+.squareAd{
+    display:none;
+}
+.laptopHorizontalAd{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+    .otherBlogs{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media (max-width:767px){
+
+    .verticalAd{
+        display:none;
+    }
+
+    .mainLayout{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .contentZone{
+        order:1;
+    }
+
+    .leftZone{
+        order:2;
+    }
+
+    .rightZone{
+        order:3;
+    }
+
+    .otherBlogs{
+        grid-template-columns:1fr;
+    }
+
+    .serialStories{
+        grid-template-columns:1fr;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+
+    <div class="heroInner">
+
+        <div class="heroText">
+
+            <div class="heroCategory">
+                গল্প বিশ্লেষণ
+            </div>
+
+            <h1 class="heroTitle">
+                ছোট মামার বিয়ে: গল্পটি পাঠকদের এত ভালো লাগার কারণ কী?
+            </h1>
+
+            <p class="heroExcerpt">
+                জনপ্রিয় বাংলা গল্প ‘ছোট মামার বিয়ে’ নিয়ে আলোচনা, চরিত্র বিশ্লেষণ, পাঠকপ্রতিক্রিয়া এবং গল্পটির বিশেষ দিকগুলো তুলে ধরা হয়েছে এই লেখায়।
+            </p>
+
+            <div class="heroMeta">
+                গল্পের বাহার • ১৩ জুন ২০২৬ • ছোটগল্পের রিভিউ
+            </div>
+
+        </div>
+
+        <div class="heroImage">
+            <img
+                src="https://res.cloudinary.com/didbcg0dd/image/upload/q_auto/f_auto/v1781312230/choto-mamar-biye2_gnk5bo.webp"
+                alt="ছোট মামার বিয়ে">
+        </div>
+
+    </div>
+
+</section>
+
+<section class="mainLayout">
+
+<aside class="leftZone">
+
+<h3 class="otherBlogsTitle">
+    আরও কিছু জনপ্রিয় ব্লগ
+</h3>
+
+<div class="otherBlogs">
+
+    <a href="#" class="blogCard">
+        <div class="blogThumb">
+            <img src="" alt="">
+        </div>
+        <div class="blogTitle">
+            বাংলা ছোটোগল্প লেখার ১০টি কার্যকর কৌশল
+        </div>
+    </a>
+
+    <a href="#" class="blogCard">
+        <div class="blogThumb">
+            <img src="" alt="">
+        </div>
+        <div class="blogTitle">
+            বাংলা ছোটোগল্প লেখার ১০টি কার্যকর কৌশল
+        </div>
+    </a>
+
+    <a href="#" class="blogCard">
+        <div class="blogThumb">
+            <img src="https://res.cloudinary.com/didbcg0dd/image/upload/q_auto/f_auto/v1781312230/choto-mamar-biye2_gnk5bo.webp" alt="">
+        </div>
+        <div class="blogTitle">
+            বাংলা ছোটোগল্প লেখার ১০টি কার্যকর কৌশল
+        </div>
+    </a>
+
+    <a href="#" class="blogCard">
+        <div class="blogThumb">
+            <img src="" alt="">
+        </div>
+        <div class="blogTitle">
+            বাংলা ছোটোগল্প লেখার ১০টি কার্যকর কৌশল
+        </div>
+    </a>
+
+    <a href="#" class="blogCard">
+        <div class="blogThumb">
+            <img src="" alt="">
+        </div>
+        <div class="blogTitle">
+            বাংলা ছোটোগল্প লেখার ১০টি কার্যকর কৌশল বাংলা ছোটোগল্প লেখার ১০টি কার্যকর কৌশল বাংলা ছোটোগল্প লেখার ১০টি কার্যকর কৌশল
+        </div>
+    </a>
+
+    <a href="#" class="blogCard">
+        <div class="blogThumb">
+            <img src="" alt="">
+        </div>
+        <div class="blogTitle">
+            বাংলা ছোটোগল্প লেখার ১০টি কার্যকর কৌশল
+        </div>
+    </a>
+
+</div>
+
+    <div class="verticalAd">
+        VERTICAL AD
+    </div>
+
+<div class="squareAd">
+    SQUARE AD
+</div>
+
+<div class="laptopHorizontalAd">
+    HORIZONTAL AD
+</div>
+
+</aside>
+
+<article class="contentZone">
+
+<div class="blogContent">
+
+    <p>
+        বাংলা ছোটোগল্প পাঠকদের কাছে সবসময়ই বিশেষ জনপ্রিয়। একটি গল্প যখন সাধারণ মানুষের অনুভূতি, সম্পর্ক, স্মৃতি এবং বাস্তব জীবনের অভিজ্ঞতাকে স্পর্শ করতে পারে, তখন সেটি দ্রুত পাঠকের মনে জায়গা করে নেয়। ‘ছোট মামার বিয়ে’ ঠিক তেমনই একটি গল্প।
+    </p>
+
+    <p>
+        গল্পটির চরিত্র নির্মাণ, সংলাপ এবং ঘটনাপ্রবাহ পাঠকদের শুরু থেকে শেষ পর্যন্ত ধরে রাখতে সক্ষম হয়েছে। বিশেষ করে পারিবারিক সম্পর্কের উপস্থাপন এবং আবেগঘন মুহূর্তগুলো গল্পটিকে আরও বেশি গ্রহণযোগ্য করেছে।
+    </p>
+
+    <!-- 3:2 IMAGE -->
+
+    <figure class="contentImage ratio32">
+        <img src="https://res.cloudinary.com/didbcg0dd/image/upload/q_auto/f_auto/v1781312230/choto-mamar-biye2_gnk5bo.webp" alt="">
+    </figure>
+
+    <p>
+        গল্পের অন্যতম শক্তি হলো এর সরলতা। লেখক অপ্রয়োজনীয় জটিলতা এড়িয়ে সহজ ভাষায় একটি আকর্ষণীয় কাহিনি উপস্থাপন করেছেন। ফলে সব বয়সের পাঠক গল্পটির সঙ্গে সহজেই সংযোগ স্থাপন করতে পারেন।
+    </p>
+
+    <!-- HORIZONTAL AD -->
+
+    <div class="contentAd">
+        HORIZONTAL AD
+    </div>
+
+    <p>
+        শুধু গল্পের কাহিনি নয়, এর আবেগও পাঠকদের কাছে সমানভাবে গুরুত্বপূর্ণ। অনেক পাঠক নিজেদের জীবনের বিভিন্ন ঘটনার সঙ্গে গল্পটির মিল খুঁজে পান, যা গল্পটির জনপ্রিয়তা আরও বাড়িয়ে দিয়েছে।
+    </p>
+
+    <!-- 3:1 IMAGE -->
+
+    <figure class="contentImage ratio31">
+        <img src="https://res.cloudinary.com/didbcg0dd/image/upload/q_auto/f_auto/v1781312230/choto-mamar-biye2_gnk5bo.webp" alt="">
+    </figure>
+
+    <p>
+        গল্পের পরিবেশ বর্ণনা এবং চরিত্রগুলোর স্বাভাবিক আচরণ কাহিনিকে বাস্তবসম্মত করেছে। পাঠক মনে করেন ঘটনাগুলো যেন তাদের আশপাশেই ঘটছে।
+    </p>
+
+    <p>
+        এ ধরনের গল্প দীর্ঘ সময় ধরে মানুষের মনে থেকে যায়। কারণ এগুলো শুধুমাত্র বিনোদন দেয় না, বরং সম্পর্ক, স্মৃতি এবং অনুভূতির একটি সুন্দর প্রতিফলনও তুলে ধরে।
+    </p>
+
+    <!-- 1:1 IMAGE -->
+
+    <figure class="contentImage ratio11">
+        <img src="https://res.cloudinary.com/didbcg0dd/image/upload/q_auto/f_auto/v1781312230/choto-mamar-biye2_gnk5bo.webp" alt="">
+    </figure>
+
+    <p>
+        সব মিলিয়ে বলা যায়, ‘ছোট মামার বিয়ে’ গল্পটির জনপ্রিয়তার পেছনে রয়েছে এর আবেগঘন উপস্থাপন, বাস্তবধর্মী চরিত্র এবং সহজ কিন্তু প্রভাবশালী গল্প বলার ধরণ। এ কারণেই গল্পটি পাঠকদের কাছে এতটা প্রিয় হয়ে উঠেছে।
+    </p>
+
+</div>
+
+</article>
+
+<aside class="rightZone">
+
+    <!-- FEATURED BOX -->
+
+    <div class="featuredBox">
+        FEATURED BOX
+    </div>
+
+    <!-- SERIAL STORIES -->
+
+    <div class="serialStories">
+
+        <h3 class="serialStoriesTitle">
+            ধারাবাহিক উপন্যাস
+        </h3>
+
+        <a href="#" class="serialCard">
+            <div class="serialThumb">
+                <img src="" alt="">
+            </div>
+            <div class="serialTitle">
+                রিক্ত বসন্ত
+            </div>
+        </a>
+
+        <a href="#" class="serialCard">
+            <div class="serialThumb">
+                <img src="" alt="">
+            </div>
+            <div class="serialTitle">
+                মেঘের আড়ালে
+            </div>
+        </a>
+
+        <a href="#" class="serialCard">
+            <div class="serialThumb">
+                <img src="" alt="">
+            </div>
+            <div class="serialTitle">
+                নীল প্রহর
+            </div>
+        </a>
+
+        <a href="#" class="serialCard">
+            <div class="serialThumb">
+                <img src="" alt="">
+            </div>
+            <div class="serialTitle">
+                অবেলায় ভালোবাসা
+            </div>
+        </a>
+
+        <a href="#" class="serialCard">
+            <div class="serialThumb">
+                <img src="" alt="">
+            </div>
+            <div class="serialTitle">
+                অচেনা পথ
+            </div>
+        </a>
+
+        <a href="#" class="serialCard">
+            <div class="serialThumb">
+                <img src="" alt="">
+            </div>
+            <div class="serialTitle">
+                শেষ বিকেল
+            </div>
+        </a>
+
+    </div>
+
+    <!-- MINI STORIES -->
+
+    <div class="miniStories">
+
+        <h3 class="miniStoriesTitle">
+            অনুগল্প
+        </h3>
+
+        <ul class="miniStoryList">
+
+            <li><a href="#">শেষ চিঠি</a></li>
+            <li><a href="#">ভুল নাম্বার</a></li>
+            <li><a href="#">বৃষ্টিভেজা দিন</a></li>
+            <li><a href="#">মায়ের অপেক্ষা</a></li>
+            <li><a href="#">নীরবতা</a></li>
+            <li><a href="#">স্টেশন</a></li>
+            <li><a href="#">ফিরে দেখা</a></li>
+            <li><a href="#">অতিথি</a></li>
+            <li><a href="#">শেষ দেখা</a></li>
+            <li><a href="#">স্মৃতি</a></li>
+
+        </ul>
+
+    </div>
+
+    <!-- RANDOM BUTTON -->
+
+    <button class="randomStoryBtn">
+        🎲 যেকোনো একটি র‍্যান্ডম গল্প পড়ুন
+    </button>
+
+</aside>
+
+</section>
+
+<section class="bottomLayout">
+
+    <div class="downLeft">
+        DOWN LEFT
+    </div>
+
+    <div class="downRight">
+        DOWN RIGHT
+    </div>
+
+</section>
+
+</body>
+</html>

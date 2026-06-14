@@ -1,0 +1,352 @@
+[ 
+  {
+  "title": "অচেনা ছায়া তুমি",
+  "description": "নাজনীন নেছা নাবিলা-এর লেখা পারিবারিক ও রোমান্টিক উপন্যাস",
+  "image": "https://res.cloudinary.com/didbcg0dd/image/upload/q_auto/f_auto/v1781414935/ocena-chaya-tumi1_tqynbk.webp",
+  "category": "bangla-love-story",
+  "slug": "bls-0011-ocena-chaya-tumi"
+  },
+  {
+    "title": "Mr and Mrs Twins",
+    "description": "অভ্রায়ীনি ঐশি এর লেখা পারিবারিক ড্রামা",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1778409659/SQ_yieqtd.webp",
+    "category": "family-drama",
+    "slug": "fd-0004-mr-and-mrs-twins"
+  },
+  {
+    "title": "Mr and Mrs Twins Return",
+    "description": "অভ্রায়ীনি ঐশী-এর লেখা টুইন রিলেটেড রোমান্টিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1779071586/1-1_um9ejl.webp",
+    "category": "bangla-love-story",
+    "slug": "bls-0008-mr-and-mrs-twins-return"
+  },
+  {
+    "title": "She is my Obsession",
+    "description": "নবনীতা চৌধুরী-এর লেখা সাসপেন্স-এ মাতানো রোমান্টিক থ্রিলার",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1779209628/onsession11_sxjbvo.webp",
+    "category": "romantic-thriller",
+    "slug": "rt-0004-she-is-my-obsession"
+  },
+  {
+    "title": "অগ্নিকন্যা মহুয়া",
+    "description": "আজেরিন হিরানুর-এর লেখা সামাজিক ও থ্রিলারভিত্তিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1781059058/agnikonna-mohuya3_e8t739.webp",
+    "category": "social-plot",
+    "slug": "sp-0006-agnikonna-mohuya"
+  },
+  {
+    "title": "অপরিচিতার প্রেমে",
+    "description": "মৌরিন আহমেদ এর লেখা রোমান্টিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1769887486/MZ-ij_npkxy1.webp",
+    "category": "teenager-special",
+    "slug": "ts-0001-oporicitar-preme"
+  },
+  {
+    "title": "অবেলার অতিথি",
+    "description": "অভ্রায়ীনি ঐশি-এর লেখা রোমান্টিক থ্রিলার ভিত্তিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1779592707/obelar-otithi3_o1wazj.webp",
+    "category": "romantic-thriller",
+    "slug": "rt-0006-obelar-otithi"
+  },
+  {
+    "title": "অলিতে গলিতে প্রেম",
+    "description": "খুশবু আকতার-এর লেখা পারিবারিক ও সামাজিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1780212981/olite-golite-prem3_xtaeck.webp",
+    "category": "family-drama",
+    "slug": "fd-0009-olite-golite-prem"
+  },
+  {
+    "title": "আঁধারের তারাবাজি",
+    "description": "অভ্রায়ীনি ঐশি এর লেখা দুর্দান্ত রোমান্টিক থ্রিলার গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1778250957/adharer_2_se07pg.webp",
+    "category": "romantic-thriller",
+    "slug": "rt-0003-adharer-tarabazi"
+  },
+  {
+    "title": "আই হেইট রেড ফ্ল্যাগস",
+    "description": "সূচনা জাফরিন-এর লেখা রোমান্টিক ও সামাজিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/w_600,q_auto,f_auto/v1781176590/i-hate-red-flags3_jmfbfh.webp",
+    "category": "romantic-thriller",
+    "slug": "rt-0008-i-hate-red-flags"
+  },
+  {
+    "title": "আদ্রের সম্মোহীনি",
+    "description": "অভ্রায়ীনি ঐশি-এর লেখা টিনেজার স্পেশাল গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1778668108/sq_bfxfxt.webp",
+    "category": "teenager-special",
+    "slug": "ts-0003-adrer-sommohini"
+  },
+  {
+    "title": "আধফোটা প্রেমের ফুল",
+    "description": "কাজিন রিলেটেড রোমান্টিক ও সামাজিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1777613577/adhsq_zqnysf.webp",
+    "category": "social-plot",
+    "slug": "sp-0003-adhfota-premer-ful"
+  },
+  {
+    "title": "আমার প্রিয়তা",
+    "description": "সূচনা জাফরিন-এর লেখা রোমান্টিক ও জাগরনী গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1781101053/amar-priyota3_usj1yx.webp",
+    "category": "bangla-love-story",
+    "slug": "bls-0010-amar-priyota"
+  },
+  {
+    "title": "উদাস পূরবী হাওয়া",
+    "description": "স্বামীর পরকীয়া রিলেটেড বাংলা থ্রিলার গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1769594175/purobi-cov_vo4kpy.webp",
+    "category": "romantic-thriller",
+    "slug": "rt-0002-udash-purobi-hawa"
+  },
+  {
+    "title": "এক ফাগুনের গল্প",
+    "description": "সাইফুল ইসলাম এর লেখা সাসপেন্সফুল রোমান্টিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1776789978/ek-f-sq-01_hf4ghb.webp",
+    "category": "bangla-love-story",
+    "slug": "bls-0005-ek-faguner-golpo"
+  },
+  {
+    "title": "ওরা মনের গোপন চেনে না",
+    "description": "বৃষ্টি শেখ-এর লেখা মর্মস্পর্শী রোমান্টিক থ্রিলার গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1779344525/ora-moner_fseh6l.webp",
+    "category": "romantic-thriller",
+    "slug": "rt-0005-ora-moner-gopon-cene-na"
+  },
+  {
+    "title": "গল্পটা তুমিময়",
+    "description": "মাধুর্য মিশ্রিত বাংলা রোমান্টিক ভালোবাসার গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1769358039/tumimoy_tzdonf.webp",
+    "category": "bangla-love-story",
+    "slug": "bls-0001-golpota-tumimoy"
+  },
+  {
+    "title": "গুঞ্জরনের নীড়ে",
+    "description": "ট্রাজেডি এবং লাভ রিলেটেড টিনেজার লাইফ গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1770407179/1--1-01_ianggn.webp",
+    "category": "teenager-special",
+    "slug": "ts-0002-gunjoroner-neere"
+  },
+  {
+    "title": "তুমি কোন কাননের ফুল",
+    "description": "অভ্রায়ীনি ঐশি-এর লেখা সাংসারিক রোমান্টিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1779295125/yht_2_gp2rcn.webp",
+    "category": "sangsarik",
+    "slug": "ss-0003-tumi-kon-kanoner-ful"
+  },
+  {
+    "title": "তুমি থাকো সিন্ধুপারে",
+    "description": "নুসরাত জাহান এর লেখা রোমান্টিক, সামাজিক ও পারিবারিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1778722973/sq1_goan1n.webp",
+    "category": "social-plot",
+    "slug": "sp-0004-tumi-thako-sindhupare"
+  },
+  {
+    "title": "তোমার নিমন্ত্রণে",
+    "description": "ঝগড়া, খুনসুটি থেকে গড়িয়ে ভালোবাসা ও বিয়ের দিকে যাওয়া সুন্দর একটি গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1770126818/Ro2_bgcue1.webp",
+    "category": "bangla-love-story",
+    "slug": "bls-0002-tomar-nimontrone"
+  },
+  {
+    "title": "তোর পিরীতে পাগল হইলাম রে",
+    "description": "খুশবু আকতার-এর লেখা চমৎকার একটি সামাজিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1780316481/pagol-hoilam-re2_rl0mel.webp",
+    "category": "social-plot",
+    "slug": "sp-0005-tor-pirite-pagol-hoilam-re"
+  },
+  {
+    "title": "ধুলো মাখা গলিতে",
+    "description": "সামাজিক বাংলা উপন্যাস",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1780411589/dhulo-makha-golite1_mh7tai.webp",
+    "category": "family-drama",
+    "slug": "fd-0010-dhulo-makha-golite"
+  },
+  {
+    "title": "নব ফাল্গুনের দিনে",
+    "description": "নুসরাত জাহান লিজা-এর লেখা অসাধারণ একটি সাংসারিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1779254686/858_2_rvyn3d.webp",
+    "category": "family-drama",
+    "slug": "fd-0006-nobo-falguner-dine"
+  },
+  {
+    "title": "নীল চোখের অপেক্ষায়",
+    "description": "জান্নাতী আক্তার সিমি-এর লেখা রোমান্টিক ও সাংসারিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1780239809/nil-cokher-opekkhay3_ocuqao.webp",
+    "category": "sangsarik",
+    "slug": "ss-0004-nil-cokher-opekkhay"
+  },
+  {
+    "title": "নেশাময় আসক্তি",
+    "description": "বন্যা সিকদার-এর লেখা স্পেশাল রোমান্টিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1780123976/neshamoy-asokti-bonna-sikder3_xdq9js.webp",
+    "category": "bangla-love-story",
+    "slug": "bls-0009-neshamoy-asokti"
+  },
+  {
+    "title": "নৈঃশব্দ্যের প্রেমালাপ",
+    "description": "বাংলা রোমান্টিক ও সামাজিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1775397557/yO-mMn-01_yx3wg4.webp",
+    "category": "social-plot",
+    "slug": "sp-0002-noishobder-premalap"
+  },
+  {
+    "title": "প্রণয়ের সুর",
+    "description": "মহাুয়া আমরিনের লেখা বাংলা রোমান্টিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1773309427/belabos_jg7mbk.webp",
+    "category": "bangla-love-story",
+    "slug": "bls-0004-pronoyer-sur"
+  },
+  {
+    "title": "প্রেমভুবনের অতসী",
+    "description": "অয়ন্তিকা ঐশী এর লেখা পারিবারিক ও মনস্তাত্ত্বিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1775745351/Sq-prem-vuboner-01_js9tnf.webp",
+    "category": "family-drama",
+    "slug": "fd-0003-premvuboner-otoshi"
+  },
+  {
+    "title": "ফিরে দেখা",
+    "description": "নওরিন ইথিকা এর লেখা সামাজিক ও রোমান্টিক উপন্যাস",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1772519778/Final-sq_ly95qm.webp",
+    "category": "bangla-love-story",
+    "slug": "bls-0003-fire-dekha"
+  },
+  {
+    "title": "বিবর্ণ বসন্ত",
+    "description": "নুসরাত জাহান লিজা-এর লেখা রহস্যময় সামাজিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1779716922/biborno-bosonto3_jo9hak.webp",
+    "category": "bangla-suspense",
+    "slug": "bs-0003-biborno-bosonto"
+  },
+  {
+    "title": "বিবাহ বিভ্রাট ডটকম",
+    "description": "রোমান্টিক ও সাংসারিক মেলবন্ধনে লেখা একটি পারিবারিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1769355902/bro_syksw4.webp",
+    "category": "sangsarik",
+    "slug": "ss-0001-bibaho-bivrat-dotcom"
+  },
+  {
+    "title": "বিলম্বিত উপলব্ধি",
+    "description": "জান্নাতী আক্তার সিমি-এর লেখা হৃদয়স্পর্শী সাংসারিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1780323802/bilombito3_h5etg4.webp",
+    "category": "sangsarik",
+    "slug": "ss-0005-bilombito-upolobdhi"
+  },
+  {
+    "title": "বিহঙ্গীনির ব্যাকুল মন",
+    "description": "বন্যা সিকদার-এর লেখা ক্ষয় থেকে ওঠা পুনরুত্থানের গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1780071429/bihonginir-bekul-mon3_b63tlv.webp",
+    "category": "family-drama",
+    "slug": "fd-0008-bihonginir-bekul-mon"
+  },
+  {
+    "title": "বৈরীতা ও অনুরক্তি",
+    "description": "টুইস্টে মাতানো সামাজিক ও রোমান্টিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1772963688/sq-tiya_ebm88q.jpg",
+    "category": "social-plot",
+    "slug": "sp-0001-boirita-o-onurokti"
+  },
+  {
+    "title": "ভ্রমর কইও গিয়া",
+    "description": "খুশবু আকতার-এর লেখা পারিবারিক সম্পর্কভিত্তিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1780482298/vromor2_eq55hu.webp",
+    "category": "family-drama",
+    "slug": "fd-0011-vromor-koiyo-giya"
+  },
+  {
+    "title": "মন ছুয়েছে সে",
+    "description": "মৌরিন আহমেদ-এর লেখা অন্য একটি রোমান্টিক থ্রিলার গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1769357594/yy_nzj3rv.webp",
+    "category": "romantic-thriller",
+    "slug": "rt-0001-mon-chuyeche-se"
+  },
+  {
+    "title": "মাইনাসে মাইনাসে প্লাস",
+    "description": "হাস্যরস আর রোমান্টিক ভাইবে পূর্ণ একটি সাংসারিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1769356246/min7_ty60kx.webp",
+    "category": "sangsarik",
+    "slug": "ss-0002-minus-minus-plus"
+  },
+  {
+    "title": "মৌনপ্রেম",
+    "description": "বাংলা সামাজিক ও পারিবারিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1773067528/mou-sq-01_rlveda.webp",
+    "category": "family-drama",
+    "slug": "fd-0002-mounoprem"
+  },
+  {
+    "title": "রিক্ত বসন্ত",
+    "description": "খুশবু আকতার-এর লেখা সামাজিক ও পারিবারিক উপন্যাস",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1780554480/rikto-bosonto1_jnzmng.webp",
+    "category": "sangsarik",
+    "slug": "ss-0006-rikto-bosonto"
+  },
+  {
+    "title": "রেখো তোমার বাহুডোরে",
+    "description": "অভ্রায়ীনি ঐশী-এর লেখা রহস্যে ঘেরা রোমান্টিক ও থ্রিলার গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1779159006/rtb1_n9czpw.webp",
+    "category": "bangla-suspense",
+    "slug": "bs-0002-rekho-tomar-bahudore"
+  },
+  {
+    "title": "শতাব্দী পেরিয়ে",
+    "description": "সূচনা জাফরিন-এর লেখা সায়েন্স ফিকশন গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1781236292/sotabdi-periye3_fanu98.webp",
+    "category": "bangla-suspense",
+    "slug": "bs-0004-shotabdi-periye"
+  },
+  {
+    "title": "সে আমার আপন জন",
+    "description": "নবনীতা চৌধুরী-এর লেখা ডিফেন্স রিলেটেড রোমান্টিক ও সামাজিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1778596526/sqaw_ked3wa.webp",
+    "category": "family-drama",
+    "slug": "fd-0005-se-amar-apon-jon"
+  },
+  {
+    "title": "সে আমার পূর্ণতা",
+    "description": "পারিবারিক ও নাটকীয় প্রেমকাহিনী",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1772212863/se-amar-p-box_xyq7fe.webp",
+    "category": "family-drama",
+    "slug": "fd-0001-se-amar-purnota"
+  },
+  {
+    "title": "সেই তমসায়",
+    "description": "রহস্যঘেরা বাংলা থ্রিলার গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1778751495/sei-tomosay_3_awpzfs.webp",
+    "category": "thriller",
+    "slug": "thrill-0001-sei-tomosay"
+  },
+  {
+    "title": "স্নিগ্ধ প্রেমের মায়া",
+    "description": "রহস্যেঘেরা বাংলা রোমান্টিক থ্রিলার গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1779672117/snigdho-prem1_uzmdqo.webp",
+    "category": "romantic-thriller",
+    "slug": "rt-0007-snigdho-premer-maya"
+  },
+  {
+    "title": "হাওয়ার সুরে ভেসে আসা তুমি",
+    "description": "টুইস্টে মাতানো বাংলা রহস্যময় গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1773244420/hawa-11_st3hfl.webp",
+    "category": "bangla-suspense",
+    "slug": "bs-0001-hawar-sure-veshe"
+  },
+  {
+    "title": "হৃদয় পথে এ কার ছায়া",
+    "description": "নুসরাত জাহান লিজা-এর লেখা হাস্যরসভিত্তিক পারিবারিক সামাজিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1779977996/hridoy-pothe-e-kar3_xj1zjr.webp",
+    "category": "family-drama",
+    "slug": "fd-0007-hridoy-pothe-e-kar-chaya"
+  },
+  {
+    "title": "হৃদয়ের রঙিন ক্যানভাস",
+    "description": "কাজিন রিলেটেড রোমান্টিক, পারিবারিক ও সামাজিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1777918444/sq-hrid_liy61k.webp",
+    "category": "bangla-love-story",
+    "slug": "bls-0006-hridoyer-rongin-canvas"
+  },
+  {
+    "title": "হৃদয়ের সবকথা নীরবতা",
+    "description": "সাইফুল ইসলাম এর লেখা বাংলা রোমান্টিক ও সামাজিক গল্প",
+    "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1778174402/nirobota-11_bo3v7a.webp",
+    "category": "bangla-love-story",
+    "slug": "bls-0007-sobkotha-nirobota"
+  }
+]
