@@ -151,26 +151,28 @@ function setupSliderHint(){
                     return;
                 }
 
-                slider.dataset.hintPlayed =
-                    "true";
+slider.dataset.hintPlayed =
+    "true";
+
+observer.unobserve(slider);
 
                 setTimeout(() => {
 
-                    slider.scrollBy({
-                        left:40,
-                        behavior:"smooth"
-                    });
+    slider.scrollTo({
+        left:25,
+        behavior:"smooth"
+    });
 
-                    setTimeout(() => {
+    setTimeout(() => {
 
-                        slider.scrollBy({
-                            left:-40,
-                            behavior:"smooth"
-                        });
+        slider.scrollTo({
+            left:0,
+            behavior:"smooth"
+        });
 
-                    },500);
+    },1500);
 
-                },300);
+},500);
 
             });
 
