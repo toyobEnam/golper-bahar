@@ -127,6 +127,69 @@ const randomSerials =
 
 }
 
+function setupSliderHint(){
+
+    if(window.matchMedia("(pointer:fine)").matches){
+        return;
+    }
+
+    const observer =
+        new IntersectionObserver(entries => {
+
+            entries.forEach(entry => {
+
+                if(!entry.isIntersecting){
+                    return;
+                }
+
+                const slider =
+                    entry.target;
+
+                if(
+                    slider.dataset.hintPlayed
+                ){
+                    return;
+                }
+
+                slider.dataset.hintPlayed =
+                    "true";
+
+                setTimeout(() => {
+
+                    slider.scrollBy({
+                        left:40,
+                        behavior:"smooth"
+                    });
+
+                    setTimeout(() => {
+
+                        slider.scrollBy({
+                            left:-40,
+                            behavior:"smooth"
+                        });
+
+                    },500);
+
+                },300);
+
+            });
+
+        },{
+            threshold:.5
+        });
+
+    document
+        .querySelectorAll(
+            ".horizontalSlider"
+        )
+        .forEach(slider => {
+
+            observer.observe(slider);
+
+        });
+
+}
+
 Promise.all([
     loadRandomWriters(),
     loadRandomSerials()
@@ -170,5 +233,7 @@ Promise.all([
                 });
 
         });
+
+    setupSliderHint();
 
 });
