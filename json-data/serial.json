@@ -439,5 +439,23 @@
     "categorySlug": "bangla-suspense",
     "storySlug": "bs-0004-shotabdi-periye",
     "writerSlug": "a015-suchana-jafrin"
-  }
+  },
+  {
+    "storyName": "রাজনীতি বনাম প্রেমনীতি",
+    "writerName": "মাহরিণ তৃণ",
+    "writerSlug": "a017-mahrin-trino",
+    "storyType": "serial",
+    "categoryName": "রোমান্টিক",
+    "categorySlug": "bangla-love-story",
+    "storySlug": "bls-0012-rajniti-bonam-premniti"
+  },
+{
+  "storyName": "অচেনা ছায়া তুমি",
+  "writerName": "নাজনীন নেছা নাবিলা",
+  "writerSlug": "a016-naznin-nesa-nabila",
+  "storyType": "serial",
+  "categoryName": "রোমান্টিক",
+  "categorySlug": "bangla-love-story",
+  "storySlug": "bls-0011-ocena-chaya-tumi"
+}
 ]
