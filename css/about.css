@@ -67,7 +67,7 @@ body {
 }
 
 .about-section p {
-    font-size: 20px;
+    font-size: 22px;
     font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
 }
 
@@ -432,7 +432,7 @@ body {
 
     .about-section p,
     .about-section li {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .contact-btn {
