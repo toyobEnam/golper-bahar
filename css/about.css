@@ -69,6 +69,7 @@ body {
 .about-section p {
     font-size: 22px;
     font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
+    text-align: justify;
 }
 
 .about-section li {
@@ -93,6 +94,9 @@ body {
 
 /* Contact */
 .contact {
+    text-align: center;
+}
+.contact p {
     text-align: center;
 }
 
@@ -169,7 +173,8 @@ body {
 
 
 .blue {
-    background-color: rgb(189, 255, 255);
+    background-color: rgb(0, 93, 45);
+    color: white;
 }
 
 
@@ -459,4 +464,22 @@ body {
 #totalCount,
 #updateDate {
     font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
+}
+
+#founder-name {
+    font-size: 40px;
+    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+}
+
+@media (max-width: 1000px) {
+    #founder-name {
+        font-size: 35px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    #founder-name {
+        font-size: 30px;
+    }
 }
