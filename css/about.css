@@ -315,61 +315,40 @@ body {
 }
 
 .form-group textarea {
-
     min-height: 140px;
-
     resize: vertical;
 }
 
 .submit-btn {
 
     width: 100%;
-
     border: none;
-
     background: #007517;
-
     color: white;
-
     padding: 14px;
-
     border-radius: 10px;
-
     font-size: 20px;
-
     cursor: pointer;
-
     transition: 0.3s;
 }
 
 .submit-btn:hover {
-
     background: #004f10;
 }
 
 .loading {
-
     opacity: 0.7;
-
     pointer-events: none;
 } 
 
 .smallText {
-
     margin-top: 12px;
-
     padding-left: 12px;
-
     border-left: 3px solid rgba(0, 117, 23, 0.25);
-
     font-size: 16px;
-
     line-height: 1.8;
-
     opacity: 0.8;
-
     color: #222;
-
     font-family:
     "LiPurnoPran",
     "Kalpurush",
@@ -407,7 +386,6 @@ body {
     }
 
     .smallText {
-
     font-size: 14px;
 }
 
@@ -417,7 +395,6 @@ body {
 }
 
 @media (max-width: 600px) {
-
     .about-header h1 {
         font-size: 26px;
     }
@@ -453,14 +430,11 @@ body {
     .form-group input,
     .form-group textarea,
     .form-group select {
-
         font-size: 15px;
-
         padding: 12px;
     }
 
     .submit-btn {
-
         font-size: 17px;
     }
 
@@ -470,9 +444,7 @@ body {
     }
 
     .smallText {
-
     font-size: 12px;
-
     padding-left: 10px;
 }
 
