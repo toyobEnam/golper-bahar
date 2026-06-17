@@ -196,5 +196,23 @@
   "categoryName": null,
   "categorySlug": null,
   "storySlug": "22-loke-pagol-boluk"
+},
+{
+  "storyName": "লোভ চক্র",
+  "writerName": "নুসরাত জাহান লিজা",
+  "writerSlug": "a001-nusrat-jahan-liza",
+  "storyType": "onu",
+  "categoryName": null,
+  "categorySlug": null,
+  "storySlug": "23-lovcokro"
+},
+{
+  "storyName": "বিষচক্ষু",
+  "writerName": "অভ্রায়ীনি ঐশি",
+  "writerSlug": "a002-avrayini-oishi",
+  "storyType": "onu",
+  "categoryName": null,
+  "categorySlug": null,
+  "storySlug": "24-bishcokkhu"
 }
 ]

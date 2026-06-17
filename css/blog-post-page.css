@@ -59,12 +59,36 @@ body{
 --radius-sm:5px;
 --radius-md:8px;
 --radius-lg:10px;
+
+--page-bg:#ffffff;
+--content-zone-bg:#ffffff;
+--card-bg:#eef4ff;
 }
 
 body{
     font-family:sans-serif;
-    background: #ffffff;
+    background:var(--page-bg);
     color:var(--text-primary);
+}
+
+@media (prefers-color-scheme:dark){
+
+:root{
+
+    --page-bg:#0f172a;
+
+    --content-zone-bg:#111827;
+
+    --card-bg:#1f2937;
+
+    --text-primary:#f9fafb;
+
+    --blog-thumb-bg:#374151;
+
+    --square-ad-bg:#1f2937;
+
+}
+
 }
 
 /* =========================
@@ -78,7 +102,7 @@ body{
 
     /* overflow:hidden; */
 
-    background:#ffffff;
+    background:var(--page-bg);
 }
 
 .hero::before{
@@ -204,7 +228,7 @@ body{
     flex-direction:column;
     text-decoration:none;
     color:var(--text-primary);
-    background:var(--blog-card-bg);
+    background:var(--card-bg);
     overflow:hidden;
     transition:.25s ease;
 }
@@ -248,11 +272,13 @@ body{
     aspect-ratio:3/2;
 }
 
+.ratio23{
+    aspect-ratio:2/3;
+}
 
 .ratio31{
     aspect-ratio:3/1;
 }
-
 
 .ratio11{
     aspect-ratio:1/1;
@@ -275,8 +301,8 @@ body{
 
 .verticalAd{
     min-height:600px;
-    border-radius:var(--radius-lg);
-    background:var(--vertical-ad-bg);
+    /* border-radius:var(--radius-lg);
+    background:var(--vertical-ad-bg); */
 }
 
 .squareAd{
@@ -285,7 +311,7 @@ body{
     min-height:300px;
     margin:15px auto 0;
     border-radius:var(--radius-lg);
-    background:var(--square-ad-bg);
+    /* background:var(--square-ad-bg); */
 }
 
 .laptopHorizontalAd{
@@ -294,7 +320,7 @@ body{
     min-height:120px;
     margin-top:15px;
     border-radius:var(--radius-lg);
-    background:var(--square-ad-bg);
+    /* background:var(--square-ad-bg); */
 }
 
 @media (max-width:900px){
@@ -366,9 +392,9 @@ body{
 
 .featuredBox{
     min-height:300px;
-    margin-top: 30px;
+    margin-top:30px;
     border-radius:var(--radius-lg);
-    background:var(--square-ad-bg);
+    /* background:var(--square-ad-bg); */
 }
 
 .serialStories{
@@ -387,7 +413,7 @@ body{
     flex-direction:column;
     text-decoration:none;
     color:var(--text-primary);
-    background:var(--blog-card-bg);
+    background:var(--card-bg);
     border-radius:var(--radius-md);
     overflow:hidden;
     transition:.25s ease;
@@ -543,7 +569,7 @@ body{
 
     color:var(--text-primary);
 
-    background:var(--blog-card-bg);
+    background:var(--card-bg);
 
     border-radius:var(--radius-md);
 
@@ -888,4 +914,10 @@ body{
         grid-template-columns:2fr 3fr;
     }
 
+}
+
+.ratio23{
+    max-width:450px;
+    margin-left:auto;
+    margin-right:auto;
 }
