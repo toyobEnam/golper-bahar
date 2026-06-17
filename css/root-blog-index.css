@@ -23,12 +23,214 @@
     box-sizing: border-box;
 }
 
+
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background-color: var(--bg);
     color: var(--text);
     line-height: 1.6;
 }
+
+
+/* ================================ Hero Header ====================================== */
+
+/* ===========================
+   ROOT HERO
+=========================== */
+
+.rootHero {
+    padding: 25px 0 10px;
+}
+
+.rootHeroBox {
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(44,122,123,.08),
+            rgba(79,209,197,.05)
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow);
+}
+
+.rootHeroBox::before {
+    content: "";
+
+    position: absolute;
+
+    top: -80px;
+    right: -80px;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(79,209,197,.12);
+}
+
+.rootHeroBox::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -100px;
+    left: -100px;
+
+    width: 260px;
+    height: 260px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(44,122,123,.08);
+}
+
+.rootHeroContent {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+
+    padding: 55px 45px;
+}
+
+.rootHeroBadge {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(44,122,123,.12);
+
+    color: var(--primary);
+
+    font-size: .9rem;
+    font-weight: 600;
+
+    margin-bottom: 18px;
+}
+
+.rootHeroTitle {
+    font-size: clamp(2rem, 4vw, 3.4rem);
+
+    line-height: 1.2;
+
+    color: var(--text);
+
+    margin-bottom: 18px;
+}
+
+.rootHeroDesc {
+    font-size: 1.08rem;
+
+    line-height: 1.9;
+
+    color: var(--text-light);
+
+    max-width: 800px;
+}
+
+.rootHeroStats {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.rootHeroStat {
+    min-width: 140px;
+
+    padding: 14px 18px;
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+}
+
+.rootHeroStat strong {
+    display: block;
+
+    color: var(--primary);
+
+    font-size: 1.3rem;
+
+    margin-bottom: 4px;
+}
+
+.rootHeroStat span {
+    font-size: .9rem;
+    color: var(--text-light);
+}
+
+/* ===========================
+   TABLET
+=========================== */
+
+@media (max-width: 1199px) {
+
+    .rootHeroContent {
+        padding: 40px 30px;
+    }
+
+    .rootHeroDesc {
+        font-size: 1rem;
+    }
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 767px) {
+
+    .rootHero {
+        padding-top: 15px;
+    }
+
+    .rootHeroContent {
+        padding: 25px 18px;
+    }
+
+    .rootHeroTitle {
+        line-height: 1.3;
+    }
+
+    .rootHeroDesc {
+        font-size: .95rem;
+        line-height: 1.8;
+    }
+
+    .rootHeroStats {
+        gap: 10px;
+    }
+
+    .rootHeroStat {
+        flex: 1 1 calc(50% - 10px);
+        min-width: 120px;
+    }
+
+}
+
+/* ================================ Hero Header End ====================================== */
+
+
 
 .container {
     max-width: 1400px;
@@ -59,7 +261,7 @@ body {
 .popular-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 0.7rem;
 }
 
 .blog-card {
@@ -155,7 +357,7 @@ body {
 .categories-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 1.5rem;
+    gap: 0.7rem;
 }
 
 .category-card {
@@ -469,4 +671,233 @@ body {
     .container {
         padding: 0 40px;
     }
+}
+
+
+.genreTopics{
+    margin-top:10px;
+    margin-bottom:25px;
+}
+
+.genreTopicsWrap{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.genreTopicsWrap a{
+    text-decoration:none;
+    color:var(--primary);
+
+    background:rgba(79,209,197,.08);
+
+    border:1px solid var(--border);
+
+    border-radius:999px;
+
+    padding:8px 16px;
+
+    transition:.25s;
+}
+
+.genreTopicsWrap a:hover{
+    border-color:var(--primary-light);
+    background:rgba(79,209,197,.15);
+}
+
+@media (max-width:767px){
+
+    .genreTopicsWrap{
+        gap:8px;
+    }
+
+    .genreTopicsWrap a{
+        padding:6px 12px;
+        font-size:.85rem;
+    }
+
+}
+
+
+
+.genreFeaturedSection{
+    margin-top:1rem;
+}
+
+.genreFeaturedGrid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:.7rem;
+}
+
+.genreFeaturedGrid .post-card .card-image{
+    padding-top:66.66%;
+}
+
+.genreCategorySection{
+    margin-top:2rem;
+}
+
+.genreCategoryGrid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:.7rem;
+}
+
+.genrePostsSection{
+    margin-top:2rem;
+}
+
+.genrePostsSection .category-header{
+    margin-top:0;
+}
+
+.genrePostsSection .posts-grid .card-image{
+    padding-top:66.66%;
+}
+
+@media(max-width:1199px){
+
+    .genreCategoryGrid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:767px){
+
+    .genreFeaturedGrid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .genreCategoryGrid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+/* ========================== Genre Header ============================== */
+
+/* ===========================
+   GENRE HERO
+=========================== */
+
+.genreHero{
+    padding:20px 0 10px;
+}
+
+.genreHeroBox{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:50px 40px;
+
+    border-radius:14px;
+
+    background:var(--card-bg);
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+}
+
+.genreHeroBox::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:5px;
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--primary-light)
+    );
+}
+
+.genreHeroTop{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:20px;
+}
+
+.genreHeroBadge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:rgba(44,122,123,.08);
+
+    color:var(--primary);
+
+    font-size:.9rem;
+
+    font-weight:600;
+}
+
+.genreHeroCount{
+
+    color:var(--text-light);
+
+    font-size:.95rem;
+}
+
+.genreHeroTitle{
+
+    max-width:850px;
+
+    font-size:clamp(2rem,4vw,3.5rem);
+
+    line-height:1.15;
+
+    margin-bottom:18px;
+}
+
+.genreHeroDesc{
+
+    max-width:900px;
+
+    color:var(--text-light);
+
+    font-size:1.05rem;
+
+    line-height:1.9;
+}
+
+@media(max-width:767px){
+
+    .genreHeroBox{
+        padding:30px 20px;
+    }
+
+    .genreHeroTop{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
+    .genreHeroDesc{
+        font-size:.95rem;
+    }
+
 }
