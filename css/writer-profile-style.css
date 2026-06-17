@@ -64,7 +64,7 @@ header {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-height: 600px;
+    min-height: auto;
 }
 /* Profile Image */
 .A-image {
@@ -571,6 +571,11 @@ header {
 }
 
 @media (max-width: 600px) {
+
+    .cardC{
+        padding:15px;
+    }
+
     /* সাধারণ storyBox */
     .cardC .storyBox {
         grid-template-columns: 1fr;
@@ -648,5 +653,9 @@ header {
 
     .cardH .h-lower.one-book .book-name p {
         font-size: 1.2rem;
+    }
+
+    .cardE th{
+    width: 50%;
     }
 }
