@@ -466,5 +466,14 @@
   "categoryName": "রোমান্টিক থ্রিলার",
   "categorySlug": "romantic-thriller",
   "storySlug": "rt-0009-hridoyer-ogocore"
+},
+{
+  "storyName": "তোমার নামেই গল্প হোক",
+  "writerName": "খুশবু আকতার",
+  "writerSlug": "a012-khusbu-akter",
+  "storyType": "serial",
+  "categoryName": "ফ্যামিলি ড্রামা",
+  "categorySlug": "family-drama",
+  "storySlug": "fd-0012-tomar-namei-golpo-hok"
 }
 ]

@@ -224,7 +224,7 @@ body {
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 0.7rem;
 }
 
 .post-card {
@@ -267,6 +267,12 @@ body {
 }
 
 /* Placeholder */
+
+.placeholders {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
 .placeholder-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -440,9 +446,22 @@ body {
         font-size: 1.7rem;
     }
 
-    .featured-blog-card .card-content h3 {
-    font-size: 1.35rem;
-    }
+.featured-blog-card .card-content h3 {
+    font-size: 1.15rem;
+}
+
+.featured-blog-card .card-content {
+    padding: 1rem;
+}
+
+.featured-blog-card .meta {
+    font-size: 0.8rem;
+}
+
+.featured-blog-card p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
 
 }
 
