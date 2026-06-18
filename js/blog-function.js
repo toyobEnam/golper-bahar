@@ -1,22 +1,22 @@
 
 // ==========================
-// Popular Writers
+// Random Onu Stories
 // ==========================
 
-async function loadRandomWriters(){
+async function loadRandomOnuStories(){
 
 const response =
-    await fetch("/json-data/story-writers.json");
+    await fetch("/json-data/onu.json");
 
 if(!response.ok){
-    throw new Error("Writer JSON load failed");
+    throw new Error("Onu JSON load failed");
 }
 
-    const writers =
-        await response.json();
+const stories =
+    await response.json();
 
 const shuffled =
-    [...writers];
+    [...stories];
 
 for(let i = shuffled.length - 1; i > 0; i--){
 
@@ -27,41 +27,39 @@ for(let i = shuffled.length - 1; i > 0; i--){
         [shuffled[j], shuffled[i]];
 }
 
-const randomWriters =
-    shuffled.slice(0,8);
+const randomStories =
+    shuffled.slice(0,10);
 
-    const container =
-        document.getElementById("writerSlider");
+const colors = [
+    "miniColor1",
+    "miniColor2",
+    "miniColor3",
+    "miniColor4",
+    "miniColor5",
+    "miniColor6",
+    "miniColor7",
+    "miniColor8"
+];
+
+const container =
+    document.querySelector(".miniStoryList");
 
 container.innerHTML =
-    randomWriters.map(writer => `
-        <a
-            href="/writers/${writer.writerSlug}/"
-            class="sliderCard">
+    randomStories.map((story,index) => `
 
-            <div class="sliderThumb">
-                <img
-                    src="${writer.writerImage}"
-                    alt="${writer.writerName}">
-            </div>
+<li>
+    <a
+        href="/onugolpo/${story.storySlug}/"
+        class="${colors[index % colors.length]}">
 
-<div class="sliderText">
+        ${story.storyName}
 
-    <div class="sliderName">
-        ${writer.writerName}
-    </div>
+    </a>
+</li>
 
-    <div class="sliderDesc">
-        ${writer.writerBio}
-    </div>
-
-</div>
-
-        </a>
-    `).join("");
+`).join("");
 
 }
-
 
 
 // ==========================
@@ -193,7 +191,7 @@ observer.unobserve(slider);
 }
 
 Promise.all([
-    loadRandomWriters(),
+    loadRandomOnuStories(),
     loadRandomSerials()
 ]).then(() => {
 
