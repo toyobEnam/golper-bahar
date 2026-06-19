@@ -659,3 +659,47 @@ header {
     width: 50%;
     }
 }
+
+
+/* ===== Author Bio Section ===== */
+
+.cardAuthorBio{
+    background:#ffffff;
+    padding:30px;
+}
+
+.author-bio-title h2{
+    text-align:center;
+    font-size:1.8rem;
+    margin-bottom:20px;
+    color:#0b5009;
+}
+
+.author-bio-content{
+    max-width:1000px;
+    margin:auto;
+}
+
+.author-bio-content p{
+    font-size:1.1rem;
+    line-height:1.9;
+    color:#222;
+    text-align:justify;
+}
+
+@media (max-width:1000px){
+
+    .cardAuthorBio{
+        padding:20px;
+    }
+
+    .author-bio-title h2{
+        font-size:1.5rem;
+    }
+
+    .author-bio-content p{
+        font-size:1rem;
+        line-height:1.8;
+    }
+
+}
