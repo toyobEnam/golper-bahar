@@ -185,11 +185,11 @@ a, a:hover, a:focus, a:active {
 /* ============= Mouse Pointer Default Start ================ */
 
 /* ===== Disable Text Selection ===== */
-/* body {
+body {
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-} */
+}
 
 /* ===== Disable cursor change on text ===== */
 span, h1, h2, h4, h5, h6 {

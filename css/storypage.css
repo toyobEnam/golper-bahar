@@ -390,15 +390,15 @@ a, button {
 }
 
 
-/* body {
+body {
   user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-} */
+}
 
-/* .story-content {
+.story-content {
   user-select: none;
-} */
+}
 
 .back-btn {
   border: none;
