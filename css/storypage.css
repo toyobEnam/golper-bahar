@@ -378,11 +378,7 @@ body.dark .header *{
 }
 
 
-body {
-  user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
+
 
 p, span, h1, h2, h3, h4, h5, h6, div {
   cursor: default;
@@ -393,6 +389,12 @@ a, button {
   user-select: auto;
 }
 
+
+/* body {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+} */
 
 /* .story-content {
   user-select: none;
