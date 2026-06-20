@@ -467,3 +467,59 @@ a, button {
     border-radius: 4px;
   }
 }
+
+
+/* =========================
+   Story Information Boxes
+========================= */
+
+.info-box {
+  max-width: 900px;
+  margin: 22px auto;
+  padding: 20px 24px;
+
+  background: #ffffff;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.info-box h2 {
+  margin-bottom: 14px;
+
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0b6b3a;
+
+  text-align: center;
+}
+
+.info-box p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #333;
+
+  text-align: justify;
+}
+
+@media (max-width: 1199px) {
+  .info-box {
+    margin: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .info-box {
+    margin: 16px;
+    padding: 16px;
+  }
+
+  .info-box h2 {
+    font-size: 1.15rem;
+  }
+
+  .info-box p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
