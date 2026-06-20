@@ -306,3 +306,127 @@ document.addEventListener(
 
     }
 );
+
+
+async function loadNearbyStories(){
+
+try{
+
+const path =
+location.pathname
+.replace(/^\/|\/$/g,"")
+.split("/");
+
+if(path[0] !== "short-stories") return;
+
+const currentStorySlug = path[2];
+
+const response = await fetch(
+"/json-data/short-stories.json"
+);
+
+const stories = await response.json();
+
+const currentIndex =
+stories.findIndex(
+story =>
+story.storySlug === currentStorySlug
+);
+
+if(currentIndex === -1) return;
+
+let start = currentIndex - 5;
+let end = currentIndex + 5;
+
+if(start < 0){
+
+end += Math.abs(start);
+start = 0;
+
+}
+
+if(end > stories.length - 1){
+
+const extra =
+end - (stories.length - 1);
+
+start = Math.max(
+0,
+start - extra
+);
+
+end = stories.length - 1;
+
+}
+
+const nearbyStories =
+stories
+.slice(start,end + 1)
+.filter(
+story =>
+story.storySlug !== currentStorySlug
+)
+.slice(0,10);
+
+if(!nearbyStories.length) return;
+
+const html = `
+<div class="more-short-stories">
+
+<h3>
+আরও ছোটগল্প পড়ুন
+</h3>
+
+<ol>
+
+${nearbyStories.map(story => `
+
+<li>
+<a href="/short-stories/${story.categorySlug}/${story.storySlug}/">
+${story.storyName}
+</a>
+</li>
+
+`).join("")}
+
+</ol>
+
+</div>
+`;
+
+const leftBar =
+document.querySelector(".leftBar");
+
+if(leftBar){
+
+const oldBox =
+leftBar.querySelector(
+".more-short-stories"
+);
+
+if(oldBox){
+oldBox.remove();
+}
+
+leftBar.insertAdjacentHTML(
+"beforeend",
+html
+);
+
+}
+
+}catch(err){
+
+console.log(
+"Nearby stories failed",
+err
+);
+
+}
+
+}
+
+document.addEventListener(
+"DOMContentLoaded",
+loadNearbyStories
+);

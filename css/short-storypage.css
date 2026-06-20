@@ -1,612 +1,399 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* =========================================================
+   গল্পের বাহার - Episode Page (Updated Modern CSS)
+   Fully Responsive + LiPurnoPran Font + Reduced Border Radius
+========================================================= */
+
+:root {
+  --bg-color: #f9f6f0;
+  --text-color: #2c2c2c;
+  --accent-color: #8B3A62;
+  --accent-hover: #6B2A4A;
+  --button-bg: #2C3E50;
+  --button-hover: #1E2A38;
+  --card-bg: #ffffff;
+  --border-color: #e8e0d5;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-a {
-  text-decoration: none;
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
 }
-
-@font-face {
-  font-family: "Kalpurush";
-  src: url("../assets/fonts/kalpurush.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "LiPurnoPran";
-  src: url("../assets/fonts/LiPurnoPran.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-#upNav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
-}
-
 
 body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Noto Serif Bengali', 'Kalpurush', Georgia, serif;
+  line-height: 1.9;
   margin: 0;
-  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-  background: #dbdbdb;
+  padding: 0;
+  font-size: 17px;
 }
 
-/* ===== Grid Container ===== */
-.gridContainer {
-  min-height: 100vh;
-  display: grid;
-
-  /* Desktop layout */
-  grid-template-columns: 350px 1fr 350px;
-  grid-template-rows: auto 1fr auto;
-
-  grid-template-areas:
-    "header header header"
-    "left   main   right"
-    "footer footer footer";
+/* Breadcrumb */
+.gb-breadcrumb-wrap {
+  width: 100%;
+  padding: 12px 20px 0;
 }
 
-/* ===== Grid Areas ===== */
-.header {
-  grid-area: header;
-  padding: 20px;
-  background: #eaeaea;
-  text-align: center;
-  height: 200px;
+.gb-breadcrumb {
+  font-size: 14px;
+  color: #666;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
-  flex-direction: column;
-  gap: 6px;
-  border-bottom: 1px solid black;
-
-  background-image: linear-gradient(rgba(255, 255, 255, 0.566), rgba(255,255,255,0.25)), url("https://res.cloudinary.com/dhj4ovvav/image/upload/v1781107408/image_dhu7fx.webp");
-  background-size: cover;      /* পুরো header ভরবে */
-  background-position: center; /* মাঝখানে থাকবে */
-  background-repeat: no-repeat;
+  gap: 8px;
 }
 
-.header h1 {
-  font-size: 35px;
+.gb-breadcrumb a {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.gb-breadcrumb a:hover {
+  color: var(--accent-color);
+}
+
+.gb-breadcrumb span {
+  color: #aaa;
+}
+
+/* Grid Container - Fully Responsive */
+.gridContainer {
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 900px) 240px;
+  justify-content: center;
+  gap: 30px;
+  align-items: start;
+}
+
+/* Header */
+.header {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 20px 0 10px;
+}
+
+.story-title {
+  font-size: clamp(1.9rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--accent-color);
+  margin: 0 0 8px 0;
+  line-height: 1.2;
 }
 
 .header p {
-  font-size: 20px;
-  border: 1px solid rgba(5, 5, 5, 0.301);
-  padding: 7px 35px;
-  border-radius: 7px;
-  background-color: #ffffffa3;
-}
-
-@media (max-width: 700px) {
-  .header p {
-    font-size: 15px;
-  }
-
-  .header h1 {
-    font-size: 25px;
-  }
-
-  .header {
-    height: 150px;
-  }
-}
-
-body.dark .header,
-body.dark .header *{
-  color: #000;
+  font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+  color: #555;
+  margin: 0;
+  font-weight: 500;
 }
 
 
-
-.leftBar {
-  grid-area: left;
-  padding: 20px;
-  background: #dbdbdb;
-}
-
-.mainContent {
-  font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
-  grid-area: main;
-  padding: 25px 80px;
-  background: #dbdbdb;
-}
-
-.rightBar {
-  grid-area: right;
-  padding: 20px;
-  background: #dbdbdb;
-}
-
-.footer {
-  grid-area: footer;
-  padding: 0px;
-  background: #eaeaea;
-  text-align: center;
-}
-
-@media (max-width: 1000px) {
-    .mainContent {
-    grid-area: main;
-    padding: 25px 25px;
-    background: #dbdbdb;
-}
-}
-
-@media (max-width: 1400px) {
-  .gridContainer{
-  grid-template-columns: auto 350px;
-  grid-template-areas:
-    "header header"
-    "main   right"
-    "footer footer";
-  }
-}
-
-@media (max-width: 1000px) {
-  .gridContainer {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "header"
-      "main"
-      "left"
-      "right"
-      "footer";
-  }
-
-  .leftBar {
-    display: block;
-    padding: 10px 16px;
-  }
-
-  .rightBar {
-    display: block;
-  }
-}
-
-.rightBar {
-  height: auto;
-  align-self: start;
-}
-
-.mainContent p {
-    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
-    font-size: 26px;
-    line-height: 1.5;
-    margin-bottom: 1.3em;
-    letter-spacing: 0.01em;
-
-    overflow-wrap: anywhere;
-    word-break: break-word;
-}
-
-@media (max-width: 1000px) {
-    .mainContent p {
-        font-size: 19px;
-        line-height: 1.5;
-    }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .mainContent p {
-        font-size: 17px;
-        line-height: 1.4;
-    }
-}
 
 .story-image {
-    margin: 2.2em 0;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: var(--card-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.story-image:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
 }
 
 .story-image img {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 6px;
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-.episode-switch {
-  margin: 60px 0 30px;
-  padding-top: 20px;
-  border-top: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+.story-image:hover img {
+  transform: scale(1.02);
 }
 
-.upperNAV {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px; 
-  margin: 10px 0;
+/* Main Content Area */
+.mainContent {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 42px 48px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
+/* গল্পের মূল টেক্সট - LiPurnoPran Font + Larger Size */
+.mainContent p {
+  font-family: 'LiPurnoPran', 'Kalpurush', 'Noto Serif Bengali', Georgia, serif;
+  font-size: clamp(1.15rem, 0.9vw + 0.8rem, 1.55rem);
+  line-height: 2.00;
+  margin-bottom: 1.45em;
+  color: #2c2c2c;
+  text-align: justify;
+}
+
+.mainContent p:last-child {
+  margin-bottom: 0;
+}
+
+/* Top Navigation */
 .topSwitch {
-  margin: 2px 0 10px;
-  padding-top: 0px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  margin-bottom: 32px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border-color);
 }
+
 .topNav {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px; 
-  margin: 0;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+/* Episode Buttons - Reduced Border Radius */
+.ep-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(8px, 0.8vw, 11px)
+           clamp(14px, 1.8vw, 24px);
+  font-size: clamp(13px, 0.9vw, 15px);
+  font-weight: 600;
+  color: #fff;
+  background: var(--button-bg);
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(44, 62, 80, 0.18);
+  white-space: nowrap;
+}
+
+.ep-btn:hover {
+  background: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(44, 62, 80, 0.25);
+  color: #fff;
+}
+
+.ep-btn.active {
+  background: var(--accent-color);
+  box-shadow: 0 4px 12px rgba(139, 58, 98, 0.3);
+  pointer-events: none;
+}
+
+.ep-btn.next {
+  background: var(--accent-color);
+}
+
+.ep-btn.next:hover {
+  background: var(--accent-hover);
+}
+
+/* Episode List */
+.episode-switch {
+  margin-top: 55px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border-color);
 }
 
 .ep-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 10px;
-  
+  gap: 10px;
+  margin-top: 14px;
 }
 
-.ep-list.start {
-  justify-content: center;
-}
-
-.ep-btn {
-  text-decoration: none;
-  font-size: 16px;
-  color: #333;
-  border: 1px solid #ccc;
-  padding: 8px 14px;
-  border-radius: 4px;
-  background: #fff;
-}
-
-.ep-btn:hover {
-  background: #f0f0f0;
-}
-
-
-#theEndText {
-  text-align: center;
-  font-size: 26px;
-}
-
-@media (max-width: 1000px) {
-    #theEndText {
-        font-size: 19px;
-    }
-}
-
-@media (max-width: 600px) {
-    #theEndText {
-        font-size: 17px;
-    }
-}
-
-
-          /* ডান পাশে থাকা আরও গল্পের কার্ড ডিজাইন Start */
-.rightLinks {
-  padding: 20px;
-  margin-top: 50px;
-  text-align: center;
-}
-
-.bigP {
-  font-size: 1.8rem;
-}
-
-.rightStoryCards {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  padding: 10px;
-  text-align: center;
-  gap: 30px;
-  align-items: stretch;
-}
-
-/* anchor = real grid item */
-.rightStoryCards a {
-  display: block;
-  width: 100%;
-  text-decoration: none;   /* underline off */
-  color: inherit;          /* text color inherit */
-  cursor: pointer;         /* hand cursor */
-  height: 100%;
-}
-
-.story-card {
-  border: 1px solid #2e7d32;
-  border-radius: 10px;
-  margin: 7px 0;
-  padding: 7px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  transition: 
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
-}
-
-/* hover effect */
-.rightStoryCards a:hover .story-card {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  border-color: #1b5e20;
-}
-
-/* keyboard accessibility */
-.rightStoryCards a:focus-visible .story-card {
-  outline: 2px solid #1b5e20;
-  outline-offset: 3px;
-}
-
-/* image square */
-.cardImg {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
+.ep-list .ep-btn {
+  font-size: clamp(12px, 0.8vw, 14.5px);
+  padding:
+    clamp(7px, 0.7vw, 9px)
+    clamp(12px, 1.4vw, 20px);
+  background: #f1e9df;
+  color: #444;
+  box-shadow: none;
   border-radius: 8px;
 }
 
-.cardImg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.ep-list .ep-btn:hover {
+  background: #e8dccf;
+  color: #222;
 }
 
-.cardInfo h3 {
-  font-size: 1.3rem;
-  margin: 15px 0px;
+.ep-list .ep-btn.active {
+  background: var(--accent-color);
+  color: white;
 }
 
-.cardInfo p {
-  margin-bottom: 10px;
-  color: #4f4f4f;
-}
-
-
-body {
-  user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-p, span, h1, h2, h3, h4, h5, h6, div {
-  cursor: default;
-}
-
-a, button {
-  cursor: pointer !important;
-  user-select: auto;
-}
-
-
-.story-content {
-  user-select: none;
-}
-
-.back-btn {
-  border: none;
-  background: none;
-  font-family: inherit;
-  cursor: pointer;
-}
-
-
+/* Mini Episode Navigation */
 .mini-episode-nav {
+  max-width: 1280px;
+  margin: 45px auto 30px;
+  padding: 14px 18px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-
-  padding: 12px 10px;
-  margin-bottom: 0;
-
-  background-color: #0f0f0f; /* footer match */
 }
 
-/* ===== Single Item ===== */
 .mini-nav-item {
+  padding:
+    clamp(7px, 0.8vw, 10px)
+    clamp(12px, 1.6vw, 22px);
+
+  font-size:
+    clamp(12px, 0.8vw, 14.5px);
+  font-weight: 600;
+  color: #444;
+  background: #f4ede3;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  min-width: 72px;           /* 👈 desktop smaller */
-  padding: 6px 12px;         /* 👈 compact */
-
-  background-color: #1e1e1e;
-  color: #ffffff;
-
-  font-size: 0.85rem;        /* 👈 desktop smaller text */
-  font-weight: 500;
-  line-height: 1.2;
-
-  border-radius: 5px;
-  text-decoration: none;
-
-  transition:
-    color 0.22s ease,
-    background-color 0.22s ease,
-    box-shadow 0.22s ease,
-    transform 0.18s ease;
 }
 
-
-
-/* ===== Hover Effect ===== */
 .mini-nav-item:hover {
-  color: #2f80ff;
-  background-color: #e6e6e6;
-
-  box-shadow:
-    0 0 0 1px rgba(47, 128, 255, 0.35),
-    0 0 8px rgba(47, 128, 255, 0.3);
-
-  transform: translateY(-1px);
-}
-
-/* ================= Tablet ================= */
-@media (max-width: 1000px) {
-  .mini-episode-nav {
-    gap: 8px;
-    padding: 10px 8px;
-  }
-
-  .mini-nav-item {
-    min-width: 68px;
-    padding: 6px 10px;
-    font-size: 0.8rem;
-  }
-}
-
-/* ================= Mobile ================= */
-@media (max-width: 600px) {
-  .mini-episode-nav {
-    gap: 6px;
-    padding: 8px 6px;
-  }
-
-  .mini-nav-item {
-    min-width: auto;       /* text-based width */
-    padding: 5px 9px;
-    font-size: 0.78rem;
-    border-radius: 4px;
-  }
-}
-
-
-.active {
-  background-color: #2f80ff;
+  background: var(--accent-color);
   color: white;
+  transform: translateY(-2px);
 }
 
-.active:hover {
-  background-color: #ff0000;
-  color: #ffffff;
+.mini-nav-item.back-btn {
+  background: #e8dccf;
 }
 
+/* Comments Section */
+#story-comments {
+  margin-top: 55px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border-color);
+}
 
-/* Tablet */
-@media (max-width: 1000px) {
-  .story-image img {
-    max-width: 380px;
+/* ========== RESPONSIVE ========== */
+
+/* Tablet & Small Laptop */
+@media (max-width: 1100px) {
+  .gridContainer {
+    grid-template-columns: 220px 1fr;
+    gap: 25px;
+  }
+}
+
+/* Mobile & Tablet */
+@media (max-width: 768px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    gap: 22px;
+  }
+
+  .leftBar {
+    position: static;
+    order: 2;
+    max-width: 340px;
+    margin: 0 auto;
   }
 
   .rightBar {
-    padding: 0px 100px;
+  order: 3;
+}
+
+  .mainContent {
+    order: 1;
+    padding: 30px 26px;
+    max-width: 100%;
+    border-radius: 10px;
   }
 
-  .rightStoryCards {
+  .header {
+    order: 0;
+  }
+
+.mainContent p {
+  font-size: clamp(1rem, 2vw + 0.7rem, 1.15rem);
+  line-height: 1.9;
+}
+
+.topNav,
+.ep-list {
+  justify-content: flex-start;
+}
+
+.upperNAV{
+  margin-bottom:14px;
+}
+
+.ep-list{
+  margin-top:14px;
+}
+
+  .mini-episode-nav {
+    border-radius: 10px;
+    padding: 12px;
+    gap: 8px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 24px 20px;
+  }
+
+  .story-title {
+    font-size: 1.75rem;
+  }
+
+  .ep-btn {
+    padding: 9px 16px;
+    font-size: 14px;
+    border-radius: 7px;
+  }
+
+  .mini-episode-nav {
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 8px;
+  }
+  
+  .mini-nav-item {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    padding: 10px;
     text-align: center;
-    gap: 30px;
+    border-radius: 7px;
   }
 }
 
-/* Mobile */
-  @media (max-width: 600px) {
-    .rightBar {
-      padding: 10px 16px;
-    }
-    .story-image {
-      margin: 1.8em 0;
-    }
-
-    .story-image img {
-      max-width: 92%;
-      border-radius: 4px;
-    }
-    .story-card {
-      margin: 0;
-      padding: 5px;
-    }
-
-  .rightLinks {
-    padding: 0px;
-    margin-top: 10px;
-  }
-
-  .rightStoryCards {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: stretch;
-    padding: 20px 0px;
-    text-align: center;
-    gap: 12px;
-  }
-    .rightStoryCards a {
-      width: auto;
-    }
-
-    .cardInfo h3 {
-    font-size: 1.1rem;
-    margin: 6px 0px;
-  }
-
-  .cardInfo p {
-    margin-bottom: 3px;
-    font-size: 0.9rem;
-  }
+/* Extra Polish */
+a {
+  color: var(--accent-color);
+  transition: color 0.2s ease;
 }
 
-
-/* ===== Writer Note ===== */
-.writer-note {
-  background: #ffffff;
-  /* border-left: 4px solid #2f80ff; */
-  padding: 12px 15px;
-  margin-bottom: 25px;
-  border-radius: 6px;
+a:hover {
+  color: var(--accent-hover);
 }
 
-.writer-note p {
-  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-  font-size: 18px;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.writer-note .tag-btn {
-  display: inline-block;
-  background: #005f0e;
-  color: #ffffff;
-  text-decoration: none;
-  padding: 3px 8px;
-  margin: 0 2px;
-  border-radius: 4px;
-  font-size: 0.9em;
-  font-weight: 600;
-}
-
-.writer-note .tag-btn:hover {
-  background: #006f6f;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .writer-note {
-    padding: 10px 12px;
-    margin-bottom: 20px;
-  }
-
-  .writer-note p {
-    font-size: 15px;
-  }
+.ep-btn:focus,
+.mini-nav-item:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
