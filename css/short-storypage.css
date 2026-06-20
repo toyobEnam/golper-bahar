@@ -94,7 +94,12 @@ body {
   font-weight: 500;
 }
 
-
+body{
+  user-select:none;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+}
 
 .story-image {
   background: var(--card-bg);
