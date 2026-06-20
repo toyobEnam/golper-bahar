@@ -377,19 +377,28 @@ const html = `
 আরও ছোটগল্প পড়ুন
 </h3>
 
-<ol>
+<div class="nearby-story-list">
 
 ${nearbyStories.map(story => `
 
-<li>
-<a href="/short-stories/${story.categorySlug}/${story.storySlug}/">
+<a
+class="nearby-story-card"
+href="/short-stories/${story.categorySlug}/${story.storySlug}/"
+>
+
+<span class="nearby-story-title">
 ${story.storyName}
+</span>
+
+<span class="nearby-story-category">
+${story.categoryName} ছোটগল্প
+</span>
+
 </a>
-</li>
 
 `).join("")}
 
-</ol>
+</div>
 
 </div>
 `;

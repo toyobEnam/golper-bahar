@@ -10,7 +10,7 @@
   --accent-hover: #6B2A4A;
   --button-bg: #2C3E50;
   --button-hover: #1E2A38;
-  --card-bg: #ffffff;
+  --card-bg: #f5f2ec;
   --border-color: #e8e0d5;
   --shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
   --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -239,7 +239,7 @@ body {
 /* Mini Episode Navigation */
 .mini-episode-nav {
   max-width: 1280px;
-  margin: 45px auto 30px;
+  margin: 45px auto 0px;
   padding: 14px 18px;
   background: var(--card-bg);
   border-radius: 10px;
@@ -288,6 +288,25 @@ body {
   border-top: 1px solid var(--border-color);
 }
 
+
+#theEndText {
+  text-align: center;
+  font-size: 26px;
+}
+
+@media (max-width: 1000px) {
+    #theEndText {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 600px) {
+    #theEndText {
+        font-size: 17px;
+    }
+}
+
+
 /* ========== RESPONSIVE ========== */
 
 /* Tablet & Small Laptop */
@@ -329,8 +348,8 @@ body {
   }
 
 .mainContent p {
-  font-size: clamp(1rem, 2vw + 0.7rem, 1.15rem);
-  line-height: 1.9;
+  font-size: clamp(0.95rem, 1.5vw + 0.7rem, 1.08rem);
+  line-height: 1.85;
 }
 
 .topNav,
@@ -356,7 +375,7 @@ body {
 /* Small Mobile */
 @media (max-width: 480px) {
   .mainContent {
-    padding: 24px 20px;
+    padding: 20px 16px;
   }
 
   .story-title {
@@ -396,4 +415,70 @@ a:hover {
 .mini-nav-item:focus {
   outline: 2px solid var(--accent-color);
   outline-offset: 2px;
+}
+
+.more-short-stories{
+  background:#f5f2ec;
+  border:1px solid #e7ddd1;
+  border-radius:12px;
+  padding:16px;
+  margin-top:20px;
+}
+
+.more-short-stories h3{
+  margin:0 0 16px;
+  font-size:1.2rem;
+  text-align:center;
+}
+
+.nearby-story-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.nearby-story-card{
+  display:block;
+  background:#ffffff;
+  border:1px solid #e8e0d5;
+  border-radius:10px;
+  padding:12px;
+  text-decoration:none;
+  transition:background-color .2s ease,
+             border-color .2s ease;
+}
+
+.nearby-story-card:hover{
+  background:#faf7f2;
+  border-color:#d8c9b6;
+}
+
+.nearby-story-title{
+  display:block;
+  font-size:1rem;
+  font-weight:700;
+  color:#2c2c2c;
+  margin-bottom:4px;
+}
+
+.nearby-story-category{
+  display:block;
+  font-size:.85rem;
+  color:#666;
+}
+
+@media (max-width: 768px){
+
+  .more-short-stories h3{
+    text-align:center;
+  }
+
+  .nearby-story-title{
+    text-align:center;
+  }
+
+  .nearby-story-category{
+    text-align:center;
+  }
+
 }
