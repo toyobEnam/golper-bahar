@@ -235,3 +235,99 @@ body {
 .story-card:nth-child(5n+3):hover { background:#43a047; color:white; }
 .story-card:nth-child(5n+4):hover { background:#5e35b1; color:white; }
 .story-card:nth-child(5n+5):hover { background:#ef6c00; color:white; }
+
+
+
+/* ==================================
+   Genre Information Section
+================================== */
+
+.genre-info {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.genre-info h2 {
+  margin: 35px 0 15px;
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+.genre-info h2:first-child {
+  margin-top: 0;
+}
+
+.genre-info p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.9;
+  color: #333;
+  text-align: justify;
+}
+
+.faq-item {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.faq-item h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.faq-item p {
+  margin: 0;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+
+  .genre-info {
+    margin: 25px 15px;
+    padding: 20px;
+  }
+
+  .genre-info h2 {
+    font-size: 24px;
+  }
+
+  .genre-info p {
+    font-size: 17px;
+  }
+
+  .faq-item h3 {
+    font-size: 18px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+
+  .genre-info {
+    padding: 16px;
+  }
+
+  .genre-info h2 {
+    font-size: 21px;
+  }
+
+  .genre-info p {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .faq-item {
+    padding: 14px;
+  }
+
+  .faq-item h3 {
+    font-size: 17px;
+  }
+}
