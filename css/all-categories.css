@@ -46,6 +46,13 @@ body {
   gap: 20px;
 }
 
+button,
+a{
+
+  -webkit-tap-highlight-color: transparent;
+
+}
+
 /* Card */
 .category-card {
   display: block;
@@ -309,7 +316,7 @@ body {
 
   border-radius:12px;
 
-  padding:20px 15px;
+  padding:28px 15px;
 
   text-decoration:none;
 
@@ -318,17 +325,17 @@ body {
   text-align:center;
 
   transition:
-    transform .25s ease,
-    box-shadow .25s ease;
+    background-color .25s ease,
+    border-color .25s ease,
+    color .25s ease;
 
 }
 
 .writer-card:hover{
 
-  transform:translateY(-4px);
+  background:#f8fbff;
 
-  box-shadow:
-    0 8px 20px rgba(0,0,0,.12);
+  border-color:#90caf9;
 
 }
 
@@ -383,7 +390,7 @@ body {
   display:-webkit-box;
 
   -webkit-line-clamp:2;
-  
+
   line-clamp:2;
 
   -webkit-box-orient:vertical;
@@ -415,11 +422,29 @@ body {
 
   flex-shrink:0;
 
+  -webkit-tap-highlight-color: transparent;
+
+  outline:none;
+
+  user-select:none;
+
+  -webkit-user-select:none;
+
+  touch-action:manipulation;
+
+
+}
+
+.writers-arrow:focus,
+.writers-arrow:active{
+
+  outline:none;
+
 }
 
 .writers-arrow:hover{
 
-  background:#f0f7ff;
+  background:#eaf4ff;
 
 }
 
