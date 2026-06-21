@@ -781,5 +781,14 @@
   "categoryName": null,
   "categorySlug": null,
   "storySlug": "26-ek-packet-biriyani"
+},
+{
+  "storyName": "ঝিলমিল রোদ্দুরে",
+  "writerName": "আফিয়া আফরিন",
+  "writerSlug": "a019-afia-afrin",
+  "storyType": "serial",
+  "categoryName": "রহস্যের বেড়াজাল",
+  "categorySlug": "bangla-suspense",
+  "storySlug": "bs-0005-jhilmil-roddure"
 }
 ]
