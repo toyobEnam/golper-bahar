@@ -1,5 +1,125 @@
 
 // ==========================
+// Related Blogs
+// ==========================
+
+async function loadOtherBlogs(){
+
+const container =
+    document.querySelector(".otherBlogs");
+
+if(!container) return;
+
+try{
+
+    const response =
+        await fetch("/json-data/blog-index.json");
+
+    if(!response.ok){
+        throw new Error("Blog JSON load failed");
+    }
+
+    const blogs =
+        await response.json();
+
+const currentSlug =
+    document.body.dataset.slug || "";
+
+const currentCategory =
+    document.body.dataset.category || "";
+
+    const filtered =
+        blogs.filter(
+            blog =>
+            blog.slug !== currentSlug
+        );
+
+    const sameCategory =
+        filtered.filter(
+            blog =>
+            blog.category === currentCategory
+        );
+
+    const otherCategory =
+        filtered.filter(
+            blog =>
+            blog.category !== currentCategory
+        );
+
+    const shuffle = arr => {
+
+        const copy = [...arr];
+
+        for(
+            let i = copy.length - 1;
+            i > 0;
+            i--
+        ){
+
+            const j =
+                Math.floor(
+                    Math.random() * (i + 1)
+                );
+
+            [copy[i], copy[j]] =
+                [copy[j], copy[i]];
+        }
+
+        return copy;
+    };
+
+const selected = [
+
+    ...shuffle(sameCategory),
+
+    ...shuffle(otherCategory)
+
+]
+.filter(
+    (blog,index,self) =>
+    index === self.findIndex(
+        b => b.slug === blog.slug
+    )
+)
+.slice(0,15);
+
+container.innerHTML =
+selected.map(blog => `
+
+<a
+href="/blogs/${blog.category}/${blog.slug}/"
+class="blogCard">
+
+<div class="blogThumb">
+
+<img
+src="${blog.image}"
+alt="${blog.headline}"
+loading="lazy">
+
+</div>
+
+<div class="blogTitle">
+${blog.headline}
+</div>
+
+</a>
+
+`).join("");
+
+}catch(error){
+
+console.error(
+    "Related Blog Load Failed",
+    error
+);
+
+}
+
+}
+
+
+// ==========================
 // Random Onu Stories
 // ==========================
 
@@ -191,6 +311,7 @@ observer.unobserve(slider);
 }
 
 Promise.all([
+    loadOtherBlogs(),
     loadRandomOnuStories(),
     loadRandomSerials()
 ]).then(() => {
