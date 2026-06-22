@@ -10,4 +10,8 @@
     <loc>https://golperbahar.com/sitemaps/sitemap2.xml</loc>
   </sitemap>
 
+  <sitemap>
+    <loc>https://golperbahar.com/sitemaps/sitemapblog.xml</loc>
+  </sitemap>
+
 </sitemapindex>
