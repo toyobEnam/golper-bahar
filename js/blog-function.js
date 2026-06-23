@@ -13,7 +13,7 @@ if(!container) return;
 try{
 
     const response =
-        await fetch("/json-data/blog-index.json");
+        await fetch("/json-data/blogs/blog-index.json");
 
     if(!response.ok){
         throw new Error("Blog JSON load failed");
