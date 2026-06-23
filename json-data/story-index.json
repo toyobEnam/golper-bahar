@@ -826,5 +826,14 @@
   "categoryName": "রহস্য",
   "categorySlug": "suspense",
   "storySlug": "sh-sus-0001-balika-bodhu"
+},
+{
+  "storyName": "তোমার মনেরও মন্দিরে",
+  "writerName": "আফিয়া আফরিন",
+  "writerSlug": "a019-afia-afrin",
+  "storyType": "short-story",
+  "categoryName": "সামাজিক",
+  "categorySlug": "social",
+  "storySlug": "sh-soc-0001-tomar-monero-mondire"
 }
 ]
