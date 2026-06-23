@@ -52,5 +52,14 @@
   "categoryName": "ফ্যামিলি",
   "categorySlug": "family",
   "storySlug": "sh-fam-0002-choto-mamar-biye"
+},
+{
+  "storyName": "বালিকা বঁধু",
+  "writerName": "আফরোজা আঁখি",
+  "writerSlug": "a020-afroza-akhi",
+  "storyType": "short-story",
+  "categoryName": "রহস্য",
+  "categorySlug": "suspense",
+  "storySlug": "sh-sus-0001-balika-bodhu"
 }
 ]

@@ -817,5 +817,14 @@
   "categoryName": "রোমান্টিক",
   "categorySlug": "bangla-love-story",
   "storySlug": "bls-0014-ontoraler-pronoyini"
+},
+{
+  "storyName": "বালিকা বঁধু",
+  "writerName": "আফরোজা আঁখি",
+  "writerSlug": "a020-afroza-akhi",
+  "storyType": "short-story",
+  "categoryName": "রহস্য",
+  "categorySlug": "suspense",
+  "storySlug": "sh-sus-0001-balika-bodhu"
 }
 ]
