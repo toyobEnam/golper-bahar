@@ -67,51 +67,58 @@ function goBack() {
   /* ========= hide / show on scroll ========= */
 
 let lastScroll = window.pageYOffset;
-const threshold = 250;   // কত scroll হলে hide start করবে
+const threshold = 250;
+const scrollGap = 15;
 
 window.addEventListener("scroll", function(){
+
   const currentScroll = window.pageYOffset;
 
-  // top area → always show
-if(currentScroll < threshold){
+  if(currentScroll < threshold){
 
-  wrap.classList.remove("hide");
-  target.style.height = "41px";
+    wrap.classList.remove("hide");
+    target.style.height = "41px";
+
+    const searchBox =
+    document.querySelector(".search-box");
+
+    if(searchBox){
+      searchBox.classList.remove("nav-hide");
+    }
+
+    lastScroll = currentScroll;
+    return;
+  }
+
+  const diff =
+  currentScroll - lastScroll;
+
+  if(Math.abs(diff) < scrollGap){
+    return;
+  }
 
   const searchBox =
   document.querySelector(".search-box");
 
-  if(searchBox){
-    searchBox.classList.remove("nav-hide");
+  if(diff > 0){
+
+    wrap.classList.add("hide");
+    target.style.height = "0px";
+
+    if(searchBox){
+      searchBox.classList.add("nav-hide");
+    }
+
+  }else{
+
+    wrap.classList.remove("hide");
+    target.style.height = "41px";
+
+    if(searchBox){
+      searchBox.classList.remove("nav-hide");
+    }
+
   }
-
-  lastScroll = currentScroll;
-  return;
-
-}
-
-const searchBox =
-document.querySelector(".search-box");
-
-if(currentScroll > lastScroll){
-
-  wrap.classList.add("hide");
-  target.style.height = "0px";
-
-  if(searchBox){
-    searchBox.classList.add("nav-hide");
-  }
-
-}else{
-
-  wrap.classList.remove("hide");
-  target.style.height = "41px";
-
-  if(searchBox){
-    searchBox.classList.remove("nav-hide");
-  }
-
-}
 
   lastScroll = currentScroll;
 });
