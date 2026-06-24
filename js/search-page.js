@@ -417,3 +417,34 @@ searchInput.addEventListener("input", () => {
     }
 
 });
+
+
+
+const navWrap =
+document.querySelector(".upnav-wrap");
+
+if(navWrap){
+
+setInterval(() => {
+
+    if(
+        navWrap.classList.contains(
+            "hide"
+        )
+    ){
+
+        searchBox.classList.add(
+            "nav-hide"
+        );
+
+    }else{
+
+        searchBox.classList.remove(
+            "nav-hide"
+        );
+
+    }
+
+},50);
+
+}

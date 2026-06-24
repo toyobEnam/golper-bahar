@@ -173,6 +173,8 @@
 .upnav-wrap.hide{
   transform: translateY(-100%);
   pointer-events:none;
+  visibility:hidden;
+  position:absolute;
 }
 
 .upnav{
