@@ -79,11 +79,26 @@ window.addEventListener("scroll", function(){
     return;
   }
 
-  if(currentScroll > lastScroll){
-    wrap.classList.add("hide");     // down
-  }else{
-    wrap.classList.remove("hide");  // up
+const searchBox =
+document.querySelector(".search-box");
+
+if(currentScroll > lastScroll){
+
+  wrap.classList.add("hide");
+
+  if(searchBox){
+    searchBox.classList.add("nav-hide");
   }
+
+}else{
+
+  wrap.classList.remove("hide");
+
+  if(searchBox){
+    searchBox.classList.remove("nav-hide");
+  }
+
+}
 
   lastScroll = currentScroll;
 });
