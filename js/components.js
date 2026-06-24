@@ -29,12 +29,12 @@ function goBack() {
   const menus = [
     { name: "হোমপেজ", link: "https://golperbahar.com/" },
     { name: "আমাদের কথা", link: "https://golperbahar.com/about/" },
-    // { name: "অনুগল্প", link: "https://golperbahar.com/onugolpo/" },
     { name: "লেখক প্যানেল", link: "https://golperbahar.com/writers/" },
+    { name: "বাংলা ব্লগ", link: "https://golperbahar.com/blogs/" },
     { name: "ধারাবাহিক গল্প", link: "https://golperbahar.com/stories/" },
     { name: "ছোটগল্প", link: "https://golperbahar.com/short-stories/" },
     { name: "অনুগল্প", link: "https://golperbahar.com/onugolpo/" },
-    // { name: "গল্প খুজুন", link: "#" }
+    { name: "গল্প খুজুন", link: "https://golperbahar.com/search/" }
   ];
 
   const current = location.pathname.split("/").pop();

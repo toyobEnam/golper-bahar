@@ -242,33 +242,3 @@
 
     color:#666;
 }
-
-
- /* ----------- রাইটার ট্যাগ ----------- */
-
-
- .writer-badge{
-    flex-shrink:0;
-
-    padding:4px 10px;
-
-    border-radius:999px;
-
-    font-size:.72rem;
-    font-weight:700;
-
-    background:#eef4ff;
-    color:#1d4ed8;
-
-    border:1px solid #bfdbfe;
-
-    text-transform:uppercase;
-}
-
-.writer-name-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    margin-bottom:4px;
-}

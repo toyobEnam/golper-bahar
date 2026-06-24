@@ -37,16 +37,8 @@ function renderWriterResults(list){
 
             <div class="writer-info">
 
-<div class="writer-name-row">
-
-    <div class="writer-name">
-        ${writer.writerName}
-    </div>
-
-    <span class="writer-badge">
-        Writer
-    </span>
-
+<div class="writer-name">
+    ${writer.writerName}
 </div>
 
 <div class="writer-bio">
@@ -135,6 +127,25 @@ function startsWithWord(text, query) {
 
 }
 
+function getWordIndex(text, query) {
+
+    text = text.toLowerCase();
+    query = query.toLowerCase();
+
+    const words = text.split(/\s+/);
+
+    for(let i = 0; i < words.length; i++){
+
+        if(words[i].startsWith(query)){
+            return i;
+        }
+
+    }
+
+    return 999;
+
+}
+
 function performSearch(query) {
 
     query = query.trim().toLowerCase();
@@ -203,11 +214,20 @@ filtered.forEach(story => {
 
     }
 
-    results.push({
-        type: "story",
-        score,
-        data: story
-    });
+results.push({
+
+    type: "story",
+
+    score,
+
+    wordIndex: getWordIndex(
+        story.storyName || "",
+        query
+    ),
+
+    data: story
+
+});
 
 });
 
@@ -220,19 +240,34 @@ writers.forEach(writer => {
         )
     ) {
 
-        results.push({
-            type: "writer",
-            score: 95,
-            data: writer
-        });
+results.push({
+
+    type: "writer",
+
+    score: 95,
+
+    wordIndex: getWordIndex(
+        writer.writerName || "",
+        query
+    ),
+
+    data: writer
+
+});
 
     }
 
 });
 
-results.sort(
-    (a, b) => b.score - a.score
-);
+results.sort((a, b) => {
+
+    if (b.score !== a.score) {
+        return b.score - a.score;
+    }
+
+    return a.wordIndex - b.wordIndex;
+
+});
 
 let html = "";
 
@@ -254,16 +289,8 @@ results.forEach(item => {
 
                 <div class="writer-info">
 
-<div class="writer-name-row">
-
-    <div class="writer-name">
-        ${writer.writerName}
-    </div>
-
-    <span class="writer-badge">
-        Writer
-    </span>
-
+<div class="writer-name">
+    ${writer.writerName}
 </div>
 
 <div class="writer-bio">
