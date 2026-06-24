@@ -73,11 +73,22 @@ window.addEventListener("scroll", function(){
   const currentScroll = window.pageYOffset;
 
   // top area → always show
-  if(currentScroll < threshold){
-    wrap.classList.remove("hide");
-    lastScroll = currentScroll;
-    return;
+if(currentScroll < threshold){
+
+  wrap.classList.remove("hide");
+  target.style.height = "41px";
+
+  const searchBox =
+  document.querySelector(".search-box");
+
+  if(searchBox){
+    searchBox.classList.remove("nav-hide");
   }
+
+  lastScroll = currentScroll;
+  return;
+
+}
 
 const searchBox =
 document.querySelector(".search-box");
@@ -85,6 +96,7 @@ document.querySelector(".search-box");
 if(currentScroll > lastScroll){
 
   wrap.classList.add("hide");
+  target.style.height = "0px";
 
   if(searchBox){
     searchBox.classList.add("nav-hide");
@@ -93,6 +105,7 @@ if(currentScroll > lastScroll){
 }else{
 
   wrap.classList.remove("hide");
+  target.style.height = "41px";
 
   if(searchBox){
     searchBox.classList.remove("nav-hide");

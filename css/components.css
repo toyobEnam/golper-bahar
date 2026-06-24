@@ -168,9 +168,11 @@
   z-index:999;
   transition: transform .3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.181);
+  pointer-events:auto;
 }
 .upnav-wrap.hide{
   transform: translateY(-100%);
+  pointer-events:none;
 }
 
 .upnav{
