@@ -3,6 +3,7 @@ const resultsContainer = document.getElementById("searchResults");
 const searchBox = document.querySelector(".search-box");
 
 let stories = [];
+let writers = [];
 
 function getStoryUrl(story) {
 
@@ -19,6 +20,45 @@ function getStoryUrl(story) {
     }
 
     return "#";
+}
+
+function renderWriterResults(list){
+
+    return list.map(writer => `
+
+        <a
+        class="writer-card"
+        href="/writers/${writer.writerSlug}/">
+
+            <img
+            class="writer-thumb"
+            src="${writer.writerImage}"
+            alt="${writer.writerName}">
+
+            <div class="writer-info">
+
+<div class="writer-name-row">
+
+    <div class="writer-name">
+        ${writer.writerName}
+    </div>
+
+    <span class="writer-badge">
+        Writer
+    </span>
+
+</div>
+
+<div class="writer-bio">
+    ${writer.writerBio}
+</div>
+
+            </div>
+
+        </a>
+
+    `).join("");
+
 }
 
 function renderResults(list) {
@@ -41,8 +81,12 @@ resultsContainer.innerHTML = list.map(story => {
             ? "অনুগল্প"
             : "ধারাবাহিক";
 
+            const colorClass =
+    "search-color-" +
+    (Math.floor(Math.random() * 12) + 1);
+
     return `
-        <a class="search-item" href="${getStoryUrl(story)}">
+        <a class="search-item ${colorClass}" href="${getStoryUrl(story)}">
 
             <div class="search-content">
 
@@ -69,6 +113,28 @@ resultsContainer.innerHTML = list.map(story => {
 }).join("");
 }
 
+function startsWithWord(text, query) {
+
+    text = text.toLowerCase();
+    query = query.toLowerCase();
+
+    const words = text.split(/\s+/);
+
+    for(let i = 0; i < words.length; i++){
+
+        const phrase =
+            words.slice(i).join(" ");
+
+        if(phrase.startsWith(query)){
+            return true;
+        }
+
+    }
+
+    return false;
+
+}
+
 function performSearch(query) {
 
     query = query.trim().toLowerCase();
@@ -84,23 +150,199 @@ if (!query) {
 
     const filtered = stories.filter(story => {
 
-        return (
-            (story.storyName || "").toLowerCase().includes(query) ||
-            (story.writerName || "").toLowerCase().includes(query) ||
-            (story.categoryName || "").toLowerCase().includes(query)
-        );
+return (
+    startsWithWord(story.storyName || "", query) ||
+    startsWithWord(story.writerName || "", query) ||
+    startsWithWord(story.categoryName || "", query) ||
+    startsWithWord(story.searchKeywords || "", query)
+);
 
     });
 
-    renderResults(filtered);
+const results = [];
+
+filtered.forEach(story => {
+
+    let score = 0;
+
+    if (
+        startsWithWord(
+            story.storyName || "",
+            query
+        )
+    ) {
+
+        score = 100;
+
+    } else if (
+        startsWithWord(
+            story.writerName || "",
+            query
+        )
+    ) {
+
+        score = 90;
+
+    } else if (
+        startsWithWord(
+            story.searchKeywords || "",
+            query
+        )
+    ) {
+
+        score = 80;
+
+    } else if (
+        startsWithWord(
+            story.categoryName || "",
+            query
+        )
+    ) {
+
+        score = 70;
+
+    }
+
+    results.push({
+        type: "story",
+        score,
+        data: story
+    });
+
+});
+
+writers.forEach(writer => {
+
+    if (
+        startsWithWord(
+            writer.writerName || "",
+            query
+        )
+    ) {
+
+        results.push({
+            type: "writer",
+            score: 95,
+            data: writer
+        });
+
+    }
+
+});
+
+results.sort(
+    (a, b) => b.score - a.score
+);
+
+let html = "";
+
+results.forEach(item => {
+
+    if(item.type === "writer"){
+
+        const writer = item.data;
+
+        html += `
+            <a
+            class="writer-card"
+            href="/writers/${writer.writerSlug}/">
+
+                <img
+                class="writer-thumb"
+                src="${writer.writerImage}"
+                alt="${writer.writerName}">
+
+                <div class="writer-info">
+
+<div class="writer-name-row">
+
+    <div class="writer-name">
+        ${writer.writerName}
+    </div>
+
+    <span class="writer-badge">
+        Writer
+    </span>
+
+</div>
+
+<div class="writer-bio">
+    ${writer.writerBio}
+</div>
+
+                </div>
+
+            </a>
+        `;
+
+    } else {
+
+        const story = item.data;
+
+        const typeLabel =
+            story.storyType === "short-story"
+                ? "ছোটগল্প"
+                : story.storyType === "onu"
+                ? "অনুগল্প"
+                : "ধারাবাহিক";
+
+        const colorClass =
+            "search-color-" +
+            (Math.floor(Math.random() * 12) + 1);
+
+        html += `
+            <a
+            class="search-item ${colorClass}"
+            href="${getStoryUrl(story)}">
+
+                <div class="search-content">
+
+                    <div>
+                        <div class="search-title">
+                            ${story.storyName}
+                        </div>
+
+                        <div class="search-meta">
+                            ${story.writerName}
+                            ${story.categoryName ? ` • ${story.categoryName}` : ""}
+                        </div>
+                    </div>
+
+                    <span class="story-type-tag">
+                        ${typeLabel}
+                    </span>
+
+                </div>
+
+            </a>
+        `;
+    }
+
+});
+
+if(!html){
+
+    html = `
+        <div class="no-results">
+            কোনো গল্প খুঁজে পাওয়া যায়নি।
+        </div>
+    `;
+}
+
+resultsContainer.innerHTML = html;
 }
 
 async function loadStories() {
 
     try {
 
-        const response = await fetch("/json-data/story-index.json");
-        stories = await response.json();
+const response = await fetch("/json-data/story-index.json");
+stories = await response.json();
+
+const writersResponse =
+await fetch("/json-data/story-writers.json");
+
+writers = await writersResponse.json();
 
         const params = new URLSearchParams(window.location.search);
         const q = params.get("q");
@@ -123,7 +365,11 @@ async function loadStories() {
 }
 
 searchInput.addEventListener("input", e => {
+
     performSearch(e.target.value);
+
+    window.scrollTo(0, 0);
+
 });
 
 loadStories();
