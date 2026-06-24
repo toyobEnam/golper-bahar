@@ -103,7 +103,7 @@ window.addEventListener("scroll", function(){
   if(diff > 0){
 
     wrap.classList.add("hide");
-    target.style.height = "0px";
+    // target.style.height = "0px";
 
     if(searchBox){
       searchBox.classList.add("nav-hide");
@@ -112,7 +112,7 @@ window.addEventListener("scroll", function(){
   }else{
 
     wrap.classList.remove("hide");
-    target.style.height = "41px";
+    // target.style.height = "41px";
 
     if(searchBox){
       searchBox.classList.remove("nav-hide");
