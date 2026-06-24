@@ -176,9 +176,9 @@
   visibility:hidden;
 }
 
-body.search-page-body .upnav-wrap.hide{
+/* body.search-page-body .upnav-wrap.hide{
   position:absolute;
-}
+} */
 
 .upnav{
   width:100%;
