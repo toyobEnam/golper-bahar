@@ -1347,3 +1347,57 @@ gtag('js', new Date());
 gtag('config', 'G-0FZ5HZ5B7V');
 
 });
+
+
+//  =========== right click and select off ============= 
+
+
+
+document.addEventListener("contextmenu", e => e.preventDefault());
+
+document.addEventListener("selectstart", e => e.preventDefault());
+
+document.addEventListener("dragstart", e => e.preventDefault());
+
+document.addEventListener("copy", e => e.preventDefault());
+
+document.addEventListener("cut", e => e.preventDefault());
+
+document.addEventListener("keydown", function(e){
+
+    // Ctrl+A
+    if(e.ctrlKey && e.key.toLowerCase()==="a"){
+        e.preventDefault();
+    }
+
+    // Ctrl+C
+    if(e.ctrlKey && e.key.toLowerCase()==="c"){
+        e.preventDefault();
+    }
+
+    // Ctrl+X
+    if(e.ctrlKey && e.key.toLowerCase()==="x"){
+        e.preventDefault();
+    }
+
+    // Ctrl+S
+    if(e.ctrlKey && e.key.toLowerCase()==="s"){
+        e.preventDefault();
+    }
+
+    // Ctrl+U
+    if(e.ctrlKey && e.key.toLowerCase()==="u"){
+        e.preventDefault();
+    }
+
+    // Ctrl+P
+    if(e.ctrlKey && e.key.toLowerCase()==="p"){
+        e.preventDefault();
+    }
+
+    // F12
+    if(e.key==="F12"){
+        e.preventDefault();
+    }
+
+});
