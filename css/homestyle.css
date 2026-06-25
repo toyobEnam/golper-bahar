@@ -555,7 +555,7 @@ h2 {
     margin-top: 30px;
 }
 
-.storyIndexCard{
+.storyIndexCard {
     display:block;
     text-decoration:none;
     background:var(--card-bg,#e4f5ff);
@@ -573,7 +573,7 @@ h2 {
 .storyIndexCard h3{
     margin:0;
     font-size:13px;
-    line-height:1.3;
+    line-height:1.5;
     font-weight:600;
     color:var(--text-color,#222);
 
