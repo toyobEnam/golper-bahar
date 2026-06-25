@@ -143,11 +143,13 @@
 
 .genre-card h3 {
     margin: 0 0 8px;
+    text-align: center;
 }
 
 .genre-card p {
     margin: 0;
     line-height: 1.6;
+    text-align: center;
 }
 
 
@@ -286,7 +288,7 @@
     }
 
     .genre-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .story-grid {
@@ -333,7 +335,7 @@
 }
 
 .genre-card:nth-child(2):hover{
-    background:#8a7c00;
+    background:#10008a;
     color:#fff;
 }
 
@@ -371,4 +373,190 @@
 .genre-card:nth-child(6):hover{
     background:#37474f;
     color:#fff;
+}
+
+
+:root {
+  --bg: #e6fffb;
+  --card-bg: #fdefff;
+  --text: #000000;
+  --text-light: #000000;
+  --accent: #040404;
+  --border: #e8e2d9;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.root-info {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+  padding: 0 1rem;
+}
+
+.root-info article {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+/* Headings */
+.root-info h2 {
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.root-info h3 {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+/* Paragraphs & Text */
+.root-info p {
+  font-size: clamp(1rem, 1.05vw, 1.1rem);
+  line-height: 1.75;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.root-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* Category Overview - Responsive Grid */
+.category-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.category-item {
+  background: #eaf5ff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.category-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-color: #d4d0c3;
+}
+
+.category-item p {
+  font-size: clamp(0.98rem, 1vw, 1.05rem);
+  line-height: 1.7;
+}
+
+/* FAQ Section */
+.faq-section .faq-item {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.faq-section .faq-item:last-child {
+  margin-bottom: 0;
+}
+
+.faq-section .faq-item:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+  border-color: #d4d0c3;
+}
+
+/* "Which story for you" section */
+.root-info p strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Final Message Section */
+.final-message article {
+  background: linear-gradient(135deg, #f8f5ed 0%, #fdfaf3 100%);
+  text-align: center;
+  border: 1px solid #e8e4d9;
+}
+
+.final-message p {
+  font-size: clamp(1.05rem, 1.1vw, 1.15rem);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Why Read Section - Bullet Points */
+.root-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.root-info ul li {
+  font-size: clamp(1rem, 1.05vw, 1.1rem);
+  padding: 0.65rem 0 0.65rem 1.75rem;
+  position: relative;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+.root-info ul li::before {
+  content: "●";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  font-size: 1.1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .root-info article {
+    padding: 1.5rem;
+  }
+  
+  .category-overview {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .category-item,
+  .faq-section .faq-item {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .root-info {
+    padding: 0 0.75rem;
+  }
+  
+  .root-info article {
+    padding: 1.25rem;
+    border-radius: 8px;
+  }
+  
+  .root-info h2 {
+    font-size: 1.45rem;
+  }
+  
+  .root-info p,
+  .root-info ul li {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  
+  .category-item p {
+    font-size: 0.98rem;
+  }
 }
