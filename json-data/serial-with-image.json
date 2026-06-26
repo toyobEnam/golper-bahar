@@ -1,5 +1,12 @@
 [ 
   {
+  "title": "আকাশ আজ মেঘলা ভীষণ",
+  "description": "আজেরিন হিরানুর-এর লেখা রোমান্টিক ও পারিবারিক গল্প",
+  "image": "https://res.cloudinary.com/didbcg0dd/image/upload/v1782449352/azerin1_csapyi.webp",
+  "category": "sangsarik",
+  "slug": "ss-0008-akash-aj-meghla-vishon"
+},
+  {
   "title": "মন বোঝে না",
   "description": "সানা শেখ-এর লেখা ভার্সিটি রিলেটেড পারিবারিক গল্প",
   "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1782361292/mon-bojhe-na3_c5trdx.webp",
