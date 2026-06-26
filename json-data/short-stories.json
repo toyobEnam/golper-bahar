@@ -70,5 +70,15 @@
   "categoryName": "সামাজিক",
   "categorySlug": "social",
   "storySlug": "sh-soc-0001-tomar-monero-mondire"
+},
+{
+  "storyName": "অল্প বেঈমানী মন",
+  "writerName": "আফরোজা আঁখি",
+  "writerSlug": "a020-afroza-akhi",
+  "storyType": "short-story",
+  "categoryName": "ফ্যামিলি",
+  "categorySlug": "family",
+  "storySlug": "sh-fam-0003-olpo-beimani-mon",
+  "searchKeywords": "beimani বেইমানি বেইমানী baimani bemani"
 }
 ]
