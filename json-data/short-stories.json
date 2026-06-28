@@ -78,7 +78,15 @@
   "storyType": "short-story",
   "categoryName": "ফ্যামিলি",
   "categorySlug": "family",
-  "storySlug": "sh-fam-0003-olpo-beimani-mon",
-  "searchKeywords": "beimani বেইমানি বেইমানী baimani bemani"
+  "storySlug": "sh-fam-0003-olpo-beimani-mon"
+},
+{
+  "storyName": "অপ্রত্যাশিত অনুরাগ",
+  "writerName": "আফরোজা আঁখি",
+  "writerSlug": "a020-afroza-akhi",
+  "storyType": "short-story",
+  "categoryName": "রোমান্টিক",
+  "categorySlug": "romantic",
+  "storySlug": "sh-rom-0005-oprottasito-onurag"
 }
 ]
