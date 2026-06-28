@@ -1401,26 +1401,3 @@ document.addEventListener("keydown", function(e){
     }
 
 });
-
-
-// ================================
-// Adsterra Native Banner Loader
-// ================================
-
-window.loadNativeAd = function (targetId) {
-    const target = document.getElementById(targetId);
-    if (!target) return;
- 
-    if (target.children.length) return;
-
-    const adContainer = document.createElement("div");
-    adContainer.id = "container-09d5b3dba081e537545c7fc7fa968737";
-    target.appendChild(adContainer);
-
-    const script = document.createElement("script");
-    script.async = true;
-    script.setAttribute("data-cfasync", "false");
-    script.src = "https://pl30115573.effectivecpmnetwork.com/09d5b3dba081e537545c7fc7fa968737/invoke.js";
-
-    document.body.appendChild(script);
-};
