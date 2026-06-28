@@ -713,3 +713,124 @@ body{
     user-select:none;
     -webkit-touch-callout:none;
 }
+
+
+/* =============== Adsterra Ads Box Ep ================ */
+
+.ad-box{
+    width:100%;
+    margin:24px 0;
+    padding:14px 12px;
+    border:1px solid var(--border-color);
+    border-radius:12px;
+    background:var(--card-bg);
+    text-align:center;
+    box-sizing:border-box;
+}
+
+.ad-label{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:12px;
+    font-size:12px;
+    font-weight:600;
+    color:var(--text-secondary);
+    letter-spacing:.5px;
+    text-transform:uppercase;
+}
+
+.ad-label::before,
+.ad-label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--border-color);
+}
+
+
+
+/* ===========================
+   Right Bar Ad Box
+=========================== */
+
+.ad-box{
+    width:100%;
+    margin:28px 0;
+    padding:16px;
+    box-sizing:border-box;
+    background: var(--card-bg);
+    border:1px solid var(--border-color);
+    border-radius:12px;
+    text-align:center;
+    overflow:hidden;
+}
+
+.ad-label{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:14px;
+    font-family:var(--font-ui);
+    font-size:.82rem;
+    font-weight:600;
+    color:var(--text-secondary);
+    user-select:none;
+}
+
+.ad-label::before,
+.ad-label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background: #000000;
+}
+
+.ad-box iframe,
+.ad-box img{
+    max-width:100%;
+    height:auto;
+}
+
+
+/* ======== Inline Ep ad ========= */
+
+.inline-ad{
+    width:100%;
+    margin:28px auto;
+    padding:14px;
+    box-sizing:border-box;
+    background:#ffffff40;
+    border:1px solid #00000076;
+    border-radius:12px;
+    text-align:center;
+}
+
+.inline-ad-label{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:12px;
+    font-size:13px;
+    font-weight:600;
+    color:#666;
+    user-select:none;
+}
+
+.inline-ad-label::before,
+.inline-ad-label::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:#ddd;
+}
+
+/* Adsterra iframe সবসময় মাঝখানে থাকবে */
+.inline-ad iframe{
+    display:block;
+    margin:0 auto;
+    max-width:100%;
+}
