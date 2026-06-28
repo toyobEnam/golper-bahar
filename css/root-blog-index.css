@@ -473,6 +473,7 @@ body {
 .placeholders {
     margin-top: 5rem;
     margin-bottom: 5rem;
+    display: none;
 }
 
 .placeholder-grid {
@@ -745,7 +746,8 @@ body {
 }
 
 .genrePostsSection{
-    margin-top:2rem;
+    margin-top: 25px;
+    margin-bottom: 4rem;
 }
 
 .genrePostsSection .category-header{
