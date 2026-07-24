@@ -627,7 +627,7 @@
     "categorySlug": null,
     "storySlug": "18-oronne-premprohor",
     "writerSlug": "a004-mourin",
-    "searchKeywords": ""
+    "searchKeywords": "mourin ahmed maurin ahamed ahammed ahommed ahmod morin marin moureen মোরিন oronne premprohor aronne oro"
   },
   {
     "storyName": "মন বসে না শহরে",
@@ -637,7 +637,7 @@
     "categorySlug": null,
     "storySlug": "19-mon-bose-na-sohore",
     "writerSlug": "a004-mourin",
-    "searchKeywords": ""
+    "searchKeywords": "mourin ahmed maurin ahamed ahammed ahommed ahmod morin marin moureen মোরিন mon bose na sohore shohore man bose na sahore"
   },
   {
     "storyName": "আমি এবং রুমু খালামনি",
@@ -647,7 +647,7 @@
     "categoryName": null,
     "categorySlug": null,
     "storySlug": "2-ami-ebong-rumu-khalamoni",
-    "searchKeywords": ""
+    "searchKeywords": "ami ebong rumu khalamoni kalamuni and ebang abong"
   },
   {
     "storyName": "নির্লিপ্ততা এবং সে",
@@ -657,7 +657,7 @@
     "categorySlug": null,
     "storySlug": "20-nirliptota-ebong-se",
     "writerSlug": "a004-mourin",
-    "searchKeywords": ""
+    "searchKeywords": "mourin ahmed maurin ahamed ahammed ahommed ahmod morin marin moureen মোরিন nirliptota ebong se"
   },
   {
     "storyName": "বিভ্রান্তির দায়",
@@ -1008,5 +1008,15 @@
   "categorySlug": null,
   "storySlug": "30-nojorer-pocon",
   "searchKeywords": "nojorer pocon najarer pacan pochon nojarer najorer abdullah bin malik nozorer nazar er pachan pochon"
+},
+{
+  "storyName": "ফুলি ও সুভা",
+  "writerName": "মীর মোঃ তানজিরুল ইসলাম",
+  "writerSlug": "a023-mir-tanjirul-islam",
+  "storyType": "short-story",
+  "categoryName": "সামাজিক",
+  "categorySlug": "social",
+  "storySlug": "sh-soc-0002-fuli-o-suva",
+  "searchKeywords": "fuli o suva shuva fooli fooly chuva subha shubha mir md tanjirul islam tanzirul samajik golpo"
 }
 ]
