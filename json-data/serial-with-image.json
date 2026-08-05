@@ -1,39 +1,46 @@
 [
-   {
+  {
+  "title": "এ কী বুদ্ধি দিলে তুমি?",
+  "description": "মীর মোঃ তানজিরুল ইসলাম-এর লেখা রোমান্টিক ও ফ্যামিলি ড্রামা",
+  "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1785958060/buddhi2_q2mns3.webp",
+  "category": "bangla-love-story",
+  "slug": "bls-0015-e-ki-buddhi-dile-tumi"
+  },
+  {
   "title": "অপেক্ষা",
   "description": "মাহা আরাত-এর লেখা ইসলামিক রোমান্টিক গল্প",
   "image": "https://res.cloudinary.com/didbcg0dd/image/upload/v1782568336/opekkha-maha-aarat2_tu9bpz.webp",
   "category": "sangsarik",
   "slug": "ss-0009-opekkha-maha-aarat"
-},
+  },
   {
   "title": "আকাশ আজ মেঘলা ভীষণ",
   "description": "আজেরিন হিরানুর-এর লেখা রোমান্টিক ও পারিবারিক গল্প",
   "image": "https://res.cloudinary.com/didbcg0dd/image/upload/v1782449352/azerin1_csapyi.webp",
   "category": "sangsarik",
   "slug": "ss-0008-akash-aj-meghla-vishon"
-},
+  },
   {
   "title": "মন বোঝে না",
   "description": "সানা শেখ-এর লেখা ভার্সিটি রিলেটেড পারিবারিক গল্প",
   "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1782361292/mon-bojhe-na3_c5trdx.webp",
   "category": "family-drama",
   "slug": "fd-0013-mon-bojhe-na"
-},
+  },
   {
   "title": "অন্তরালের প্রণয়িনী",
   "description": "আফরোজা আঁখি-এর লেখা পারিবারিক রোমান্টিক গল্প",
   "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1782194389/ontoraler-pronoyini-afroza-akhi1_d3knfw.webp",
   "category": "bangla-love-story",
   "slug": "bls-0014-ontoraler-pronoyini"
-},
+  },
   {
   "title": "প্রণয় প্রত্যাবর্তন",
   "description": "আফিয়া আফরিন-এর লেখা রাজনৈতিক থ্রিলার গল্প",
   "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1782107648/bangla-golpo-pronoy-prottaborton1_xvtvu9.webp",
   "category": "thriller",
   "slug": "thrill-0002-pronoy-prottaborton"
-},
+  },
   {
   "title": "ঝিলমিল রোদ্দুরে",
   "description": "আফিয়া আফরিন-এর লেখা রোমান্টিক ও রহস্যময় গল্প",
