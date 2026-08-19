@@ -1,5 +1,12 @@
 [
   {
+  "title": "বিবশ হৃদয়ে বসন্তের আগমন",
+  "description": "জান্নাতী আক্তার সিমি-এর লেখা পারিবারিক রোমান্টিক উপন্যাস",
+  "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1787119305/bibosh3_hlrsxy.webp",
+  "category": "bangla-love-story",
+  "slug": "bls-0016-bibosh-hridoye-bosonter-agomon"
+  },
+  {
   "title": "এ কী বুদ্ধি দিলে তুমি?",
   "description": "মীর মোঃ তানজিরুল ইসলাম-এর লেখা রোমান্টিক ও ফ্যামিলি ড্রামা",
   "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1785958060/buddhi2_q2mns3.webp",
@@ -47,35 +54,35 @@
   "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1782011551/jhilmil-roddure1_e9pktm.webp",
   "category": "bangla-suspense",
   "slug": "bs-0005-jhilmil-roddure"
-},
+  },
   {
   "title": "আমার ঝামেলা রানী",
   "description": "সানা শেখ-এর লেখা সাংসারিক উপন্যাস",
   "image": "https://res.cloudinary.com/didbcg0dd/image/upload/q_auto/f_auto/v1781957930/jhamela-rani2_rqnfbn.webp",
   "category": "sangsarik",
   "slug": "ss-0007-jhamela-rani"
-},
+  },
   {
   "title": "অযাচিত প্রণয়",
   "description": "সানা শেখ-এর লেখা রোমান্টিক লাভস্টোরি",
   "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1781799649/ozacito2_sqgce4.webp",
   "category": "bangla-love-story",
   "slug": "bls-0013-ozacito-pronoy"
-},
+  },
   {
   "title": "তোমার নামেই গল্প হোক",
   "description": "খুশবু আকতার-এর লেখা সাংসারিক ও রোমান্টিক গল্প",
   "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1781686784/tomar-namei3_zyvx7w.webp",
   "category": "family-drama",
   "slug": "fd-0012-tomar-namei-golpo-hok"
-},
-{
+  },
+  {
   "title": "হৃদয়ের অগোচরে",
   "description": "নাজনীন নেছা নাবিলা-এর লেখা রোমান্টিক ও থ্রিলারভিত্তিক গল্প",
   "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1781597159/hridoyer-ogocore3_xrxzfj.webp",
   "category": "romantic-thriller",
   "slug": "rt-0009-hridoyer-ogocore"
-},
+  },
   {
   "title": "রাজনীতি বনাম প্রেমনীতি",
   "description": "মাহরিণ তৃণ-এর লেখা রোমান্টিক ও সামাজিক গল্প",
