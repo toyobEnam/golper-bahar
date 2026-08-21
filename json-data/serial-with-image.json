@@ -1,4 +1,11 @@
-[
+[ 
+  {
+  "title": "পরিত্যক্ত বাড়ি",
+  "description": "নিলয় মাহমুদ রাকিব-এর লেখা ভয়ানক রহস্যময় গল্প",
+  "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1787294172/niloy-mahmud-horror3_lsai7f.webp",
+  "category": "bangla-suspense",
+  "slug": "bs-0006-parityakta-bari"
+  },
   {
   "title": "বিবশ হৃদয়ে বসন্তের আগমন",
   "description": "জান্নাতী আক্তার সিমি-এর লেখা পারিবারিক রোমান্টিক উপন্যাস",
