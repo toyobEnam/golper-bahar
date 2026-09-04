@@ -6,7 +6,7 @@
   <title>কবিতার পাণ্ডুলিপি প্রস্তুতকারক</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
   }
 
   .font-kalpurush {
-    font-family: 'Kalpurush', 'Hind Siliguri', sans-serif;
+    font-family: 'Kalpurush', sans-serif;
   }
 
 
@@ -145,22 +145,22 @@ body {
       width: var(--content-width);
       height: var(--content-height);
       box-sizing: border-box;
-      position: relative;
+      position: static;
     }
 
     .poem-page {
       width: var(--content-width);
       height: var(--content-height);
       box-sizing: border-box;
-      position: relative;
+      position: static;
       overflow: visible;
     }
 
     .poem-title {
       margin: 0 0 5mm 0;
-      padding-bottom: 2mm;
+      padding-bottom: 3.3mm;
       font-family: 'Hind Siliguri', sans-serif;
-      font-size: 17pt;
+      font-size: 30px;
       font-weight: 700;
       line-height: 1.3;
       color: #0f172a;
@@ -174,7 +174,7 @@ body {
       margin: 0 0 4mm 0;
 
       font-family: 'Hind Siliguri', sans-serif;
-      font-size: 10pt;
+      font-size: 18px;
       font-style: italic;
       line-height: 1.4;
       color: #64748b;
@@ -185,8 +185,8 @@ body {
 
     .poem-body {
       width: 100%;
-      font-family: 'Kalpurush', 'Hind Siliguri', sans-serif;
-      font-size: 15px;
+      font-family: 'Kalpurush', sans-serif;
+      font-size: 19.5px;
       line-height: var(--poem-line-height);
       color: #0f172a;
       overflow: visible;
@@ -195,6 +195,7 @@ body {
     .poem-line {
       display: block;
       width: 100%;
+      font-size: 19.5px;
       min-height: var(--poem-line-height);
       line-height: var(--poem-line-height);
       margin: 0;
@@ -209,37 +210,22 @@ body {
       visibility: hidden;
     }
     
-    .page-number {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 5mm;
-      text-align: center;
-      font-family: 'Hind Siliguri', sans-serif;
-      font-size: 10pt;
-      line-height: 1;
-      color: #334155;
-      height: 5mm;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
     .toc-page {
       width: var(--content-width);
       height: var(--content-height);
       box-sizing: border-box;
-      position: relative;
+      position: static;
       overflow: hidden;
     }
     .toc-title {
-      margin: 0 0 7mm 0;
-      padding-bottom: 2mm;
+      margin: 0 0 8mm 0;
+      padding-bottom: 4.3mm;
       font-family: 'Hind Siliguri', sans-serif;
-      font-size: 20pt;
+      font-size: 19.5px;
       font-weight: 700;
       line-height: 1.3;
-      text-align: center;
-      color: #111111;
+      text-align: left;
+      color: #1e293b;
       border-bottom: 1.5px solid #000000;
     }
 
@@ -252,14 +238,16 @@ body {
       display: flex;
       align-items: baseline;
       margin-bottom: 2.2mm;
-      font-family: 'Kalpurush', 'Hind Siliguri', sans-serif;
-      font-size: 12.5pt;
+      font-family: 'Kalpurush', sans-serif;
+      font-size: 19.5px;
       line-height: 1.35;
       white-space: nowrap;
     }
+
     .toc-number {
       flex: 0 0 9mm;
-      font-family: 'Hind Siliguri', sans-serif;
+      margin-right: 3mm;
+      font-family: 'Kalpurush', sans-serif;
       font-weight: 700;
     }
 
@@ -282,23 +270,23 @@ body {
     .toc-page-number {
       flex: 0 0 10mm;
       text-align: right;
-      font-family: 'Hind Siliguri', sans-serif;
+      font-family: 'Kalpurush', sans-serif;
       font-weight: 700;
     }
 
-    .author-note {
+.author-note {
       width: 100%;
-      font-family: 'Kalpurush', 'Hind Siliguri', sans-serif;
-      font-size: 12.5pt;
-      line-height: 2;
+      font-family: 'Kalpurush', sans-serif;
+      font-size: 19.5px;
+      line-height: 2.4;
       text-align: justify;
-      white-space: pre-wrap;
+      white-space: normal;
       overflow-wrap: break-word;
       color: #1f2937;
-    }
+  }
     .dedication-text {
       width: 90%;
-      font-family: 'Kalpurush', 'Hind Siliguri', sans-serif;
+      font-family: 'Kalpurush', sans-serif;
       font-size: 13pt;
       line-height: 2;
       text-align: center;
@@ -320,31 +308,77 @@ body {
     }
   }
 
-.print-only {
+  .poem-title {
+  margin: 0 0 5mm 0;
+  padding-bottom: 3.3mm;
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #0f172a;
+  border-bottom: 1px solid #475569;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+  .toc-title {
+  margin: 0 0 8mm 0;
+  padding-bottom: 4.3mm;
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 21pt;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: left;
+  color: #1e293b;
+  border-bottom: 1.5px solid #000000;
+}
+  .toc-number {
+  flex: 0 0 9mm;
+  margin-right: 3mm;
+  font-family: 'Kalpurush', sans-serif;
+  font-weight: 700;
+}
+  .print-only {
   display: none;
   width: 210mm;
   background: #ffffff;
 }
+.page-number {
+  position: absolute;
+  right: 15mm;
+  bottom: 15mm;
+  left: auto;
+  text-align: right;
+  font-family: 'Kalpurush', sans-serif;
+  font-size: 19.5px;
+  line-height: 1;
+  color: #334155;
+  height: 5mm;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 
-  .pdf-page {
-    width: var(--a4-width);
-    height: var(--a4-height);
-    min-height: var(--a4-height);
-    max-height: var(--a4-height);
-    padding:
-      var(--page-top)
-      var(--page-right)
-      var(--page-bottom)
-      var(--page-left);
-    box-sizing: border-box;
-    position: relative;
-    background: #ffffff;
-    color: #111111;
-    overflow: hidden;
-    page-break-after: always;
-    break-after: page;
-    page-break-inside: avoid;
-    break-inside: avoid;
+.pdf-page {
+      width: var(--a4-width);
+      height: var(--a4-height);
+      min-height: var(--a4-height);
+      max-height: var(--a4-height);
+      padding:
+        var(--page-top)
+        var(--page-right)
+        var(--page-bottom)
+        var(--page-left);
+      box-sizing: border-box;
+      position: relative;
+      background: #ffffff;
+      color: #111111;
+      font-family: 'Kalpurush', sans-serif;
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+      page-break-inside: avoid;
+      break-inside: avoid;
   }
   .pdf-page:last-child {
     page-break-after: auto;
@@ -370,6 +404,12 @@ body {
     flex: 1;
     border-bottom: 1px dotted #888888;
     margin: 0 8px;
+  }
+  .poem-body {
+    font-size: 19.5px;
+  }
+  .poem-line {
+    font-size: 19.5px;
   }
 </style>
 
@@ -1070,8 +1110,8 @@ function movePoem(index, direction) {
         const getVisualLineCount = (text, options = {}) => {
           const element = document.createElement('div');
           element.style.width = `${options.width || contentWidthPx}px`;
-          element.style.fontFamily = options.fontFamily || "'Kalpurush', 'Hind Siliguri', sans-serif";
-          element.style.fontSize = options.fontSize || '15px';
+          element.style.fontFamily = options.fontFamily || "'Kalpurush', sans-serif";
+          element.style.fontSize = options.fontSize || '20px';
           element.style.lineHeight = options.lineHeight || '10.7083mm';
           element.style.whiteSpace = 'pre-wrap';
           element.style.overflowWrap = 'break-word';
@@ -1115,8 +1155,8 @@ function movePoem(index, direction) {
         const getStyledBlockHeight = (text, options = {}) => {
           const element = document.createElement('div');
           element.style.width = `${options.width || contentWidthPx}px`;
-          element.style.fontFamily = options.fontFamily || "'Kalpurush', 'Hind Siliguri', sans-serif";
-          element.style.fontSize = options.fontSize || '15px';
+          element.style.fontFamily = options.fontFamily || "'Kalpurush', sans-serif";
+          element.style.fontSize = options.fontSize || '20px';
           element.style.lineHeight = options.lineHeight || 'normal';
           element.style.whiteSpace = options.whiteSpace || 'normal';
           element.style.overflowWrap = 'break-word';
@@ -1152,9 +1192,9 @@ function movePoem(index, direction) {
         });
         const authorNoteLineHeightElement = document.createElement('div');
         authorNoteLineHeightElement.style.width = `${contentWidthPx}px`;
-        authorNoteLineHeightElement.style.fontFamily = "'Kalpurush', 'Hind Siliguri', sans-serif";
-        authorNoteLineHeightElement.style.fontSize = '12.5pt';
-        authorNoteLineHeightElement.style.lineHeight = '2';
+        authorNoteLineHeightElement.style.fontFamily = "'Kalpurush', sans-serif";
+        authorNoteLineHeightElement.style.fontSize = '20px';
+        authorNoteLineHeightElement.style.lineHeight = '2.4';
         authorNoteLineHeightElement.style.margin = '0';
         authorNoteLineHeightElement.style.padding = '0';
         authorNoteLineHeightElement.style.boxSizing = 'border-box';
@@ -1185,7 +1225,7 @@ function movePoem(index, direction) {
           .split('\n');
         const authorNoteVisualCounts = authorNoteSourceLines.map(line => getVisualLineCount(line, {
           width: contentWidthPx,
-          fontFamily: "'Kalpurush', 'Hind Siliguri', sans-serif",
+          fontFamily: "'Kalpurush', sans-serif",
           fontSize: '12.5pt',
           lineHeight: '2'
         }));
@@ -1217,9 +1257,12 @@ function movePoem(index, direction) {
             .replace(/\r\n/g, '\n')
             .replace(/\r/g, '\n')
             .split('\n');
+          while (sourceLines.length > 0 && sourceLines[0].trim() === String(poem.title || '').trim()) {
+            sourceLines.shift();
+          }
           const visualCounts = sourceLines.map(line => getVisualLineCount(line, {
-            fontFamily: "'Kalpurush', 'Hind Siliguri', sans-serif",
-            fontSize: '15px',
+            fontFamily: "'Kalpurush', sans-serif",
+            fontSize: '19.5px',
             lineHeight: '10.7083mm'
           }));
           let position = 0;
@@ -1230,7 +1273,7 @@ function movePoem(index, direction) {
               const poemTitleHeight = getStyledBlockHeight(poem.title, {
                 width: contentWidthPx,
                 fontFamily: "'Hind Siliguri', sans-serif",
-                fontSize: '17pt',
+                fontSize: '30px',
                 lineHeight: '1.3',
                 paddingBottom: '2mm',
                 marginBottom: '5mm',
@@ -1238,7 +1281,7 @@ function movePoem(index, direction) {
               });
               const poemLineHeightElement = document.createElement('div');
               poemLineHeightElement.style.width = `${contentWidthPx}px`;
-              poemLineHeightElement.style.fontFamily = "'Kalpurush', 'Hind Siliguri', sans-serif";
+              poemLineHeightElement.style.fontFamily = "'Kalpurush', sans-serif";
               poemLineHeightElement.style.fontSize = '15px';
               poemLineHeightElement.style.lineHeight = '10.7083mm';
               poemLineHeightElement.style.margin = '0';
@@ -1339,12 +1382,12 @@ function movePoem(index, direction) {
         html += `
           <div class="pdf-page">
             <div class="full-page-center">
-              <h1 class="font-siliguri font-bold" style="font-size:32pt;line-height:1.3;margin-bottom:10mm;color:#1e293b;">
-                ${escapeHtml(bookData.bookTitle)}
-              </h1>
-              <h2 class="font-kalpurush" style="font-size:18pt;color:#475569;">
-                ${escapeHtml(bookData.authorName)}
-              </h2>
+<h1 class="font-siliguri font-bold" style="font-size:32pt;line-height:1.3;margin:0 0 10mm 0;width:100%;text-align:center;color:#1e293b;">
+  ${escapeHtml(bookData.bookTitle)}
+</h1>
+<h2 class="font-kalpurush" style="font-size:18pt;margin:0;width:100%;text-align:center;color:#475569;">
+  ${escapeHtml(bookData.authorName)}
+</h2>
             </div>
           </div>
         `;
@@ -1365,14 +1408,14 @@ function movePoem(index, direction) {
             <div class="pdf-page">
               <div class="page-content" style="padding-top:5mm;">
                 ${noteIndex === 0 ? `
-                  <h3 class="font-siliguri font-bold" style="font-size:21pt;margin:0 0 8mm 0;border-bottom:1.5px solid #000;padding-bottom:3mm;color:#1e293b;">
+                  <h3 class="font-siliguri font-bold" style="font-size:21pt;margin:0 0 8mm 0;border-bottom:1.5px solid #000;padding-bottom:4.3mm;color:#1e293b;">
                     লেখকের কথা
                   </h3>
                 ` : ''}
                 <div class="author-note">
                   ${escapeHtml(noteLines.join('\n'))}
                 </div>
-                <div class="page-number">— ${toBengaliNumber(3 + noteIndex)} —</div>
+                <div class="page-number">${toBengaliNumber(3 + noteIndex)}</div>
               </div>
             </div>
           `;
@@ -1395,7 +1438,7 @@ function movePoem(index, direction) {
                     </div>
                   `).join('')}
                 </div>
-                <div class="page-number">— ${toBengaliNumber(firstTocPageNumber + t)} —</div>
+                <div class="page-number">${toBengaliNumber(firstTocPageNumber + t)}</div>
               </div>
             </div>
           `;
@@ -1415,7 +1458,7 @@ function movePoem(index, direction) {
                     <div class="poem-line${line.trim() === '' ? ' empty' : ''}">${escapeHtml(line) || '&nbsp;'}</div>
                   `).join('')}
                 </div>
-                <div class="page-number">— ${toBengaliNumber(poemPageNumber)} —</div>
+                <div class="page-number">${toBengaliNumber(poemPageNumber)}</div>
               </div>
             </div>
           `;
