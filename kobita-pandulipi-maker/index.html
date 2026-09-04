@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>কবিতার পাণ্ডুলিপি প্রস্তুতকারক</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* =========================================================
+     BASIC FONT SETUP
+     ========================================================= */
+
+  @font-face {
+    font-family: 'Kalpurush';
+    src: url('./kalpurush.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+
+  body {
+    font-family: 'Hind Siliguri', sans-serif;
+  }
+
+  .font-siliguri {
+    font-family: 'Hind Siliguri', sans-serif;
+  }
+
+  .font-kalpurush {
+    font-family: 'Kalpurush', 'Hind Siliguri', sans-serif;
+  }
+
+
+:root {
+  --a4-width: 210mm;
+  --a4-height: 297mm;
+  --page-top: 20mm;
+  --page-right: 20mm;
+  --page-bottom: 20mm;
+  --page-left: 20mm;
+  --content-width: 170mm;
+  --content-height: 257mm;
+  --poem-line-height: 10.7083mm;
+}
+
+
+  /* =========================================================
+     PRINT SETTINGS
+     ========================================================= */
+
+  @media print {
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+html,
+body {
+  width: var(--a4-width);
+      margin: 0 !important;
+      padding: 0 !important;
+      background: #ffffff !important;
+      color: #111111 !important;
+    }
+
+    body {
+      min-height: auto !important;
+    }
+
+    .no-print {
+      display: none !important;
+    }
+
+    .print-only {
+      display: block !important;
+    }
+
+
+    .pdf-page {
+      width: var(--a4-width);
+      height: var(--a4-height);
+      min-height: var(--a4-height);
+      max-height: var(--a4-height);
+
+      box-sizing: border-box;
+
+      padding:
+        var(--page-top)
+        var(--page-right)
+        var(--page-bottom)
+        var(--page-left);
+
+      margin: 0;
+
+      position: relative;
+
+      background: #ffffff;
+      color: #111111;
+
+      overflow: hidden;
+
+      page-break-after: always;
+      break-after: page;
+
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .pdf-page:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    .pdf-center {
+      height: var(--content-height);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .full-page-center {
+      height: var(--content-height);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .page-content {
+      width: var(--content-width);
+      height: var(--content-height);
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .poem-page {
+      width: var(--content-width);
+      height: var(--content-height);
+      box-sizing: border-box;
+      position: relative;
+      overflow: visible;
+    }
+
+    .poem-title {
+      margin: 0 0 5mm 0;
+      padding-bottom: 2mm;
+      font-family: 'Hind Siliguri', sans-serif;
+      font-size: 17pt;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #0f172a;
+      border-bottom: 1px solid #475569;
+      white-space: normal;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+
+    .poem-continuation {
+      margin: 0 0 4mm 0;
+
+      font-family: 'Hind Siliguri', sans-serif;
+      font-size: 10pt;
+      font-style: italic;
+      line-height: 1.4;
+      color: #64748b;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .poem-body {
+      width: 100%;
+      font-family: 'Kalpurush', 'Hind Siliguri', sans-serif;
+      font-size: 15px;
+      line-height: var(--poem-line-height);
+      color: #0f172a;
+      overflow: visible;
+    }
+
+    .poem-line {
+      display: block;
+      width: 100%;
+      min-height: var(--poem-line-height);
+      line-height: var(--poem-line-height);
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+
+    .poem-line.empty {
+      visibility: hidden;
+    }
+    
+    .page-number {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 5mm;
+      text-align: center;
+      font-family: 'Hind Siliguri', sans-serif;
+      font-size: 10pt;
+      line-height: 1;
+      color: #334155;
+      height: 5mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .toc-page {
+      width: var(--content-width);
+      height: var(--content-height);
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+    .toc-title {
+      margin: 0 0 7mm 0;
+      padding-bottom: 2mm;
+      font-family: 'Hind Siliguri', sans-serif;
+      font-size: 20pt;
+      font-weight: 700;
+      line-height: 1.3;
+      text-align: center;
+      color: #111111;
+      border-bottom: 1.5px solid #000000;
+    }
+
+    .toc-list {
+      width: 100%;
+    }
+
+    .toc-row {
+      width: 100%;
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 2.2mm;
+      font-family: 'Kalpurush', 'Hind Siliguri', sans-serif;
+      font-size: 12.5pt;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+    .toc-number {
+      flex: 0 0 9mm;
+      font-family: 'Hind Siliguri', sans-serif;
+      font-weight: 700;
+    }
+
+    .toc-title-text {
+      min-width: 0;
+      max-width: 70mm;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .toc-dots {
+      flex: 1;
+      min-width: 5mm;
+      margin: 0 2mm;
+      border-bottom: 1px dotted #888888;
+      transform: translateY(-1px);
+    }
+
+    .toc-page-number {
+      flex: 0 0 10mm;
+      text-align: right;
+      font-family: 'Hind Siliguri', sans-serif;
+      font-weight: 700;
+    }
+
+    .author-note {
+      width: 100%;
+      font-family: 'Kalpurush', 'Hind Siliguri', sans-serif;
+      font-size: 12.5pt;
+      line-height: 2;
+      text-align: justify;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      color: #1f2937;
+    }
+    .dedication-text {
+      width: 90%;
+      font-family: 'Kalpurush', 'Hind Siliguri', sans-serif;
+      font-size: 13pt;
+      line-height: 2;
+      text-align: center;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      color: #334155;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    div {
+      page-break-inside: avoid;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+.print-only {
+  display: none;
+  width: 210mm;
+  background: #ffffff;
+}
+
+  .pdf-page {
+    width: var(--a4-width);
+    height: var(--a4-height);
+    min-height: var(--a4-height);
+    max-height: var(--a4-height);
+    padding:
+      var(--page-top)
+      var(--page-right)
+      var(--page-bottom)
+      var(--page-left);
+    box-sizing: border-box;
+    position: relative;
+    background: #ffffff;
+    color: #111111;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .pdf-page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+  .pdf-center {
+    height: var(--content-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .poem-line {
+    line-height: var(--poem-line-height);
+    min-height: var(--poem-line-height);
+  }
+  .toc-row {
+    display: flex;
+    align-items: baseline;
+  }
+  .toc-dots {
+    flex: 1;
+    border-bottom: 1px dotted #888888;
+    margin: 0 8px;
+  }
+</style>
+
+
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-800 flex flex-col font-siliguri">
+
+  <!-- শীর্ষ হেডার: বইয়ের নাম ও সারাংশ প্রদর্শন -->
+  <header id="topBar" class="no-print hidden bg-slate-900 text-white shadow-md py-3.5 px-6 sticky top-0 z-30 flex justify-between items-center border-b border-slate-800">
+    <div class="flex items-center space-x-3">
+      <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+      <div>
+        <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">বর্তমান বই</span>
+        <h1 id="topBookTitle" class="text-base md:text-lg font-bold truncate max-w-xs md:max-w-md font-siliguri"></h1>
+      </div>
+    </div>
+    <div class="flex items-center space-x-3">
+      <span id="poemBadge" class="bg-indigo-900/80 text-indigo-200 border border-indigo-700/50 text-xs px-3 py-1 rounded-full font-medium">
+        মোট কবিতা: <span id="topPoemCount" class="font-bold text-white">০</span>
+      </span>
+    </div>
+  </header>
+
+  <!-- প্রধান বডি এরিয়া -->
+  <main class="no-print flex-grow flex items-center justify-center p-4 md:p-8">
+
+    <!-- ধাপ ১: বইয়ের নাম ও লেখকের নাম -->
+    <div id="stepBookInfo" class="bg-white p-8 md:p-10 rounded-2xl shadow-xl w-full max-w-lg border border-slate-200/80">
+      <div class="text-center mb-8">
+        <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-inner">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-900 font-siliguri">নতুন কবিতার বই</h2>
+        <p class="text-slate-500 text-sm mt-1">পাণ্ডুলিপি তৈরির প্রথম ধাপ</p>
+      </div>
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-semibold mb-1.5 text-slate-700 font-siliguri">বইয়ের নাম</label>
+          <input id="inputBookTitle" type="text" placeholder="যেমন: মেঘবালিকার চিঠি" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 font-siliguri text-base">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-1.5 text-slate-700 font-siliguri">লেখকের নাম</label>
+          <input id="inputAuthorName" type="text" placeholder="যেমন: জীবনানন্দ দাশ" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 font-kalpurush text-base">
+        </div>
+        <button onclick="saveBookInfo()" class="w-full mt-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl shadow-lg shadow-indigo-200 transition duration-200">
+          পরবর্তী ধাপ &rarr;
+        </button>
+      </div>
+    </div>
+
+    <!-- ধাপ ২: উৎসর্গ পাতা -->
+    <div id="stepDedication" class="hidden bg-white p-8 md:p-10 rounded-2xl shadow-xl w-full max-w-lg border border-slate-200/80">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-slate-900 font-siliguri">উৎসর্গ পাতা</h2>
+        <p class="text-slate-500 text-sm mt-1">এই লেখাটি বইয়ের ২য় পাতার ঠিক মাঝখানে বসবে</p>
+      </div>
+      <div class="space-y-4">
+        <textarea id="inputDedication" rows="5" placeholder="যাঁদের অনুপ্রেরণায় আমার এই কবিতার সৃষ্টি..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 font-kalpurush text-base leading-relaxed"></textarea>
+        <button onclick="saveDedication()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl shadow-lg shadow-indigo-200 transition duration-200">
+          পরবর্তী ধাপ (লেখকের কথা) &rarr;
+        </button>
+      </div>
+    </div>
+
+    <!-- ধাপ ৩: লেখকের কথা পাতা -->
+    <div id="stepAuthorNote" class="hidden bg-white p-8 md:p-10 rounded-2xl shadow-xl w-full max-w-xl border border-slate-200/80">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl font-bold text-slate-900 font-siliguri">লেখকের কথা</h2>
+        <p class="text-slate-500 text-sm mt-1">বই ও কবিতার পেছনের অনুভূতি লিখুন (জাস্টিফাই অ্যালাইনমেন্টে থাকবে)</p>
+      </div>
+      <div class="space-y-4">
+        <textarea id="inputAuthorNote" rows="7" placeholder="কবিতা নিয়ে আমার কিছু নিজস্ব উপলব্ধি..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 font-kalpurush text-base leading-relaxed text-justify"></textarea>
+        <button onclick="saveAuthorNote()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl shadow-lg shadow-indigo-200 transition duration-200">
+          কবিতা লেখায় এগিয়ে যান &rarr;
+        </button>
+      </div>
+    </div>
+
+    <!-- ধাপ ৪: কবিতা সাবমিশন ও লাইভ তালিকা -->
+    <div id="stepPoems" class="hidden w-full max-w-3xl space-y-6">
+
+      <!-- সাবমিট করা কবিতার চলমান তালিকা (উপরে প্রদর্শিত) -->
+      <div id="submittedPoemsBox" class="hidden bg-white p-5 rounded-2xl shadow-md border border-slate-200">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-3">
+          <div class="flex items-center space-x-2">
+            <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <h3 class="font-bold text-slate-800 text-sm md:text-base font-siliguri">ইতোমধ্যে সংরক্ষিত কবিতাসমূহ</h3>
+          </div>
+          <span id="poemListCountText" class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-semibold"></span>
+        </div>
+        <div id="poemTitlesList" class="max-h-48 overflow-y-auto pr-2 space-y-1.5 text-sm font-siliguri text-slate-700">
+          <!-- ডায়নামিক তালিকা যুক্ত হবে -->
+        </div>
+      </div>
+
+      <!-- কবিতা ইনপুট ফর্ম -->
+      <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-200">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <h2 id="poemStepHeading" class="text-xl font-bold text-slate-900 font-siliguri">১ নং কবিতা</h2>
+          <span class="text-xs bg-indigo-50 text-indigo-700 font-semibold px-3 py-1 rounded-md border border-indigo-100">
+            ফরম্যাট: ১ম লাইন নাম, এরপর এক লাইন গ্যাপ দিয়ে পুরো কবিতা
+          </span>
+        </div>
+
+        <div class="space-y-4">
+          <textarea id="inputPoemRaw" rows="12" placeholder="বনলতা সেন&#10;&#10;হাজার বছর ধরে আমি পথ হাঁটিতেছি পৃথিবীর পথে,&#10;সিংহল সমুদ্র থেকে নিশীথের অন্ধকারে মালয় সাগরে..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 font-kalpurush text-base leading-relaxed"></textarea>
+
+          <button onclick="submitPoem()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3.5 rounded-xl shadow-lg shadow-indigo-200 transition duration-200">
+            কবিতা সেভ করুন ও পরবর্তী কবিতা
+          </button>
+
+          <!-- সমাপ্ত বাটন -->
+          <div class="pt-4 border-t border-slate-100 text-center">
+            <button onclick="openFinishModal()" class="text-sm text-slate-500 hover:text-slate-900 font-medium py-1 px-4 rounded-lg transition duration-150">
+              বইয়ের সব কবিতা লেখা শেষ? <span class="underline text-indigo-600 font-bold ml-1">সমাপ্ত করুন</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- পেজিনেশন লোডিং স্ক্রিন -->
+    <div id="stepPagination" class="hidden bg-white p-8 md:p-12 rounded-3xl shadow-2xl w-full max-w-lg border border-slate-200 text-center">
+      <div class="w-20 h-20 bg-indigo-50 text-indigo-600 rounded-3xl flex items-center justify-center mx-auto mb-5 border border-indigo-100 shadow-inner">
+        <svg class="w-10 h-10 animate-spin" fill="none" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="3" opacity="0.25"></circle>
+          <path d="M21 12a9 9 0 0 1-9 9" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+        </svg>
+      </div>
+      <h2 class="text-2xl font-bold text-slate-900 font-siliguri mb-2">পেজিনেশন এর কাজ চলছে</h2>
+      <p class="text-slate-500 text-sm font-siliguri">একটু অপেক্ষা করুন। আপনার বইয়ের প্রতিটি পাতা গুছিয়ে নেওয়া হচ্ছে।</p>
+    </div>
+
+    <!-- ধাপ ৫: এক্সপোর্ট ও ডিলিট স্ক্রিন -->
+    <div id="stepExport" class="hidden bg-white p-8 md:p-12 rounded-3xl shadow-2xl w-full max-w-lg border border-slate-200 text-center">
+      <div class="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-3xl flex items-center justify-center mx-auto mb-4 border border-emerald-100 shadow-inner">
+        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+      </div>
+
+      <h2 class="text-3xl font-bold text-slate-900 font-siliguri mb-1">পাণ্ডুলিপি সমাপ্ত!</h2>
+      <p class="text-slate-500 text-sm mb-8">আপনার বইয়ের সমস্ত পাতা ও সূচিপত্র গুছিয়ে প্রস্তুত করা হয়েছে।</p>
+
+      <div class="mb-8 p-4 rounded-2xl bg-amber-50 border border-amber-200">
+        <p class="text-sm font-semibold text-amber-800 font-siliguri mb-3">সব পেইজ নাম্বার সঠিক ভাবে চেক করা হয়েছে কিনা চেক করুন 👇</p>
+        <button id="checkPageNumbersButton" onclick="checkPageNumbers()" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
+          <span id="checkPageNumbersSpinner" class="hidden w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin"></span>
+          <span id="checkPageNumbersText">Check Now</span>
+        </button>
+      </div>
+
+      <div class="space-y-3 mb-8">
+        <button onclick="exportToPDF()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-2xl shadow-xl shadow-indigo-100 flex items-center justify-center space-x-2 transition duration-150">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"></path></svg>
+          <span class="font-siliguri text-base">Export to PDF (প্রিন্ট লেআউট)</span>
+        </button>
+
+        <button onclick="exportToTXT()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3.5 rounded-2xl flex items-center justify-center space-x-2 transition duration-150">
+          <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"></path></svg>
+          <span class="font-siliguri text-base">Text File (.txt)</span>
+        </button>
+      </div>
+      <div class="mb-6">
+        <button onclick="returnToEditDraft()" class="w-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-semibold py-3 rounded-xl border border-indigo-200 text-sm transition">
+          ✎ এডিটে ফিরে যান
+        </button>
+      </div>
+
+      <div class="pt-6 border-t border-slate-100">
+        <button onclick="openDeleteModal()" class="w-full bg-rose-50 hover:bg-rose-100 text-rose-600 font-semibold py-3 rounded-xl border border-rose-200 text-sm transition">
+          Delete Book Draft
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- মোডাল: সমাপ্তি নিশ্চিতকরণ -->
+  <div id="finishModal" class="no-print fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl text-center">
+      <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-3">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2 font-siliguri">বইয়ের কাজ কি শেষ?</h3>
+      <p class="text-sm text-slate-600 mb-6 font-siliguri">আপনি কি নিশ্চিত যে বইয়ের সমস্ত কবিতা লেখা শেষ এবং সমাপ্ত পাতা ও সূচিপত্রসহ এক্সপোর্ট করতে চান?</p>
+      <div class="flex space-x-3">
+        <button onclick="closeFinishModal()" class="flex-1 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold font-siliguri">না, আরও লিখব</button>
+        <button onclick="confirmFinishBook()" class="flex-1 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold font-siliguri">হ্যাঁ, সমাপ্ত</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- মোডাল: তথ্য সংরক্ষণ ব্যর্থ -->
+  <div id="saveErrorModal" class="no-print fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl text-center">
+      <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center mx-auto mb-3">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v4m0 4h.01M10.29 3.86l-7.5 13A2 2 0 004.53 20h14.94a2 2 0 001.74-3.14l-7.5-13a2 2 0 00-3.42 0z"></path></svg>
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2 font-siliguri">তথ্য সংরক্ষণ করা যায়নি</h3>
+      <p class="text-sm text-slate-600 mb-6 font-siliguri">তথ্য সংরক্ষণ করা যায়নি, আবার চেষ্টা করুন অথবা অন্য ব্রাউজার দিয়ে চেষ্টা করুন।</p>
+      <button onclick="closeSaveErrorModal()" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold font-siliguri">OK</button>
+    </div>
+  </div>
+
+  <!-- মোডাল: পেইজ নাম্বার চেক ফলাফল -->
+  <div id="pageCheckModal" class="no-print fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl text-center">
+      <div id="pageCheckIcon" class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+      </div>
+      <h3 id="pageCheckTitle" class="text-lg font-bold text-slate-900 mb-2 font-siliguri">পেইজ নাম্বার সঠিক হয়েছে</h3>
+      <p id="pageCheckMessage" class="text-sm text-slate-600 mb-6 font-siliguri"></p>
+      <button onclick="closePageCheckModal()" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold font-siliguri">OK</button>
+    </div>
+  </div>
+
+  <!-- মোডাল: ড্রাফট ডিলিট নিশ্চিতকরণ -->
+  <div id="deleteModal" class="no-print fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl text-center">
+      <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-full flex items-center justify-center mx-auto mb-3">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+      </div>
+      <h3 class="text-lg font-bold text-slate-900 mb-2 font-siliguri">ড্রাফট মুছে ফেলতে চান?</h3>
+      <p class="text-sm text-slate-600 mb-6 font-siliguri">লোকাল স্টোরেজ থেকে সম্পূর্ণ বইয়ের ড্রাফট স্থায়ীভাবে মুছে যাবে। এটি আর কখনো ফিরিয়ে আনা যাবে না।</p>
+      <div class="flex space-x-3">
+        <button onclick="closeDeleteModal()" class="flex-1 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold font-siliguri">বাতিল</button>
+        <button onclick="confirmDeleteDraft()" class="flex-1 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-semibold font-siliguri">মুছে ফেলুন</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- প্রিন্ট ও PDF রেন্ডার কন্টেইনার -->
+  <div id="printArea" class="print-only"></div>
+
+  <script>
+    const STORAGE_KEY = 'KOBITA_BOOK_DRAFT_V2';
+
+    let bookData = {
+      bookTitle: '',
+      authorName: '',
+      dedication: '',
+      authorNote: '',
+      poems: [],
+      isCompleted: false
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadData();
+      renderCurrentStep();
+    });
+
+    function loadData() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        try {
+          const saved = JSON.parse(raw);
+          const recoveredPoems = Array.isArray(saved.poems) ? saved.poems.filter(poem => poem && typeof poem === 'object').map(poem => ({
+            id: typeof poem.id === 'number' ? poem.id : 0,
+            title: typeof poem.title === 'string' ? poem.title : '',
+            body: typeof poem.body === 'string' ? poem.body : ''
+          })).filter(poem => poem.title || poem.body) : [];
+          bookData = {
+            bookTitle: typeof saved.bookTitle === 'string' ? saved.bookTitle : '',
+            authorName: typeof saved.authorName === 'string' ? saved.authorName : '',
+            dedication: typeof saved.dedication === 'string' ? saved.dedication : '',
+            authorNote: typeof saved.authorNote === 'string' ? saved.authorNote : '',
+            poems: recoveredPoems,
+            isCompleted: saved.isCompleted === true,
+            pagination: saved.pagination && typeof saved.pagination === 'object' ? saved.pagination : undefined
+          };
+          if (bookData.pagination && Array.isArray(bookData.pagination.poemPages)) {
+            bookData.pagination.poemPages = bookData.pagination.poemPages.filter(page => page && typeof page === 'object');
+          } else {
+            delete bookData.pagination;
+            bookData.isCompleted = false;
+          }
+        } catch (e) {
+          console.error("Storage parse error:", e);
+        }
+      } catch (e) {
+        console.error("Storage access error:", e);
+      }
+    }
+
+    function persist() {
+      const dataToSave = JSON.stringify(bookData);
+      for (let attempt = 1; attempt <= 2; attempt++) {
+        try {
+          localStorage.setItem(STORAGE_KEY, dataToSave);
+          updateTopBar();
+          renderPoemList();
+          return true;
+        } catch (error) {
+          console.error(`Local storage save error (attempt ${attempt}):`, error);
+        }
+      }
+      showSaveErrorModal();
+      return false;
+    }
+
+    function updateTopBar() {
+      const topBar = document.getElementById('topBar');
+      const topTitle = document.getElementById('topBookTitle');
+      const topCount = document.getElementById('topPoemCount');
+
+      if (bookData.bookTitle) {
+        topBar.classList.remove('hidden');
+        topTitle.innerText = bookData.bookTitle;
+        topCount.innerText = toBengaliNumber(bookData.poems.length);
+      } else {
+        topBar.classList.add('hidden');
+      }
+    }
+
+function renderPoemList() {
+  const box = document.getElementById('submittedPoemsBox');
+  const listContainer = document.getElementById('poemTitlesList');
+  const countBadge = document.getElementById('poemListCountText');
+  if (!bookData.poems || bookData.poems.length === 0) {
+    box.classList.add('hidden');
+    return;
+  }
+  box.classList.remove('hidden');
+  countBadge.innerText = `মোট ${toBengaliNumber(bookData.poems.length)} টি`;
+  listContainer.innerHTML = bookData.poems.map((p, idx) => `
+    <div class="flex items-center gap-2 py-2 border-b border-slate-100 last:border-0" data-index="${idx}">
+      <span class="w-7 font-bold text-indigo-600 shrink-0">${toBengaliNumber(idx + 1)}।</span>
+      <span class="font-semibold text-slate-800 truncate flex-1 min-w-0">${escapeHtml(p.title)}</span>
+      <div class="flex items-center gap-1 shrink-0">
+        <button onclick="editPoem(${idx})" title="সম্পাদনা" class="w-7 h-7 rounded-md bg-indigo-50 hover:bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs">✎</button>
+        <button onclick="movePoem(${idx}, -1)" title="উপরে নিন" ${idx === 0 ? 'disabled' : ''} class="w-7 h-7 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-xs disabled:opacity-30 disabled:cursor-not-allowed">↑</button>
+        <button onclick="movePoem(${idx}, 1)" title="নিচে নিন" ${idx === bookData.poems.length - 1 ? 'disabled' : ''} class="w-7 h-7 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center text-xs disabled:opacity-30 disabled:cursor-not-allowed">↓</button>
+        <button onclick="deletePoem(${idx})" title="মুছে ফেলুন" class="w-7 h-7 rounded-md bg-rose-50 hover:bg-rose-100 text-rose-600 flex items-center justify-center text-xs">×</button>
+      </div>
+    </div>
+  `).join('');
+  listContainer.scrollTop = listContainer.scrollHeight;
+}
+
+    function renderCurrentStep() {
+      updateTopBar();
+
+      ['stepBookInfo', 'stepDedication', 'stepAuthorNote', 'stepPoems', 'stepPagination', 'stepExport'].forEach(id => document.getElementById(id).classList.add('hidden'));
+
+      if (!bookData.bookTitle) {
+        document.getElementById('stepBookInfo').classList.remove('hidden');
+      } else if (bookData.dedication === '' && bookData.poems.length === 0 && !bookData.authorNote) {
+        document.getElementById('stepDedication').classList.remove('hidden');
+      } else if (bookData.authorNote === '' && bookData.poems.length === 0) {
+        document.getElementById('stepAuthorNote').classList.remove('hidden');
+      } else if (!bookData.isCompleted) {
+        document.getElementById('stepPoems').classList.remove('hidden');
+        renderPoemList();
+        const nextIdx = bookData.poems.length + 1;
+        document.getElementById('poemStepHeading').innerText = `${toBengaliNumber(nextIdx)} নং কবিতা`;
+        const poemTextarea = document.getElementById('inputPoemRaw');
+if (!poemTextarea.dataset.editingIndex) poemTextarea.value = '';
+      } else {
+        document.getElementById('stepExport').classList.remove('hidden');
+      }
+    }
+
+    // ১. বই ও লেখকের নাম সংরক্ষণ
+    function saveBookInfo() {
+      const title = document.getElementById('inputBookTitle').value.trim();
+      const author = document.getElementById('inputAuthorName').value.trim();
+
+      if (!title || !author) {
+        alert('অনুগ্রহ করে বইয়ের নাম ও লেখকের নাম দুটোই লিখুন।');
+        return;
+      }
+
+      bookData.bookTitle = title;
+      bookData.authorName = author;
+      if (!persist()) return;
+      renderCurrentStep();
+    }
+
+    // ২. উৎসর্গ পাতা সংরক্ষণ
+    function saveDedication() {
+      const text = document.getElementById('inputDedication').value.trim();
+      bookData.dedication = text || ' ';
+      if (!persist()) return;
+      renderCurrentStep();
+    }
+
+    // ৩. লেখকের কথা সংরক্ষণ
+    function saveAuthorNote() {
+      const note = document.getElementById('inputAuthorNote').value.trim();
+      bookData.authorNote = note || ' ';
+      if (!persist()) return;
+      renderCurrentStep();
+    }
+
+function submitPoem() {
+  const textarea = document.getElementById('inputPoemRaw');
+  const raw = textarea.value.trim();
+  const editingIndex = textarea.dataset.editingIndex;
+  if (!raw) {
+    alert('অনুগ্রহ করে কবিতার নাম ও কবিতার লাইনগুলো লিখুন।');
+    return;
+  }
+  const lines = raw.split('\n');
+  const title = lines[0].trim();
+  const body = lines.slice(1).join('\n').trim();
+  if (!title || !body) {
+    alert('ফরম্যাট লক্ষ্য করুন: প্রথম লাইনে কবিতার নাম থাকবে, এরপর এক লাইন ফাঁকা রেখে সম্পূর্ণ কবিতা।');
+    return;
+  }
+  if (editingIndex !== undefined && editingIndex !== '') {
+    const index = Number(editingIndex);
+    if (bookData.poems[index]) {
+      bookData.poems[index].title = title;
+      bookData.poems[index].body = body;
+    }
+    delete textarea.dataset.editingIndex;
+    const saveButton = document.querySelector('#stepPoems button[onclick="submitPoem()"]');
+    if (saveButton) saveButton.innerText = 'কবিতা সেভ করুন ও পরবর্তী কবিতা';
+  } else {
+    bookData.poems.push({
+      id: bookData.poems.length + 1,
+      title: title,
+      body: body
+    });
+  }
+  delete bookData.pagination;
+  bookData.isCompleted = false;
+  if (!persist()) return;
+  renderCurrentStep();
+}
+
+// কবিতা সম্পাদনা
+function editPoem(index) {
+  const poem = bookData.poems[index];
+  if (!poem) return;
+  const raw = `${poem.title}\n\n${poem.body}`;
+  const textarea = document.getElementById('inputPoemRaw');
+  textarea.value = raw;
+  textarea.focus();
+  textarea.scrollTop = 0;
+  textarea.dataset.editingIndex = index;
+  document.getElementById('poemStepHeading').innerText = `${toBengaliNumber(index + 1)} নং কবিতা সম্পাদনা`;
+  const saveButton = document.querySelector('#stepPoems button[onclick="submitPoem()"]');
+  if (saveButton) saveButton.innerText = 'পরিবর্তন সেভ করুন';
+}
+// কবিতা মুছে ফেলা
+function deletePoem(index) {
+  const poem = bookData.poems[index];
+  if (!poem) return;
+  const confirmed = confirm(`"${poem.title}" কবিতাটি কি মুছে ফেলতে চান?\n\nএই কাজটি পূর্বাবস্থায় ফেরানো যাবে না।`);
+  if (!confirmed) return;
+  const textarea = document.getElementById('inputPoemRaw');
+  delete textarea.dataset.editingIndex;
+  textarea.value = '';
+  bookData.poems.splice(index, 1);
+  bookData.poems.forEach((p, i) => p.id = i + 1);
+  delete bookData.pagination;
+  bookData.isCompleted = false;
+  if (!persist()) return;
+  renderCurrentStep();
+}
+// কবিতার অবস্থান পরিবর্তন
+function movePoem(index, direction) {
+  const newIndex = index + direction;
+  if (index < 0 || index >= bookData.poems.length || newIndex < 0 || newIndex >= bookData.poems.length) return;
+  const textarea = document.getElementById('inputPoemRaw');
+  delete textarea.dataset.editingIndex;
+  textarea.value = '';
+  const temp = bookData.poems[index];
+  bookData.poems[index] = bookData.poems[newIndex];
+  bookData.poems[newIndex] = temp;
+  bookData.poems.forEach((p, i) => p.id = i + 1);
+  delete bookData.pagination;
+  bookData.isCompleted = false;
+  if (!persist()) return;
+  renderCurrentStep();
+}
+
+
+    // মোডাল ফাংশনসমূহ
+    function openFinishModal() {
+      if (bookData.poems.length === 0) {
+        alert('অন্তত একটি কবিতা যোগ করার পর সমাপ্ত করুন।');
+        return;
+      }
+      document.getElementById('finishModal').classList.remove('hidden');
+    }
+
+    function closeFinishModal() {
+      document.getElementById('finishModal').classList.add('hidden');
+    }
+
+    async function confirmFinishBook() {
+      closeFinishModal();
+      const steps = ['stepBookInfo', 'stepDedication', 'stepAuthorNote', 'stepPoems', 'stepExport'];
+      steps.forEach(id => document.getElementById(id).classList.add('hidden'));
+      document.getElementById('stepPagination').classList.remove('hidden');
+      await new Promise(resolve => setTimeout(resolve, 100));
+      try {
+        const pagination = await buildPagination();
+        if (!pagination || !pagination.poemPages || pagination.poemPages.length === 0) {
+          throw new Error('Pagination could not be created.');
+        }
+        bookData.pagination = pagination;
+        bookData.isCompleted = true;
+        if (!persist()) {
+          bookData.isCompleted = false;
+          delete bookData.pagination;
+          renderCurrentStep();
+          return;
+        }
+        renderCurrentStep();
+      } catch (error) {
+        console.error('Pagination error:', error);
+        alert('পেজিনেশন তৈরি করতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
+        bookData.isCompleted = false;
+        delete bookData.pagination;
+        renderCurrentStep();
+      }
+    }
+
+    function openDeleteModal() {
+      document.getElementById('deleteModal').classList.remove('hidden');
+    }
+
+    function closeDeleteModal() {
+      document.getElementById('deleteModal').classList.add('hidden');
+    }
+
+    function showSaveErrorModal() {
+      document.getElementById('saveErrorModal').classList.remove('hidden');
+    }
+
+    function closeSaveErrorModal() {
+      document.getElementById('saveErrorModal').classList.add('hidden');
+    }
+
+    function returnToEditDraft() {
+      bookData.isCompleted = false;
+      delete bookData.pagination;
+      if (!persist()) return;
+      renderCurrentStep();
+    }
+
+    async function checkPageNumbers() {
+      const button = document.getElementById('checkPageNumbersButton');
+      const spinner = document.getElementById('checkPageNumbersSpinner');
+      const buttonText = document.getElementById('checkPageNumbersText');
+      if (!button || !spinner || !buttonText) return;
+      button.disabled = true;
+      spinner.classList.remove('hidden');
+      buttonText.innerText = 'Checking...';
+      await new Promise(resolve => setTimeout(resolve, 500));
+      try {
+        if (!bookData.pagination || !Array.isArray(bookData.pagination.poemPages) || bookData.pagination.poemPages.length === 0) {
+          throw new Error('Pagination not found.');
+        }
+        const poemPages = bookData.pagination.poemPages;
+        const poemsPerTocPage = 18;
+        const tocPageCount = Math.max(1, Math.ceil(bookData.poems.length / poemsPerTocPage));
+        const authorNotePageCount = Math.max(1, Array.isArray(bookData.pagination.authorNotePages) ? bookData.pagination.authorNotePages.length : 0);
+        const firstTocPageNumber = 3 + authorNotePageCount;
+        const firstPoemPageNumber = firstTocPageNumber + tocPageCount;
+        let isCorrect = true;
+        const expectedPoemPageNumbers = new Map();
+        let expectedPoemPageNumber = 1;
+        poemPages.forEach(page => {
+          expectedPoemPageNumbers.set(page, expectedPoemPageNumber);
+          if (page.pageNumber !== expectedPoemPageNumber) {
+            isCorrect = false;
+          }
+          expectedPoemPageNumber++;
+        });
+        const firstPageByPoem = new Map();
+        poemPages.forEach(page => {
+          if (!firstPageByPoem.has(page.poemIndex)) {
+            firstPageByPoem.set(page.poemIndex, page);
+          }
+        });
+        const expectedTocPageNumbers = bookData.poems.map((poem, index) => {
+          const firstPage = firstPageByPoem.get(index);
+          return firstPoemPageNumber + (firstPage ? firstPage.pageNumber - 1 : 0);
+        });
+        for (let index = 0; index < bookData.poems.length; index++) {
+          const firstPage = firstPageByPoem.get(index);
+          if (!firstPage || firstPage.poemIndex !== index || firstPage.poemNumber !== index + 1) {
+            isCorrect = false;
+            break;
+          }
+          const expectedFullPageNumber = firstPoemPageNumber + firstPage.pageNumber - 1;
+          if (expectedTocPageNumbers[index] !== expectedFullPageNumber) {
+            isCorrect = false;
+            break;
+          }
+        }
+        if (!isCorrect) {
+          poemPages.forEach((page, index) => {
+            page.pageNumber = index + 1;
+          });
+          const correctedFirstPageByPoem = new Map();
+          poemPages.forEach(page => {
+            if (!correctedFirstPageByPoem.has(page.poemIndex)) {
+              correctedFirstPageByPoem.set(page.poemIndex, page);
+            }
+          });
+          for (let index = 0; index < bookData.poems.length; index++) {
+            const firstPage = correctedFirstPageByPoem.get(index);
+            if (firstPage) {
+              firstPage.poemIndex = index;
+              firstPage.poemNumber = index + 1;
+              firstPage.title = bookData.poems[index].title;
+            }
+          }
+          if (!persist()) {
+            throw new Error('Could not save corrected page numbers.');
+          }
+          showPageCheckModal(false);
+        } else {
+          showPageCheckModal(true);
+        }
+      } catch (error) {
+        console.error('Page number check error:', error);
+        alert('পেইজ নাম্বার চেক করতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
+      } finally {
+        button.disabled = false;
+        spinner.classList.add('hidden');
+        buttonText.innerText = 'Check Now';
+      }
+    }
+
+    function showPageCheckModal(isCorrect) {
+      const modal = document.getElementById('pageCheckModal');
+      const icon = document.getElementById('pageCheckIcon');
+      const title = document.getElementById('pageCheckTitle');
+      const message = document.getElementById('pageCheckMessage');
+      if (isCorrect) {
+        icon.className = 'w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3';
+        icon.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+        title.innerText = 'পেইজ নাম্বার সঠিক হয়েছে';
+        message.innerText = 'সব পেইজ নাম্বার ধারাবাহিকভাবে সঠিক আছে।';
+      } else {
+        icon.className = 'w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3';
+        icon.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>';
+        title.innerText = 'এখন পেইজ নাম্বার ঠিক আছে';
+        message.innerText = 'যেখানে পেইজ নাম্বারে সমস্যা ছিল, সিস্টেম নিজে থেকেই ঠিক করে দিয়েছে।';
+      }
+      modal.classList.remove('hidden');
+    }
+
+    function closePageCheckModal() {
+      document.getElementById('pageCheckModal').classList.add('hidden');
+    }
+
+    function confirmDeleteDraft() {
+      closeDeleteModal();
+      localStorage.removeItem(STORAGE_KEY);
+      bookData = {
+        bookTitle: '',
+        authorName: '',
+        dedication: '',
+        authorNote: '',
+        poems: [],
+        isCompleted: false
+      };
+      document.getElementById('inputBookTitle').value = '';
+      document.getElementById('inputAuthorName').value = '';
+      document.getElementById('inputDedication').value = '';
+      document.getElementById('inputAuthorNote').value = '';
+      const poemTextarea = document.getElementById('inputPoemRaw');
+      poemTextarea.value = '';
+      delete poemTextarea.dataset.editingIndex;
+      renderCurrentStep();
+    }
+
+    async function buildPagination() {
+      const measurementRoot = document.createElement('div');
+      measurementRoot.style.position = 'absolute';
+      measurementRoot.style.left = '-100000px';
+      measurementRoot.style.top = '0';
+      measurementRoot.style.width = '170mm';
+      measurementRoot.style.visibility = 'hidden';
+      measurementRoot.style.pointerEvents = 'none';
+      measurementRoot.style.zIndex = '-1';
+      measurementRoot.style.background = '#ffffff';
+      document.body.appendChild(measurementRoot);
+      try {
+        if (document.fonts && document.fonts.ready) {
+          await document.fonts.ready;
+        }
+        const widthProbe = document.createElement('div');
+        widthProbe.style.width = '170mm';
+        widthProbe.style.position = 'absolute';
+        widthProbe.style.visibility = 'hidden';
+        measurementRoot.appendChild(widthProbe);
+        const contentWidthPx = widthProbe.getBoundingClientRect().width;
+        widthProbe.remove();
+        const getVisualLineCount = (text, options = {}) => {
+          const element = document.createElement('div');
+          element.style.width = `${options.width || contentWidthPx}px`;
+          element.style.fontFamily = options.fontFamily || "'Kalpurush', 'Hind Siliguri', sans-serif";
+          element.style.fontSize = options.fontSize || '15px';
+          element.style.lineHeight = options.lineHeight || '10.7083mm';
+          element.style.whiteSpace = 'pre-wrap';
+          element.style.overflowWrap = 'break-word';
+          element.style.wordBreak = 'normal';
+          element.style.margin = '0';
+          element.style.padding = '0';
+          element.style.boxSizing = 'border-box';
+          element.textContent = text === '' ? '\u00A0' : text;
+          measurementRoot.appendChild(element);
+          const computedLineHeight = parseFloat(getComputedStyle(element).lineHeight);
+          const height = element.getBoundingClientRect().height;
+          element.remove();
+          return Math.max(1, Math.ceil(height / computedLineHeight));
+        };
+        const splitTextIntoVisualPages = (text, linesPerPage, options = {}) => {
+          const sourceLines = String(text || '')
+            .replace(/\r\n/g, '\n')
+            .replace(/\r/g, '\n')
+            .split('\n');
+          const visualCounts = sourceLines.map(line => getVisualLineCount(line, options));
+          const pages = [];
+          let position = 0;
+          while (position < sourceLines.length) {
+            let used = 0;
+            let end = position;
+            while (end < sourceLines.length) {
+              const count = visualCounts[end];
+              if (used > 0 && used + count > linesPerPage) break;
+              used += count;
+              end++;
+            }
+            if (end === position) {
+              end = position + 1;
+            }
+            pages.push(sourceLines.slice(position, end));
+            position = end;
+          }
+          if (pages.length === 0) pages.push([]);
+          return pages;
+        };
+        const getStyledBlockHeight = (text, options = {}) => {
+          const element = document.createElement('div');
+          element.style.width = `${options.width || contentWidthPx}px`;
+          element.style.fontFamily = options.fontFamily || "'Kalpurush', 'Hind Siliguri', sans-serif";
+          element.style.fontSize = options.fontSize || '15px';
+          element.style.lineHeight = options.lineHeight || 'normal';
+          element.style.whiteSpace = options.whiteSpace || 'normal';
+          element.style.overflowWrap = 'break-word';
+          element.style.wordBreak = 'normal';
+          element.style.margin = '0';
+          element.style.padding = '0';
+          element.style.boxSizing = 'border-box';
+          if (options.paddingBottom) element.style.paddingBottom = options.paddingBottom;
+          if (options.marginBottom) element.style.marginBottom = options.marginBottom;
+          if (options.borderBottom) element.style.borderBottom = options.borderBottom;
+          element.textContent = text || '\u00A0';
+          measurementRoot.appendChild(element);
+          const height = element.getBoundingClientRect().height;
+          const computedMarginBottom = parseFloat(getComputedStyle(element).marginBottom) || 0;
+          element.remove();
+          return height + computedMarginBottom;
+        };
+        const authorNoteHeading = 'লেখকের কথা';
+        const authorNoteHeadingLines = getVisualLineCount(authorNoteHeading, {
+          width: contentWidthPx,
+          fontFamily: "'Hind Siliguri', sans-serif",
+          fontSize: '21pt',
+          lineHeight: '1.3'
+        });
+        const authorNoteHeadingHeight = getStyledBlockHeight(authorNoteHeading, {
+          width: contentWidthPx,
+          fontFamily: "'Hind Siliguri', sans-serif",
+          fontSize: '21pt',
+          lineHeight: '1.3',
+          paddingBottom: '3mm',
+          marginBottom: '8mm',
+          borderBottom: '1.5px solid #000'
+        });
+        const authorNoteLineHeightElement = document.createElement('div');
+        authorNoteLineHeightElement.style.width = `${contentWidthPx}px`;
+        authorNoteLineHeightElement.style.fontFamily = "'Kalpurush', 'Hind Siliguri', sans-serif";
+        authorNoteLineHeightElement.style.fontSize = '12.5pt';
+        authorNoteLineHeightElement.style.lineHeight = '2';
+        authorNoteLineHeightElement.style.margin = '0';
+        authorNoteLineHeightElement.style.padding = '0';
+        authorNoteLineHeightElement.style.boxSizing = 'border-box';
+        authorNoteLineHeightElement.textContent = '\u00A0';
+        measurementRoot.appendChild(authorNoteLineHeightElement);
+        const authorNoteLineHeightPx = parseFloat(getComputedStyle(authorNoteLineHeightElement).lineHeight);
+        authorNoteLineHeightElement.remove();
+        const authorNotePageHeightPx = (() => {
+          const probe = document.createElement('div');
+          probe.style.width = '170mm';
+          probe.style.height = '257mm';
+          probe.style.boxSizing = 'border-box';
+          probe.style.paddingTop = '5mm';
+          probe.style.position = 'absolute';
+          probe.style.visibility = 'hidden';
+          measurementRoot.appendChild(probe);
+          const height = probe.getBoundingClientRect().height;
+          const computedPaddingTop = parseFloat(getComputedStyle(probe).paddingTop) || 0;
+          probe.remove();
+          return height - computedPaddingTop;
+        })();
+        const authorNotePhysicalFirstPageCapacity = Math.max(1, Math.floor((authorNotePageHeightPx - authorNoteHeadingHeight) / authorNoteLineHeightPx));
+        const authorNoteRequestedFirstPageLimit = authorNoteHeadingLines >= 2 ? 19 : 21;
+        const authorNoteFirstPageBodyLimit = Math.min(authorNoteRequestedFirstPageLimit, authorNotePhysicalFirstPageCapacity);
+        const authorNoteSourceLines = String(bookData.authorNote || '')
+          .replace(/\r\n/g, '\n')
+          .replace(/\r/g, '\n')
+          .split('\n');
+        const authorNoteVisualCounts = authorNoteSourceLines.map(line => getVisualLineCount(line, {
+          width: contentWidthPx,
+          fontFamily: "'Kalpurush', 'Hind Siliguri', sans-serif",
+          fontSize: '12.5pt',
+          lineHeight: '2'
+        }));
+        const authorNotePages = [];
+        let authorNotePosition = 0;
+        let authorNotePageIndex = 0;
+        while (authorNotePosition < authorNoteSourceLines.length) {
+          const limit = authorNotePageIndex === 0 ? authorNoteFirstPageBodyLimit : 24;
+          let used = 0;
+          let end = authorNotePosition;
+          while (end < authorNoteSourceLines.length) {
+            const count = authorNoteVisualCounts[end];
+            if (used > 0 && used + count > limit) break;
+            used += count;
+            end++;
+          }
+          if (end === authorNotePosition) {
+            end = authorNotePosition + 1;
+          }
+          authorNotePages.push(authorNoteSourceLines.slice(authorNotePosition, end));
+          authorNotePosition = end;
+          authorNotePageIndex++;
+        }
+        if (authorNotePages.length === 0) authorNotePages.push([]);
+        const pages = [];
+        let poemPageNumber = 1;
+        bookData.poems.forEach((poem, poemIndex) => {
+          const sourceLines = String(poem.body || '')
+            .replace(/\r\n/g, '\n')
+            .replace(/\r/g, '\n')
+            .split('\n');
+          const visualCounts = sourceLines.map(line => getVisualLineCount(line, {
+            fontFamily: "'Kalpurush', 'Hind Siliguri', sans-serif",
+            fontSize: '15px',
+            lineHeight: '10.7083mm'
+          }));
+          let position = 0;
+          let isFirstPage = true;
+          while (position < sourceLines.length) {
+            let limit = 24;
+            if (isFirstPage) {
+              const poemTitleHeight = getStyledBlockHeight(poem.title, {
+                width: contentWidthPx,
+                fontFamily: "'Hind Siliguri', sans-serif",
+                fontSize: '17pt',
+                lineHeight: '1.3',
+                paddingBottom: '2mm',
+                marginBottom: '5mm',
+                borderBottom: '1px solid #475569'
+              });
+              const poemLineHeightElement = document.createElement('div');
+              poemLineHeightElement.style.width = `${contentWidthPx}px`;
+              poemLineHeightElement.style.fontFamily = "'Kalpurush', 'Hind Siliguri', sans-serif";
+              poemLineHeightElement.style.fontSize = '15px';
+              poemLineHeightElement.style.lineHeight = '10.7083mm';
+              poemLineHeightElement.style.margin = '0';
+              poemLineHeightElement.style.padding = '0';
+              poemLineHeightElement.style.boxSizing = 'border-box';
+              poemLineHeightElement.textContent = '\u00A0';
+              measurementRoot.appendChild(poemLineHeightElement);
+              const poemLineHeightPx = parseFloat(getComputedStyle(poemLineHeightElement).lineHeight);
+              poemLineHeightElement.remove();
+              const poemPageContentHeightPx = (() => {
+                const probe = document.createElement('div');
+                probe.style.width = '170mm';
+                probe.style.height = '257mm';
+                probe.style.boxSizing = 'border-box';
+                probe.style.position = 'absolute';
+                probe.style.visibility = 'hidden';
+                measurementRoot.appendChild(probe);
+                const height = probe.getBoundingClientRect().height;
+                probe.remove();
+                return height;
+              })();
+              const poemPhysicalFirstPageCapacity = Math.max(1, Math.floor((poemPageContentHeightPx - poemTitleHeight) / poemLineHeightPx));
+              limit = Math.min(21, poemPhysicalFirstPageCapacity);
+            }
+            let used = 0;
+            let end = position;
+            while (end < sourceLines.length) {
+              const visualCount = visualCounts[end];
+              if (used > 0 && used + visualCount > limit) break;
+              used += visualCount;
+              end++;
+            }
+            if (end === position) {
+              end = position + 1;
+            }
+            pages.push({
+              pageNumber: poemPageNumber,
+              poemIndex,
+              poemNumber: poemIndex + 1,
+              title: poem.title,
+              isFirstPage,
+              lines: sourceLines.slice(position, end)
+            });
+            poemPageNumber++;
+            position = end;
+            isFirstPage = false;
+          }
+        });
+        return {
+          authorNotePages,
+          poemPages: pages
+        };
+      } finally {
+        if (measurementRoot.parentNode) {
+          measurementRoot.parentNode.removeChild(measurementRoot);
+        }
+      }
+    }
+
+    async function exportToPDF() {
+      if (!bookData.poems || bookData.poems.length === 0) {
+        alert('অন্তত একটি কবিতা যোগ করার পর PDF তৈরি করুন।');
+        return;
+      }
+      if (!bookData.pagination || !Array.isArray(bookData.pagination.poemPages) || bookData.pagination.poemPages.length === 0) {
+        alert('এই বইয়ের পেজিনেশন পাওয়া যাচ্ছে না। অনুগ্রহ করে বইটি আবার সমাপ্ত করুন।');
+        return;
+      }
+      if (typeof html2canvas !== 'function' || !window.jspdf || typeof window.jspdf.jsPDF !== 'function') {
+        alert('PDF লাইব্রেরি লোড হয়নি। ইন্টারনেট সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।');
+        return;
+      }
+      const printContainer = document.getElementById('printArea');
+      const exportButton = document.querySelector('#stepExport button[onclick="exportToPDF()"]');
+      const originalButtonText = exportButton ? exportButton.innerHTML : '';
+      try {
+        if (exportButton) {
+          exportButton.disabled = true;
+          exportButton.innerHTML = '<span class="font-siliguri text-base">PDF তৈরি হচ্ছে...</span>';
+        }
+        if (document.fonts && document.fonts.ready) {
+          await document.fonts.ready;
+        }
+        const poemsPerTocPage = 18;
+        const tocPageCount = Math.max(1, Math.ceil(bookData.poems.length / poemsPerTocPage));
+        const authorNotePageCount = Math.max(1, bookData.pagination.authorNotePages.length);
+        const firstTocPageNumber = 3 + authorNotePageCount;
+        const firstPoemPageNumber = firstTocPageNumber + tocPageCount;
+        const tocEntries = bookData.poems.map((poem, index) => {
+          const firstPage = bookData.pagination.poemPages.find(page => page.poemIndex === index);
+          return {
+            num: toBengaliNumber(index + 1),
+            title: poem.title,
+            startPage: toBengaliNumber(firstPoemPageNumber + (firstPage ? firstPage.pageNumber - 1 : 0))
+          };
+        });
+        let html = '';
+        html += `
+          <div class="pdf-page">
+            <div class="full-page-center">
+              <h1 class="font-siliguri font-bold" style="font-size:32pt;line-height:1.3;margin-bottom:10mm;color:#1e293b;">
+                ${escapeHtml(bookData.bookTitle)}
+              </h1>
+              <h2 class="font-kalpurush" style="font-size:18pt;color:#475569;">
+                ${escapeHtml(bookData.authorName)}
+              </h2>
+            </div>
+          </div>
+        `;
+        html += `
+          <div class="pdf-page">
+            <div class="full-page-center">
+              <h3 class="font-siliguri font-bold" style="font-size:21pt;margin-bottom:10mm;color:#1e293b;letter-spacing:1px;">
+                উৎসর্গ
+              </h3>
+              <div class="dedication-text">
+                ${escapeHtml((bookData.dedication || '').trim())}
+              </div>
+            </div>
+          </div>
+        `;
+        bookData.pagination.authorNotePages.forEach((noteLines, noteIndex) => {
+          html += `
+            <div class="pdf-page">
+              <div class="page-content" style="padding-top:5mm;">
+                ${noteIndex === 0 ? `
+                  <h3 class="font-siliguri font-bold" style="font-size:21pt;margin:0 0 8mm 0;border-bottom:1.5px solid #000;padding-bottom:3mm;color:#1e293b;">
+                    লেখকের কথা
+                  </h3>
+                ` : ''}
+                <div class="author-note">
+                  ${escapeHtml(noteLines.join('\n'))}
+                </div>
+                <div class="page-number">— ${toBengaliNumber(3 + noteIndex)} —</div>
+              </div>
+            </div>
+          `;
+        });
+        for (let t = 0; t < tocPageCount; t++) {
+          const pageItems = tocEntries.slice(t * poemsPerTocPage, (t + 1) * poemsPerTocPage);
+          html += `
+            <div class="pdf-page">
+              <div class="toc-page">
+                <h3 class="toc-title">
+                  সূচিপত্র ${tocPageCount > 1 ? '(' + toBengaliNumber(t + 1) + ')' : ''}
+                </h3>
+                <div class="toc-list">
+                  ${pageItems.map(item => `
+                    <div class="toc-row">
+                      <span class="toc-number">${item.num}।</span>
+                      <span class="toc-title-text">${escapeHtml(item.title)}</span>
+                      <div class="toc-dots"></div>
+                      <span class="toc-page-number">${item.startPage}</span>
+                    </div>
+                  `).join('')}
+                </div>
+                <div class="page-number">— ${toBengaliNumber(firstTocPageNumber + t)} —</div>
+              </div>
+            </div>
+          `;
+        }
+        bookData.pagination.poemPages.forEach(page => {
+          const poemPageNumber = firstPoemPageNumber + page.pageNumber - 1;
+          html += `
+            <div class="pdf-page">
+              <div class="poem-page">
+                ${page.isFirstPage ? `
+                  <h2 class="poem-title">
+                    ${escapeHtml(page.title)}
+                  </h2>
+                ` : ''}
+                <div class="poem-body">
+                  ${page.lines.map(line => `
+                    <div class="poem-line${line.trim() === '' ? ' empty' : ''}">${escapeHtml(line) || '&nbsp;'}</div>
+                  `).join('')}
+                </div>
+                <div class="page-number">— ${toBengaliNumber(poemPageNumber)} —</div>
+              </div>
+            </div>
+          `;
+        });
+        html += `
+          <div class="pdf-page">
+            <div class="full-page-center">
+              <h3 class="font-siliguri font-bold" style="font-size:24pt;letter-spacing:4px;color:#0f172a;">
+                — সমাপ্ত —
+              </h3>
+            </div>
+          </div>
+        `;
+        printContainer.innerHTML = html;
+        printContainer.style.display = 'block';
+        await new Promise(resolve => setTimeout(resolve, 400));
+        if (document.fonts && document.fonts.ready) {
+          await document.fonts.ready;
+        }
+        await new Promise(resolve => setTimeout(resolve, 300));
+        const safeFileName = (bookData.bookTitle || 'কবিতার_বই').replace(/[\\/:*?"<>|]/g, '_').trim() || 'কবিতার_বই';
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF({
+          unit: 'mm',
+          format: 'a4',
+          orientation: 'portrait',
+          compress: true
+        });
+        const pages = Array.from(printContainer.querySelectorAll('.pdf-page'));
+        for (let i = 0; i < pages.length; i++) {
+          const page = pages[i];
+          const canvas = await html2canvas(page, {
+            scale: 1.5,
+            useCORS: true,
+            allowTaint: false,
+            backgroundColor: '#ffffff',
+            logging: false,
+            width: page.scrollWidth,
+            height: page.scrollHeight,
+            windowWidth: page.scrollWidth,
+            windowHeight: page.scrollHeight
+          });
+          if (i > 0) {
+            pdf.addPage('a4', 'portrait');
+          }
+          pdf.addImage(canvas.toDataURL('image/jpeg', 0.96), 'JPEG', 0, 0, 210, 297, undefined, 'FAST');
+          canvas.width = 1;
+          canvas.height = 1;
+        }
+        pdf.save(`${safeFileName}.pdf`);
+      } catch (error) {
+        console.error('PDF export error:', error);
+        alert('PDF তৈরি করতে সমস্যা হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।');
+      } finally {
+        printContainer.innerHTML = '';
+        printContainer.style.display = '';
+        if (exportButton) {
+          exportButton.disabled = false;
+          exportButton.innerHTML = originalButtonText;
+        }
+      }
+    }
+
+    function exportToTXT() {
+      if (!bookData.pagination || !Array.isArray(bookData.pagination.poemPages) || bookData.pagination.poemPages.length === 0) {
+        alert('এই বইয়ের পেজিনেশন পাওয়া যাচ্ছে না। অনুগ্রহ করে বইটি আবার সমাপ্ত করুন।');
+        return;
+      }
+      const poemsPerTocPage = 18;
+      const tocPageCount = Math.max(1, Math.ceil(bookData.poems.length / poemsPerTocPage));
+      const authorNotePageCount = Math.max(1, bookData.pagination.authorNotePages.length);
+      const firstTocPageNumber = 3 + authorNotePageCount;
+      const firstPoemPageNumber = firstTocPageNumber + tocPageCount;
+      let content = '';
+      const addPage = (lines) => {
+        content += `==================================\n`;
+        content += lines.join('\n');
+        content += `\n==================================\n\n`;
+      };
+      addPage([
+        bookData.bookTitle,
+        `লেখক: ${bookData.authorName}`
+      ]);
+      addPage([
+        `[উৎসর্গ]`,
+        (bookData.dedication || '').trim()
+      ]);
+      bookData.pagination.authorNotePages.forEach((noteLines, index) => {
+        const pageLines = [];
+        if (index === 0) {
+          pageLines.push('[লেখকের কথা]');
+        }
+        pageLines.push(...noteLines);
+        addPage(pageLines);
+      });
+      for (let t = 0; t < tocPageCount; t++) {
+        const pageItems = bookData.poems.slice(t * poemsPerTocPage, (t + 1) * poemsPerTocPage);
+        const tocLines = [`[সূচিপত্র${tocPageCount > 1 ? ` ${t + 1}` : ''}]`];
+        pageItems.forEach((poem, index) => {
+          const poemIndex = t * poemsPerTocPage + index;
+          const firstPage = bookData.pagination.poemPages.find(page => page.poemIndex === poemIndex);
+          const pageNumber = firstPoemPageNumber + (firstPage ? firstPage.pageNumber - 1 : 0);
+          tocLines.push(`${poemIndex + 1}. ${poem.title} — ${pageNumber}`);
+        });
+        addPage(tocLines);
+      }
+      bookData.pagination.poemPages.forEach(page => {
+        const pageLines = [];
+        if (page.isFirstPage) {
+          pageLines.push(`${page.poemNumber}. ${page.title}`);
+          pageLines.push('');
+        }
+        pageLines.push(...page.lines);
+        addPage(pageLines);
+      });
+      content += `==================================\n`;
+      content += `— সমাপ্ত —\n`;
+      content += `==================================\n`;
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const link = document.createElement('a');
+      const safeFileName = (bookData.bookTitle || 'কবিতার_বই').replace(/[\\/:*?"<>|]/g, '_').trim() || 'কবিতার_বই';
+      const url = URL.createObjectURL(blob);
+      link.href = url;
+      link.download = `${safeFileName}.txt`;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    // সংখ্যা বাংলা লিপিতে রূপান্তর
+    function toBengaliNumber(num) {
+      if (num === undefined || num === null) return '';
+      const numbers = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+      return num.toString().split('').map(char => numbers[char] || char).join('');
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+  </script>
+</body>
+</html>
