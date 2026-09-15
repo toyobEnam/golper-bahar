@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>লেখক পরিচিতি ফর্ম - গল্পের বাহার</title>
+  <link rel="canonical" href="https://golperbahar.com/writers/form/">
+
+  <!-- ফন্ট লোড (Google Fonts ফলব্যাক সহ) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'Kalpurush';
+      src: url('/assets/fonts/kalpurush.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Li Purno Pran';
+      src: url('/assets/fonts/LiPurnoPran.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --primary-color: #2b5a4b;
+      --primary-hover: #1f4236;
+      --bg-color: #f8faf9;
+      --card-bg: #ffffff;
+      --border-color: #d8e2dc;
+      --text-dark: #222222;
+      --text-muted: #555555;
+      --error-color: #d90429;
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      font-size: clamp(14px, 1.1vw + 10px, 17px);
+      line-height: 1.7;
+      padding: clamp(15px, 3vw, 40px) clamp(10px, 2vw, 20px);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 780px;
+      background: var(--card-bg);
+      padding: clamp(20px, 4vw, 45px);
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid #eef2f0;
+    }
+
+
+    .header-section {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px dashed var(--border-color);
+      padding-bottom: 25px;
+    }
+
+    h1 {
+      font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+      font-size: clamp(1.6rem, 2.5vw + 0.8rem, 2.3rem);
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+
+    .intro-text {
+      font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+      color: var(--text-muted);
+      font-size: clamp(0.95rem, 0.7vw + 0.7rem, 1.05rem);
+      text-align: justify;
+      margin-bottom: 12px;
+    }
+
+    .note {
+      font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+      font-size: clamp(0.85rem, 0.6vw + 0.6rem, 0.95rem);
+      background-color: #fff3cd;
+      color: #856404;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-top: 15px;
+      border-left: 4px solid #ffeeba;
+    }
+
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .form-row .form-group {
+      flex: 1 1 calc(50% - 15px);
+      min-width: 250px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+      font-weight: 600;
+      color: #333;
+      font-size: clamp(0.95rem, 0.6vw + 0.7rem, 1.05rem);
+    }
+
+    .required {
+      color: var(--error-color);
+      margin-left: 3px;
+    }
+
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    select,
+    textarea {
+      width: 100%;
+      padding: clamp(8px, 1vw + 5px, 12px);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      font-family: 'Li Purno Pran', sans-serif;
+      font-size: clamp(0.95rem, 0.7vw + 0.7rem, 1.1rem);
+      color: #111;
+      background-color: #fafbfc;
+      transition: all 0.2s ease-in-out;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(43, 90, 75, 0.12);
+      background-color: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #fdfdfd;
+      padding: 6px 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .checkbox-item input {
+      cursor: pointer;
+    }
+
+    .checkbox-item span {
+      font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+      font-size: clamp(0.85rem, 0.5vw + 0.6rem, 0.95rem);
+    }
+
+    .sub-hint {
+      font-size: 0.82rem;
+      color: #777;
+      margin-top: 4px;
+      font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+    }
+
+
+    .submit-btn {
+      width: 100%;
+      padding: clamp(12px, 1.5vw + 8px, 16px);
+      background-color: var(--primary-color);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius);
+      font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+      font-size: clamp(1.05rem, 0.8vw + 0.7rem, 1.25rem);
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      margin-top: 15px;
+    }
+
+    .submit-btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .submit-btn:disabled {
+      background-color: #8fa39b;
+      cursor: not-allowed;
+    }
+
+
+    #statusMessage {
+      display: none;
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+      font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+      font-size: 1rem;
+    }
+
+    .status-success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .status-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+
+    @media (max-width: 480px) {
+      .checkbox-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .form-row .form-group {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-section">
+      <h1>লেখক পরিচিতি ফর্ম</h1>
+      <p class="intro-text">
+        সম্মানিত লেখক/লেখিকা,<br>
+        গল্পের বাহার প্লাটফর্মে আপনার প্রকাশিত মূল্যবান গল্পসমূহ সব সময়ের জন্য আপনার নামে সংরক্ষিত রাখতে আমরা লেখক পরিচিতি পাতা প্রকাশ করে থাকি। যা আপনাকে বাংলা ভাষার একজন স্বীকৃত লেখক বা লেখিকা হিসেবে উপস্থাপন করে।
+      </p>
+      <p class="intro-text">
+        বাংলা গল্পের এই উন্মুক্ত প্লাটফর্মে আপনার লিখিত গল্পগুলোর মালিকানা নিশ্চিত করতে অনুগ্রহ করে নিচের ফর্মটি পূরণ করবেন।
+      </p>
+      <div class="note">
+        <strong>বিঃদ্রঃ</strong> যেসব তথ্য শেয়ার করতে আগ্রহী নন, সেই ঘরগুলো ফাঁকা রাখুন। তবে নাম (বাংলা ও ইংরেজিতে) লেখা বাধ্যতামূলক।
+      </div>
+    </div>
+
+    <form id="authorForm">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name_bn">১। লেখকের সম্পূর্ণ নাম (বাংলায়) <span class="required">*</span></label>
+          <input type="text" id="name_bn" name="name_bn" required placeholder="নাম লিখুন বাংলাতে">
+        </div>
+        <div class="form-group">
+          <label for="name_en">২। লেখকের সম্পূর্ণ নাম (ইংরেজিতে) <span class="required">*</span></label>
+          <input type="text" id="name_en" name="name_en" required placeholder="Write your name in English">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="pseudonym">৩। লেখকের ছদ্মনাম (যদি থাকে)</label>
+        <input type="text" id="pseudonym" name="pseudonym">
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="present_district">৪। বর্তমান ঠিকানা (শুধু জেলার নাম)</label>
+          <input type="text" id="present_district" name="present_district" placeholder="ঢাকা">
+        </div>
+        <div class="form-group">
+          <label for="birth_district">৫। জন্মস্থান (জেলার নাম)</label>
+          <input type="text" id="birth_district" name="birth_district" placeholder="চট্টগ্রাম">
+        </div>
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="profession">৬। পেশাগত জীবন</label>
+          <input type="text" id="profession" name="profession" value="শিক্ষার্থী">
+        </div>
+        <div class="form-group">
+          <label for="hobby">৭। শখের কাজ</label>
+          <input type="text" id="hobby" name="hobby">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label>৮। সাধারণত যেসব জনারের গল্প বেশি লেখেন (সর্বোচ্চ ৩টি)</label>
+        <div class="checkbox-grid">
+          <label class="checkbox-item"><input type="checkbox" name="genre" value="রোমান্টিক"><span>রোমান্টিক</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="genre" value="থ্রিলার"><span>থ্রিলার</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="genre" value="রোমান্টিক থ্রিলার"><span>রোমান্টিক থ্রিলার</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="genre" value="সামাজিক"><span>সামাজিক</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="genre" value="ফ্যামিলি ড্রামা"><span>ফ্যামিলি ড্রামা</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="genre" value="সাংসারিক"><span>সাংসারিক</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="genre" value="রহস্য বা সাসপেন্স"><span>রহস্য/সাসপেন্স</span></label>
+          <label class="checkbox-item"><input type="checkbox" name="genre" value="টিনেজার স্পেশাল"><span>টিনেজার স্পেশাল</span></label>
+        </div>
+        <div class="sub-hint" id="genreWarning"></div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="reader_note">৯। পাঠকদের উদ্দেশ্যে ভালোবাসা বা কৃতজ্ঞতাপূর্ণ কিছু কথা</label>
+        <textarea id="reader_note" name="reader_note" rows="3"></textarea>
+      </div>
+
+
+      <div class="form-group">
+        <label for="boitoi_link">১০। বইটই প্ল্যাটফর্মে যুক্ত থাকলে, প্রোফাইলের লিংক</label>
+        <input type="url" id="boitoi_link" name="boitoi_link" placeholder="https://boitoi.com.bd/...">
+      </div>
+
+
+      <div class="form-group">
+        <label for="fb_page">১১। ফেসবুক পেইজ (লিংক)</label>
+        <input type="url" id="fb_page" name="fb_page" placeholder="https://facebook.com/...">
+      </div>
+
+      <div class="form-group">
+        <label for="fb_profile">১২। ফেসবুক আইডি (লিংক)</label>
+        <input type="url" id="fb_profile" name="fb_profile" placeholder="https://facebook.com/...">
+      </div>
+
+      <div class="form-group">
+        <label for="fb_group">১৩। ফেসবুক গ্রুপ (লিংক)</label>
+        <input type="url" id="fb_group" name="fb_group" placeholder="https://facebook.com/groups/...">
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="instagram">১৪। ইন্সটাগ্রাম (লিংক)</label>
+          <input type="url" id="instagram" name="instagram" placeholder="https://instagram.com/...">
+        </div>
+        <div class="form-group">
+          <label for="tiktok">১৫। টিকটক (লিংক)</label>
+          <input type="url" id="tiktok" name="tiktok" placeholder="https://tiktok.com/@...">
+        </div>
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">১৬। ইমেইল বা জিমেইল এড্রেস</label>
+          <input type="email" id="email" name="email" placeholder="example@gmail.com">
+        </div>
+        <div class="form-group">
+          <label for="email_public">১৭। ইমেইল পাঠকদের সাথে শেয়ার করতে চান?</label>
+          <select id="email_public" name="email_public">
+            <option value="না">না</option>
+            <option value="হ্যাঁ">হ্যাঁ</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="anon_inbox">১৮। এনোনিমাস মেসেজ বক্স (যদি থাকে লিংক দিন)</label>
+        <input type="url" id="anon_inbox" name="anon_inbox" placeholder="উদাঃ Sarahah, NGL, Kubool লিংক">
+      </div>
+
+  
+      <div class="form-group">
+        <label for="other_social">১৯। অন্যান্য সোশ্যাল মিডিয়া (YouTube, Reddit, Telegram বা Discord লিংক)</label>
+        <textarea id="other_social" name="other_social" rows="2" placeholder="প্রয়োজনে একাধিক লিংক লাইন আকারে দিন..."></textarea>
+      </div>
+
+
+      <button type="submit" id="submitBtn" class="submit-btn">ফর্ম জমা দিন</button>
+      <div id="statusMessage"></div>
+    </form>
+  </div>
+
+  <script>
+
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw0e9K1o8BrXnHBXYabptrDIF6j4lhT1dy2UC6qXahD76MPE8n2r7kaGM1gYOV4142xvA/exec";
+
+
+    const checkboxes = document.querySelectorAll('input[name="genre"]');
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const checkedCount = document.querySelectorAll('input[name="genre"]:checked').length;
+        if (checkedCount > 3) {
+          cb.checked = false;
+          alert('আপনি সর্বোচ্চ ৩টি জনার সিলেক্ট করতে পারবেন।');
+        }
+      });
+    });
+
+    // ফর্ম সাবমিট হ্যান্ডলার
+    const form = document.getElementById('authorForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusMessage = document.getElementById('statusMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = "জমা হচ্ছে, অনুগ্রহ করে অপেক্ষা করুন...";
+      statusMessage.style.display = "none";
+      statusMessage.className = "";
+
+      // সিলেক্টেড জনার সংগ্রহ
+      const selectedGenres = Array.from(document.querySelectorAll('input[name="genre"]:checked')).map(el => el.value);
+
+      const payload = {
+        name_bn: document.getElementById('name_bn').value.trim(),
+        name_en: document.getElementById('name_en').value.trim(),
+        pseudonym: document.getElementById('pseudonym').value.trim(),
+        present_district: document.getElementById('present_district').value.trim(),
+        birth_district: document.getElementById('birth_district').value.trim(),
+        profession: document.getElementById('profession').value.trim(),
+        hobby: document.getElementById('hobby').value.trim(),
+        genres: selectedGenres,
+        reader_note: document.getElementById('reader_note').value.trim(),
+        boitoi_link: document.getElementById('boitoi_link').value.trim(),
+        fb_page: document.getElementById('fb_page').value.trim(),
+        fb_profile: document.getElementById('fb_profile').value.trim(),
+        fb_group: document.getElementById('fb_group').value.trim(),
+        instagram: document.getElementById('instagram').value.trim(),
+        tiktok: document.getElementById('tiktok').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        email_public: document.getElementById('email_public').value,
+        anon_inbox: document.getElementById('anon_inbox').value.trim(),
+        other_social: document.getElementById('other_social').value.trim()
+      };
+
+      try {
+        const response = await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors", // Google Apps Script CORS হ্যান্ডলিংয়ের জন্য
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+
+        statusMessage.className = "status-success";
+        statusMessage.innerText = "ধন্যবাদ! আপনার লেখক পরিচিতি সংক্রান্ত তথ্য সফলভাবে জমা হয়েছে।";
+        statusMessage.style.display = "block";
+        form.reset();
+
+      } catch (error) {
+        statusMessage.className = "status-error";
+        statusMessage.innerText = "দুঃখিত, তথ্য পাঠানো সম্ভব হয়নি। অনুগ্রহ করে ইন্টারনেট সংযোগ চেক করে আবার চেষ্টা করুন।";
+        statusMessage.style.display = "block";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "ফর্ম জমা দিন";
+      }
+    });
+  </script>
+</body>
+</html>
