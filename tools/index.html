@@ -2,18 +2,13 @@
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary SEO -->
     <title>গল্পের বাহার টুলস ডিরেক্টরি — নিত্যপ্রয়োজনীয় ফ্রি টুলস</title>
-
     <meta name="description" content="গল্পের বাহার-এর নিত্যপ্রয়োজনীয় ফ্রি অনলাইন টুলস ডিরেক্টরি। ভিডিও ডাউনলোড, ইমেজ প্রসেসিংসহ বিভিন্ন দরকারি ফ্রি টুলস এক জায়গায় ব্যবহার করুন।">
-
     <meta name="keywords" content="ফ্রি টুলস, অনলাইন ফ্রি টুলস, free tools, online tools, video downloader, image tools, গল্পের বাহার টুলস">
-
     <meta name="robots" content="index, follow">
-
     <meta name="author" content="গল্পের বাহার">
 
     <!-- Canonical URL -->
@@ -21,36 +16,27 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-
     <meta property="og:title" content="গল্পের বাহার টুলস ডিরেক্টরি — নিত্যপ্রয়োজনীয় ফ্রি টুলস">
-
     <meta property="og:description" content="নিত্যপ্রয়োজনীয় বিভিন্ন ফ্রি অনলাইন টুলস এক জায়গায় ব্যবহার করুন। ভিডিও ডাউনলোড, ইমেজ প্রসেসিংসহ আরও দরকারি টুলস।">
-
     <meta property="og:url" content="https://golperbahar.com/tools">
-
     <meta property="og:site_name" content="গল্পের বাহার">
-
     <meta property="og:image" content="https://res.cloudinary.com/dhj4ovvav/image/upload/v1789633538/freetools1_mnibew.webp">
-
     <meta property="og:image:alt" content="গল্পের বাহার — নিত্যপ্রয়োজনীয় ফ্রি টুলস">
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image">
-
     <meta name="twitter:title" content="গল্পের বাহার টুলস ডিরেক্টরি — নিত্যপ্রয়োজনীয় ফ্রি টুলস">
-
     <meta name="twitter:description" content="নিত্যপ্রয়োজনীয় বিভিন্ন ফ্রি অনলাইন টুলস এক জায়গায় ব্যবহার করুন।">
-
     <meta name="twitter:image" content="https://res.cloudinary.com/dhj4ovvav/image/upload/v1789633538/freetools1_mnibew.webp">
 
     <!-- বাংলা ফন্ট -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="icon" href="https://golperbahar.com/favicon.ico" type="image/x-icon">  
+
     <style>
         /* ============================
            ১. গ্লোবাল এবং বেসিক স্টাইল
@@ -125,18 +111,19 @@
         }
 
         /* ========================================================
-           ৪. রেসপনসিভ গ্রিড (ডেস্কটপ ৪, ল্যাপটপ ৩, ট্যাব ২, মোবাইল ১)
+           ৪. রেসপনসিভ গ্রিড (ডেস্কটপ ৪, ল্যাপটপ ৩, ট্যাব ও মোবাইল ২)
            ======================================================== */
         .tools-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
+            grid-template-columns: repeat(2, 1fr); /* মোবাইলেও ডিফল্ট ২ কলাম */
+            gap: 10px; /* মোবাইলে ২ কলাম ভালোভাবে আঁটানোর জন্য পারফেক্ট গ্যাপ */
             margin-bottom: 15px;
         }
 
         @media (min-width: 481px) {
             .tools-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
         }
 
@@ -160,18 +147,23 @@
             align-items: center;
             justify-content: space-between;
             border-radius: 8px;
-            padding: 12px 16px;
+            padding: 10px 10px; /* মোবাইলে পাশাপাশি ২ বাটন সুন্দরভাবে বসার জন্য প্যাডিং */
             text-decoration: none;
             color: #ffffff;
-            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+            font-size: clamp(0.78rem, 1.4vw, 0.95rem);
             font-weight: 600;
-            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
             border: none;
             cursor: pointer;
         }
 
-        /* শুধু ব্যাকগ্রাউন্ড শেড ও হালকা ব্ল্যাক শ্যাডো হবে */
+        @media (min-width: 481px) {
+            .tool-btn {
+                padding: 12px 16px;
+            }
+        }
+
         .tool-btn:hover {
             box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
         }
@@ -179,6 +171,9 @@
         .tool-btn .btn-text {
             text-align: left;
             padding-right: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .tool-btn .btn-icon {
@@ -189,48 +184,111 @@
             font-size: 1.1rem;
         }
 
-        /* সোশ্যাল মিডিয়া ও ক্যাটাগরি কালার */
-        .btn-facebook {
-            background-color: #1877F2;
-        }
-        .btn-facebook:hover {
-            background-color: #1464cc;
-        }
+        /* ক্যাটাগরি ও ব্র্যান্ড কালারসমূহ */
+        /* মিডিয়া */
+        .btn-facebook { background-color: #1877F2; }
+        .btn-facebook:hover { background-color: #1464cc; }
 
-        .btn-youtube {
-            background-color: #FF0000;
-        }
-        .btn-youtube:hover {
-            background-color: #d90000;
-        }
+        .btn-youtube { background-color: #FF0000; }
+        .btn-youtube:hover { background-color: #d90000; }
 
-        .btn-tiktok {
-            background-color: #010101;
-        }
-        .btn-tiktok:hover {
-            background-color: #222222;
-        }
+        .btn-tiktok { background-color: #010101; }
+        .btn-tiktok:hover { background-color: #222222; }
 
-        .btn-instagram {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-        }
-        .btn-instagram:hover {
-            filter: brightness(0.92);
-        }
+        .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .btn-instagram:hover { filter: brightness(0.92); }
 
-        .btn-twitter {
-            background-color: #0f1419;
-        }
-        .btn-twitter:hover {
-            background-color: #272c30;
-        }
+        .btn-twitter { background-color: #0f1419; }
+        .btn-twitter:hover { background-color: #272c30; }
 
-        .btn-default {
-            background-color: #007bff;
-        }
-        .btn-default:hover {
-            background-color: #0062cc;
-        }
+        /* ইমেজ প্রসেসিং */
+        .btn-compress { background-color: #0284c7; }
+        .btn-compress:hover { background-color: #0369a1; }
+
+        .btn-crop { background-color: #059669; }
+        .btn-crop:hover { background-color: #047857; }
+
+        .btn-resize { background-color: #4f46e5; }
+        .btn-resize:hover { background-color: #4338ca; }
+
+        .btn-convert-img { background-color: #d97706; }
+        .btn-convert-img:hover { background-color: #b45309; }
+
+        .btn-webp { background-color: #0d9488; }
+        .btn-webp:hover { background-color: #0f766e; }
+
+        /* পিডিএফ টুলস */
+        .btn-pdf-merge { background-color: #e11d48; }
+        .btn-pdf-merge:hover { background-color: #be123c; }
+
+        .btn-pdf-split { background-color: #ea580c; }
+        .btn-pdf-split:hover { background-color: #c2410c; }
+
+        .btn-pdf-compress { background-color: #dc2626; }
+        .btn-pdf-compress:hover { background-color: #b91c1c; }
+
+        .btn-word { background-color: #2563eb; }
+        .btn-word:hover { background-color: #1d4ed8; }
+
+        .btn-excel { background-color: #16a34a; }
+        .btn-excel:hover { background-color: #15803d; }
+
+        /* টেক্সট ও রাইটিং */
+        .btn-text-counter { background-color: #475569; }
+        .btn-text-counter:hover { background-color: #334155; }
+
+        .btn-grammar { background-color: #059669; }
+        .btn-grammar:hover { background-color: #047857; }
+
+        .btn-plagiarism { background-color: #d97706; }
+        .btn-plagiarism:hover { background-color: #b45309; }
+
+        .btn-case { background-color: #6366f1; }
+        .btn-case:hover { background-color: #4f46e5; }
+
+        .btn-unicode { background-color: #7c3aed; }
+        .btn-unicode:hover { background-color: #6d28d9; }
+
+        .btn-tts { background-color: #0891b2; }
+        .btn-tts:hover { background-color: #0e7490; }
+
+        /* অডিও ও ভিডিও এডিটিং */
+        .btn-audio-cut { background-color: #e11d48; }
+        .btn-audio-cut:hover { background-color: #be123c; }
+
+        .btn-audio-join { background-color: #9333ea; }
+        .btn-audio-join:hover { background-color: #7e22ce; }
+
+        .btn-video-cut { background-color: #c026d3; }
+        .btn-video-cut:hover { background-color: #a21caf; }
+
+        .btn-vocal { background-color: #4f46e5; }
+        .btn-vocal:hover { background-color: #4338ca; }
+
+        .btn-screen-rec { background-color: #dc2626; }
+        .btn-screen-rec:hover { background-color: #b91c1c; }
+
+        .btn-gif { background-color: #ca8a04; }
+        .btn-gif:hover { background-color: #a16207; }
+
+        /* দৈনন্দিন ইউটিলিটি */
+        .btn-qr { background-color: #1e293b; }
+        .btn-qr:hover { background-color: #0f172a; }
+
+        .btn-password { background-color: #b91c1c; }
+        .btn-password:hover { background-color: #991b1b; }
+
+        .btn-speed { background-color: #0284c7; }
+        .btn-speed:hover { background-color: #0369a1; }
+
+        .btn-age { background-color: #059669; }
+        .btn-age:hover { background-color: #047857; }
+
+        .btn-currency { background-color: #16a34a; }
+        .btn-currency:hover { background-color: #15803d; }
+
+        .btn-all-convert { background-color: #d97706; }
+        .btn-all-convert:hover { background-color: #b45309; }
 
         /* ============================
            ৬. টিপস ব্লক
@@ -262,104 +320,11 @@
         }
 
         /* ============================
-           ৭. বিজ্ঞাপন সেকশন
-           ============================ */
-        .ad-section {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 25px;
-            border: 1px dashed #cbd5e1;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .ad-label {
-            font-size: 0.75rem;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-
-        /* ============================
-           ৮. মোডাল (পপ-আপ) স্টাইল
-           ============================ */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.55);
-            backdrop-filter: blur(2px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 15px;
-        }
-
-        .modal-card {
-            background: #ffffff;
-            border-radius: 10px;
-            max-width: 480px;
-            width: 100%;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-            overflow: hidden;
-            animation: fadeIn 0.2s ease-out;
-        }
-
-        .modal-header {
-            background-color: #f8f9fa;
-            padding: 14px 20px;
-            border-bottom: 1px solid #e9ecef;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-title {
-            font-size: clamp(1rem, 2vw, 1.15rem);
-            font-weight: 700;
-            color: #212529;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #6c757d;
-            line-height: 1;
-        }
-
-        .modal-close:hover {
-            color: #000;
-        }
-
-        .modal-body {
-            padding: 20px;
-            font-size: clamp(0.9rem, 1.5vw, 1rem);
-            color: #495057;
-            line-height: 1.6;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.98); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* ============================
-           অভিযোগ বক্স স্টাইল
+           ৭. অভিযোগ বক্স স্টাইল
            ============================ */
         .report-section {
             background: #ffffff;
-            border-top: 4px solid #e53e3e; /* দৃষ্টি আকর্ষণের জন্য লালচে অ্যাকসেন্ট */
+            border-top: 4px solid #e53e3e;
         }
 
         .report-header {
@@ -443,6 +408,99 @@
             font-weight: 600;
             margin-top: 10px;
         }
+
+        /* ============================
+           ৮. বিজ্ঞাপন সেকশন
+           ============================ */
+        .ad-section {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 1px dashed #cbd5e1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .ad-label {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        /* ============================
+           ৯. মোডাল (পপ-আপ) স্টাইল
+           ============================ */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(2px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            border-radius: 10px;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        .modal-header {
+            background-color: #f8f9fa;
+            padding: 14px 20px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            font-weight: 700;
+            color: #212529;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6c757d;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: #000;
+        }
+
+        .modal-body {
+            padding: 20px;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            color: #495057;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -466,53 +524,47 @@
         </div>
 
         <div class="tools-grid">
-            <!-- Facebook Buttons (নীল) -->
             <a href="https://fdown.net/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-facebook">
-                <span class="btn-text">Facebook Video Download</span>
+                <span class="btn-text">🔵 Facebook Video Download</span>
                 <span class="btn-icon">↗</span>
             </a>
 
             <a href="https://go.weirdhub.site/1hc" target="_blank" rel="noopener noreferrer" class="tool-btn btn-facebook">
-                <span class="btn-text">Facebook Video to Audio</span>
+                <span class="btn-text">🎵 Facebook Video to Audio</span>
                 <span class="btn-icon">↗</span>
             </a>
 
-            <!-- YouTube Buttons (লাল) -->
             <a href="https://go.weirdhub.site/hjo" target="_blank" rel="noopener noreferrer" class="tool-btn btn-youtube">
-                <span class="btn-text">YouTube Video Download</span>
+                <span class="btn-text">▶️ YouTube Video Download</span>
                 <span class="btn-icon">↗</span>
             </a>
 
             <a href="https://ytmp3.gl/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-youtube">
-                <span class="btn-text">YouTube Video to Audio</span>
+                <span class="btn-text">🎧 YouTube Video to Audio</span>
                 <span class="btn-icon">↗</span>
             </a>
 
-            <!-- TikTok Buttons -->
             <a href="https://ssstik.io/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-tiktok">
-                <span class="btn-text">TikTok Video Download</span>
+                <span class="btn-text">⬛ TikTok Video Download</span>
                 <span class="btn-icon">↗</span>
             </a>
 
             <a href="https://go.weirdhub.site/Kzj" target="_blank" rel="noopener noreferrer" class="tool-btn btn-tiktok">
-                <span class="btn-text">TikTok Video to Audio (mp3)</span>
+                <span class="btn-text">🎶 TikTok Video to Audio (mp3)</span>
                 <span class="btn-icon">↗</span>
             </a>
 
-            <!-- Instagram Button -->
             <a href="https://go.weirdhub.site/kkZ" target="_blank" rel="noopener noreferrer" class="tool-btn btn-instagram">
-                <span class="btn-text">Instagram Video Download</span>
+                <span class="btn-text">📸 Instagram Video Download</span>
                 <span class="btn-icon">↗</span>
             </a>
 
-            <!-- Twitter Button -->
             <a href="https://go.weirdhub.site/plN" target="_blank" rel="noopener noreferrer" class="tool-btn btn-twitter">
-                <span class="btn-text">Twitter (X) Video Download</span>
+                <span class="btn-text">𝕏 Twitter (X) Video Download</span>
                 <span class="btn-icon">↗</span>
             </a>
         </div>
 
-        <!-- টিপস ব্লক -->
         <div class="tips-block">
             <button type="button" class="tips-btn" onclick="openModal()">
                 💡 <span>ভিডিওর লিংক কীভাবে নিবেন? (ক্লিক করুন)</span>
@@ -529,40 +581,205 @@
         </div>
 
         <div class="tools-grid">
-            <a href="https://go.weirdhub.site/jxb" target="_blank" rel="noopener noreferrer" class="tool-btn btn-default">
-                <span class="btn-text">Image Compressing Tool</span>
+            <a href="https://go.weirdhub.site/jxb" target="_blank" rel="noopener noreferrer" class="tool-btn btn-compress">
+                <span class="btn-text">🗜️ Image Compressing Tool</span>
                 <span class="btn-icon">↗</span>
             </a>
 
-            <a href="https://www.resizepixel.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-default">
-                <span class="btn-text">Crop by Pixel (Height and Length)</span>
+            <a href="https://www.resizepixel.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-crop">
+                <span class="btn-text">✂️ Crop by Pixel</span>
                 <span class="btn-icon">↗</span>
             </a>
 
-            <a href="https://picresize.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-default">
-                <span class="btn-text">Resize Tool</span>
+            <a href="https://picresize.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-resize">
+                <span class="btn-text">📐 Resize Tool</span>
                 <span class="btn-icon">↗</span>
             </a>
 
-            <a href="https://www.ilovepdf.com/pdf_to_jpg" target="_blank" rel="noopener noreferrer" class="tool-btn btn-default">
-                <span class="btn-text">PDF to Image (JPG)</span>
+            <a href="https://www.ilovepdf.com/pdf_to_jpg" target="_blank" rel="noopener noreferrer" class="tool-btn btn-convert-img">
+                <span class="btn-text">📄 PDF to Image (JPG)</span>
                 <span class="btn-icon">↗</span>
             </a>
 
-            <a href="https://go.weirdhub.site/FcT" target="_blank" rel="noopener noreferrer" class="tool-btn btn-default">
-                <span class="btn-text">JPG to PNG</span>
+            <a href="https://go.weirdhub.site/FcT" target="_blank" rel="noopener noreferrer" class="tool-btn btn-convert-img">
+                <span class="btn-text">🔄 JPG to PNG</span>
                 <span class="btn-icon">↗</span>
             </a>
 
-            <a href="https://webp-maker.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-default">
-                <span class="btn-text">Webp Image Maker</span>
+            <a href="https://webp-maker.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-webp">
+                <span class="btn-text">🌐 Webp Image Maker</span>
                 <span class="btn-icon">↗</span>
             </a>
         </div>
     </section>
 
     <!-- ==============================================
-         সেকশন ৩: অভিযোগ বক্স
+         সেকশন ৩: পিডিএফ ইউটিলিটি টুলস
+         ============================================== -->
+         
+    <section class="tools-section">
+        <div class="section-header-bar">
+            পিডিএফ ইউটিলিটি টুলস
+        </div>
+
+        <div class="tools-grid">
+            <a href="https://www.ilovepdf.com/merge_pdf" target="_blank" rel="noopener noreferrer" class="tool-btn btn-pdf-merge">
+                <span class="btn-text">📑 Merge PDF (জোড়া লাগানো)</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://www.ilovepdf.com/split_pdf" target="_blank" rel="noopener noreferrer" class="tool-btn btn-pdf-split">
+                <span class="btn-text">✂️ Split PDF (আলাদা করা)</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://www.ilovepdf.com/compress_pdf" target="_blank" rel="noopener noreferrer" class="tool-btn btn-pdf-compress">
+                <span class="btn-text">🗜️ Compress PDF (সাইজ কমানো)</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://www.ilovepdf.com/pdf_to_word" target="_blank" rel="noopener noreferrer" class="tool-btn btn-word">
+                <span class="btn-text">📝 PDF to Word</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://www.ilovepdf.com/pdf_to_excel" target="_blank" rel="noopener noreferrer" class="tool-btn btn-excel">
+                <span class="btn-text">📊 PDF to Excel</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://www.ilovepdf.com/word_to_pdf" target="_blank" rel="noopener noreferrer" class="tool-btn btn-word">
+                <span class="btn-text">📄 Word to PDF</span>
+                <span class="btn-icon">↗</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==============================================
+         সেকশন ৪: টেক্সট ও রাইটিং টুলস
+         ============================================== -->
+    <section class="tools-section">
+        <div class="section-header-bar">
+            টেক্সট ও রাইটিং টুলস
+        </div>
+
+        <div class="tools-grid">
+            <a href="https://wordcounter.net/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-text-counter">
+                <span class="btn-text">🔢 Word & Character Counter</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://quillbot.com/grammar-check" target="_blank" rel="noopener noreferrer" class="tool-btn btn-grammar">
+                <span class="btn-text">✍️ Grammar / Spell Checker</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://www.duplichecker.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-plagiarism">
+                <span class="btn-text">🔍 Plagiarism Checker</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://convertcase.net/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-case">
+                <span class="btn-text">🔠 Case Converter (বড়/ছোট হাত)</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://banglaconverter.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-unicode">
+                <span class="btn-text">⌨️ Unicode to Bijoy Converter</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://ttsfree.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-tts">
+                <span class="btn-text">🗣️ Text to Speech (অডিও তৈরি)</span>
+                <span class="btn-icon">↗</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==============================================
+         সেকশন ৫: অডিও ও ভিডিও এডিটিং টুলস
+         ============================================== -->
+    <section class="tools-section">
+        <div class="section-header-bar">
+            অডিও ও ভিডিও এডিটিং টুলস
+        </div>
+
+        <div class="tools-grid">
+            <a href="https://audiotrimmer.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-audio-cut">
+                <span class="btn-text">✂️ Audio Cutter / Trimmer</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://audio-joiner.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-audio-join">
+                <span class="btn-text">🎶 Audio Joiner (একত্রিত করা)</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://online-video-cutter.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-video-cut">
+                <span class="btn-text">🎬 Video Cutter / Trimmer</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://vocalremover.org/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-vocal">
+                <span class="btn-text">🎤 Vocal Remover (কারাওকে)</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://screenapp.io/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-screen-rec">
+                <span class="btn-text">🖥️ Online Screen Recorder</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://ezgif.com/video-to-gif" target="_blank" rel="noopener noreferrer" class="tool-btn btn-gif">
+                <span class="btn-text">🎞️ Video to GIF Converter</span>
+                <span class="btn-icon">↗</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==============================================
+         সেকশন ৬: দৈনন্দিন ইউটিলিটি ও জেনারেটর
+         ============================================== -->
+    <section class="tools-section">
+        <div class="section-header-bar">
+            দৈনন্দিন ইউটিলিটি ও জেনারেটর
+        </div>
+
+        <div class="tools-grid">
+            <a href="https://www.qr-code-generator.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-qr">
+                <span class="btn-text">📱 QR Code Generator</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://passwordsgenerator.net/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-password">
+                <span class="btn-text">🔐 Strong Password Generator</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://fast.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-speed">
+                <span class="btn-text">🚀 Internet Speed Test</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://www.calculator.net/age-calculator.html" target="_blank" rel="noopener noreferrer" class="tool-btn btn-age">
+                <span class="btn-text">📅 Age & Date Calculator</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://www.xe.com/currencyconverter/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-currency">
+                <span class="btn-text">💱 Currency & Unit Converter</span>
+                <span class="btn-icon">↗</span>
+            </a>
+
+            <a href="https://cloudconvert.com/" target="_blank" rel="noopener noreferrer" class="tool-btn btn-all-convert">
+                <span class="btn-text">📦 All-in-One File Converter</span>
+                <span class="btn-icon">↗</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ==============================================
+         সেকশন ৭: অভিযোগ বক্স
          ============================================== -->
     <section class="tools-section report-section">
         <div class="section-header-bar report-header">
@@ -617,15 +834,16 @@
             <button class="modal-close" onclick="closeModal()">&times;</button>
         </div>
         <div class="modal-body">
-            আপনার কাঙ্ক্ষিত ভিডিওর শেয়ার অপশনে ক্লিক করুন ও <strong>Copy Link</strong> বাটনে ক্লিক করে ভিডিওর লিংকটি কপি করে আনুন।
+            আপনার কাঙ্ক্ষিত ভিডিওর শেয়ার অপশনে ক্লিক করুন ও <strong>Copy Link</strong> বাটনে ক্লিক করে ভিডিওর লিংকটি কপি করে আনুন।
         </div>
     </div>
 </div>
 
 <!-- ============================
-     জাভাস্ক্রিপ্ট (মোডাল হ্যান্ডলার)
+     জাভাস্ক্রিপ্ট কোড
      ============================ -->
 <script>
+    // মোডাল হ্যান্ডলার
     const modal = document.getElementById('tipsModal');
 
     function openModal() {
@@ -656,10 +874,9 @@
     const feedback = document.getElementById('formFeedback');
     const submitBtn = form.querySelector('.submit-btn');
 
-form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        // সাবমিট চলাকালীন বাটন ডিজেবল ও টেক্সট পরিবর্তন
         submitBtn.disabled = true;
         submitBtn.innerText = 'জমা হচ্ছে...';
 
@@ -668,7 +885,7 @@ form.addEventListener('submit', function(e) {
         fetch(scriptURL, {
             method: 'POST',
             body: formData,
-            mode: 'no-cors' // গুগল অ্যাপস স্ক্রিপ্টের CORS সমস্যা এড়াতে
+            mode: 'no-cors'
         })
         .then(() => {
             feedback.style.display = 'block';
