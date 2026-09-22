@@ -102,36 +102,124 @@ h2 {
 .spaceG { grid-column: 5 / 9; }
 
 
-.spaceD,
-.spaceMiddle,
-.spaceWriter,
-.spaceE {
-  padding: 7px;
+/* ================= Button Group ================= */
+
+.button-group{
+  grid-column: 1 / 9;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 20px 20px 20px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+
+  box-sizing: border-box;
+
+  /* Same background as Site Intro */
+  background-color: #d6e6ff;
 }
 
+.button-group .spaceD,
+.button-group .spaceMiddle,
+.button-group .spaceWriter,
+.button-group .spaceE{
+  padding: 0;
+  min-width: 0;
+  width: 100%;
+  grid-column: auto;
+}
 
-/* ================= Site Summary Card ================= */
+.button-group .bigBtn{
+  width: 100%;
+  min-width: 0;
+  height: 62px;
+  box-sizing: border-box;
+}
+
+/* ================= Site Summary ================= */
+
 .site-summary{
     width: 100%;
-    padding: 10px 20px 30px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
     font-style: italic;
 }
 
-.site-summary p{
-    margin: 0 0 18px;
-    font-size: 17px;
-    line-height: 2;
-    text-align: justify;
+/* Image - PC */
+.site-summary .cover-image-main{
+    flex: 0 0 42%;
+    max-width: 42%;
+    overflow: hidden;
+    border-radius: 14px;
 }
 
-.site-summary p:last-child{
-    margin-bottom: 0;
+.site-summary .cover-image-main img{
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 1;
+    object-fit: cover;
 }
+
+/* Text - PC */
+.site-summary p{
+    flex: 1;
+    margin: 0;
+    font-size: 17px;
+    line-height: 2;
+    text-align: left;
+}
+
+
+/* ================= Tablet & Mobile ================= */
+
+@media (max-width: 900px){
+
+    .site-summary{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 18px;
+        padding: 15px 20px 25px;
+        text-align: center;
+    }
+
+    .site-summary .cover-image-main{
+        width: 100%;
+        max-width: 700px;
+        flex: none;
+    }
+
+    .site-summary .cover-image-main img{
+        aspect-ratio: 3 / 1;
+        object-fit: cover;
+    }
+
+    .site-summary p{
+        width: 100%;
+        max-width: 800px;
+        font-size: 16px;
+        line-height: 1.9;
+        text-align: center;
+    }
+
+}
+
+
+/* ================= Small Mobile ================= */
 
 @media (max-width: 600px){
 
     .site-summary{
-        padding: 10px 0 20px;
+        padding: 10px 10px 20px;
+        gap: 15px;
+    }
+
+    .site-summary .cover-image-main{
+        border-radius: 10px;
     }
 
     .site-summary p{
@@ -163,7 +251,7 @@ h2 {
   background-color: #faeeff;
   border-color: #af0568;
   box-shadow: 0 6px 18px rgba(47, 128, 255, 0.25);
-  transform: translateY(-2px);
+  /* transform: translateY(-2px); */
 }
 
 .bigBtn:active {
@@ -305,12 +393,56 @@ h2 {
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
   }
+
+  .button-group{
+  grid-column: 1 / -1;
+
+  width: 100%;
+  max-width: none;
+
+  padding: 15px 25px 20px;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+
+  background-color: #d6e6ff;
+}
+
+.button-group .spaceD,
+.button-group .spaceMiddle,
+.button-group .spaceWriter,
+.button-group .spaceE{
+  grid-column: auto;
+  padding: 0;
+}
 }
 
 
 
 /* ================= Mobile ================= */
 @media (max-width: 600px) {
+
+  .button-group{
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: none;
+  padding: 10px 12px 18px;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background-color: #d6e6ff;
+}
+
+.button-group .spaceD,
+.button-group .spaceMiddle,
+.button-group .spaceWriter,
+.button-group .spaceE{
+  grid-column: auto;
+  padding: 0;
+}
+
+.button-group .bigBtn{
+  height: 58px;
+}
 
   .site-header h1 {
   margin: 0;
@@ -328,12 +460,7 @@ h2 {
     overflow-x: hidden;
   }
 
-.spaceD,
-.spaceMiddle,
-.spaceWriter,
-.spaceE {
-  padding: 5px;
-}
+
 
 .spaceF,
 .spaceG {
