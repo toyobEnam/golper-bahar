@@ -364,7 +364,7 @@ body {
 }
 
 .sliderCard:hover {
-    transform: translateY(-6px);
+    /* transform: translateY(-6px); */
     box-shadow: var(--shadow-md);
     border-color: var(--accent-teal);
 }
@@ -514,4 +514,13 @@ body {
     .sliderCard {
         flex: 0 0 200px;
     }
+}
+
+/* ========== AD CENTER ========== */
+.ad-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
