@@ -29,131 +29,206 @@
 }
 
 .site-footer {
-  text-align: center;
-  background-color: #0f0f0f;
-  color: #cfcfcf;
-  padding: 40px 20px;
-  /* margin-top: 80px; */
+  background: #142018;
+  color: #c9d6ce;
+  padding: 55px 20px 25px;
   font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
-
-
 
 .footer-inner {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-
   display: grid;
-  grid-template-columns: 1fr auto 1fr; /* left | center | right */
-  align-items: center;
+  grid-template-columns: 2fr 1.2fr 1.3fr;
   gap: 40px;
+  align-items: flex-start;
 }
 
-/* Brand */
-.footer-brand {
-  flex: 1;
+/* কলাম ১: ব্র্যান্ড ও বর্ণনা */
+.footer-about {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .footer-title {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: #ffffff;
   text-decoration: none;
-  display: inline-block;
-  margin-bottom: 6px;
-  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s ease;
 }
 
 .footer-title:hover {
-  text-decoration: none;
+  color: #81c784;
 }
 
-.footer-tagline {
+.footer-logo-icon {
+  font-size: 1.4rem;
+}
+
+.footer-desc {
   font-size: 0.95rem;
-  color: #aaaaaa;
+  color: #9cb1a4;
+  line-height: 1.7;
+  margin: 0 0 10px;
+  max-width: 90%;
 }
 
-/* Meta */
-.footer-meta {
-  flex: 1;
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-/* Footer nav */
-.footer-nav {
+/* সোশ্যাল বাটন */
+.footer-social-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px 22px;
-  margin-bottom: 16px;
+  gap: 10px;
+}
+
+.footer-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e8f5e9;
+  display: flex;
+  align-items: center;
   justify-content: center;
-}
-
-.footer-nav a {
-  font-size: 0.85rem;
-  color: #bdbdbd;
   text-decoration: none;
+  transition: all 0.25s ease;
 }
 
-.footer-nav a:hover {
+.footer-icon-btn:hover {
+  background: #2e7d32;
+  border-color: #2e7d32;
   color: #ffffff;
-  text-decoration: underline;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.35);
 }
 
-/* Texts */
+/* কলাম ২ ও ৩: হেডিং ও লিংক লিস্ট */
+.footer-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 16px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.footer-heading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: #2e7d32;
+  border-radius: 2px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: #b0c4b7;
+  text-decoration: none;
+  font-size: 0.93rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* বটম এরিয়া */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 45px auto 0;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-bottom-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
 .footer-disclaimer {
-  margin-bottom: 14px;
+  font-size: 0.85rem;
+  color: #8da496;
+  margin: 0;
+  line-height: 1.6;
 }
 
 .footer-copy {
   font-size: 0.85rem;
-  color: #8f8f8f;
+  color: #6c8475;
+  margin: 0;
+  white-space: nowrap;
 }
 
-/* 📱 Mobile */
-@media (max-width: 640px) {
+/* 💻 ট্যাবলেট ও ল্যাপটপ রেসপন্সিভ */
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+  }
+  .footer-about {
+    grid-column: span 2;
+  }
+  .footer-desc {
+    max-width: 100%;
+  }
+}
+
+/* 📱 মোবাইল রেসপন্সিভ */
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 40px 16px 20px;
+  }
   .footer-inner {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 30px;
   }
-
-  .footer-title {
-    font-size: 1.6rem;
+  .footer-about {
+    grid-column: span 1;
+    align-items: center;
+    text-align: center;
   }
-
-  .footer-nav {
-    gap: 10px 16px;
+  .footer-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
   }
-}
-
-/* Footer center actions */
-.footer-actions {
-  flex: 0;
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-}
-
-/* Icon buttons */
-.footer-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid #3a3a3a;
-  background: transparent;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-
-
-.footer-icon:hover {
-  border-color: #ffffff;
-  transform: translateY(-2px);
+  .footer-heading {
+    text-align: center;
+  }
+  .footer-links {
+    align-items: center;
+  }
+  .footer-links a:hover {
+    transform: none;
+  }
+  .footer-bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  .footer-copy {
+    white-space: normal;
+  }
 }
 
 
@@ -1012,7 +1087,7 @@ body{
     display:flex;
     flex-direction:column;
     align-items:center;
-    background-color: #0f0f0f;
+    background-color: #17241c;
     width:100%;
     margin:0;
 }
