@@ -58,7 +58,7 @@ function goBack() {
     <div class="upnav-wrap">
       <div class="upnav-inner">
         <a href="https://golperbahar.com/" class="upnav-brand">
-          <span class="upnav-brand-icon">📖</span>
+          <img src="https://golperbahar.com/favicon.ico" alt="লোগো" class="upnav-brand-img">
           <span class="upnav-brand-text">গল্পের বাহার</span>
         </a>
         <button type="button" class="upnav-toggle" aria-label="মেনু খুলুন">
