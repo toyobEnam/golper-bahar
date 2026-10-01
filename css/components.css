@@ -242,13 +242,7 @@
   z-index:999;
   border-bottom:1px solid #ebebeb;
   box-shadow:0 2px 14px rgba(0, 0, 0, 0.05);
-  transition:transform .3s ease;
   pointer-events:auto;
-}
-.upnav-wrap.hide{
-  transform:translateY(-100%);
-  pointer-events:none;
-  visibility:hidden;
 }
 
 .upnav-inner{

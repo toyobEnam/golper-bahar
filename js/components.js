@@ -91,34 +91,7 @@ function goBack() {
     });
   }
 
-  /* ========= hide / show on scroll ========= */
-
-  const wrap = target.querySelector(".upnav-wrap");
-  let lastScroll = window.pageYOffset;
-  const threshold = 180;
-
-  window.addEventListener("scroll", function(){
-
-    const currentScroll = window.pageYOffset;
-
-    if(navMenu && navMenu.classList.contains("show")){
-      return;
-    }
-
-    if(currentScroll < threshold){
-      wrap.classList.remove("hide");
-      lastScroll = currentScroll;
-      return;
-    }
-
-    if(currentScroll > lastScroll){
-      wrap.classList.add("hide");
-    }else{
-      wrap.classList.remove("hide");
-    }
-
-    lastScroll = currentScroll;
-  }, { passive: true });
+  
 
 })();
 
