@@ -28,67 +28,100 @@ function goBack() {
 
   const menus = [
     { name: "হোমপেজ", link: "https://golperbahar.com/" },
-    { name: "আমাদের কথা", link: "https://golperbahar.com/about/" },
-    { name: "লেখক প্যানেল", link: "https://golperbahar.com/writers/" },
-    { name: "বাংলা পোস্ট", link: "https://golperbahar.com/blogs/" },
     { name: "ধারাবাহিক গল্প", link: "https://golperbahar.com/stories/" },
     { name: "ছোটগল্প", link: "https://golperbahar.com/short-stories/" },
     { name: "অনুগল্প", link: "https://golperbahar.com/onugolpo/" },
+    { name: "লেখক প্যানেল", link: "https://golperbahar.com/writers/" },
+    { name: "বাংলা পোস্ট", link: "https://golperbahar.com/blogs/" },
+    { name: "আমাদের কথা", link: "https://golperbahar.com/about/" },
     { name: "সার্চ করুন", link: "https://golperbahar.com/search/" }
   ];
-
-  const current = location.pathname.split("/").pop();
 
   const target = document.getElementById("upNav");
   if(!target) return;
 
-  /* ========= build structure ========= */
-  const wrap = document.createElement("div");
-  wrap.className = "upnav-wrap";
+  const currentPath = window.location.pathname;
 
-  const nav = document.createElement("nav");
-  nav.className = "upnav";
-
-  menus.forEach(item=>{
-    const a = document.createElement("a");
-    a.href = item.link;
-    a.textContent = item.name;
-
-    if(current === item.link){
-      a.classList.add("active");
+  const menuHtml = menus.map(item => {
+    const itemPath = new URL(item.link).pathname;
+    let isActive = false;
+    if (itemPath === "/" || itemPath === "") {
+      isActive = currentPath === "/" || currentPath === "";
+    } else {
+      isActive = currentPath.startsWith(itemPath);
     }
+    const activeClass = isActive ? ' active' : '';
+    return `<a href="${item.link}" class="upnav-link${activeClass}">${item.name}</a>`;
+  }).join("");
 
-    nav.appendChild(a);
-  });
+  target.innerHTML = `
+    <div class="upnav-wrap">
+      <div class="upnav-inner">
+        <a href="https://golperbahar.com/" class="upnav-brand">
+          <span class="upnav-brand-icon">📖</span>
+          <span class="upnav-brand-text">গল্পের বাহার</span>
+        </a>
+        <button type="button" class="upnav-toggle" aria-label="মেনু খুলুন">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="upnav">${menuHtml}</nav>
+      </div>
+    </div>
+  `;
 
-  wrap.appendChild(nav);
-  target.appendChild(wrap);
+  /* ========= Toggle Hamburger Menu ========= */
+
+  const toggleBtn = target.querySelector(".upnav-toggle");
+  const navMenu = target.querySelector(".upnav");
+
+  if(toggleBtn && navMenu){
+    toggleBtn.addEventListener("click", function(e){
+      e.stopPropagation();
+      toggleBtn.classList.toggle("open");
+      navMenu.classList.toggle("show");
+    });
+
+    document.addEventListener("click", function(e){
+      if(!target.contains(e.target)){
+        toggleBtn.classList.remove("open");
+        navMenu.classList.remove("show");
+      }
+    });
+  }
 
   /* ========= hide / show on scroll ========= */
 
-let lastScroll = window.pageYOffset;
-const threshold = 250;
+  const wrap = target.querySelector(".upnav-wrap");
+  let lastScroll = window.pageYOffset;
+  const threshold = 180;
 
-window.addEventListener("scroll", function(){
+  window.addEventListener("scroll", function(){
 
-  const currentScroll = window.pageYOffset;
+    const currentScroll = window.pageYOffset;
 
-  if(currentScroll < threshold){
-    wrap.classList.remove("hide");
+    if(navMenu && navMenu.classList.contains("show")){
+      return;
+    }
+
+    if(currentScroll < threshold){
+      wrap.classList.remove("hide");
+      lastScroll = currentScroll;
+      return;
+    }
+
+    if(currentScroll > lastScroll){
+      wrap.classList.add("hide");
+    }else{
+      wrap.classList.remove("hide");
+    }
+
     lastScroll = currentScroll;
-    return;
-  }
-
-  if(currentScroll > lastScroll){
-    wrap.classList.add("hide");
-  }else{
-    wrap.classList.remove("hide");
-  }
-
-  lastScroll = currentScroll;
-});
+  }, { passive: true });
 
 })();
+
 const categoryMap = {
 
 "romantic-thriller":"রোমান্টিক থ্রিলার",
