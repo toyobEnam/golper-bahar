@@ -37,11 +37,11 @@
 }
 
 .footer-inner {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 1.2fr 1.3fr;
-  gap: 40px;
+  grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+  gap: 32px;
   align-items: flex-start;
 }
 
@@ -181,10 +181,10 @@
 }
 
 /* 💻 ট্যাবলেট ও ল্যাপটপ রেসপন্সিভ */
-@media (max-width: 900px) {
+@media (max-width: 992px) {
   .footer-inner {
     grid-template-columns: 1fr 1fr;
-    gap: 35px;
+    gap: 32px;
   }
   .footer-about {
     grid-column: span 2;
