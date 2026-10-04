@@ -917,7 +917,7 @@
   "categoryName": "রহস্য",
   "categorySlug": "suspense",
   "storySlug": "sh-sus-0001-balika-bodhu",
-  "searchKeywords": ""
+  "searchKeywords": "balika bodhu afroza akhi afroja"
 },
 {
   "storyName": "তোমার মনেরও মন্দিরে",
@@ -927,7 +927,7 @@
   "categoryName": "সামাজিক",
   "categorySlug": "social",
   "storySlug": "sh-soc-0001-tomar-monero-mondire",
-  "searchKeywords": ""
+  "searchKeywords": "tomar moner mondire afia afrin"
 },
 {
   "storyName": "মন বোঝে না",
@@ -937,7 +937,7 @@
   "categoryName": "ফ্যামিলি ড্রামা",
   "categorySlug": "family-drama",
   "storySlug": "fd-0013-mon-bojhe-na",
-  "searchKeywords": ""
+  "searchKeywords": "mon bojhe na sana sheikh shekh shana chana cana"
 },
 {
   "storyName": "অল্প বেঈমানী মন",
@@ -1168,5 +1168,15 @@
   "categorySlug": "tragedy",
   "storySlug": "sh-tr-0001-khujbe-amay-sedin",
   "searchKeywords": "khujbe amay sedin jedin ami thakbo na abrarul hok monir hoque haque koster golpo"
+},
+{
+  "storyName": "সূর্যস্নাত ভালোবাসা",
+  "writerName": "নওরিন ইথিকা",
+  "writerSlug": "a007-noureen",
+  "storyType": "serial",
+  "categoryName": "রোমান্টিক",
+  "categorySlug": "bangla-love-story",
+  "storySlug": "bls-0017-surjosnato-valobasha",
+  "searchKeywords": "surjosnato valobasha valobasa nowrin nourin ethika ithika"
 }
 ]
