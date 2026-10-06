@@ -483,44 +483,65 @@ function isGbCooldownActive(pageKey) {
 
 // ৩. DOMContentLoaded-এ UI রেন্ডার ও সাবমিশন হ্যান্ডলার
 document.addEventListener("DOMContentLoaded", function () {
-  // ইউআরএল থেকে পাথ ও স্লাগ নির্ধারণ
   const pathParts = window.location.pathname.replace(/^\/|\/$/g, "").split("/").filter(Boolean);
   
-  let storySlug = "unknown-story";
-  let episode = "index";
-  let filePath = window.location.pathname.replace(/^\/|\/$/g, "") + "/index.html";
+  // ক) সুনির্দিষ্ট ৩টি ইনডেক্স ও অনুগল্প পাতার ভিউ ট্র্যাকিং
+  let isCountableViewPage = false;
+  let viewStorySlug = "";
+  let viewIndexPath = "";
 
-  // গল্পের স্লাগ ও পর্ব স্বয়ংক্রিয়ভাবে শনাক্ত করা
-  if (pathParts.length >= 2) {
-    const last = pathParts[pathParts.length - 1];
-    if (last.startsWith("part-")) {
-      episode = last;
-      storySlug = pathParts[pathParts.length - 2];
-    } else {
-      storySlug = last;
-      episode = "One-Shot / Index";
-    }
+  // ১. ধারাবাহিক গল্প: /stories/category-name/story-slug/
+  if (pathParts.length === 3 && pathParts[0] === "stories") {
+    isCountableViewPage = true;
+    viewStorySlug = pathParts[2];
+    viewIndexPath = pathParts.join("/") + "/index.html";
+  }
+  // ২. ছোটগল্প: /short-stories/category-name/story-slug/
+  else if (pathParts.length === 3 && pathParts[0] === "short-stories") {
+    isCountableViewPage = true;
+    viewStorySlug = pathParts[2];
+    viewIndexPath = pathParts.join("/") + "/index.html";
+  }
+  // ৩. অনুগল্প: /onugolpo/slug/
+  else if (pathParts.length === 2 && pathParts[0] === "onugolpo") {
+    isCountableViewPage = true;
+    viewStorySlug = pathParts[1];
+    viewIndexPath = pathParts.join("/") + "/index.html";
   }
 
-  const indexPath = "stories/" + (pathParts.length >= 2 && episode.startsWith("part-") ? pathParts.slice(1, -1).join("/") : pathParts.slice(1).join("/")) + "/index.html";
-
-  // ক) ব্যাকগ্রাউন্ডে পেজ ভিউ বৃদ্ধি ট্রিগার করা
-  try {
-    fetch(GB_APPS_SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        action: "view",
-        storySlug: storySlug,
-        indexPath: indexPath
-      })
-    }).catch(() => {});
-  } catch (err) {}
+  if (isCountableViewPage && viewStorySlug && viewIndexPath) {
+    try {
+      fetch(GB_APPS_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          action: "view",
+          storySlug: viewStorySlug,
+          indexPath: viewIndexPath
+        })
+      }).catch(() => {});
+    } catch (err) {}
+  }
 
   // খ) কমেন্ট বক্স ইনজেক্ট করা (যদি পাতায় #story-comments থাকে)
   const commentContainer = document.getElementById("story-comments");
   if (!commentContainer) return;
+
+  let commentStorySlug = "unknown-story";
+  let commentEpisode = "index";
+  let filePath = pathParts.join("/") + "/index.html";
+
+  if (pathParts.length >= 2) {
+    const last = pathParts[pathParts.length - 1];
+    if (last.startsWith("part-")) {
+      commentEpisode = last;
+      commentStorySlug = pathParts[pathParts.length - 2];
+    } else {
+      commentStorySlug = last;
+      commentEpisode = pathParts[0] === "onugolpo" ? "অনুগল্প" : "ইনডেক্স";
+    }
+  }
 
   commentContainer.innerHTML = `
     <div class="gb-comment-box-card">
@@ -577,8 +598,8 @@ document.addEventListener("DOMContentLoaded", function () {
         method: "POST",
         body: JSON.stringify({
           action: "comment",
-          storySlug: storySlug,
-          episode: episode,
+          storySlug: commentStorySlug,
+          episode: commentEpisode,
           filePath: filePath,
           name: name,
           comment: comment,

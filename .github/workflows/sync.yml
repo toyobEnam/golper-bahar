@@ -1,0 +1,38 @@
+name: Sync Comments and Story Stats
+
+on:
+  schedule:
+    # বাংলাদেশ সময় সকাল ৮টা, দুপুর ২টা ও রাত ৯টায় স্বয়ংক্রিয়ভাবে চলবে (UTC 02:00, 08:00, 15:00)
+    - cron: '0 2,8,15 * * *'
+  workflow_dispatch: # রিপোজিটরি থেকে ম্যানুয়ালি রান করার বাটন
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run Sync Script
+        run: node sync-comments.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff-index --quiet HEAD; then
+            echo "কোনো নতুন ফাইল পরিবর্তনের প্রয়োজন হয়নি।"
+          else
+            git commit -m "Auto-sync approved comments and story stats [skip ci]"
+            git push origin main
+          fi
