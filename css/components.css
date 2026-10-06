@@ -635,321 +635,265 @@ color:#000000;
 -------------------    Story Comments Component    ----------------------
 --------------------------------------------------------------------- */
 
-.gb-comments{
-  margin:40px 0;
+/* গল্প ইনডেক্স ও অনুগল্পের মোট ভিউ ও কমেন্ট স্ট্যাটস বার (সেন্টারড) */
+.gb-story-stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 8px 18px;
+  margin: 30px auto 10px;
+  width: fit-content;
+  font-size: 14px;
+  color: #475569;
+  font-weight: 500;
 }
 
-.gb-comments-title{
-  font-size:1.8rem;
-  text-align:center;
-  margin-bottom:25px;
+.gb-stat-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.gb-comment-form{
-  max-width:700px;
-  margin:0 auto 35px;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
+.gb-stat-divider {
+  color: #cbd5e1;
 }
 
-.gb-comment-input{
-  width:100%;
-  border:1px solid #cfcfcf;
-  border-radius:6px;
-  padding:12px 14px;
-  background:#ffffff;
-  font-size:16px;
-  font-family:'Kalpurush','Noto Serif Bengali',serif;
+.gb-story-footer-section {
+  max-width: 720px;
+  margin: 35px auto 25px;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
-.gb-comment-textarea{
-  width:100%;
-  border:1px solid #cfcfcf;
-  border-radius:6px;
-  padding:12px 14px;
-  background:#ffffff;
-
-  font-size:16px;
-
-  font-family:'LiPurnoPran','Kalpurush','Noto Serif Bengali',serif;
+/* কমেন্ট বক্স কার্ড */
+.gb-comment-box-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 22px 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.gb-comment-input:focus,
-.gb-comment-textarea:focus{
-  outline:none;
-  border-color:#2e7d32;
+.gb-comment-heading {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
 }
 
-/* .gb-comment-textarea{
-  min-height:140px;
-  resize:vertical;
-} */
-
-.gb-comment-submit{
-  align-self:flex-start;
-  background:#2e7d32;
-  color:#fff;
-  border:none;
-  border-radius:6px;
-  padding:12px 20px;
-  font-size:16px;
-  cursor:pointer;
-  transition:background .2s ease;
+.gb-comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.gb-comment-submit:hover{
-  background:#1b5e20;
+.gb-form-input {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 11px 14px;
+  background: #ffffff;
+  font-size: 15px;
+  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease;
 }
 
-.gb-comments-heading{
-  font-size:1.4rem;
-  margin:40px 0 20px;
-  padding-top:20px;
-  border-top:1px solid #cfcfcf;
+.gb-form-input:focus {
+  border-color: #2e7d32;
 }
 
-.gb-comments-list{
-  display:flex;
-  flex-direction:column;
-  gap:16px;
+/* টেক্সট এড়িয়া (ফিক্সড হাইট) */
+.gb-form-textarea {
+  width: 100%;
+  height: 120px;
+  min-height: 120px;
+  max-height: 120px;
+  resize: none;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: #ffffff;
+  font-size: 15px;
+  font-family: 'LiPurnoPran', 'Kalpurush', 'Noto Serif Bengali', serif;
+  box-sizing: border-box;
+  outline: none;
+  line-height: 1.6;
+  transition: border-color 0.2s ease;
 }
 
-.gb-comment{
-  background:#ffffff;
-  border:1px solid #d9d9d9;
-  border-radius:8px;
-  padding:18px;
-  box-shadow:0 2px 6px rgba(0,0,0,.04);
+.gb-form-textarea:focus {
+  border-color: #2e7d32;
 }
 
-
-.gb-comment-textarea{
-  min-height:140px;
-  resize:none;
+/* বাটন: মন্তব্য জমা দিন */
+.gb-comment-btn {
+  align-self: flex-start;
+  background: #2e7d32;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+  transition: background 0.2s ease;
 }
 
+.gb-comment-btn:hover {
+  background: #1b5e20;
+}
 
-@media (max-width:600px){
+.gb-comment-btn:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
 
-  .gb-comments-title{
-    font-size:1.4rem;
+/* ছোট ফন্ট ও ইটালিক অনুপ্রেরণামূলক নোট */
+.gb-comment-note {
+  font-size: 12.5px;
+  font-style: italic;
+  color: #6b7280;
+  line-height: 1.65;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #e5e7eb;
+}
+
+/* পুশ হয়ে আসা কমেন্ট লিস্ট */
+.gb-comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.gb-comment {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 16px 18px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.gb-comment-author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.gb-comment-author-name {
+  font-weight: 700;
+  font-size: 16px;
+  color: #111827;
+}
+
+.gb-comment-date {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.gb-comment-text {
+  font-size: 15.5px;
+  color: #374151;
+  font-family: 'LiPurnoPran', 'Kalpurush', 'Noto Serif Bengali', serif;
+  line-height: 1.65;
+  word-break: break-word;
+}
+
+/* কাস্টম রেসপন্সিভ মোডাল */
+.gb-custom-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 999999;
+  backdrop-filter: blur(3px);
+}
+
+.gb-custom-modal {
+  width: 100%;
+  max-width: 380px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  animation: gbModalPop 0.2s ease;
+}
+
+@keyframes gbModalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
   }
-
-  .gb-comments-heading{
-    font-size:1.15rem;
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-
 }
 
-
-
-@media (max-width:600px){
-
-#copy-link{
-width:110px;
-padding:12px 16px;
+.gb-custom-modal-msg {
+  font-size: 15px;
+  color: #1f2937;
+  line-height: 1.7;
+  margin-bottom: 20px;
 }
 
-#copy-link svg{
-width:20px;
-height:20px;
-}
-}
-
-@media (min-width:1001px){
-
-#copy-link{
-width:130px;
-padding:16px 20px;
-}
-
-#copy-link svg{
-width:24px;
-height:24px;
-}
+.gb-custom-modal-btn {
+  background: #2e7d32;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 24px;
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+  transition: background 0.2s ease;
 }
 
-
-
-/* ===== Secret Pin Modal ===== */
-
-.gb-pin-modal-overlay{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.55);
-display:flex;
-align-items:center;
-justify-content:center;
-padding:20px;
-z-index:999999;
-backdrop-filter:blur(3px);
+.gb-custom-modal-btn:hover {
+  background: #1b5e20;
 }
 
-.gb-pin-modal{
-width:100%;
-max-width:420px;
-background:#ffffff;
-border-radius:18px;
-padding:24px;
-box-sizing:border-box;
-box-shadow:0 20px 60px rgba(0,0,0,.25);
-animation:gbPinPop .2s ease;
+body.gb-modal-open {
+  overflow: hidden;
 }
 
-@keyframes gbPinPop{
-
-from{
-opacity:0;
-transform:scale(.95);
+/* কপি লিংক রেসপন্সিভ স্টাইল অক্ষত রাখা */
+@media (max-width: 600px) {
+  #copy-link {
+    width: 110px;
+    padding: 12px 16px;
+  }
+  #copy-link svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
-to{
-opacity:1;
-transform:scale(1);
-}
-
-}
-
-.gb-pin-modal-title{
-font-size:22px;
-font-weight:700;
-text-align:center;
-margin-bottom:18px;
-color:#111;
-}
-
-.gb-pin-modal-input{
-width:100%;
-box-sizing:border-box;
-padding:14px 16px;
-font-size:16px;
-border:1px solid #d9d9d9;
-border-radius:12px;
-outline:none;
-}
-
-.gb-pin-modal-input:focus{
-border-color:#2e7d32;
-}
-
-.gb-pin-modal-actions{
-display:flex;
-gap:12px;
-margin-top:18px;
-}
-
-.gb-pin-btn{
-flex:1;
-border:none;
-border-radius:12px;
-padding:13px;
-font-size:15px;
-cursor:pointer;
-}
-
-.gb-pin-btn-cancel{
-background:#ececec;
-color:#222;
-}
-
-.gb-pin-btn-confirm{
-background:#2e7d32;
-color:#fff;
-}
-
-.gb-pin-btn-confirm:hover{
-background:#1b5e20;
-}
-
-body.gb-modal-open{
-overflow:hidden;
-}
-
-@media(max-width:600px){
-
-.gb-pin-modal{
-padding:18px;
-border-radius:16px;
-}
-
-.gb-pin-modal-title{
-font-size:19px;
-}
-
-}
-
-
-
-
-.gb-comment-author-name{
-font-weight:700;
-line-height:1.3;
-}
-
-.gb-comment-date{
-opacity:.65;
-margin-top:4px;
-}
-
-.gb-comment-text{
-margin-top:12px;
-
-font-family:'LiPurnoPran','Kalpurush','Noto Serif Bengali',serif;
-
-line-height:1.6;
-letter-spacing:0.01em;
-}
-
-/* Desktop */
-@media (min-width:1001px){
-
-.gb-comment-author-name{
-font-size:28px;
-}
-
-.gb-comment-date{
-font-size:14px;
-}
-
-.gb-comment-text{
-font-size:26px;
-}
-
-}
-
-/* Tablet */
-@media (min-width:601px) and (max-width:1000px){
-
-.gb-comment-author-name{
-font-size:21px;
-}
-
-.gb-comment-date{
-font-size:13px;
-}
-
-.gb-comment-text{
-font-size:19px;
-}
-
-}
-
-/* Mobile */
-@media (max-width:600px){
-
-.gb-comment-author-name{
-font-size:18px;
-}
-
-.gb-comment-date{
-font-size:12px;
-}
-
-.gb-comment-text{
-font-size:17px;
-}
-
+@media (min-width: 1001px) {
+  #copy-link {
+    width: 130px;
+    padding: 16px 20px;
+  }
+  #copy-link svg {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 

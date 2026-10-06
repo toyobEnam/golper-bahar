@@ -424,932 +424,189 @@ text.textContent="Copy Link";
 
 }
 
-/* ---------------------------------------------------------------------
--------------------    Story Comments Component    ----------------------
---------------------------------------------------------------------- */
+/* ==========================================================
+   Golper Bahar: Automated Fast Comment System & View Trigger
+========================================================== */
 
-// (function(){
+const GB_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwU75Chu74PABjZ_GYXT4fGD6XTAU1KXA5sS7WnP7tdeOcxsPAMtyAjKiaPlCKzutDW/exec";
 
-// const form =
-// document.getElementById("gbCommentForm");
+// ১. কাস্টম রেসপন্সিভ মোডাল ফাংশন
+function showGbModal(message) {
+  return new Promise((resolve) => {
+    const existing = document.querySelector(".gb-custom-modal-overlay");
+    if (existing) existing.remove();
 
-// if(!form) return;
+    const overlay = document.createElement("div");
+    overlay.className = "gb-custom-modal-overlay";
+    overlay.innerHTML = `
+      <div class="gb-custom-modal">
+        <div class="gb-custom-modal-msg">${message}</div>
+        <button type="button" class="gb-custom-modal-btn">ঠিক আছে</button>
+      </div>
+    `;
 
-// form.addEventListener("submit",function(e){
+    document.body.appendChild(overlay);
+    document.body.classList.add("gb-modal-open");
 
-// e.preventDefault();
+    const closeBtn = overlay.querySelector(".gb-custom-modal-btn");
+    closeBtn.focus();
 
-// });
+    function close() {
+      overlay.remove();
+      document.body.classList.remove("gb-modal-open");
+      resolve();
+    }
 
-// })();
-
-const COMMENTS_API =
-"https://script.google.com/macros/s/AKfycbzeh6I6N7ChaYY6wfYM5llYftpmBWs8U2sunrIYLHfrZ_9hDCs53B1Tifv0XLmpSKV3Rg/exec";
-
-function getReaderId(){
-
-let readerId =
-localStorage.getItem(
-"gb_reader_id"
-);
-
-if(!readerId){
-
-readerId =
-"gb_" +
-Date.now() +
-"_" +
-Math.random()
-.toString(36)
-.substring(2,10);
-
-localStorage.setItem(
-"gb_reader_id",
-readerId
-);
-
+    closeBtn.addEventListener("click", close);
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) close();
+    });
+  });
 }
 
-return readerId;
-
+// ২. রিডার আইডি ও ৫ মিনিটের কুলডাউন হেল্পার
+function getGbReaderId() {
+  let id = localStorage.getItem("gb_reader_id");
+  if (!id) {
+    id = "gb_" + Date.now() + "_" + Math.random().toString(36).substring(2, 8);
+    localStorage.setItem("gb_reader_id", id);
+  }
+  return id;
 }
 
-function showSecretPinModal(){
-
-return new Promise(resolve=>{
-
-const overlay =
-document.createElement("div");
-
-overlay.className =
-"gb-pin-modal-overlay";
-
-overlay.innerHTML = `
-
-<div class="gb-pin-modal">
-
-<div class="gb-pin-modal-title">
-সেক্রেট পিন কোড
-</div>
-
-<input
-type="password"
-class="gb-pin-modal-input"
-placeholder="সেক্রেট পিন প্রবেশ করান">
-
-<div class="gb-pin-modal-actions">
-
-<button
-class="gb-pin-btn gb-pin-btn-cancel">
-বাতিল
-</button>
-
-<button
-class="gb-pin-btn gb-pin-btn-confirm">
-নিশ্চিত করুন
-</button>
-
-</div>
-
-</div>
-
-`;
-
-document.body.appendChild(
-overlay
-);
-
-document.body.classList.add(
-"gb-modal-open"
-);
-
-const input =
-overlay.querySelector(
-".gb-pin-modal-input"
-);
-
-input.focus();
-
-function closeModal(value){
-
-overlay.remove();
-
-document.body.classList.remove(
-"gb-modal-open"
-);
-
-resolve(value);
-
+function isGbCooldownActive(pageKey) {
+  const lastTime = localStorage.getItem("gb_cooldown_" + pageKey);
+  if (!lastTime) return false;
+  const diffMinutes = (Date.now() - parseInt(lastTime, 10)) / (1000 * 60);
+  return diffMinutes < 5;
 }
 
-overlay
-.querySelector(
-".gb-pin-btn-cancel"
-)
-.addEventListener(
-"click",
-()=>closeModal(null)
-);
+// ৩. DOMContentLoaded-এ UI রেন্ডার ও সাবমিশন হ্যান্ডলার
+document.addEventListener("DOMContentLoaded", function () {
+  // ইউআরএল থেকে পাথ ও স্লাগ নির্ধারণ
+  const pathParts = window.location.pathname.replace(/^\/|\/$/g, "").split("/").filter(Boolean);
+  
+  let storySlug = "unknown-story";
+  let episode = "index";
+  let filePath = window.location.pathname.replace(/^\/|\/$/g, "") + "/index.html";
 
-overlay
-.querySelector(
-".gb-pin-btn-confirm"
-)
-.addEventListener(
-"click",
-()=>closeModal(
-input.value.trim()
-)
-);
+  // গল্পের স্লাগ ও পর্ব স্বয়ংক্রিয়ভাবে শনাক্ত করা
+  if (pathParts.length >= 2) {
+    const last = pathParts[pathParts.length - 1];
+    if (last.startsWith("part-")) {
+      episode = last;
+      storySlug = pathParts[pathParts.length - 2];
+    } else {
+      storySlug = last;
+      episode = "One-Shot / Index";
+    }
+  }
 
-overlay.addEventListener(
-"click",
-function(e){
+  const indexPath = "stories/" + (pathParts.length >= 2 && episode.startsWith("part-") ? pathParts.slice(1, -1).join("/") : pathParts.slice(1).join("/")) + "/index.html";
 
-if(
-e.target === overlay
-){
+  // ক) ব্যাকগ্রাউন্ডে পেজ ভিউ বৃদ্ধি ট্রিগার করা
+  try {
+    fetch(GB_APPS_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        action: "view",
+        storySlug: storySlug,
+        indexPath: indexPath
+      })
+    }).catch(() => {});
+  } catch (err) {}
 
-closeModal(null);
+  // খ) কমেন্ট বক্স ইনজেক্ট করা (যদি পাতায় #story-comments থাকে)
+  const commentContainer = document.getElementById("story-comments");
+  if (!commentContainer) return;
 
-}
+  commentContainer.innerHTML = `
+    <div class="gb-comment-box-card">
+      <h3 class="gb-comment-heading">আপনার মন্তব্য জানান</h3>
+      <form id="gbCommentForm" class="gb-comment-form">
+        <input type="text" id="gbCommentName" class="gb-form-input" placeholder="আপনার নাম" required autocomplete="name">
+        <textarea id="gbCommentText" class="gb-form-textarea" placeholder="আপনার মন্তব্য লিখুন..." required></textarea>
+        <button type="submit" id="gbCommentSubmit" class="gb-comment-btn">মন্তব্য জমা দিন</button>
+      </form>
+      <div class="gb-comment-note">
+        আপনার একটি সুন্দর মন্তব্য লেখক বা লেখিকার জন্য উতসাহ এবং আমাদের জন্য অনুপ্রেরণা, আশা করি এই গল্পটি পড়া শেষ হলে আপনি একটি সুন্দর মন্তব্য করবেন
+      </div>
+    </div>
+  `;
 
-}
-);
+  // গ) ফর্ম সাবমিশন ও কঠোর ভ্যালিডেশন
+  const form = document.getElementById("gbCommentForm");
+  const submitBtn = document.getElementById("gbCommentSubmit");
+  const nameInput = document.getElementById("gbCommentName");
+  const textInput = document.getElementById("gbCommentText");
 
-input.addEventListener(
-"keydown",
-function(e){
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-if(
-e.key === "Enter"
-){
+    const name = nameInput.value.trim();
+    const comment = textInput.value.trim();
 
-closeModal(
-input.value.trim()
-);
+    // ১. কুলডাউন চেক (৫ মিনিট)
+    if (isGbCooldownActive(filePath)) {
+      await showGbModal("আপনি এই পেইজে ইতোমধ্যে একটি মন্তব্য জানিয়েছেন, অনুগ্রহ করে পরে আবার চেষ্টা করুন");
+      return;
+    }
 
-}
+    // ২. শব্দ সংখ্যা চেক (ন্যূনতম ৩ শব্দ হতে হবে)
+    const words = comment.split(/\s+/).filter(w => w.length > 0);
+    if (words.length < 3) {
+      await showGbModal("অনুগ্রহ করে বিস্তারিত মন্তব্য জানান");
+      return;
+    }
 
-if(
-e.key === "Escape"
-){
+    // ৩. ক্যারেক্টার লিমিট (সর্বোচ্চ ৬০০) ও লাইন ব্রেক (সর্বোচ্চ ১০)
+    const lineBreaks = (comment.match(/\n/g) || []).length;
+    if (comment.length > 600 || lineBreaks > 10) {
+      await showGbModal("সম্মানিত পাঠক, অনুগ্রহ করে আরেকটু সংক্ষিপ্ত লেখা প্রদান করবেন।");
+      return;
+    }
 
-closeModal(null);
+    // ৪. সাবমিট প্রক্রিয়া শুরু
+    submitBtn.disabled = true;
+    submitBtn.textContent = "জমা হচ্ছে...";
 
-}
+    try {
+      const response = await fetch(GB_APPS_SCRIPT_URL, {
+        method: "POST",
+        body: JSON.stringify({
+          action: "comment",
+          storySlug: storySlug,
+          episode: episode,
+          filePath: filePath,
+          name: name,
+          comment: comment,
+          readerId: getGbReaderId()
+        })
+      });
 
-}
-);
-
+      const res = await response.json();
+      if (res.success) {
+        localStorage.setItem("gb_cooldown_" + filePath, Date.now().toString());
+        await showGbModal("আপনার মূল্যবান মতামত এর জন্য ধন্যবাদ, যথাযথ যাচাইয়ের পর মন্তব্যটি এখানে সংযুক্ত করা হবে।");
+        form.reset();
+      } else {
+        await showGbModal(res.message || "মন্তব্য গ্রহণ করা যায়নি। আবার চেষ্টা করুন।");
+      }
+    } catch (err) {
+      await showGbModal("আপনার মূল্যবান মতামত এর জন্য ধন্যবাদ, যথাযথ যাচাইয়ের পর মন্তব্যটি এখানে সংযুক্ত করা হবে।");
+      form.reset();
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "মন্তব্য জমা দিন";
+    }
+  });
 });
 
-}
-
-function showMessageModal(title,message){
-
-return new Promise(resolve=>{
-
-const overlay =
-document.createElement("div");
-
-overlay.className =
-"gb-pin-modal-overlay";
-
-overlay.innerHTML = `
-
-<div class="gb-pin-modal">
-
-<div class="gb-pin-modal-title">
-${title}
-</div>
-
-<div
-style="
-padding:10px 0 20px;
-text-align:center;
-line-height:1.7;
-font-size:15px;
-">
-${message}
-</div>
-
-<div class="gb-pin-modal-actions">
-
-<button
-class="gb-pin-btn gb-pin-btn-confirm"
-style="width:100%;">
-ঠিক আছে
-</button>
-
-</div>
-
-</div>
-
-`;
-
-document.body.appendChild(
-overlay
-);
-
-document.body.classList.add(
-"gb-modal-open"
-);
-
-function closeModal(){
-
-overlay.remove();
-
-document.body.classList.remove(
-"gb-modal-open"
-);
-
-resolve();
-
-}
-
-overlay
-.querySelector(
-".gb-pin-btn-confirm"
-)
-.addEventListener(
-"click",
-closeModal
-);
-
-overlay.addEventListener(
-"click",
-function(e){
-
-if(
-e.target === overlay
-){
-
-closeModal();
-
-}
-
-}
-);
-
-document.addEventListener(
-"keydown",
-function escHandler(e){
-
-if(
-e.key === "Escape"
-){
-
-document.removeEventListener(
-"keydown",
-escHandler
-);
-
-closeModal();
-
-}
-
-}
-);
-
-});
-
-}
-
-(function(){
-
-const target =
-document.getElementById("story-comments");
-
-if(!target) return;
-
-target.innerHTML = `
-
-<section class="gb-comments">
-
-<h2 class="gb-comments-title">
-আপনার মন্তব্য জানান
-</h2>
-
-<form
-id="gbCommentForm"
-class="gb-comment-form">
-
-<input
-id="gbCommentName"
-type="text"
-required
-class="gb-comment-input"
-placeholder="আপনার নাম">
-
-<textarea
-id="gbCommentText"
-required
-maxlength="1300"
-class="gb-comment-textarea"
-placeholder="আপনার মন্তব্য লিখুন"></textarea>
-
-<button
-id="gbCommentSubmit"
-type="submit"
-class="gb-comment-submit">
-মন্তব্য পোস্ট করুন
-</button>
-
-</form>
-
-<div id="gbCommentToast"></div>
-
-<div
-id="gbCommentsSection"
-style="display:none;">
-
-<h3 class="gb-comments-heading">
-পাঠকদের মন্তব্য দেখুন
-</h3>
-
-<div
-id="gbCommentsList"
-class="gb-comments-list">
-</div>
-
-<button
-id="gbLoadMoreComments"
-class="gb-comments-more"
-style="display:none;">
-আরও মতামত দেখুন
-</button>
-
-</div>
-
-</section>
-
-`;
-
-})();
-
-let allComments = [];
-let visibleComments = 5;
-
-async function loadApprovedComments(){
-
-try{
-
-const currentUrl =
-window.location.href
-.replace(/\/$/,"");
-
-const res =
-await fetch(
-COMMENTS_API +
-"?live=1&pageUrl=" +
-encodeURIComponent(
-currentUrl
-)
-);
-
-const data =
-await res.json();
-
-allComments = data;
-
-allComments.sort((a,b)=>{
-
-if(
-a.pinned &&
-!b.pinned
-) return -1;
-
-if(
-!a.pinned &&
-b.pinned
-) return 1;
-
-return 0;
-
-});
-
-renderComments();
-
-}catch(err){
-
-console.error(err);
-
-}
-
-}
-
-function renderComments(){
-
-const section =
-document.getElementById(
-"gbCommentsSection"
-);
-
-const list =
-document.getElementById(
-"gbCommentsList"
-);
-
-const loadMore =
-document.getElementById(
-"gbLoadMoreComments"
-);
-
-if(
-!section ||
-!list
-) return;
-
-if(
-allComments.length === 0
-){
-
-section.style.display =
-"none";
-
-return;
-
-}
-
-section.style.display =
-"block";
-
-list.innerHTML = "";
-
-allComments
-.slice(0,visibleComments)
-.forEach(comment=>{
-
-const card =
-document.createElement("div");
-
-card.className =
-"gb-comment";
-
-card.innerHTML = `
-<div
-class="gb-comment-author"
-style="
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-">
-
-<div>
-
-<div class="gb-comment-author-name">
-${comment.name}
-</div>
-
-<div class="gb-comment-date">
-${new Date(comment.date).toLocaleDateString(
-"bn-BD",
-{
-day:"numeric",
-month:"long",
-year:"numeric"
-}
-)}
-</div>
-
-</div>
-
-<span
-class="gb-pin-icon"
-data-id="${comment.id}"
-data-pinned="${comment.pinned}">
-${comment.pinned ? "❤️" : "✅"}
-</span>
-
-</div>
-
-<div class="gb-comment-text">
-${comment.comment}
-</div>
-`;
-
-list.appendChild(card);
-
-const pinIcon =
-card.querySelector(
-".gb-pin-icon"
-);
-
-let clickCount = 0;
-let clickTimer;
-
-pinIcon.addEventListener(
-"click",
-function(){
-
-clickCount++;
-
-clearTimeout(
-clickTimer
-);
-
-clickTimer =
-setTimeout(function(){
-
-clickCount = 0;
-
-},1500);
-
-if(
-clickCount < 5
-){
-return;
-}
-
-clickCount = 0;
-
-showSecretPinModal()
-
-.then(code=>{
-
-if(
-!code
-){
-return;
-}
-
-const isPinned =
-pinIcon.dataset.pinned ===
-"true";
-
-const action =
-isPinned
-? "unpin"
-: "pin";
-
-fetch(
-COMMENTS_API,
-{
-method:"POST",
-body:new URLSearchParams({
-
-action:action,
-id:comment.id,
-code:code
-
-})
-
-}
-)
-
-.then(res => res.json())
-
-.then(data=>{
-
-console.log(data);
-
-if(
-data.success
-){
-
-if(isPinned){
-
-pinIcon.textContent =
-"✅";
-
-pinIcon.dataset.pinned =
-"false";
-
-}else{
-
-pinIcon.textContent =
-"❤️";
-
-pinIcon.dataset.pinned =
-"true";
-
-}
-
-}else{
-
-showMessageModal(
-
-"⚠ পিন করা যায়নি",
-
-data.message ||
-"দুঃখিত কাজটি সম্পন্ন হয়নি"
-
-);
-
-}
-
-// if(isPinned){
-
-// pinIcon.textContent =
-// "✅";
-
-// pinIcon.dataset.pinned =
-// "false";
-
-// }else{
-
-// pinIcon.textContent =
-// "❤️";
-
-// pinIcon.dataset.pinned =
-// "true";
-
-// }
-
-})
-
-.catch(err=>{
-
-console.error(err);
-
-showMessageModal(
-
-"⚠ ত্রুটি",
-
-err.toString()
-
-);
-
-});
-
-});
-}
-);
-
-});
-
-if(
-allComments.length >
-visibleComments
-){
-
-loadMore.style.display =
-"block";
-
-}else{
-
-loadMore.style.display =
-"none";
-
-}
-
-}
-
-document.addEventListener(
-"DOMContentLoaded",
-function(){
-
-loadApprovedComments();
-
-const btn =
-document.getElementById(
-"gbLoadMoreComments"
-);
-
-if(btn){
-
-btn.addEventListener(
-"click",
-function(){
-
-visibleComments += 5;
-
-renderComments();
-
-}
-);
-
-}
-
-}
-);
-
-
-// === Max 10 Line Break ===
-
-document.addEventListener(
-"keydown",
-function(e){
-
-if(
-e.target.id !==
-"gbCommentText"
-){
-return;
-}
-
-if(
-e.key !== "Enter"
-){
-return;
-}
-
-const text =
-e.target.value;
-
-const lineBreaks =
-(text.match(/\n/g) || []).length;
-
-if(lineBreaks >= 10){
-
-e.preventDefault();
-
-}
-
-}
-);
-
-/* ===== Comment Submit ===== */
-
-document.addEventListener(
-"submit",
-async function(e){
-
-const form =
-e.target;
-
-if(
-form.id !==
-"gbCommentForm"
-) return;
-
-e.preventDefault();
-
-const name =
-document
-.getElementById(
-"gbCommentName"
-)
-.value
-.trim();
-
-const comment =
-document
-.getElementById(
-"gbCommentText"
-)
-.value
-.trim();
-
-if(
-!name ||
-!comment
-){
-return;
-}
-
-/* ===== Validation ===== */
-
-if(comment.length > 1300){
-
-await showMessageModal(
-"⚠ মন্তব্য খুব বড়",
-"সর্বোচ্চ ১৩০০ অক্ষরের মন্তব্য করা যাবে।"
-);
-
-return;
-
-}
-
-const lineBreaks =
-(comment.match(/\n/g) || []).length;
-
-if(lineBreaks > 10){
-
-await showMessageModal(
-"⚠ অতিরিক্ত লাইন",
-"সর্বোচ্চ ১০টি লাইন ব্রেক ব্যবহার করা যাবে।"
-);
-
-return;
-
-}
-
-const submitBtn =
-document
-.getElementById(
-"gbCommentSubmit"
-);
-
-submitBtn.disabled = true;
-
-submitBtn.textContent =
-"পাঠানো হচ্ছে...";
-
-try{
-
-const path =
-location.pathname
-.replace(/^\/|\/$/g,"")
-.split("/");
-
-const payload = {
-
-storySlug:
-path[2] || "",
-
-episode:
-path[3] || "",
-
-pageUrl:
-location.href,
-
-name:
-name,
-
-comment:
-comment,
-
-readerId:
-getReaderId()
-
-};
-
-const formData =
-new FormData();
-
-formData.append(
-"data",
-JSON.stringify(
-payload
-)
-);
-
-const response =
-await fetch(
-COMMENTS_API,
-{
-method:"POST",
-body:
-formData
-}
-);
-
-const result =
-await response.json();
-
-if(result.success){
-
-document
-.getElementById(
-"gbCommentName"
-)
-.value = "";
-
-document
-.getElementById(
-"gbCommentText"
-)
-.value = "";
-
-await showMessageModal(
-
-"✓ মন্তব্য গ্রহণ করা হয়েছে",
-
-"আপনার মতামতটি খুব শীঘ্রই এখানে প্রকাশিত হবে, ইনশাআল্লাহ।"
-
-);
-
-}else{
-
-await showMessageModal(
-
-"⚠ মন্তব্য জমা হয়নি",
-
-result.message ||
-"দুঃখিত, মন্তব্য পাঠানো যায়নি।"
-
-);
-
-}
-
-}catch(error){
-
-console.error(error);
-
-await showMessageModal(
-
-"⚠ ত্রুটি",
-
-error?.message ||
-error?.toString() ||
-"Unknown Error"
-
-);
-
-}
-
-submitBtn.disabled = false;
-
-submitBtn.textContent =
-"মন্তব্য পোস্ট করুন";
-
-}
-);
-
-
-/* ===== End Comment Submit ===== */
+/* ==========================================================
+   Golper Bahar: Automated Fast Comment System Ending Point
+========================================================== */
 
 
 // Google Analytics

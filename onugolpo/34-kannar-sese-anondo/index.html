@@ -170,8 +170,30 @@
 <a href="../35-vul-thikanay-kham/" title="ভুল ঠিকানায় পৌঁছানো খাম">পরের গল্প</a>
 </div>
 
+<!-- Story Stats (Views & Total Comments) -->
+<div class="gb-story-stats-bar">
+  <span class="gb-stat-item">
+    <span>👁️</span>
+    <span class="gb-stat-views"><!-- STORY_VIEWS -->০ বার পড়া হয়েছে<!-- /STORY_VIEWS --></span>
+  </span>
+  <span class="gb-stat-divider">|</span>
+  <span class="gb-stat-item">
+    <span>💬</span>
+    <span class="gb-stat-comments"><!-- STORY_COMMENTS -->০টি মন্তব্য<!-- /STORY_COMMENTS --></span>
+  </span>
+</div>
+
 <div id="copy-link"></div>
-<div id="story-comments"></div>
+<div class="gb-story-footer-section">
+  <!-- কমেন্ট বক্স কন্টেইনার (components.js থেকে রেন্ডার হবে) -->
+  <div id="story-comments"></div>
+
+  <!-- হার্ডকোডেড কমেন্ট লিস্ট মার্কার (যেখানে অটো পুশ হয়ে কমেন্ট ঢুকবে) -->
+  <div class="gb-comments-list" id="gbCommentsList">
+    <!-- COMMENTS_START -->
+    <!-- COMMENTS_END -->
+  </div>
+</div>
 
 <div id="footer"></div>
 
