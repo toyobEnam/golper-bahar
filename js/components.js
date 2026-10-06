@@ -558,10 +558,17 @@ document.addEventListener("DOMContentLoaded", function () {
   `;
 
   // গ) ফর্ম সাবমিশন ও কঠোর ভ্যালিডেশন
-  const form = document.getElementById("gbCommentForm");
-  const submitBtn = document.getElementById("gbCommentSubmit");
-  const nameInput = document.getElementById("gbCommentName");
-  const textInput = document.getElementById("gbCommentText");
+const form = document.getElementById("gbCommentForm");
+const submitBtn = document.getElementById("gbCommentSubmit");
+const nameInput = document.getElementById("gbCommentName");
+const textInput = document.getElementById("gbCommentText");
+
+// লিংক/URL শনাক্ত করার নিয়ম
+const gbLinkPattern = /(?:https?:\/\/|ftp:\/\/|www\.)[^\s]+|(?:^|\s)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,63}(?:[\/?#][^\s]*)?/iu;
+
+function containsGbLink(text) {
+  return gbLinkPattern.test(String(text || ""));
+}
 
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -575,21 +582,27 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // ২. শব্দ সংখ্যা চেক (ন্যূনতম ৩ শব্দ হতে হবে)
+    // ২. নাম বা মন্তব্যে কোনো লিংক/URL আছে কি না চেক
+    if (containsGbLink(name) || containsGbLink(comment)) {
+      await showGbModal("নাম বা মন্তব্যের মধ্যে কোনো লিংক বা ওয়েবসাইটের ঠিকানা দেওয়া যাবে না।");
+      return;
+    }
+
+    // ৩. শব্দ সংখ্যা চেক (ন্যূনতম ৩ শব্দ হতে হবে)
     const words = comment.split(/\s+/).filter(w => w.length > 0);
     if (words.length < 3) {
       await showGbModal("অনুগ্রহ করে বিস্তারিত মন্তব্য জানান");
       return;
     }
 
-    // ৩. ক্যারেক্টার লিমিট (সর্বোচ্চ ৬০০) ও লাইন ব্রেক (সর্বোচ্চ ১০)
+    // ৪. ক্যারেক্টার লিমিট (সর্বোচ্চ ১০০০) ও লাইন ব্রেক (সর্বোচ্চ ১০)
     const lineBreaks = (comment.match(/\n/g) || []).length;
-    if (comment.length > 600 || lineBreaks > 10) {
-      await showGbModal("সম্মানিত পাঠক, অনুগ্রহ করে আরেকটু সংক্ষিপ্ত লেখা প্রদান করবেন।");
+    if (comment.length > 1000 || lineBreaks > 10) {
+      await showGbModal("সম্মানিত পাঠক, অনুগ্রহ করে সর্বোচ্চ ১০০০ অক্ষরের মধ্যে মন্তব্যটি লিখুন।");
       return;
     }
 
-    // ৪. সাবমিট প্রক্রিয়া শুরু
+    // ৫. সাবমিট প্রক্রিয়া শুরু
     submitBtn.disabled = true;
     submitBtn.textContent = "জমা হচ্ছে...";
 
@@ -607,7 +620,12 @@ document.addEventListener("DOMContentLoaded", function () {
         })
       });
 
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
       const res = await response.json();
+
       if (res.success) {
         localStorage.setItem("gb_cooldown_" + filePath, Date.now().toString());
         await showGbModal("আপনার মূল্যবান মতামত এর জন্য ধন্যবাদ, যথাযথ যাচাইয়ের পর মন্তব্যটি এখানে সংযুক্ত করা হবে।");
@@ -616,8 +634,11 @@ document.addEventListener("DOMContentLoaded", function () {
         await showGbModal(res.message || "মন্তব্য গ্রহণ করা যায়নি। আবার চেষ্টা করুন।");
       }
     } catch (err) {
-      await showGbModal("আপনার মূল্যবান মতামত এর জন্য ধন্যবাদ, যথাযথ যাচাইয়ের পর মন্তব্যটি এখানে সংযুক্ত করা হবে।");
-      form.reset();
+      console.error("Comment submission error:", err);
+
+      await showGbModal(
+        "দুঃখিত, এই মুহূর্তে মন্তব্যটি জমা দেওয়া সম্ভব হয়নি। অনুগ্রহ করে কিছুক্ষণ পর আবার চেষ্টা করুন।"
+      );
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = "মন্তব্য জমা দিন";
@@ -697,5 +718,65 @@ document.addEventListener("keydown", function(e){
     if(e.key==="F12"){
         e.preventDefault();
     }
+
+});
+
+/* ==========================================================
+   Golper Bahar: Comment Pagination
+   প্রথমে ১০টি, এরপর প্রতি ক্লিকে আরও ৫টি
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const commentsList = document.querySelector(".gb-comments-list");
+
+    if (!commentsList) return;
+
+    const comments = Array.from(
+        commentsList.querySelectorAll(".gb-comment")
+    );
+
+    if (comments.length <= 10) {
+        return;
+    }
+
+    const loadMoreBtn = document.createElement("button");
+
+    loadMoreBtn.type = "button";
+    loadMoreBtn.className = "gb-comments-more";
+    loadMoreBtn.textContent = "আরও দেখুন";
+
+    commentsList.insertAdjacentElement("afterend", loadMoreBtn);
+
+    let visibleComments = 10;
+
+    function renderComments() {
+
+        comments.forEach(function (comment, index) {
+
+            if (index < visibleComments) {
+                comment.style.display = "";
+            } else {
+                comment.style.display = "none";
+            }
+
+        });
+
+        if (visibleComments < comments.length) {
+            loadMoreBtn.style.display = "block";
+        } else {
+            loadMoreBtn.style.display = "none";
+        }
+    }
+
+    loadMoreBtn.addEventListener("click", function () {
+
+        visibleComments += 5;
+
+        renderComments();
+
+    });
+
+    renderComments();
 
 });

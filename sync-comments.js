@@ -25,24 +25,43 @@ async function runSync() {
     console.log("গুগল শিট থেকে ডাটা আনা হচ্ছে...");
     const response = await fetch(APPS_SCRIPT_URL);
     if (!response.ok) {
-      throw new Error(`সার্ভার এরর: ${response.statusText}`);
+      const errorBody = await response.text();
+      throw new Error(
+        `Apps Script সার্ভার এরর: ${response.status} ${response.statusText}\n${errorBody}`
+      );
     }
 
     const data = await response.json();
-    const approvedComments = data.approvedComments || [];
-    const storyStats = data.storyStats || [];
+
+    if (!data || typeof data !== 'object') {
+      throw new Error('Apps Script থেকে বৈধ JSON ডাটা পাওয়া যায়নি।');
+    }
+
+    if (!Array.isArray(data.approvedComments)) {
+      throw new Error('approvedComments একটি array নয়।');
+    }
+
+    if (!Array.isArray(data.storyStats)) {
+      throw new Error('storyStats একটি array নয়।');
+    }
+
+    const approvedComments = data.approvedComments;
+    const storyStats = data.storyStats;
 
     console.log(`মোট অনুমোদিত মন্তব্য: ${approvedComments.length}`);
     console.log(`মোট গল্পের স্ট্যাটস: ${storyStats.length}`);
 
     let hasChanges = false;
+    const syncedCommentIds = [];
 
     // ১. পর্বের ফাইলে কমেন্ট ইনজেক্ট করা
     if (approvedComments.length > 0) {
       const commentsByFile = {};
       approvedComments.forEach(item => {
         if (!item.filePath) return;
-        const cleanPath = item.filePath.replace(/^\/+/, '');
+        const cleanPath = String(item.filePath || '')
+          .replace(/\\/g, '/')
+          .replace(/^\/+/, '');
         if (!commentsByFile[cleanPath]) commentsByFile[cleanPath] = [];
         commentsByFile[cleanPath].push(item);
       });
@@ -58,6 +77,14 @@ async function runSync() {
           if (content.includes(markerStart) && content.includes(markerEnd)) {
             // ডুপ্লিকেট কমেন্ট ঠেকাতে আইডি চেক
             const newCommentsToInject = comments.filter(c => !content.includes(`id="${c.id}"`));
+
+            // যেসব Approved comment-এর নির্দিষ্ট HTML ফাইল ও marker পাওয়া গেছে,
+            // সেগুলো sync-এর জন্য সফল হিসেবে ধরা হবে।
+            comments.forEach(c => {
+              if (c.id && !syncedCommentIds.includes(c.id)) {
+                syncedCommentIds.push(c.id);
+              }
+            });
 
             if (newCommentsToInject.length > 0) {
               const commentsHtml = newCommentsToInject.map(c => `
@@ -93,7 +120,9 @@ async function runSync() {
     if (storyStats.length > 0) {
       for (const stat of storyStats) {
         if (!stat.indexPath) continue;
-        const cleanIndexPath = stat.indexPath.replace(/^\/+/, '');
+        const cleanIndexPath = String(stat.indexPath || '')
+          .replace(/\\/g, '/')
+          .replace(/^\/+/, '');
         const indexPath = path.join(process.cwd(), cleanIndexPath);
 
         if (fs.existsSync(indexPath)) {
@@ -106,15 +135,23 @@ async function runSync() {
           // ভিউ মার্কার আপডেট
           const viewRegex = /<!-- STORY_VIEWS -->([\s\S]*?)<!-- \/STORY_VIEWS -->/;
           if (viewRegex.test(content)) {
-            content = content.replace(viewRegex, `<!-- STORY_VIEWS -->${bnViews} বার পড়া হয়েছে<!-- /STORY_VIEWS -->`);
-            modified = true;
+            const newViewText = `<!-- STORY_VIEWS -->${bnViews} বার পড়া হয়েছে<!-- /STORY_VIEWS -->`;
+            content = content.replace(viewRegex, (match) => {
+              if (match === newViewText) return match;
+              modified = true;
+              return newViewText;
+            });
           }
 
           // কমেন্ট সংখ্যা মার্কার আপডেট
           const commentRegex = /<!-- STORY_COMMENTS -->([\s\S]*?)<!-- \/STORY_COMMENTS -->/;
           if (commentRegex.test(content)) {
-            content = content.replace(commentRegex, `<!-- STORY_COMMENTS -->${bnComments}টি মন্তব্য<!-- /STORY_COMMENTS -->`);
-            modified = true;
+            const newCommentText = `<!-- STORY_COMMENTS -->${bnComments}টি মন্তব্য<!-- /STORY_COMMENTS -->`;
+            content = content.replace(commentRegex, (match) => {
+              if (match === newCommentText) return match;
+              modified = true;
+              return newCommentText;
+            });
           }
 
           if (modified) {
@@ -126,6 +163,22 @@ async function runSync() {
       }
     }
 
+    // GitHub push সফল হওয়ার পর Apps Script-কে যেসব comment ID
+    // Sheet থেকে মুছে ফেলতে হবে, সেগুলো temporary file-এ রাখা হচ্ছে।
+    const cleanupFile = path.join(process.cwd(), '.sync-comment-ids.json');
+
+    if (syncedCommentIds.length > 0) {
+      fs.writeFileSync(
+        cleanupFile,
+        JSON.stringify(syncedCommentIds, null, 2),
+        'utf8'
+      );
+
+      console.log(`Cleanup-এর জন্য ${syncedCommentIds.length}টি comment ID প্রস্তুত করা হয়েছে।`);
+    } else {
+      console.log("Cleanup করার মতো কোনো Approved comment পাওয়া যায়নি।");
+    }
+
     if (!hasChanges) {
       console.log("নতুন কোনো ফাইল পরিবর্তনের প্রয়োজন নেই।");
     } else {
@@ -133,7 +186,10 @@ async function runSync() {
     }
 
   } catch (error) {
-    console.error("সিঙ্ক করার সময় ত্রুটি ঘটেছে:", error);
+    console.error("========================================");
+    console.error("সিঙ্ক করার সময় ত্রুটি ঘটেছে!");
+    console.error("Error:", error.message || error);
+    console.error("========================================");
     process.exit(1);
   }
 }
