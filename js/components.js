@@ -602,13 +602,14 @@ function containsGbLink(text) {
       return;
     }
 
-    // ৫. সাবমিট প্রক্রিয়া শুরু
+// ৫. সাবমিট প্রক্রিয়া শুরু
     submitBtn.disabled = true;
     submitBtn.textContent = "জমা হচ্ছে...";
 
     try {
-      const response = await fetch(GB_APPS_SCRIPT_URL, {
+      await fetch(GB_APPS_SCRIPT_URL, {
         method: "POST",
+        mode: "no-cors",
         body: JSON.stringify({
           action: "comment",
           storySlug: commentStorySlug,
@@ -620,29 +621,29 @@ function containsGbLink(text) {
         })
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-      }
+      localStorage.setItem(
+        "gb_cooldown_" + filePath,
+        Date.now().toString()
+      );
 
-      const res = await response.json();
+      await showGbModal(
+        "আপনার মূল্যবান মতামতের জন্য ধন্যবাদ, যথাযথ যাচাইয়ের পর মন্তব্যটি এখানে সংযুক্ত করা হবে।"
+      );
 
-      if (res.success) {
-        localStorage.setItem("gb_cooldown_" + filePath, Date.now().toString());
-        await showGbModal("আপনার মূল্যবান মতামত এর জন্য ধন্যবাদ, যথাযথ যাচাইয়ের পর মন্তব্যটি এখানে সংযুক্ত করা হবে।");
-        form.reset();
-      } else {
-        await showGbModal(res.message || "মন্তব্য গ্রহণ করা যায়নি। আবার চেষ্টা করুন।");
-      }
+      form.reset();
+
     } catch (err) {
       console.error("Comment submission error:", err);
 
       await showGbModal(
         "দুঃখিত, এই মুহূর্তে মন্তব্যটি জমা দেওয়া সম্ভব হয়নি। অনুগ্রহ করে কিছুক্ষণ পর আবার চেষ্টা করুন।"
       );
+
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = "মন্তব্য জমা দিন";
     }
+
   });
 });
 
