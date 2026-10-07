@@ -344,11 +344,12 @@ body{
 }
 
 .gb-comment-heading {
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: var(--text-color);
   margin: 0 0 18px 0;
   line-height: 1.4;
+  text-align: center;
 }
 
 .gb-comment-form {
@@ -431,6 +432,7 @@ body{
   margin-top: 14px;
   padding-top: 12px;
   border-top: 1px dashed var(--border-color);
+  text-align: center;
 }
 
 .gb-comments-list {
@@ -510,7 +512,7 @@ body{
   }
 
   .gb-comment-heading {
-    font-size: 1.08rem;
+    font-size: 1.40rem;
   }
 
   .gb-form-input,
@@ -553,7 +555,7 @@ body{
   }
 
   .gb-comment-heading {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 14px;
   }
 

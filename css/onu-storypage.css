@@ -193,12 +193,17 @@ header h2 {
 }
 
 @media (max-width: 1200px) {
+
     .story-container .left-bar {
         display: none;
     }
 
     .story-container {
         grid-template-columns: 3fr 1fr;
+    }
+
+    .gb-story-footer-section {
+        width: 75%;
     }
 }
 
@@ -238,8 +243,8 @@ header h2 {
 /* ===== Story Comments Position & Design ===== */
 
 #story-comments{
-    width: calc((100% - 60px) * 0.6);
-    margin: 55px auto 30px;
+    width: 100%;
+    margin: 55px 0 30px;
     padding-top: 30px;
     box-sizing: border-box;
     border-top: 1px solid rgb(205, 200, 195);
@@ -274,9 +279,9 @@ header h2 {
 }
 
 .gb-story-footer-section {
-    width: calc((100% - 60px) * 0.6);
+    width: 60%;
     margin: 0 auto;
-    padding: 0;
+    padding: 10px;
     box-sizing: border-box;
 }
 
@@ -290,11 +295,12 @@ header h2 {
 }
 
 .gb-comment-heading {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 700;
     color: rgb(55, 50, 46);
     margin: 0 0 18px 0;
     line-height: 1.4;
+    text-align: center;
 }
 
 .gb-comment-form {
@@ -377,6 +383,7 @@ header h2 {
     margin-top: 14px;
     padding-top: 12px;
     border-top: 1px dashed rgb(190, 184, 178);
+    text-align: center;
 }
 
 .gb-comments-list {
@@ -461,7 +468,7 @@ header h2 {
     }
 
     .gb-comment-heading {
-        font-size: 18px;
+        font-size: 22px;
     }
 
     .gb-form-input,
@@ -504,7 +511,7 @@ header h2 {
     }
 
     .gb-comment-heading {
-        font-size: 16px;
+        font-size: 21px;
         margin-bottom: 14px;
     }
 
