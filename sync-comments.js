@@ -20,6 +20,17 @@ function escapeHtml(text) {
     .replace(/'/g, '&#039;');
 }
 
+// HTML-এর বর্তমান বাংলা/ইংরেজি সংখ্যা থেকে আসল সংখ্যা বের করা
+function parseNumber(text) {
+  const bnDigits = '০১২৩৪৫৬৭৮৯';
+  const normalized = String(text || '').replace(/[০-৯]/g, d => bnDigits.indexOf(d));
+  const match = normalized.match(/\d[\d,]*/);
+
+  if (!match) return 0;
+
+  return parseInt(match[0].replace(/,/g, ''), 10) || 0;
+}
+
 async function runSync() {
   try {
     console.log("গুগল শিট থেকে ডাটা আনা হচ্ছে...");
@@ -53,6 +64,7 @@ async function runSync() {
 
     let hasChanges = false;
     const syncedCommentIds = [];
+    const syncedStoryStats = [];
 
     // ১. পর্বের ফাইলে কমেন্ট ইনজেক্ট করা
     if (approvedComments.length > 0) {
@@ -120,45 +132,80 @@ async function runSync() {
     if (storyStats.length > 0) {
       for (const stat of storyStats) {
         if (!stat.indexPath) continue;
+
         const cleanIndexPath = String(stat.indexPath || '')
           .replace(/\\/g, '/')
           .replace(/^\/+/, '');
+
         const indexPath = path.join(process.cwd(), cleanIndexPath);
 
         if (fs.existsSync(indexPath)) {
           let content = fs.readFileSync(indexPath, 'utf8');
           let modified = false;
 
-          const bnViews = toBengaliNumber(stat.views || 0);
-          const bnComments = toBengaliNumber(stat.comments || 0);
+          // GitHub HTML-এ বর্তমানে থাকা Views ও Comments বের করা
+          let currentViews = 0;
+          let currentComments = 0;
+
+          const viewRegex = /<!-- STORY_VIEWS -->([\s\S]*?)<!-- \/STORY_VIEWS -->/;
+          const commentRegex = /<!-- STORY_COMMENTS -->([\s\S]*?)<!-- \/STORY_COMMENTS -->/;
+
+          const viewMatch = content.match(viewRegex);
+          const commentMatch = content.match(commentRegex);
+
+          if (viewMatch) {
+            currentViews = parseNumber(viewMatch[1]);
+          }
+
+          if (commentMatch) {
+            currentComments = parseNumber(commentMatch[1]);
+          }
+
+          // GitHub-এর আগের মোট সংখ্যার সাথে Sheet-এর নতুন সংখ্যা যোগ করা
+          const newViews = currentViews + (parseInt(stat.views, 10) || 0);
+          const newComments = currentComments + (parseInt(stat.comments, 10) || 0);
+
+          const bnViews = toBengaliNumber(newViews);
+          const bnComments = toBengaliNumber(newComments);
 
           // ভিউ মার্কার আপডেট
-          const viewRegex = /<!-- STORY_VIEWS -->([\s\S]*?)<!-- \/STORY_VIEWS -->/;
-          if (viewRegex.test(content)) {
+          if (viewMatch) {
             const newViewText = `<!-- STORY_VIEWS -->${bnViews} বার পড়া হয়েছে<!-- /STORY_VIEWS -->`;
-            content = content.replace(viewRegex, (match) => {
-              if (match === newViewText) return match;
+
+            if (viewMatch[0] !== newViewText) {
+              content = content.replace(viewRegex, newViewText);
               modified = true;
-              return newViewText;
-            });
+            }
           }
 
           // কমেন্ট সংখ্যা মার্কার আপডেট
-          const commentRegex = /<!-- STORY_COMMENTS -->([\s\S]*?)<!-- \/STORY_COMMENTS -->/;
-          if (commentRegex.test(content)) {
+          if (commentMatch) {
             const newCommentText = `<!-- STORY_COMMENTS -->${bnComments}টি মন্তব্য<!-- /STORY_COMMENTS -->`;
-            content = content.replace(commentRegex, (match) => {
-              if (match === newCommentText) return match;
+
+            if (commentMatch[0] !== newCommentText) {
+              content = content.replace(commentRegex, newCommentText);
               modified = true;
-              return newCommentText;
-            });
+            }
           }
 
           if (modified) {
             fs.writeFileSync(indexPath, content, 'utf8');
-            console.log(`স্ট্যাটস আপডেট হয়েছে: ${cleanIndexPath}`);
+
+            console.log(
+              `স্ট্যাটস আপডেট হয়েছে: ${cleanIndexPath} | ` +
+              `Views: ${currentViews} + ${parseInt(stat.views, 10) || 0} = ${newViews} | ` +
+              `Comments: ${currentComments} + ${parseInt(stat.comments, 10) || 0} = ${newComments}`
+            );
+
             hasChanges = true;
           }
+
+          // GitHub push সফল হলে এই StoryStats row Sheet থেকে মুছে ফেলার জন্য
+          // storySlug এবং indexPath temporary file-এ রাখা হবে।
+          syncedStoryStats.push({
+            storySlug: stat.storySlug,
+            indexPath: cleanIndexPath
+          });
         }
       }
     }
@@ -166,6 +213,7 @@ async function runSync() {
     // GitHub push সফল হওয়ার পর Apps Script-কে যেসব comment ID
     // Sheet থেকে মুছে ফেলতে হবে, সেগুলো temporary file-এ রাখা হচ্ছে।
     const cleanupFile = path.join(process.cwd(), '.sync-comment-ids.json');
+    const storyStatsCleanupFile = path.join(process.cwd(), '.sync-story-stats.json');
 
     if (syncedCommentIds.length > 0) {
       fs.writeFileSync(
@@ -177,6 +225,22 @@ async function runSync() {
       console.log(`Cleanup-এর জন্য ${syncedCommentIds.length}টি comment ID প্রস্তুত করা হয়েছে।`);
     } else {
       console.log("Cleanup করার মতো কোনো Approved comment পাওয়া যায়নি।");
+    }
+
+    // GitHub push সফল হলে যেসব StoryStats row Sheet থেকে মুছে ফেলতে হবে,
+    // সেগুলো temporary file-এ রাখা হচ্ছে।
+    if (syncedStoryStats.length > 0) {
+      fs.writeFileSync(
+        storyStatsCleanupFile,
+        JSON.stringify(syncedStoryStats, null, 2),
+        'utf8'
+      );
+
+      console.log(
+        `StoryStats cleanup-এর জন্য ${syncedStoryStats.length}টি row প্রস্তুত করা হয়েছে।`
+      );
+    } else {
+      console.log("Cleanup করার মতো কোনো StoryStats row পাওয়া যায়নি।");
     }
 
     if (!hasChanges) {

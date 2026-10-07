@@ -46,19 +46,29 @@ jobs:
             echo "push_success=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Remove Successfully Synced Comments from Google Sheet
-        if: ${{ steps.push_changes.outputs.push_success == 'true' && hashFiles('.sync-comment-ids.json') != '' }}
+      - name: Remove Successfully Synced Comments and Story Stats from Google Sheet
+        if: ${{ steps.push_changes.outputs.push_success == 'true' && (hashFiles('.sync-comment-ids.json') != '' || hashFiles('.sync-story-stats.json') != '') }}
         env:
           SYNC_SECRET: ${{ secrets.SYNC_SECRET }}
           APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwU75Chu74PABjZ_GYXT4fGD6XTAU1KXA5sS7WnP7tdeOcxsPAMtyAjKiaPlCKzutDW/exec"
         run: |
           echo "Google Sheet cleanup শুরু হচ্ছে..."
 
-          COMMENT_IDS=$(cat .sync-comment-ids.json)
+          if [ -f ".sync-comment-ids.json" ]; then
+            COMMENT_IDS=$(cat .sync-comment-ids.json)
+          else
+            COMMENT_IDS="[]"
+          fi
 
-          RESPONSE=$(curl -L -s -X POST "$APPS_SCRIPT_URL" \
+          if [ -f ".sync-story-stats.json" ]; then
+            STORY_STATS=$(cat .sync-story-stats.json)
+          else
+            STORY_STATS="[]"
+          fi
+
+          RESPONSE=$(curl -L -s "$APPS_SCRIPT_URL" \
             -H "Content-Type: application/json" \
-            -d "{\"action\":\"cleanupSyncedComments\",\"secret\":\"$SYNC_SECRET\",\"commentIds\":$COMMENT_IDS}")
+            -d "{\"action\":\"cleanupSyncedComments\",\"secret\":\"$SYNC_SECRET\",\"commentIds\":$COMMENT_IDS,\"storyStats\":$STORY_STATS}")
 
           echo "Apps Script response:"
           echo "$RESPONSE"
@@ -68,4 +78,4 @@ jobs:
             exit 1
           }
 
-          echo "Google Sheet থেকে synced comments সফলভাবে মুছে ফেলা হয়েছে।"
+          echo "Google Sheet থেকে synced comments এবং StoryStats সফলভাবে মুছে ফেলা হয়েছে।"
