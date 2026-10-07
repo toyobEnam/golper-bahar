@@ -233,26 +233,261 @@ header h2 {
 }
 
 
-/* ============ Position of CommentBox ============= */
+/* ============ Story Comments Component ============= */
 
-/* ===== Story Comments Position ===== */
+/* ===== Story Comments Position & Design ===== */
 
 #story-comments{
-    width: 100%;
-    max-width: 1100px;
-
-    margin: 40px auto;
-
-    padding: 0 20px;
-
+    width: calc((100% - 60px) * 0.6);
+    margin: 55px auto 30px;
+    padding-top: 30px;
     box-sizing: border-box;
+    border-top: 1px solid rgb(205, 200, 195);
+}
+
+.gb-story-stats-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 24px;
+    padding: 8px 16px;
+    background: rgb(248, 245, 241);
+    border: 1px solid rgb(190, 184, 178);
+    border-radius: 6px;
+    font-size: 16px;
+    color: rgb(65, 60, 56);
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+.gb-stat-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.gb-stat-divider {
+    color: rgb(150, 145, 140);
+}
+
+.gb-story-footer-section {
+    width: calc((100% - 60px) * 0.6);
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.gb-comment-box-card {
+    width: 100%;
+    background: rgb(248, 245, 241);
+    border: 1px solid rgb(190, 184, 178);
+    border-radius: 6px;
+    padding: 22px 20px;
+    box-sizing: border-box;
+}
+
+.gb-comment-heading {
+    font-size: 25px;
+    font-weight: 700;
+    color: rgb(55, 50, 46);
+    margin: 0 0 18px 0;
+    line-height: 1.4;
+}
+
+.gb-comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.gb-form-input {
+    width: 100%;
+    border: 1px solid rgb(160, 154, 148);
+    border-radius: 4px;
+    padding: 10px 13px;
+    background: rgb(255, 255, 255);
+    font-size: 25px;
+    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+    color: rgb(45, 42, 39);
+    box-sizing: border-box;
+    outline: none;
+}
+
+.gb-form-input:focus {
+    border-color: rgb(90, 84, 79);
+}
+
+.gb-form-textarea {
+    width: 100%;
+    height: 150px;
+    min-height: 150px;
+    max-height: 150px;
+    resize: none;
+    border: 1px solid rgb(160, 154, 148);
+    border-radius: 4px;
+    padding: 11px 13px;
+    background: rgb(255, 255, 255);
+    font-size: 25px;
+    font-family: 'LiPurnoPran', 'Kalpurush', 'Noto Serif Bengali', serif;
+    color: rgb(45, 42, 39);
+    box-sizing: border-box;
+    outline: none;
+    line-height: 1.5;
+}
+
+.gb-form-textarea:focus {
+    border-color: rgb(90, 84, 79);
+}
+
+.gb-comment-btn {
+    width: 100%;
+    align-self: stretch;
+    background: rgb(0, 42, 180);
+    color: rgb(255, 255, 255);
+    border: 1px solid rgb(0, 42, 180);
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+    box-sizing: border-box;
+}
+
+.gb-comment-btn:hover {
+    background: rgb(12, 58, 0);
+    border-color: rgb(12, 58, 0);
+}
+
+.gb-comment-btn:disabled {
+    background: rgb(150, 150, 150);
+    border-color: rgb(150, 150, 150);
+    cursor: not-allowed;
+}
+
+.gb-comment-note {
+    font-size: 16px;
+    font-style: italic;
+    color: rgb(100, 95, 90);
+    line-height: 1.6;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed rgb(190, 184, 178);
+}
+
+.gb-comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    margin-top: 28px;
+}
+
+.gb-comments-more {
+    display: none;
+    width: 100%;
+    margin: 18px 0 0;
+    padding: 10px 18px;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 42, 180);
+    border: 1px solid rgb(0, 42, 180);
+    border-radius: 4px;
+    font-size: 25px;
+    font-weight: 600;
+    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.gb-comments-more:hover {
+    background: rgb(0, 42, 180);
+    color: rgb(255, 255, 255);
+}
+
+.gb-comment {
+    width: 100%;
+    background: rgb(248, 245, 241);
+    border: 1px solid rgb(190, 184, 178);
+    border-radius: 6px;
+    padding: 16px 18px;
+    box-sizing: border-box;
+}
+
+.gb-comment-author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 7px;
+}
+
+.gb-comment-author-name {
+    font-weight: 700;
+    font-size: 19px;
+    color: rgb(55, 50, 46);
+}
+
+.gb-comment-date {
+    font-size: 14px;
+    color: rgb(115, 110, 105);
+}
+
+.gb-comment-text {
+    font-size: 25px;
+    color: rgb(60, 55, 51);
+    font-family: 'LiPurnoPran', 'Kalpurush', 'Noto Serif Bengali', serif;
+    line-height: 1.5;
+    word-break: break-word;
 }
 
 @media (max-width:1000px){
 
+    .gb-story-footer-section {
+        width: 100%;
+    }
+
     #story-comments{
-        max-width: 900px;
-        padding: 0 20px;
+        width: 100%;
+        margin: 45px 0 25px;
+        padding-top: 25px;
+    }
+
+    .gb-comment-box-card {
+        padding: 20px 18px;
+    }
+
+    .gb-comment-heading {
+        font-size: 18px;
+    }
+
+    .gb-form-input,
+    .gb-form-textarea,
+    .gb-comment-btn,
+    .gb-comments-more {
+        font-size: 18px;
+    }
+
+    .gb-form-textarea {
+        height: 130px;
+        min-height: 130px;
+        max-height: 130px;
+    }
+
+    .gb-comment-text {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    .gb-comment-author-name {
+        font-size: 17px;
+    }
+
+    .gb-comment-date {
+        font-size: 13px;
     }
 
 }
@@ -260,8 +495,51 @@ header h2 {
 @media (max-width:600px){
 
     #story-comments{
-        margin: 30px auto;
-        padding: 0 22px;
+        margin: 35px 0 20px;
+        padding-top: 20px;
+    }
+
+    .gb-comment-box-card {
+        padding: 16px 14px;
+    }
+
+    .gb-comment-heading {
+        font-size: 16px;
+        margin-bottom: 14px;
+    }
+
+    .gb-form-input,
+    .gb-form-textarea,
+    .gb-comment-btn,
+    .gb-comments-more {
+        font-size: 16px;
+    }
+
+    .gb-form-textarea {
+        height: 120px;
+        min-height: 120px;
+        max-height: 120px;
+    }
+
+    .gb-comment-note {
+        font-size: 13px;
+    }
+
+    .gb-comment {
+        padding: 14px 15px;
+    }
+
+    .gb-comment-text {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .gb-comment-author-name {
+        font-size: 16px;
+    }
+
+    .gb-comment-date {
+        font-size: 12px;
     }
 
 }
