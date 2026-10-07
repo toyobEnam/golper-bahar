@@ -631,7 +631,32 @@ transition:color .25s ease;
 color:#000000;
 }
 
-/* Removed Item Comment */
+/* গল্প ইনডেক্স ও অনুগল্পের মোট ভিউ ও কমেন্ট স্ট্যাটস বার (সেন্টারড) */
+.gb-story-stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 8px 18px;
+  margin: 30px auto 10px;
+  width: fit-content;
+  font-size: 14px;
+  color: #475569;
+  font-weight: 500;
+}
+
+.gb-stat-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gb-stat-divider {
+  color: #cbd5e1;
+}
 
 /* কাস্টম রেসপন্সিভ মোডাল */
 .gb-custom-modal-overlay {
