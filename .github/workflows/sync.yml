@@ -26,22 +26,28 @@ jobs:
         run: node sync-comments.js
 
       - name: Commit and Push Changes
+        id: push_changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
           git add -A
 
+          echo "push_success=false" >> "$GITHUB_OUTPUT"
+
           if git diff-index --quiet HEAD; then
             echo "কোনো নতুন ফাইল পরিবর্তনের প্রয়োজন হয়নি।"
+            echo "GitHub-এ কোনো push করা হয়নি।"
           else
             git commit -m "Auto-sync approved comments and story stats [skip ci]"
             git push origin main
+
             echo "GitHub push সফল হয়েছে।"
+            echo "push_success=true" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Remove Successfully Synced Comments from Google Sheet
-        if: ${{ success() && hashFiles('.sync-comment-ids.json') != '' }}
+        if: ${{ steps.push_changes.outputs.push_success == 'true' && hashFiles('.sync-comment-ids.json') != '' }}
         env:
           SYNC_SECRET: ${{ secrets.SYNC_SECRET }}
           APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbwU75Chu74PABjZ_GYXT4fGD6XTAU1KXA5sS7WnP7tdeOcxsPAMtyAjKiaPlCKzutDW/exec"

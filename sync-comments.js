@@ -78,9 +78,9 @@ async function runSync() {
             // ডুপ্লিকেট কমেন্ট ঠেকাতে আইডি চেক
             const newCommentsToInject = comments.filter(c => !content.includes(`id="${c.id}"`));
 
-            // যেসব Approved comment-এর নির্দিষ্ট HTML ফাইল ও marker পাওয়া গেছে,
-            // সেগুলো sync-এর জন্য সফল হিসেবে ধরা হবে।
-            comments.forEach(c => {
+            // শুধু যেসব Approved comment এই sync run-এ নতুন করে HTML-এ
+            // যুক্ত করা হবে, সেগুলোকেই cleanup-এর জন্য প্রস্তুত করা হবে।
+            newCommentsToInject.forEach(c => {
               if (c.id && !syncedCommentIds.includes(c.id)) {
                 syncedCommentIds.push(c.id);
               }
