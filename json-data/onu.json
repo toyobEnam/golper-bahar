@@ -331,5 +331,23 @@
   "categoryName": null,
   "categorySlug": null,
   "storySlug": "37-nadiar-swopno-puron"
+},
+{
+  "storyName": "নবসূচনা",
+  "writerName": "আফরোজা আঁখি",
+  "writerSlug": "a020-afroza-akhi",
+  "storyType": "onu",
+  "categoryName": null,
+  "categorySlug": null,
+  "storySlug": "38-nobo-sucona"
+},
+{
+  "storyName": "বনলতা",
+  "writerName": "আফরোজা আঁখি",
+  "writerSlug": "a020-afroza-akhi",
+  "storyType": "onu",
+  "categoryName": null,
+  "categorySlug": null,
+  "storySlug": "39-bonolota"
 }
 ]
