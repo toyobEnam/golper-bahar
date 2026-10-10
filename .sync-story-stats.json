@@ -1,94 +1,50 @@
 [
   {
-    "storySlug": "bls-0012-rajniti-bonam-premniti",
-    "indexPath": "stories/bangla-love-story/bls-0012-rajniti-bonam-premniti/index.html"
-  },
-  {
-    "storySlug": "30-nojorer-pocon",
-    "indexPath": "onugolpo/30-nojorer-pocon/index.html"
-  },
-  {
     "storySlug": "bs-0001-hawar-sure-veshe",
     "indexPath": "stories/bangla-suspense/bs-0001-hawar-sure-veshe/index.html"
   },
   {
-    "storySlug": "bs-0006-parityakta-bari",
-    "indexPath": "stories/bangla-suspense/bs-0006-parityakta-bari/index.html"
+    "storySlug": "bls-0012-rajniti-bonam-premniti",
+    "indexPath": "stories/bangla-love-story/bls-0012-rajniti-bonam-premniti/index.html"
   },
   {
-    "storySlug": "fd-0010-dhulo-makha-golite",
-    "indexPath": "stories/family-drama/fd-0010-dhulo-makha-golite/index.html"
-  },
-  {
-    "storySlug": "fd-0001-se-amar-purnota",
-    "indexPath": "stories/family-drama/fd-0001-se-amar-purnota/index.html"
-  },
-  {
-    "storySlug": "rt-0008-i-hate-red-flags",
-    "indexPath": "stories/romantic-thriller/rt-0008-i-hate-red-flags/index.html"
-  },
-  {
-    "storySlug": "fd-0011-vromor-koiyo-giya",
-    "indexPath": "stories/family-drama/fd-0011-vromor-koiyo-giya/index.html"
-  },
-  {
-    "storySlug": "sp-0006-agnikonna-mohuya",
-    "indexPath": "stories/social-plot/sp-0006-agnikonna-mohuya/index.html"
-  },
-  {
-    "storySlug": "ss-0004-nil-cokher-opekkhay",
-    "indexPath": "stories/sangsarik/ss-0004-nil-cokher-opekkhay/index.html"
+    "storySlug": "bs-0005-jhilmil-roddure",
+    "indexPath": "stories/bangla-suspense/bs-0005-jhilmil-roddure/index.html"
   },
   {
     "storySlug": "bls-0016-bibosh-hridoye-bosonter-agomon",
     "indexPath": "stories/bangla-love-story/bls-0016-bibosh-hridoye-bosonter-agomon/index.html"
   },
   {
-    "storySlug": "bls-0006-hridoyer-rongin-canvas",
-    "indexPath": "stories/bangla-love-story/bls-0006-hridoyer-rongin-canvas/index.html"
-  },
-  {
-    "storySlug": "rt-0007-snigdho-premer-maya",
-    "indexPath": "stories/romantic-thriller/rt-0007-snigdho-premer-maya/index.html"
-  },
-  {
-    "storySlug": "rt-0010-rokto-rekhar-arale",
-    "indexPath": "stories/romantic-thriller/rt-0010-rokto-rekhar-arale/index.html"
-  },
-  {
-    "storySlug": "sh-fam-0004-ovaginir-sukh",
-    "indexPath": "short-stories/family/sh-fam-0004-ovaginir-sukh/index.html"
-  },
-  {
-    "storySlug": "bs-0004-shotabdi-periye",
-    "indexPath": "stories/bangla-suspense/bs-0004-shotabdi-periye/index.html"
+    "storySlug": "ss-0001-bibaho-bivrat-dotcom",
+    "indexPath": "stories/sangsarik/ss-0001-bibaho-bivrat-dotcom/index.html"
   },
   {
     "storySlug": "ss-0010-amar-upoma-tumi",
     "indexPath": "stories/sangsarik/ss-0010-amar-upoma-tumi/index.html"
   },
   {
-    "storySlug": "bls-0015-e-ki-buddhi-dile-tumi",
-    "indexPath": "stories/bangla-love-story/bls-0015-e-ki-buddhi-dile-tumi/index.html"
+    "storySlug": "fd-0005-se-amar-apon-jon",
+    "indexPath": "stories/family-drama/fd-0005-se-amar-apon-jon/index.html"
   },
   {
-    "storySlug": "bls-0008-mr-and-mrs-twins-return",
-    "indexPath": "stories/bangla-love-story/bls-0008-mr-and-mrs-twins-return/index.html"
+    "storySlug": "11-oprottashito-purnota",
+    "indexPath": "onugolpo/11-oprottashito-purnota/index.html"
   },
   {
-    "storySlug": "ss-0001-bibaho-bivrat-dotcom",
-    "indexPath": "stories/sangsarik/ss-0001-bibaho-bivrat-dotcom/index.html"
+    "storySlug": "ss-0006-rikto-bosonto",
+    "indexPath": "stories/sangsarik/ss-0006-rikto-bosonto/index.html"
   },
   {
-    "storySlug": "ss-0008-akash-aj-meghla-vishon",
-    "indexPath": "stories/sangsarik/ss-0008-akash-aj-meghla-vishon/index.html"
+    "storySlug": "bls-0010-amar-priyota",
+    "indexPath": "stories/bangla-love-story/bls-0010-amar-priyota/index.html"
   },
   {
-    "storySlug": "ss-0009-opekkha-maha-aarat",
-    "indexPath": "stories/sangsarik/ss-0009-opekkha-maha-aarat/index.html"
+    "storySlug": "2-ami-ebong-rumu-khalamoni",
+    "indexPath": "onugolpo/2-ami-ebong-rumu-khalamoni/index.html"
   },
   {
-    "storySlug": "sp-0005-tor-pirite-pagol-hoilam-re",
-    "indexPath": "stories/social-plot/sp-0005-tor-pirite-pagol-hoilam-re/index.html"
+    "storySlug": "3-cholo-kotha-rakhi",
+    "indexPath": "onugolpo/3-cholo-kotha-rakhi/index.html"
   }
 ]
