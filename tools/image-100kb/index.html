@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+
+<html lang="bn">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>300x300 HD Image Cropper & 80-90KB Precision Optimizer</title>
+
+    <!-- Tailwind CSS CDN -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome Icons -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+    <!-- Pica.js for Lanczos3 High-Fidelity Downsampling -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pica/9.0.1/pica.min.js"></script>
+    <script src="/js/components.js" defer></script>
+    <link rel="stylesheet" href="/css/components.css">
+
+
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            font-family: 'Hind Siliguri', sans-serif;
+
+            background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 50%, #030712 100%);
+
+            min-height: 100vh;
+
+        }
+
+        .font-mono-num {
+
+            font-family: 'JetBrains Mono', monospace;
+
+        }
+
+
+
+        /* Custom range styling */
+
+        input[type=range] {
+
+            -webkit-appearance: none;
+
+            background: #334155;
+
+            border-radius: 9999px;
+
+            outline: none;
+
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+
+            -webkit-appearance: none;
+
+            appearance: none;
+
+            width: 20px;
+
+            height: 20px;
+
+            border-radius: 50%;
+
+            background: #3b82f6;
+
+            cursor: pointer;
+
+            border: 2px solid #ffffff;
+
+            box-shadow: 0 0 12px rgba(59, 130, 246, 0.7);
+
+            transition: transform 0.15s ease, background-color 0.15s ease;
+
+        }
+
+        input[type=range]::-webkit-slider-thumb:hover {
+
+            transform: scale(1.2);
+
+            background: #60a5fa;
+
+        }
+
+
+
+        /* Vertical slider support */
+
+        .slider-vertical {
+
+            writing-mode: bt-lr;
+
+            -webkit-appearance: slider-vertical;
+
+            width: 8px;
+
+            height: 290px;
+
+            padding: 0 5px;
+
+        }
+
+
+
+        /* Responsive Rule-of-thirds grid */
+        .crop-grid {
+            background-image:
+                linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px);
+            background-size: 33.333333% 33.333333%;
+        }
+
+        .canvas-glow {
+            box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.3), 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+        }
+
+        /* The preview scales down on small screens; the backing canvas stays 300x300. */
+        .crop-frame {
+            width: min(300px, calc(100vw - 64px));
+            aspect-ratio: 1 / 1;
+            flex: 0 1 300px;
+            min-width: 0;
+        }
+
+        .crop-frame > canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+
+        #editorArea { min-width: 0; width: 100%; }
+        #editorArea > * { max-width: 100%; }
+        #downloadBtn { max-width: 100%; flex-wrap: wrap; justify-content: center; text-align: center; }
+        #downloadBtn:disabled { opacity: .55; cursor: not-allowed; transform: none; }
+
+        @media (max-width: 480px) {
+            body { padding-left: 10px; padding-right: 10px; }
+            main { padding: 14px !important; }
+            .crop-frame { width: min(300px, calc(100vw - 52px)); }
+            .slider-vertical { height: clamp(180px, 55vw, 260px); }
+            #editorArea .toolbar-controls { gap: 10px; }
+        }
+
+/* Full-width navbar and footer: edge-to-edge */
+#upNav,
+#footer {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    flex-shrink: 0;
+}
+
+/* Prevent injected components from overflowing on mobile */
+
+#upNav,
+#footer {
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Mobile spacing below navbar and above footer */
+@media (max-width: 767px) {
+    #upNav {
+        margin-bottom: 16px;
+    }
+
+    #footer {
+        margin-top: 16px;
+    }
+}
+
+
+    </style>
+
+</head>
+
+
+<body class="text-slate-100 flex flex-col justify-between p-0">
+
+<div id="upNav"></div>
+
+
+    <!-- Header Section -->
+
+    <header class="max-w-4xl mx-auto w-full text-center mb-6">
+
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs md:text-sm font-semibold mb-2">
+
+            <i class="fa-solid fa-gem text-blue-400"></i> Lanczos3 হাই-ফিডেলিটি ডাউনস্যাম্পলিং ও জিরো-কোয়ালিটি লস
+
+        </div>
+
+        <h1 class="text-2xl md:text-4xl font-extrabold text-white tracking-tight">
+
+            প্রফেশনাল ৩০০×৩০০ JPG ক্রপার ও ৮০-৯০ KB অপটিমাইজার
+
+        </h1>
+
+        <p class="text-slate-400 text-xs md:text-sm mt-1.5 max-w-xl mx-auto">
+
+            ভার্টিক্যাল বা হরিজন্টাল অটো-ডিটেকশন, ক্রিস্টাল ক্লিয়ার শার্পেনিং এবং কোয়ালিটি নষ্ট না করে শতভাগ ৮০-৯০ KB এর মধ্যে ডাউনলোড।
+
+        </p>
+
+    </header>
+
+
+
+    <!-- Main Workspace -->
+
+    <main class="max-w-4xl mx-auto w-full bg-slate-900/80 backdrop-blur-2xl border border-slate-700/60 rounded-3xl p-4 md:p-8 shadow-2xl">
+
+
+
+        <!-- Upload Dropzone Area -->
+
+        <div id="dropzone" class="border-2 border-dashed border-slate-700 hover:border-blue-500 rounded-2xl p-6 text-center cursor-pointer transition-all duration-300 bg-slate-950/40 hover:bg-slate-950/70 mb-6 group">
+
+            <input type="file" id="imageInput" accept="image/*" class="hidden">
+
+            <div class="flex flex-col items-center justify-center gap-2.5">
+
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600/20 to-indigo-600/20 border border-blue-500/30 text-blue-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                </div>
+
+                <div>
+
+                    <p class="text-base font-semibold text-slate-200">
+
+                        ইমেজ নির্বাচন করতে এখানে ক্লিক করুন বা ড্র্যাগ করে ফেলুন
+
+                    </p>
+
+                    <p class="text-xs text-slate-400 mt-0.5">যেকোনো সাইজের হাই-রেজোলিউশন ফটো (PNG, JPG, WEBP) সাপোর্ট করবে</p>
+
+                </div>
+
+                <button type="button" onclick="document.getElementById('imageInput').click()" class="mt-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-xl text-xs md:text-sm font-semibold transition shadow-md flex items-center gap-2">
+
+                    <i class="fa-regular fa-image"></i> ছবি আপলোড করুন
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Editor & Preview Section -->
+
+        <div id="editorArea" class="hidden flex-col items-center">
+
+
+
+            <!-- Information Badges -->
+
+            <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-5">
+
+                <span class="bg-slate-800/90 px-3 py-1 rounded-xl text-xs font-medium text-slate-300 flex items-center gap-1.5 border border-slate-700">
+
+                    <i class="fa-solid fa-expand text-blue-400"></i> মূল সাইজ: <b id="originalSizeText" class="text-white font-mono-num">-</b>
+
+                </span>
+
+                <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-xl text-xs font-semibold flex items-center gap-1.5">
+
+                    <i class="fa-solid fa-crop-simple"></i> আউটপুট: <b class="font-mono-num">300 × 300 px (JPG)</b>
+
+                </span>
+
+                <span id="targetSizeBadge" class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-xl text-xs font-semibold flex items-center gap-1.5">
+
+                    <i class="fa-solid fa-circle-check"></i> সাইজ: <b id="fileSizeText" class="font-mono-num">হিসাব করা হচ্ছে...</b>
+
+                </span>
+
+                <span class="bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 px-3 py-1 rounded-xl text-xs font-semibold flex items-center gap-1.5">
+
+                    <i class="fa-solid fa-microchip"></i> ইঞ্জিন: Pica Lanczos3
+
+                </span>
+
+            </div>
+
+
+
+            <!-- Toolbar Controls (Rotate, Zoom, Fine Sharpen) -->
+
+            <div class="w-full flex flex-wrap items-center justify-between gap-3 bg-slate-800/60 p-3 rounded-2xl border border-slate-700/60 mb-5 text-xs">
+
+                <div class="flex items-center gap-2">
+
+                    <button id="rotateLeftBtn" title="৯০° বামে ঘোরান" class="px-3 py-1.5 bg-slate-700/80 hover:bg-slate-600 rounded-lg text-slate-200 transition flex items-center gap-1.5">
+
+                        <i class="fa-solid fa-rotate-left"></i> ৯০°
+
+                    </button>
+
+                    <button id="rotateRightBtn" title="৯০° ডানে ঘোরান" class="px-3 py-1.5 bg-slate-700/80 hover:bg-slate-600 rounded-lg text-slate-200 transition flex items-center gap-1.5">
+
+                        <i class="fa-solid fa-rotate-right"></i> ৯০°
+
+                    </button>
+
+                    <button id="centerBtn" title="মাঝখানে রিসেট করুন" class="px-3 py-1.5 bg-slate-700/80 hover:bg-slate-600 rounded-lg text-slate-200 transition flex items-center gap-1.5">
+
+                        <i class="fa-solid fa-arrows-to-dot text-blue-400"></i> রিসেট সেন্টার
+
+                    </button>
+
+                </div>
+
+
+
+                <div class="flex items-center gap-4">
+
+                    <!-- High-Res Sharpening Toggle -->
+
+                    <label class="flex items-center gap-2 cursor-pointer select-none">
+
+                        <input type="checkbox" id="sharpenToggle" checked class="w-4 h-4 rounded text-blue-600 bg-slate-700 border-slate-600 focus:ring-0">
+
+                        <span class="text-slate-300 font-medium"><i class="fa-solid fa-wand-magic text-yellow-400 mr-1"></i>সাবটল শার্পেনিং (Ultra Clear)</span>
+
+                    </label>
+
+
+
+                    <!-- Fine Zoom Control -->
+
+                    <div class="flex items-center gap-2">
+
+                        <span class="text-slate-400"><i class="fa-solid fa-magnifying-glass-plus"></i> জুম:</span>
+
+                        <input type="range" id="zoomSlider" min="1" max="2" step="0.02" value="1" class="w-20 md:w-28 h-1.5">
+
+                        <span id="zoomVal" class="font-mono-num text-slate-300 w-8">1.0x</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Cropper Canvas & Orientation Slider Grid -->
+
+            <div class="relative flex flex-col md:flex-row items-center justify-center gap-6 p-4 md:p-6 bg-slate-950/70 rounded-2xl border border-slate-800">
+
+
+
+                <!-- Responsive 300x300 Exact Crop Window -->
+
+                <div class="crop-frame relative rounded-xl overflow-hidden canvas-glow border-2 border-blue-500/80 bg-neutral-900 select-none flex items-center justify-center">
+
+                    <canvas id="cropCanvas" width="300" height="300" class="block w-full h-full cursor-grab active:cursor-grabbing"></canvas>
+
+
+
+                    <!-- Rule of Thirds Guides -->
+
+                    <div class="crop-grid absolute inset-0 pointer-events-none opacity-30"></div>
+
+
+
+                    <!-- Center Focus Point Indicator -->
+
+                    <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+
+                        <div class="w-2.5 h-2.5 rounded-full bg-blue-400/60 shadow-lg"></div>
+
+                    </div>
+
+
+
+                    <!-- Processing Overlay -->
+
+                    <div id="processingLoader" class="absolute inset-0 bg-slate-950/70 backdrop-blur-sm hidden flex-col items-center justify-center gap-2 text-blue-400 text-xs">
+
+                        <i class="fa-solid fa-circle-notch fa-spin text-2xl"></i>
+
+                        <span>Lanczos3 প্রসেস হচ্ছে...</span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Orientation Control Sliders Container -->
+
+                <div class="flex flex-col justify-center items-center gap-3">
+
+
+
+                    <!-- Vertical Slider (Height > Width) -->
+
+                    <div id="verticalSliderContainer" class="hidden flex-col items-center gap-2">
+
+                        <div class="flex items-center gap-2 text-xs font-semibold text-slate-300">
+
+                            <i class="fa-solid fa-arrows-up-down text-blue-400"></i> Y-অক্ষ পজিশন (উচ্চতা স্লাইডার)
+
+                        </div>
+
+                        <div class="flex items-center justify-center h-[300px] px-2.5 py-1.5 bg-slate-800/90 rounded-2xl border border-slate-700">
+
+                            <input type="range" id="verticalSlider" min="0" max="100" value="50" class="slider-vertical cursor-pointer">
+
+                        </div>
+
+                        <span id="vSliderVal" class="text-xs text-blue-400 font-mono-num font-semibold">50%</span>
+
+                    </div>
+
+
+
+                    <!-- Horizontal Slider (Width >= Height) -->
+
+                    <div id="horizontalSliderContainer" class="hidden flex-col items-center gap-2 w-full max-w-[300px]">
+
+                        <div class="flex items-center gap-2 text-xs font-semibold text-slate-300">
+
+                            <i class="fa-solid fa-arrows-left-right text-blue-400"></i> X-অক্ষ পজিশন (প্রস্থ স্লাইডার)
+
+                        </div>
+
+                        <input type="range" id="horizontalSlider" min="0" max="100" value="50" class="w-full h-2 cursor-pointer">
+
+                        <div class="flex justify-between w-full text-[11px] text-slate-400 font-mono-num">
+
+                            <span>বাম (0%)</span>
+
+                            <span id="hSliderVal" class="text-blue-400 font-semibold">50%</span>
+
+                            <span>ডান (100%)</span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Visual interaction guide -->
+
+                    <div class="text-[11px] text-slate-400 text-center max-w-[210px] mt-1 bg-slate-800/60 p-2.5 rounded-xl border border-slate-700/60">
+
+                        <i class="fa-regular fa-hand-pointer text-blue-400"></i> প্রিভিউ ক্যানভাসে মাউস বা টাচ দিয়ে ড্র্যাগ করেও যেকোনো জায়গায় পজিশন করা যাবে।
+
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+
+            <!-- Download Button -->
+
+            <div class="mt-6 flex flex-col items-center gap-3 w-full">
+
+                <button id="downloadBtn" disabled class="px-8 py-3.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 active:scale-95 text-white rounded-2xl text-sm font-bold transition shadow-xl shadow-indigo-600/30 flex items-center gap-2.5">
+
+                    <i class="fa-solid fa-file-arrow-down text-lg"></i> ৩০০×৩০০ HD JPG ডাউনলোড করুন (<span id="downloadSizePreview" class="font-mono-num">85.0 KB</span>)
+
+                </button>
+
+                <div class="text-xs text-slate-400 flex items-center gap-2">
+
+                    <i class="fa-solid fa-shield-halved text-emerald-400"></i> 
+
+                    <span>সর্বোচ্চ সম্ভব ছবির মান • JPG সাইজ প্রসেস শেষে যাচাই করা হবে।</span>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer class="text-center text-xs text-slate-500 mt-6">
+
+        Lanczos3 Resampling Engine • JPEG Size Verification • No Server Upload Needed
+
+    </footer>
+
+
+
+    <!-- Hidden source canvas used for Pica rendering -->
+
+    <canvas id="sourceCanvas" class="hidden"></canvas>
+
+
+
+    <script>
+
+        // Pica is optional: if its CDN is unavailable, Canvas fallback keeps the editor usable.
+        const picaRunner = (typeof window.pica === 'function')
+            ? window.pica({ features: ['js', 'wasm', 'cib'] })
+            : null;
+
+
+
+        // DOM elements
+
+        const dropzone = document.getElementById('dropzone');
+
+        const imageInput = document.getElementById('imageInput');
+
+        const editorArea = document.getElementById('editorArea');
+
+        const cropCanvas = document.getElementById('cropCanvas');
+
+        const ctx = cropCanvas.getContext('2d');
+
+        const sourceCanvas = document.getElementById('sourceCanvas');
+
+        const srcCtx = sourceCanvas.getContext('2d');
+
+        const processingLoader = document.getElementById('processingLoader');
+
+
+
+        const originalSizeText = document.getElementById('originalSizeText');
+
+        const fileSizeText = document.getElementById('fileSizeText');
+
+        const downloadSizePreview = document.getElementById('downloadSizePreview');
+
+        const targetSizeBadge = document.getElementById('targetSizeBadge');
+
+
+
+        const verticalSliderContainer = document.getElementById('verticalSliderContainer');
+
+        const verticalSlider = document.getElementById('verticalSlider');
+
+        const vSliderVal = document.getElementById('vSliderVal');
+
+
+
+        const horizontalSliderContainer = document.getElementById('horizontalSliderContainer');
+
+        const horizontalSlider = document.getElementById('horizontalSlider');
+
+        const hSliderVal = document.getElementById('hSliderVal');
+
+
+
+        const rotateLeftBtn = document.getElementById('rotateLeftBtn');
+
+        const rotateRightBtn = document.getElementById('rotateRightBtn');
+
+        const centerBtn = document.getElementById('centerBtn');
+
+        const sharpenToggle = document.getElementById('sharpenToggle');
+
+        const zoomSlider = document.getElementById('zoomSlider');
+
+        const zoomVal = document.getElementById('zoomVal');
+
+        const downloadBtn = document.getElementById('downloadBtn');
+
+
+
+        // Target constants
+
+        const TARGET_WIDTH = 300;
+
+        const TARGET_HEIGHT = 300;
+
+        const TARGET_MIN_BYTES = 80 * 1024; // 81,920 bytes
+
+        const TARGET_MAX_BYTES = 90 * 1024; // 92,160 bytes
+
+        const TARGET_EXACT_BYTES = 85 * 1024; // 87,040 bytes sweet spot
+
+
+
+        let rawImage = null;
+
+        let rotationAngle = 0; // 0, 90, 180, 270
+
+        let isPortrait = false;
+
+        let scaledWidth = 300;
+
+        let scaledHeight = 300;
+
+        let offsetX = 0;
+
+        let offsetY = 0;
+
+        let zoomLevel = 1.0;
+
+        let currentFinalBlob = null;
+
+
+
+        let isDragging = false;
+
+        let dragStartX = 0;
+
+        let dragStartY = 0;
+
+        let isProcessingHQ = false;
+
+
+
+        // Make the entire upload dropzone clickable, not only its inner button.
+        dropzone.addEventListener('click', (event) => {
+            if (event.target.closest('button') || event.target === imageInput) return;
+            imageInput.click();
+        });
+
+        // Drag & Drop handlers
+
+        ['dragenter', 'dragover'].forEach(name => {
+
+            dropzone.addEventListener(name, (e) => {
+
+                e.preventDefault();
+
+                dropzone.classList.add('border-blue-500', 'bg-slate-900/80');
+
+            });
+
+        });
+
+        ['dragleave', 'drop'].forEach(name => {
+
+            dropzone.addEventListener(name, (e) => {
+
+                e.preventDefault();
+
+                dropzone.classList.remove('border-blue-500', 'bg-slate-900/80');
+
+            });
+
+        });
+
+        dropzone.addEventListener('drop', (e) => {
+
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+
+                loadImage(e.dataTransfer.files[0]);
+
+            }
+
+        });
+
+        imageInput.addEventListener('change', (e) => {
+            if (e.target.files && e.target.files[0]) loadImage(e.target.files[0]);
+            e.target.value = '';
+        });
+
+
+
+        // Load and decode input image
+
+        function loadImage(file) {
+            if (!file || !file.type || !file.type.startsWith('image/')) {
+                fileSizeText.innerText = 'একটি বৈধ ছবি নির্বাচন করুন।';
+                return;
+            }
+
+            currentFinalBlob = null;
+            downloadBtn.disabled = true;
+            fileSizeText.innerText = 'ছবি লোড হচ্ছে...';
+            const reader = new FileReader();
+
+            reader.onerror = () => {
+                fileSizeText.innerText = 'ছবি পড়া যায়নি — আবার চেষ্টা করুন';
+            };
+
+            reader.onload = (ev) => {
+                const img = new Image();
+                img.onload = () => {
+                    rawImage = img;
+                    rotationAngle = 0;
+                    zoomLevel = 1.0;
+                    zoomSlider.value = '1';
+                    zoomVal.innerText = '1.0x';
+                    recalculateOrientationAndBounds();
+                };
+                img.onerror = () => {
+                    fileSizeText.innerText = 'ছবিটি খোলা যায়নি — অন্য ছবি দিন';
+                };
+                img.src = ev.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        // Handle rotation & orientation detection
+
+        function recalculateOrientationAndBounds() {
+
+            if (!rawImage) return;
+
+
+
+            // Compute effective width/height considering rotation
+
+            const is90or270 = (rotationAngle % 180 !== 0);
+
+            const effWidth = is90or270 ? rawImage.naturalHeight : rawImage.naturalWidth;
+
+            const effHeight = is90or270 ? rawImage.naturalWidth : rawImage.naturalHeight;
+
+
+
+            originalSizeText.innerText = `${rawImage.naturalWidth} × ${rawImage.naturalHeight} px`;
+
+            editorArea.classList.remove('hidden');
+
+
+
+            // Requirement 1 & 2:
+
+            // Vertical (H > W): Locks width to 300px, activates Y-axis vertical slider.
+
+            // Horizontal (W >= H): Locks height to 300px, activates X-axis horizontal slider.
+
+            if (effHeight > effWidth) {
+
+                isPortrait = true;
+
+                scaledWidth = TARGET_WIDTH * zoomLevel;
+
+                scaledHeight = (effHeight / effWidth) * TARGET_WIDTH * zoomLevel;
+
+
+
+                verticalSliderContainer.classList.remove('hidden');
+
+                horizontalSliderContainer.classList.add('hidden');
+
+                verticalSlider.value = 50;
+
+                vSliderVal.innerText = '50%';
+
+            } else {
+
+                isPortrait = false;
+
+                scaledHeight = TARGET_HEIGHT * zoomLevel;
+
+                scaledWidth = (effWidth / effHeight) * TARGET_HEIGHT * zoomLevel;
+
+
+
+                horizontalSliderContainer.classList.remove('hidden');
+
+                verticalSliderContainer.classList.add('hidden');
+
+                horizontalSlider.value = 50;
+
+                hSliderVal.innerText = '50%';
+
+            }
+
+
+
+            updateOffsetFromSliders();
+
+            triggerHighQualityRender();
+
+        }
+
+
+
+        function updateOffsetFromSliders() {
+
+            if (isPortrait) {
+
+                const maxOffsetY = TARGET_HEIGHT - scaledHeight;
+
+                const pct = parseFloat(verticalSlider.value) / 100;
+
+                offsetY = pct * maxOffsetY;
+
+                offsetX = (TARGET_WIDTH - scaledWidth) / 2;
+
+                vSliderVal.innerText = `${Math.round(pct * 100)}%`;
+
+            } else {
+
+                const maxOffsetX = TARGET_WIDTH - scaledWidth;
+
+                const pct = parseFloat(horizontalSlider.value) / 100;
+
+                offsetX = pct * maxOffsetX;
+
+                offsetY = (TARGET_HEIGHT - scaledHeight) / 2;
+
+                hSliderVal.innerText = `${Math.round(pct * 100)}%`;
+
+            }
+
+        }
+
+
+
+        function syncSlidersFromOffset() {
+
+            if (isPortrait) {
+
+                const maxOffsetY = TARGET_HEIGHT - scaledHeight;
+
+                if (maxOffsetY !== 0) {
+
+                    let pct = (offsetY / maxOffsetY) * 100;
+
+                    pct = Math.max(0, Math.min(100, pct));
+
+                    verticalSlider.value = pct;
+
+                    vSliderVal.innerText = `${Math.round(pct)}%`;
+
+                }
+
+            } else {
+
+                const maxOffsetX = TARGET_WIDTH - scaledWidth;
+
+                if (maxOffsetX !== 0) {
+
+                    let pct = (offsetX / maxOffsetX) * 100;
+
+                    pct = Math.max(0, Math.min(100, pct));
+
+                    horizontalSlider.value = pct;
+
+                    hSliderVal.innerText = `${Math.round(pct)}%`;
+
+                }
+
+            }
+
+        }
+
+
+
+        // Fast render for real-time smooth interactions (dragging, sliders)
+
+        function renderFastPreview() {
+
+            if (!rawImage) return;
+
+
+
+            ctx.save();
+
+            ctx.fillStyle = '#ffffff';
+
+            ctx.fillRect(0, 0, TARGET_WIDTH, TARGET_HEIGHT);
+
+
+
+            // Setup temporary rotated offscreen canvas or transform
+
+            ctx.translate(offsetX + scaledWidth / 2, offsetY + scaledHeight / 2);
+
+            ctx.rotate((rotationAngle * Math.PI) / 180);
+
+
+
+            const is90or270 = (rotationAngle % 180 !== 0);
+
+            const drawW = is90or270 ? scaledHeight : scaledWidth;
+
+            const drawH = is90or270 ? scaledWidth : scaledHeight;
+
+
+
+            ctx.drawImage(rawImage, -drawW / 2, -drawH / 2, drawW, drawH);
+
+            ctx.restore();
+
+        }
+
+
+
+        // Unsharp Mask Filter (Ensures crystal clear facial & edge details at 300x300)
+
+        function applySubtleSharpen(canvas) {
+
+            const c = canvas.getContext('2d');
+
+            const imgData = c.getImageData(0, 0, 300, 300);
+
+            const data = imgData.data;
+
+            const copy = new Uint8ClampedArray(data);
+
+            const w = 300;
+
+            const h = 300;
+
+
+
+            // Convolution kernel: Subtle 3x3 unsharp mask
+
+            //  0  -0.3   0
+
+            // -0.3 2.2  -0.3
+
+            //  0  -0.3   0
+
+            const amount = 0.22;
+
+            for (let y = 1; y < h - 1; y++) {
+
+                for (let x = 1; x < w - 1; x++) {
+
+                    const idx = (y * w + x) * 4;
+
+                    for (let cIdx = 0; cIdx < 3; cIdx++) {
+
+                        const current = copy[idx + cIdx];
+
+                        const neighbors = 
+
+                            copy[((y - 1) * w + x) * 4 + cIdx] +
+
+                            copy[((y + 1) * w + x) * 4 + cIdx] +
+
+                            copy[(y * w + (x - 1)) * 4 + cIdx] +
+
+                            copy[(y * w + (x + 1)) * 4 + cIdx];
+
+                        const val = current + (current * 4 - neighbors) * amount;
+
+                        data[idx + cIdx] = Math.max(0, Math.min(255, val));
+
+                    }
+
+                }
+
+            }
+
+            c.putImageData(imgData, 0, 0);
+
+        }
+
+
+
+        // High Quality Render Pipeline. Only the latest requested render is published.
+        let renderDebounce;
+        let renderRequestId = 0;
+        let completedRenderId = 0;
+
+        function triggerHighQualityRender() {
+            if (!rawImage) return;
+            renderFastPreview();
+            renderRequestId++;
+            currentFinalBlob = null;
+            downloadBtn.disabled = true;
+            fileSizeText.innerText = 'অপটিমাইজ হচ্ছে...';
+            downloadSizePreview.innerText = 'অপেক্ষা করুন';
+            clearTimeout(renderDebounce);
+            renderDebounce = setTimeout(() => executePicaLanczosRender(), 120);
+        }
+
+        async function executePicaLanczosRender() {
+            if (!rawImage || isProcessingHQ) return;
+            isProcessingHQ = true;
+            const thisRequest = renderRequestId;
+            processingLoader.classList.remove('hidden');
+            processingLoader.classList.add('flex');
+
+            try {
+                const is90or270 = (rotationAngle % 180 !== 0);
+                const effWidth = is90or270 ? rawImage.naturalHeight : rawImage.naturalWidth;
+                const effHeight = is90or270 ? rawImage.naturalWidth : rawImage.naturalHeight;
+                const scaleRatio = scaledWidth / effWidth;
+                const srcCropX = Math.max(0, -offsetX / scaleRatio);
+                const srcCropY = Math.max(0, -offsetY / scaleRatio);
+                const srcCropW = Math.max(1, Math.min(effWidth, TARGET_WIDTH / scaleRatio));
+                const srcCropH = Math.max(1, Math.min(effHeight, TARGET_HEIGHT / scaleRatio));
+
+                sourceCanvas.width = Math.max(1, Math.round(effWidth));
+                sourceCanvas.height = Math.max(1, Math.round(effHeight));
+                srcCtx.save();
+                srcCtx.fillStyle = '#ffffff';
+                srcCtx.fillRect(0, 0, sourceCanvas.width, sourceCanvas.height);
+                srcCtx.translate(sourceCanvas.width / 2, sourceCanvas.height / 2);
+                srcCtx.rotate((rotationAngle * Math.PI) / 180);
+                srcCtx.drawImage(rawImage, -rawImage.naturalWidth / 2, -rawImage.naturalHeight / 2);
+                srcCtx.restore();
+
+                const subCanvas = document.createElement('canvas');
+                subCanvas.width = Math.max(1, Math.round(srcCropW));
+                subCanvas.height = Math.max(1, Math.round(srcCropH));
+                const subCtx = subCanvas.getContext('2d');
+                if (!subCtx) throw new Error('ছবি প্রসেস করার জন্য Canvas তৈরি হয়নি।');
+                subCtx.fillStyle = '#ffffff';
+                subCtx.fillRect(0, 0, subCanvas.width, subCanvas.height);
+                subCtx.drawImage(
+                    sourceCanvas,
+                    srcCropX, srcCropY, srcCropW, srcCropH,
+                    0, 0, subCanvas.width, subCanvas.height
+                );
+
+                if (picaRunner && typeof picaRunner.resize === 'function') {
+                    try {
+                        await picaRunner.resize(subCanvas, cropCanvas, {
+                            filter: 'lanczos', unsharpAmount: 0, alpha: false
+                        });
+                    } catch (picaError) {
+                        console.warn('Pica resize failed; using Canvas fallback:', picaError);
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(0, 0, TARGET_WIDTH, TARGET_HEIGHT);
+                        ctx.drawImage(subCanvas, 0, 0, TARGET_WIDTH, TARGET_HEIGHT);
+                    }
+                } else {
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, TARGET_WIDTH, TARGET_HEIGHT);
+                    ctx.drawImage(subCanvas, 0, 0, TARGET_WIDTH, TARGET_HEIGHT);
+                }
+
+                // If the user changed crop settings while processing, don't publish stale output.
+                if (thisRequest !== renderRequestId) return;
+
+                if (sharpenToggle.checked) applySubtleSharpen(cropCanvas);
+                await generateZeroLossTargetJpeg(thisRequest);
+                if (thisRequest === renderRequestId) completedRenderId = thisRequest;
+
+            } catch (err) {
+                console.error('Image render error:', err);
+                if (thisRequest === renderRequestId) {
+                    currentFinalBlob = null;
+                    downloadBtn.disabled = true;
+                    fileSizeText.innerText = 'প্রসেসিং ব্যর্থ — আবার চেষ্টা করুন';
+                    downloadSizePreview.innerText = 'ত্রুটি';
+                }
+            } finally {
+                isProcessingHQ = false;
+                processingLoader.classList.add('hidden');
+                processingLoader.classList.remove('flex');
+                if (renderRequestId > thisRequest) {
+                    clearTimeout(renderDebounce);
+                    renderDebounce = setTimeout(() => executePicaLanczosRender(), 0);
+                }
+            }
+        }
+
+        /**
+
+         * Precision 80 KB - 90 KB Targetting with ZERO Quality Loss:
+
+         * 1. Encodes at pristine high quality (0.95 - 0.98).
+
+         * 2. If naturally less than 80 KB (standard for 300x300), injects standard safe JPEG APP1/COM chunks.
+
+         * 3. If larger than 90 KB, gently steps down quality until within 80-90 KB.
+
+         */
+
+        function padJpegToExactRange(jpegUint8, targetBytes) {
+            if (jpegUint8.length >= targetBytes) return jpegUint8;
+            if (jpegUint8.length < 4 || jpegUint8[0] !== 0xFF || jpegUint8[1] !== 0xD8) {
+                throw new Error('তৈরি হওয়া JPG ফাইলটি বৈধ নয়।');
+            }
+
+            const paddingNeeded = targetBytes - jpegUint8.length;
+            if (paddingNeeded < 4) return jpegUint8;
+
+            // JPEG COM segments: each segment adds payload + 4 bytes, with max payload 65533.
+            const segments = [];
+            let remaining = paddingNeeded;
+            while (remaining >= 4) {
+                const totalSegmentBytes = Math.min(remaining, 65537);
+                const payloadSize = totalSegmentBytes - 4;
+                const segment = new Uint8Array(totalSegmentBytes);
+                segment[0] = 0xFF;
+                segment[1] = 0xFE;
+                const segmentLength = payloadSize + 2;
+                segment[2] = (segmentLength >> 8) & 0xFF;
+                segment[3] = segmentLength & 0xFF;
+                segment.fill(0x20, 4);
+                segments.push(segment);
+                remaining -= totalSegmentBytes;
+            }
+
+            const totalPadding = segments.reduce((sum, segment) => sum + segment.length, 0);
+            const output = new Uint8Array(jpegUint8.length + totalPadding);
+            output.set(jpegUint8.subarray(0, 2), 0);
+            let offset = 2;
+            for (const segment of segments) {
+                output.set(segment, offset);
+                offset += segment.length;
+            }
+            output.set(jpegUint8.subarray(2), offset);
+            return output;
+        }
+
+        async function generateZeroLossTargetJpeg(requestId = renderRequestId) {
+            fileSizeText.innerText = 'অপটিমাইজ হচ্ছে...';
+
+            const getBlob = (quality) => new Promise((resolve, reject) => {
+                cropCanvas.toBlob((blob) => {
+                    if (!blob) reject(new Error('ব্রাউজার JPG তৈরি করতে পারেনি।'));
+                    else resolve(blob);
+                }, 'image/jpeg', quality);
+            });
+
+            let quality = 0.96;
+            let blob = await getBlob(quality);
+
+            // Lower quality only when required; go down to 0.10 for difficult images.
+            while (blob.size > TARGET_MAX_BYTES && quality > 0.10) {
+                quality = Math.max(0.10, quality - 0.04);
+                blob = await getBlob(quality);
+            }
+
+            // Add valid JPEG comment segments when the encoded file is below the requested range.
+            if (blob.size < TARGET_MIN_BYTES) {
+                const bytes = new Uint8Array(await blob.arrayBuffer());
+                const padded = padJpegToExactRange(bytes, TARGET_EXACT_BYTES);
+                blob = new Blob([padded], { type: 'image/jpeg' });
+            }
+
+            // Discard results from older render requests.
+            if (requestId !== renderRequestId) return;
+
+            const finalBytes = blob.size;
+            const finalKb = (finalBytes / 1024).toFixed(1);
+            const inRange = finalBytes >= TARGET_MIN_BYTES && finalBytes <= TARGET_MAX_BYTES;
+            currentFinalBlob = blob;
+            downloadBtn.disabled = false;
+            fileSizeText.innerText = inRange
+                ? `${finalKb} KB`
+                : `${finalKb} KB (লক্ষ্য সাইজ পূরণ হয়নি)`;
+            downloadSizePreview.innerText = `${finalKb} KB`;
+            targetSizeBadge.className = inRange
+                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-xl text-xs font-semibold flex items-center gap-1.5'
+                : 'bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-xl text-xs font-semibold flex items-center gap-1.5';
+        }
+
+        // Slider listeners
+
+        verticalSlider.addEventListener('input', () => {
+
+            updateOffsetFromSliders();
+
+            renderFastPreview();
+
+        });
+
+        verticalSlider.addEventListener('change', triggerHighQualityRender);
+
+
+
+        horizontalSlider.addEventListener('input', () => {
+
+            updateOffsetFromSliders();
+
+            renderFastPreview();
+
+        });
+
+        horizontalSlider.addEventListener('change', triggerHighQualityRender);
+
+
+
+        // Zoom & Sharpen listeners
+
+        zoomSlider.addEventListener('input', (e) => {
+
+            zoomLevel = parseFloat(e.target.value);
+
+            zoomVal.innerText = `${zoomLevel.toFixed(1)}x`;
+
+            recalculateOrientationAndBounds();
+
+        });
+
+
+
+        sharpenToggle.addEventListener('change', triggerHighQualityRender);
+
+
+
+        // Rotation listeners
+
+        rotateRightBtn.addEventListener('click', () => {
+
+            rotationAngle = (rotationAngle + 90) % 360;
+
+            recalculateOrientationAndBounds();
+
+        });
+
+        rotateLeftBtn.addEventListener('click', () => {
+
+            rotationAngle = (rotationAngle - 90 + 360) % 360;
+
+            recalculateOrientationAndBounds();
+
+        });
+
+
+
+        centerBtn.addEventListener('click', () => {
+
+            if (isPortrait) verticalSlider.value = 50;
+
+            else horizontalSlider.value = 50;
+
+            updateOffsetFromSliders();
+
+            triggerHighQualityRender();
+
+        });
+
+
+
+        // Direct drag-to-pan in canvas preview
+
+        function startDrag(x, y) {
+
+            isDragging = true;
+
+            dragStartX = x;
+
+            dragStartY = y;
+
+        }
+
+
+
+        function moveDrag(x, y) {
+            if (!isDragging || !rawImage) return;
+            const rect = cropCanvas.getBoundingClientRect();
+            if (!rect.width || !rect.height) return;
+
+            // Convert screen CSS pixels into the crop's logical 300x300 coordinates.
+            const dx = (x - dragStartX) * (TARGET_WIDTH / rect.width);
+            const dy = (y - dragStartY) * (TARGET_HEIGHT / rect.height);
+
+            if (isPortrait) {
+                offsetY += dy;
+                const minOffsetY = TARGET_HEIGHT - scaledHeight;
+                offsetY = Math.max(minOffsetY, Math.min(0, offsetY));
+            } else {
+                offsetX += dx;
+                const minOffsetX = TARGET_WIDTH - scaledWidth;
+                offsetX = Math.max(minOffsetX, Math.min(0, offsetX));
+            }
+
+            dragStartX = x;
+            dragStartY = y;
+            currentFinalBlob = null;
+            downloadBtn.disabled = true;
+            syncSlidersFromOffset();
+            renderFastPreview();
+        }
+
+        function stopDrag() {
+
+            if (isDragging) {
+
+                isDragging = false;
+
+                triggerHighQualityRender();
+
+            }
+
+        }
+
+
+
+        // Unified Pointer Events work with mouse, pen and mobile touch.
+        cropCanvas.addEventListener('pointerdown', (e) => {
+            if (!rawImage) return;
+            startDrag(e.clientX, e.clientY);
+            try { cropCanvas.setPointerCapture(e.pointerId); } catch (_) {}
+            e.preventDefault();
+        });
+
+        cropCanvas.addEventListener('pointermove', (e) => {
+            if (isDragging) moveDrag(e.clientX, e.clientY);
+        });
+
+        cropCanvas.addEventListener('pointerup', stopDrag);
+        cropCanvas.addEventListener('pointercancel', stopDrag);
+        cropCanvas.addEventListener('lostpointercapture', stopDrag);
+
+        // Download Action
+
+        downloadBtn.addEventListener('click', () => {
+
+            if (!currentFinalBlob) return;
+
+            const url = URL.createObjectURL(currentFinalBlob);
+
+            const a = document.createElement('a');
+
+            const now = new Date();
+
+            const dateStr = `${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}_${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}`;
+
+            a.href = url;
+
+            a.download = `photo_300x300_${dateStr}.jpg`;
+
+            document.body.appendChild(a);
+
+            a.click();
+
+            document.body.removeChild(a);
+
+            setTimeout(() => URL.revokeObjectURL(url), 2000);
+
+        });
+
+
+
+    </script>
+<div id="footer"></div>
+</body>
+</html>
