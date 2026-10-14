@@ -1,695 +1,915 @@
 <!DOCTYPE html>
-
 <html lang="bn">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>সরকারি আবেদনের স্কয়ার ছবি তৈরি</title>
-
-    <!-- Tailwind CSS CDN -->
-
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>সরকারি চাকরির আবেদন - ছবি ও স্বাক্ষর রিসাইজার টুল</title>
 
     <!-- Font Awesome Icons -->
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Google Fonts -->
-
+    <!-- Google Fonts (Hind Siliguri & JetBrains Mono) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
     <!-- Pica.js for Lanczos3 High-Fidelity Downsampling -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pica/9.0.1/pica.min.js"></script>
     <script src="/js/components.js" defer></script>
     <link rel="stylesheet" href="/css/components.css">
 
-
     <style>
-
-        * {
-            padding: 0;
-            margin: 0;
+        /* CSS Reset & Variables */
+        *, *::before, *::after {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg-base: #030712;
+            --bg-card: rgba(15, 23, 42, 0.82);
+            --border-color: rgba(51, 65, 85, 0.7);
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --accent-indigo: #4f46e5;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-bn: 'Hind Siliguri', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 26px;
         }
 
         body {
-
-            font-family: 'Hind Siliguri', sans-serif;
-
-            background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 50%, #030712 100%);
-
+            font-family: var(--font-bn);
+            background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 45%, #030712 100%);
+            color: var(--text-main);
             min-height: 100vh;
-
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-x: hidden;
+            font-size: clamp(14px, 1.1vw, 17px);
+            line-height: 1.6;
         }
 
         .font-mono-num {
-
-            font-family: 'JetBrains Mono', monospace;
-
+            font-family: var(--font-mono);
         }
 
+        /* Responsive Layout Container */
+        .wrapper {
+            width: 100%;
+            max-width: 940px;
+            margin: 0 auto;
+            padding: clamp(12px, 3vw, 24px);
+        }
 
+        /* Navbar & Footer Edge Alignment */
+        #upNav, #footer {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+            flex-shrink: 0;
+            box-sizing: border-box;
+        }
 
-        /* Custom range styling */
+        @media (max-width: 767px) {
+            #upNav { margin-bottom: 12px; }
+            #footer { margin-top: 18px; }
+        }
+
+        /* Header Style */
+        .header {
+            text-align: center;
+            margin-bottom: clamp(18px, 3vw, 30px);
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 5px 14px;
+            border-radius: 9999px;
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(129, 140, 248, 0.35);
+            color: #a5b4fc;
+            font-size: clamp(11px, 0.85vw, 13px);
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .page-title {
+            font-size: clamp(22px, 3.2vw, 36px);
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.25;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+
+        .page-subtitle {
+            font-size: clamp(13px, 1.15vw, 16px);
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Card Container */
+        .main-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: clamp(16px, 3.5vw, 34px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        /* Mode Switcher Tabs */
+        .mode-switcher {
+            display: flex;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(71, 85, 105, 0.5);
+            padding: 5px;
+            border-radius: var(--radius-md);
+            gap: 6px;
+            margin-bottom: 22px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px 14px;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-muted);
+            font-family: inherit;
+            font-size: clamp(13px, 1.05vw, 15px);
+            font-weight: 600;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--accent-indigo));
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+        }
+
+        /* Upload Dropzone */
+        .dropzone {
+            border: 2px dashed rgba(71, 85, 105, 0.7);
+            border-radius: var(--radius-lg);
+            padding: clamp(24px, 4vw, 36px) 16px;
+            text-align: center;
+            cursor: pointer;
+            background: rgba(2, 6, 23, 0.45);
+            transition: all 0.25s ease;
+            margin-bottom: 22px;
+        }
+
+        .dropzone:hover, .dropzone.drag-active {
+            border-color: #60a5fa;
+            background: rgba(15, 23, 42, 0.75);
+        }
+
+        .drop-icon-box {
+            width: clamp(50px, 5vw, 64px);
+            height: clamp(50px, 5vw, 64px);
+            margin: 0 auto 12px auto;
+            border-radius: var(--radius-md);
+            background: rgba(37, 99, 235, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            color: #60a5fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(20px, 2.2vw, 26px);
+        }
+
+        .drop-title {
+            font-size: clamp(15px, 1.25vw, 18px);
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 4px;
+        }
+
+        .drop-subtitle {
+            font-size: clamp(12px, 0.95vw, 14px);
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .upload-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #2563eb, #4f46e5);
+            color: #ffffff;
+            border: none;
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-size: clamp(13px, 1vw, 15px);
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+            transition: transform 0.15s ease, filter 0.15s ease;
+        }
+
+        .upload-btn:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+
+        /* Editor Area */
+        #editorArea {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Status & Info Badges */
+        .info-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 18px;
+            width: 100%;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 9999px;
+            font-size: clamp(11px, 0.85vw, 13px);
+            font-weight: 500;
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid rgba(71, 85, 105, 0.5);
+            color: #cbd5e1;
+        }
+
+        .badge-blue {
+            background: rgba(37, 99, 235, 0.12);
+            color: #60a5fa;
+            border-color: rgba(59, 130, 246, 0.35);
+        }
+
+        .badge-emerald {
+            background: rgba(16, 185, 129, 0.12);
+            color: #34d399;
+            border-color: rgba(16, 185, 129, 0.35);
+        }
+
+        .badge-amber {
+            background: rgba(245, 158, 11, 0.12);
+            color: #fbbf24;
+            border-color: rgba(245, 158, 11, 0.35);
+        }
+
+        /* Toolbar Controls */
+        .toolbar {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            background: rgba(30, 41, 59, 0.65);
+            border: 1px solid var(--border-color);
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+        }
+
+        .toolbar-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tool-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 12px;
+            background: rgba(51, 65, 85, 0.85);
+            border: 1px solid rgba(100, 116, 139, 0.4);
+            color: #e2e8f0;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: clamp(12px, 0.9vw, 14px);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tool-btn:hover {
+            background: #475569;
+            color: #ffffff;
+        }
+
+        /* Checkbox & Range Controls */
+        .toggle-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: clamp(12px, 0.9vw, 14px);
+            color: #cbd5e1;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .toggle-label input[type="checkbox"] {
+            accent-color: var(--primary);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .zoom-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: clamp(12px, 0.9vw, 14px);
+            color: var(--text-muted);
+        }
 
         input[type=range] {
-
             -webkit-appearance: none;
-
             background: #334155;
-
             border-radius: 9999px;
-
+            height: 6px;
             outline: none;
-
         }
 
         input[type=range]::-webkit-slider-thumb {
-
             -webkit-appearance: none;
-
-            appearance: none;
-
-            width: 20px;
-
-            height: 20px;
-
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
-
             background: #3b82f6;
-
             cursor: pointer;
-
             border: 2px solid #ffffff;
-
-            box-shadow: 0 0 12px rgba(59, 130, 246, 0.7);
-
-            transition: transform 0.15s ease, background-color 0.15s ease;
-
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+            transition: transform 0.15s ease, background 0.15s ease;
         }
 
         input[type=range]::-webkit-slider-thumb:hover {
-
-            transform: scale(1.2);
-
+            transform: scale(1.15);
             background: #60a5fa;
-
         }
 
-
-
-        /* Vertical slider support */
-
-        .slider-vertical {
-
-            writing-mode: bt-lr;
-
-            -webkit-appearance: slider-vertical;
-
-            width: 8px;
-
-            height: 290px;
-
-            padding: 0 5px;
-
-        }
-
-
-
-        /* Responsive Rule-of-thirds grid */
-        .crop-grid {
-            background-image:
-                linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px);
-            background-size: 33.333333% 33.333333%;
-        }
-
-        .canvas-glow {
-            box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.3), 0 20px 25px -5px rgba(0, 0, 0, 0.6);
-        }
-
-        /* The preview scales down on small screens; the backing canvas stays 300x300. */
-        .crop-frame {
-            width: min(300px, calc(100vw - 64px));
-            aspect-ratio: 1 / 1;
-            flex: 0 1 300px;
-            min-width: 0;
-        }
-
-        .crop-frame > canvas {
-            display: block;
+        /* Workspace & Canvas Preview */
+        .workspace-area {
             width: 100%;
-            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 22px;
+            background: rgba(2, 6, 23, 0.65);
+            border: 1px solid rgba(30, 41, 59, 0.9);
+            border-radius: var(--radius-lg);
+            padding: clamp(14px, 3vw, 24px);
+        }
+
+        @media (min-width: 768px) {
+            .workspace-area {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        /* Crop Frames (Photo: 300x300, Signature: 300x80) */
+        .crop-frame-box {
+            position: relative;
+            background: #111827;
+            border: 2px solid #3b82f6;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.25), 0 15px 25px rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
             touch-action: none;
         }
 
-        #editorArea { min-width: 0; width: 100%; }
-        #editorArea > * { max-width: 100%; }
-        #downloadBtn { max-width: 100%; flex-wrap: wrap; justify-content: center; text-align: center; }
-        #downloadBtn:disabled { opacity: .55; cursor: not-allowed; transform: none; }
-
-        @media (max-width: 480px) {
-            body { padding-left: 10px; padding-right: 10px; }
-            main { padding: 14px !important; }
-            .crop-frame { width: min(300px, calc(100vw - 52px)); }
-            .slider-vertical { height: clamp(180px, 55vw, 260px); }
-            #editorArea .toolbar-controls { gap: 10px; }
+        .crop-frame-box.mode-photo {
+            width: min(300px, calc(100vw - 70px));
+            aspect-ratio: 1 / 1;
         }
 
-/* Full-width navbar and footer: edge-to-edge */
-#upNav,
-#footer {
-    width: 100vw;
-    max-width: none;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-    flex-shrink: 0;
-}
+        .crop-frame-box.mode-signature {
+            width: min(300px, calc(100vw - 70px));
+            aspect-ratio: 300 / 80;
+        }
 
-/* Prevent injected components from overflowing on mobile */
+        .crop-frame-box canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+        }
 
-#upNav,
-#footer {
-    min-width: 0;
-    box-sizing: border-box;
-}
+        .crop-frame-box canvas:active {
+            cursor: grabbing;
+        }
 
-/* Mobile spacing below navbar and above footer */
-@media (max-width: 767px) {
-    #upNav {
-        margin-bottom: 16px;
-    }
+        /* Overlay Grid */
+        .crop-grid {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.25;
+            background-image:
+                linear-gradient(to right, rgba(255,255,255,0.4) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.4) 1px, transparent 1px);
+            background-size: 33.333% 33.333%;
+        }
 
-    #footer {
-        margin-top: 16px;
-    }
-}
+        .center-dot {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
+        .center-dot span {
+            width: 8px;
+            height: 8px;
+            background: #60a5fa;
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(96, 165, 250, 0.8);
+        }
 
+        .processing-loader {
+            position: absolute;
+            inset: 0;
+            background: rgba(3, 7, 18, 0.75);
+            backdrop-filter: blur(4px);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: #60a5fa;
+            font-size: 13px;
+            z-index: 5;
+        }
+
+        /* Sliders Panel */
+        .slider-controls-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .slider-block {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .slider-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .slider-vertical {
+            writing-mode: bt-lr;
+            -webkit-appearance: slider-vertical;
+            width: 8px;
+            height: clamp(160px, 25vw, 240px);
+            cursor: pointer;
+        }
+
+        .slider-vertical-box {
+            padding: 8px 12px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .guide-box {
+            font-size: clamp(11px, 0.85vw, 13px);
+            color: var(--text-muted);
+            text-align: center;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(51, 65, 85, 0.6);
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            line-height: 1.5;
+        }
+
+        /* Action & Download Button */
+        .download-wrapper {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 440px;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #2563eb, #4f46e5, #7c3aed);
+            color: #ffffff;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-family: inherit;
+            font-size: clamp(14px, 1.1vw, 17px);
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        .btn-download:hover:not(:disabled) {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .btn-download:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .security-note {
+            font-size: clamp(11px, 0.85vw, 13px);
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Footer Credit */
+        .footer-credit {
+            text-align: center;
+            font-size: clamp(11px, 0.85vw, 13px);
+            color: #64748b;
+            margin-top: 18px;
+            padding-bottom: 12px;
+        }
+
+        .footer-credit b {
+            color: #94a3b8;
+        }
     </style>
-
 </head>
 
+<body>
 
-<body class="text-slate-100 flex flex-col justify-between p-0">
+    <div id="upNav"></div>
 
-<div id="upNav"></div>
+    <div class="wrapper">
+        <!-- Header -->
+        <header class="header">
+            <div class="brand-badge">
+                <i class="fa-solid fa-gift"></i> গল্পের বাহার ডেডিকেটেড ফ্রি টুলস
+            </div>
+            <h1 class="page-title">
+                সরকারি চাকরির আবেদনের জন্য ইমেজ ও সিগনেচার রিসাইজার
+            </h1>
+            <p class="page-subtitle">
+                বাংলাদেশ সরকারি ও স্বায়ত্তশাসিত চাকরির নির্ভুল আবেদন ফরম্যাটিং টুল — ৩০০×৩০০ ছবি (৮০–৯০ KB) এবং ৩০০×৮০ স্বাক্ষর (সর্বোচ্চ ৬০ KB) ঝকঝকে ও জিরো-কোয়ালিটি লসে তৈরি করুন।
+            </p>
+        </header>
 
+        <!-- Main Card -->
+        <main class="main-card">
 
-    <!-- Header Section -->
+            <!-- Feature Tab Switcher -->
+            <div class="mode-switcher">
+                <button type="button" id="tabPhoto" class="tab-btn active">
+                    <i class="fa-solid fa-user"></i> সরকারি ছবি (৩০০ × ৩০০ px)
+                </button>
+                <button type="button" id="tabSignature" class="tab-btn">
+                    <i class="fa-solid fa-signature"></i> স্বাক্ষর ইমেজ (৩০০ × ৮০ px)
+                </button>
+            </div>
 
-    <header class="max-w-4xl mx-auto w-full text-center mb-6">
-
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 text-xs md:text-sm font-semibold mb-2">
-
-            <i class="fa-solid fa-gem text-blue-400"></i> Lanczos3 হাই-ফিডেলিটি ডাউনস্যাম্পলিং ও জিরো-কোয়ালিটি লস
-
-        </div>
-
-        <h1 class="text-2xl md:text-4xl font-extrabold text-white tracking-tight">
-
-            প্রফেশনাল ৩০০×৩০০ JPG ক্রপার ও ৮০-৯০ KB অপটিমাইজার
-
-        </h1>
-
-        <p class="text-slate-400 text-xs md:text-sm mt-1.5 max-w-xl mx-auto">
-
-            ভার্টিক্যাল বা হরিজন্টাল অটো-ডিটেকশন, ক্রিস্টাল ক্লিয়ার শার্পেনিং এবং কোয়ালিটি নষ্ট না করে শতভাগ ৮০-৯০ KB এর মধ্যে ডাউনলোড।
-
-        </p>
-
-    </header>
-
-
-
-    <!-- Main Workspace -->
-
-    <main class="max-w-4xl mx-auto w-full bg-slate-900/80 backdrop-blur-2xl border border-slate-700/60 rounded-3xl p-4 md:p-8 shadow-2xl">
-
-
-
-        <!-- Upload Dropzone Area -->
-
-        <div id="dropzone" class="border-2 border-dashed border-slate-700 hover:border-blue-500 rounded-2xl p-6 text-center cursor-pointer transition-all duration-300 bg-slate-950/40 hover:bg-slate-950/70 mb-6 group">
-
-            <input type="file" id="imageInput" accept="image/*" class="hidden">
-
-            <div class="flex flex-col items-center justify-center gap-2.5">
-
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600/20 to-indigo-600/20 border border-blue-500/30 text-blue-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-
+            <!-- Upload Dropzone -->
+            <div id="dropzone" class="dropzone">
+                <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                <div class="drop-icon-box">
                     <i class="fa-solid fa-cloud-arrow-up"></i>
-
                 </div>
-
-                <div>
-
-                    <p class="text-base font-semibold text-slate-200">
-
-                        ইমেজ নির্বাচন করতে এখানে ক্লিক করুন বা ড্র্যাগ করে ফেলুন
-
-                    </p>
-
-                    <p class="text-xs text-slate-400 mt-0.5">যেকোনো সাইজের হাই-রেজোলিউশন ফটো (PNG, JPG, WEBP) সাপোর্ট করবে</p>
-
+                <div class="drop-title" id="dropzoneTitle">
+                    ছবি সিলেক্ট করতে এখানে ক্লিক করুন বা ড্র্যাগ করে ছেড়ে দিন
                 </div>
-
-                <button type="button" onclick="document.getElementById('imageInput').click()" class="mt-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-xl text-xs md:text-sm font-semibold transition shadow-md flex items-center gap-2">
-
-                    <i class="fa-regular fa-image"></i> ছবি আপলোড করুন
-
+                <div class="drop-subtitle" id="dropzoneSubtitle">
+                    যেকোনো সাইজের হাই-রেজোলিউশন ফটো (PNG, JPG, WEBP) আপলোড করা যাবে
+                </div>
+                <button type="button" onclick="document.getElementById('imageInput').click()" class="upload-btn">
+                    <i class="fa-regular fa-image"></i> ফাইল নির্বাচন করুন
                 </button>
-
             </div>
 
-        </div>
+            <!-- Editor Section -->
+            <div id="editorArea">
 
+                <!-- Badges -->
+                <div class="info-badges">
+                    <span class="badge">
+                        <i class="fa-solid fa-expand text-blue-400"></i> মূল সাইজ: <b id="originalSizeText" class="font-mono-num">-</b>
+                    </span>
+                    <span class="badge badge-blue">
+                        <i class="fa-solid fa-crop-simple"></i> ফরম্যাট: <b id="outputResolutionText" class="font-mono-num">300 × 300 px (JPG)</b>
+                    </span>
+                    <span id="targetSizeBadge" class="badge badge-emerald">
+                        <i class="fa-solid fa-circle-check"></i> ফাইলের আকার: <b id="fileSizeText" class="font-mono-num">হিসাব হচ্ছে...</b>
+                    </span>
+                    <span class="badge">
+                        <i class="fa-solid fa-microchip"></i> ইঞ্জিন: Pica Lanczos3
+                    </span>
+                </div>
 
+                <!-- Toolbar -->
+                <div class="toolbar">
+                    <div class="toolbar-group">
+                        <button id="rotateLeftBtn" class="tool-btn" title="৯০° বামে ঘোরান">
+                            <i class="fa-solid fa-rotate-left"></i> ৯০°
+                        </button>
+                        <button id="rotateRightBtn" class="tool-btn" title="৯০° ডানে ঘোরান">
+                            <i class="fa-solid fa-rotate-right"></i> ৯০°
+                        </button>
+                        <button id="centerBtn" class="tool-btn" title="মাঝখানে রিসেট করুন">
+                            <i class="fa-solid fa-arrows-to-dot" style="color: #60a5fa;"></i> রিসেট সেন্টার
+                        </button>
+                    </div>
 
-        <!-- Editor & Preview Section -->
+                    <div class="toolbar-group">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="sharpenToggle" checked>
+                            <span><i class="fa-solid fa-wand-magic" style="color: #facc15;"></i> ক্লিয়ার শার্পেনিং</span>
+                        </label>
 
-        <div id="editorArea" class="hidden flex-col items-center">
+                        <div class="zoom-wrapper">
+                            <span><i class="fa-solid fa-magnifying-glass-plus"></i> জুম:</span>
+                            <input type="range" id="zoomSlider" min="1" max="2.5" step="0.02" value="1" style="width: 85px;">
+                            <span id="zoomVal" class="font-mono-num" style="color: #cbd5e1; width: 34px;">1.0x</span>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Workspace Visual Canvas & Controls -->
+                <div class="workspace-area">
 
+                    <!-- Canvas Container -->
+                    <div id="cropFrameBox" class="crop-frame-box mode-photo">
+                        <canvas id="cropCanvas" width="300" height="300"></canvas>
+                        <div class="crop-grid"></div>
+                        <div class="center-dot"><span></span></div>
+                        <div id="processingLoader" class="processing-loader">
+                            <i class="fa-solid fa-circle-notch fa-spin" style="font-size: 24px;"></i>
+                            <span>প্রসেসিং হচ্ছে...</span>
+                        </div>
+                    </div>
 
-            <!-- Information Badges -->
+                    <!-- Sliders Side Panel -->
+                    <div class="slider-controls-panel">
 
-            <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-5">
+                        <!-- Vertical Slider (Height > Width) -->
+                        <div id="verticalSliderContainer" class="slider-block">
+                            <div class="slider-label">
+                                <i class="fa-solid fa-arrows-up-down" style="color: #60a5fa;"></i> Y-অক্ষ পজিশন (উচ্চতা)
+                            </div>
+                            <div class="slider-vertical-box">
+                                <input type="range" id="verticalSlider" min="0" max="100" value="50" class="slider-vertical">
+                            </div>
+                            <span id="vSliderVal" class="font-mono-num" style="color: #60a5fa; font-weight: 600; font-size: 13px;">50%</span>
+                        </div>
 
-                <span class="bg-slate-800/90 px-3 py-1 rounded-xl text-xs font-medium text-slate-300 flex items-center gap-1.5 border border-slate-700">
+                        <!-- Horizontal Slider (Width >= Height) -->
+                        <div id="horizontalSliderContainer" class="slider-block">
+                            <div class="slider-label">
+                                <i class="fa-solid fa-arrows-left-right" style="color: #60a5fa;"></i> X-অক্ষ পজিশন (প্রস্থ)
+                            </div>
+                            <input type="range" id="horizontalSlider" min="0" max="100" value="50" style="width: 100%;">
+                            <div style="display: flex; justify-content: space-between; width: 100%; font-size: 11px; color: var(--text-muted);" class="font-mono-num">
+                                <span>বাম (0%)</span>
+                                <span id="hSliderVal" style="color: #60a5fa; font-weight: 600;">50%</span>
+                                <span>ডান (100%)</span>
+                            </div>
+                        </div>
 
-                    <i class="fa-solid fa-expand text-blue-400"></i> মূল সাইজ: <b id="originalSizeText" class="text-white font-mono-num">-</b>
+                        <div class="guide-box">
+                            <i class="fa-regular fa-hand-pointer" style="color: #60a5fa;"></i> ছবি বা স্বাক্ষরে টাচ অথবা মাউস দিয়ে ড্র্যাগ করেও যেকোনো জায়গায় পারফেক্ট পজিশন করা যাবে।
+                        </div>
+                    </div>
 
-                </span>
+                </div>
 
-                <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-3 py-1 rounded-xl text-xs font-semibold flex items-center gap-1.5">
-
-                    <i class="fa-solid fa-crop-simple"></i> আউটপুট: <b class="font-mono-num">300 × 300 px (JPG)</b>
-
-                </span>
-
-                <span id="targetSizeBadge" class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-xl text-xs font-semibold flex items-center gap-1.5">
-
-                    <i class="fa-solid fa-circle-check"></i> সাইজ: <b id="fileSizeText" class="font-mono-num">হিসাব করা হচ্ছে...</b>
-
-                </span>
-
-                <span class="bg-indigo-500/10 text-indigo-300 border border-indigo-500/30 px-3 py-1 rounded-xl text-xs font-semibold flex items-center gap-1.5">
-
-                    <i class="fa-solid fa-microchip"></i> ইঞ্জিন: Pica Lanczos3
-
-                </span>
-
-            </div>
-
-
-
-            <!-- Toolbar Controls (Rotate, Zoom, Fine Sharpen) -->
-
-            <div class="w-full flex flex-wrap items-center justify-between gap-3 bg-slate-800/60 p-3 rounded-2xl border border-slate-700/60 mb-5 text-xs">
-
-                <div class="flex items-center gap-2">
-
-                    <button id="rotateLeftBtn" title="৯০° বামে ঘোরান" class="px-3 py-1.5 bg-slate-700/80 hover:bg-slate-600 rounded-lg text-slate-200 transition flex items-center gap-1.5">
-
-                        <i class="fa-solid fa-rotate-left"></i> ৯০°
-
+                <!-- Download Area -->
+                <div class="download-wrapper">
+                    <button id="downloadBtn" class="btn-download" disabled>
+                        <i class="fa-solid fa-file-arrow-down" style="font-size: 18px;"></i>
+                        <span id="downloadBtnText">৩০০×৩০০ HD JPG ডাউনলোড করুন</span>
+                        (<span id="downloadSizePreview" class="font-mono-num">অপেক্ষা করুন</span>)
                     </button>
-
-                    <button id="rotateRightBtn" title="৯০° ডানে ঘোরান" class="px-3 py-1.5 bg-slate-700/80 hover:bg-slate-600 rounded-lg text-slate-200 transition flex items-center gap-1.5">
-
-                        <i class="fa-solid fa-rotate-right"></i> ৯০°
-
-                    </button>
-
-                    <button id="centerBtn" title="মাঝখানে রিসেট করুন" class="px-3 py-1.5 bg-slate-700/80 hover:bg-slate-600 rounded-lg text-slate-200 transition flex items-center gap-1.5">
-
-                        <i class="fa-solid fa-arrows-to-dot text-blue-400"></i> রিসেট সেন্টার
-
-                    </button>
-
-                </div>
-
-
-
-                <div class="flex items-center gap-4">
-
-                    <!-- High-Res Sharpening Toggle -->
-
-                    <label class="flex items-center gap-2 cursor-pointer select-none">
-
-                        <input type="checkbox" id="sharpenToggle" checked class="w-4 h-4 rounded text-blue-600 bg-slate-700 border-slate-600 focus:ring-0">
-
-                        <span class="text-slate-300 font-medium"><i class="fa-solid fa-wand-magic text-yellow-400 mr-1"></i>সাবটল শার্পেনিং (Ultra Clear)</span>
-
-                    </label>
-
-
-
-                    <!-- Fine Zoom Control -->
-
-                    <div class="flex items-center gap-2">
-
-                        <span class="text-slate-400"><i class="fa-solid fa-magnifying-glass-plus"></i> জুম:</span>
-
-                        <input type="range" id="zoomSlider" min="1" max="2" step="0.02" value="1" class="w-20 md:w-28 h-1.5">
-
-                        <span id="zoomVal" class="font-mono-num text-slate-300 w-8">1.0x</span>
-
+                    <div class="security-note">
+                        <i class="fa-solid fa-shield-halved" style="color: #34d399;"></i>
+                        <span>আপনার ছবি সম্পূর্ণ ব্রাউজারে সুরক্ষিতভাবে কনভার্ট হয়, কোনো সার্ভারে আপলোড হয় না।</span>
                     </div>
-
                 </div>
 
             </div>
 
+        </main>
 
+        <footer class="footer-credit">
+            Lanczos3 হাই-ফিডেলিটি ডাউনস্যাম্পলিং • শতভাগ ব্রাউজার-সাইড প্রসেসিং • <b>গল্পের বাহার ডেডিকেটেড ফ্রি টুলস</b>
+        </footer>
+    </div>
 
-            <!-- Cropper Canvas & Orientation Slider Grid -->
-
-            <div class="relative flex flex-col md:flex-row items-center justify-center gap-6 p-4 md:p-6 bg-slate-950/70 rounded-2xl border border-slate-800">
-
-
-
-                <!-- Responsive 300x300 Exact Crop Window -->
-
-                <div class="crop-frame relative rounded-xl overflow-hidden canvas-glow border-2 border-blue-500/80 bg-neutral-900 select-none flex items-center justify-center">
-
-                    <canvas id="cropCanvas" width="300" height="300" class="block w-full h-full cursor-grab active:cursor-grabbing"></canvas>
-
-
-
-                    <!-- Rule of Thirds Guides -->
-
-                    <div class="crop-grid absolute inset-0 pointer-events-none opacity-30"></div>
-
-
-
-                    <!-- Center Focus Point Indicator -->
-
-                    <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
-
-                        <div class="w-2.5 h-2.5 rounded-full bg-blue-400/60 shadow-lg"></div>
-
-                    </div>
-
-
-
-                    <!-- Processing Overlay -->
-
-                    <div id="processingLoader" class="absolute inset-0 bg-slate-950/70 backdrop-blur-sm hidden flex-col items-center justify-center gap-2 text-blue-400 text-xs">
-
-                        <i class="fa-solid fa-circle-notch fa-spin text-2xl"></i>
-
-                        <span>Lanczos3 প্রসেস হচ্ছে...</span>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Orientation Control Sliders Container -->
-
-                <div class="flex flex-col justify-center items-center gap-3">
-
-
-
-                    <!-- Vertical Slider (Height > Width) -->
-
-                    <div id="verticalSliderContainer" class="hidden flex-col items-center gap-2">
-
-                        <div class="flex items-center gap-2 text-xs font-semibold text-slate-300">
-
-                            <i class="fa-solid fa-arrows-up-down text-blue-400"></i> Y-অক্ষ পজিশন (উচ্চতা স্লাইডার)
-
-                        </div>
-
-                        <div class="flex items-center justify-center h-[300px] px-2.5 py-1.5 bg-slate-800/90 rounded-2xl border border-slate-700">
-
-                            <input type="range" id="verticalSlider" min="0" max="100" value="50" class="slider-vertical cursor-pointer">
-
-                        </div>
-
-                        <span id="vSliderVal" class="text-xs text-blue-400 font-mono-num font-semibold">50%</span>
-
-                    </div>
-
-
-
-                    <!-- Horizontal Slider (Width >= Height) -->
-
-                    <div id="horizontalSliderContainer" class="hidden flex-col items-center gap-2 w-full max-w-[300px]">
-
-                        <div class="flex items-center gap-2 text-xs font-semibold text-slate-300">
-
-                            <i class="fa-solid fa-arrows-left-right text-blue-400"></i> X-অক্ষ পজিশন (প্রস্থ স্লাইডার)
-
-                        </div>
-
-                        <input type="range" id="horizontalSlider" min="0" max="100" value="50" class="w-full h-2 cursor-pointer">
-
-                        <div class="flex justify-between w-full text-[11px] text-slate-400 font-mono-num">
-
-                            <span>বাম (0%)</span>
-
-                            <span id="hSliderVal" class="text-blue-400 font-semibold">50%</span>
-
-                            <span>ডান (100%)</span>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- Visual interaction guide -->
-
-                    <div class="text-[11px] text-slate-400 text-center max-w-[210px] mt-1 bg-slate-800/60 p-2.5 rounded-xl border border-slate-700/60">
-
-                        <i class="fa-regular fa-hand-pointer text-blue-400"></i> প্রিভিউ ক্যানভাসে মাউস বা টাচ দিয়ে ড্র্যাগ করেও যেকোনো জায়গায় পজিশন করা যাবে।
-
-                    </div>
-
-
-
-                </div>
-
-
-
-            </div>
-
-
-
-            <!-- Download Button -->
-
-            <div class="mt-6 flex flex-col items-center gap-3 w-full">
-
-                <button id="downloadBtn" disabled class="px-8 py-3.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 active:scale-95 text-white rounded-2xl text-sm font-bold transition shadow-xl shadow-indigo-600/30 flex items-center gap-2.5">
-
-                    <i class="fa-solid fa-file-arrow-down text-lg"></i> ৩০০×৩০০ HD JPG ডাউনলোড করুন (<span id="downloadSizePreview" class="font-mono-num">85.0 KB</span>)
-
-                </button>
-
-                <div class="text-xs text-slate-400 flex items-center gap-2">
-
-                    <i class="fa-solid fa-shield-halved text-emerald-400"></i> 
-
-                    <span>সর্বোচ্চ সম্ভব ছবির মান • JPG সাইজ প্রসেস শেষে যাচাই করা হবে।</span>
-
-                </div>
-
-            </div>
-
-
-
-        </div>
-
-
-
-    </main>
-
-
-
-    <!-- Footer -->
-
-    <footer class="text-center text-xs text-slate-500 mt-6">
-
-        Lanczos3 Resampling Engine • JPEG Size Verification • No Server Upload Needed
-
-    </footer>
-
-
+    <div id="footer"></div>
 
     <!-- Hidden source canvas used for Pica rendering -->
-
-    <canvas id="sourceCanvas" class="hidden"></canvas>
-
-
+    <canvas id="sourceCanvas" style="display: none;"></canvas>
 
     <script>
-
-        // Pica is optional: if its CDN is unavailable, Canvas fallback keeps the editor usable.
+        // Pica initialization
         const picaRunner = (typeof window.pica === 'function')
             ? window.pica({ features: ['js', 'wasm', 'cib'] })
             : null;
 
+        // Modes configuration
+        const MODES = {
+            PHOTO: {
+                width: 300,
+                height: 300,
+                minBytes: 80 * 1024,
+                maxBytes: 90 * 1024,
+                exactBytes: 85 * 1024,
+                name: 'photo_300x300',
+                badgeText: '300 × 300 px (JPG)',
+                btnLabel: '৩০০×৩০০ ছবি JPG ডাউনলোড করুন'
+            },
+            SIGNATURE: {
+                width: 300,
+                height: 80,
+                minBytes: 20 * 1024,
+                maxBytes: 60 * 1024,
+                exactBytes: 45 * 1024,
+                name: 'signature_300x80',
+                badgeText: '300 × 80 px (JPG)',
+                btnLabel: '৩০০×৮০ স্বাক্ষর JPG ডাউনলোড করুন'
+            }
+        };
 
+        let currentMode = MODES.PHOTO;
 
         // DOM elements
+        const tabPhoto = document.getElementById('tabPhoto');
+        const tabSignature = document.getElementById('tabSignature');
+        const cropFrameBox = document.getElementById('cropFrameBox');
+        const dropzoneTitle = document.getElementById('dropzoneTitle');
+        const dropzoneSubtitle = document.getElementById('dropzoneSubtitle');
+        const outputResolutionText = document.getElementById('outputResolutionText');
+        const downloadBtnText = document.getElementById('downloadBtnText');
 
         const dropzone = document.getElementById('dropzone');
-
         const imageInput = document.getElementById('imageInput');
-
         const editorArea = document.getElementById('editorArea');
-
         const cropCanvas = document.getElementById('cropCanvas');
-
         const ctx = cropCanvas.getContext('2d');
-
         const sourceCanvas = document.getElementById('sourceCanvas');
-
         const srcCtx = sourceCanvas.getContext('2d');
-
         const processingLoader = document.getElementById('processingLoader');
 
-
-
         const originalSizeText = document.getElementById('originalSizeText');
-
         const fileSizeText = document.getElementById('fileSizeText');
-
         const downloadSizePreview = document.getElementById('downloadSizePreview');
-
         const targetSizeBadge = document.getElementById('targetSizeBadge');
 
-
-
         const verticalSliderContainer = document.getElementById('verticalSliderContainer');
-
         const verticalSlider = document.getElementById('verticalSlider');
-
         const vSliderVal = document.getElementById('vSliderVal');
 
-
-
         const horizontalSliderContainer = document.getElementById('horizontalSliderContainer');
-
         const horizontalSlider = document.getElementById('horizontalSlider');
-
         const hSliderVal = document.getElementById('hSliderVal');
 
-
-
         const rotateLeftBtn = document.getElementById('rotateLeftBtn');
-
         const rotateRightBtn = document.getElementById('rotateRightBtn');
-
         const centerBtn = document.getElementById('centerBtn');
-
         const sharpenToggle = document.getElementById('sharpenToggle');
-
         const zoomSlider = document.getElementById('zoomSlider');
-
         const zoomVal = document.getElementById('zoomVal');
-
         const downloadBtn = document.getElementById('downloadBtn');
 
-
-
-        // Target constants
-
-        const TARGET_WIDTH = 300;
-
-        const TARGET_HEIGHT = 300;
-
-        const TARGET_MIN_BYTES = 80 * 1024; // 81,920 bytes
-
-        const TARGET_MAX_BYTES = 90 * 1024; // 92,160 bytes
-
-        const TARGET_EXACT_BYTES = 85 * 1024; // 87,040 bytes sweet spot
-
-
-
+        // State Variables
         let rawImage = null;
-
-        let rotationAngle = 0; // 0, 90, 180, 270
-
-        let isPortrait = false;
-
+        let rotationAngle = 0;
+        let isPortraitMode = false;
         let scaledWidth = 300;
-
         let scaledHeight = 300;
-
         let offsetX = 0;
-
         let offsetY = 0;
-
         let zoomLevel = 1.0;
-
         let currentFinalBlob = null;
 
-
-
         let isDragging = false;
-
         let dragStartX = 0;
-
         let dragStartY = 0;
-
         let isProcessingHQ = false;
 
+        // Tab Switching logic
+        function setToolMode(mode) {
+            currentMode = mode;
+            if (mode === MODES.PHOTO) {
+                tabPhoto.classList.add('active');
+                tabSignature.classList.remove('active');
+                cropFrameBox.className = 'crop-frame-box mode-photo';
+                cropCanvas.width = 300;
+                cropCanvas.height = 300;
+                dropzoneTitle.innerText = 'ছবি সিলেক্ট করতে এখানে ক্লিক করুন বা ড্র্যাগ করে ছেড়ে দিন';
+                dropzoneSubtitle.innerText = 'পাসপোর্ট সাইজ বা সাধারণ ছবি (PNG, JPG, WEBP) আপলোড করুন';
+            } else {
+                tabSignature.classList.add('active');
+                tabPhoto.classList.remove('active');
+                cropFrameBox.className = 'crop-frame-box mode-signature';
+                cropCanvas.width = 300;
+                cropCanvas.height = 80;
+                dropzoneTitle.innerText = 'স্বাক্ষরের ইমেজ সিলেক্ট করতে ক্লিক করুন বা ড্র্যাগ করুন';
+                dropzoneSubtitle.innerText = 'সাদা কাগজের উপর করা পরিষ্কার স্বাক্ষর বা স্ক্যান কপি আপলোড করুন';
+            }
 
+            outputResolutionText.innerText = currentMode.badgeText;
+            downloadBtnText.innerText = currentMode.btnLabel;
 
-        // Make the entire upload dropzone clickable, not only its inner button.
-        dropzone.addEventListener('click', (event) => {
-            if (event.target.closest('button') || event.target === imageInput) return;
+            if (rawImage) {
+                recalculateOrientationAndBounds();
+            }
+        }
+
+        tabPhoto.addEventListener('click', () => setToolMode(MODES.PHOTO));
+        tabSignature.addEventListener('click', () => setToolMode(MODES.SIGNATURE));
+
+        // Drag & Drop
+        dropzone.addEventListener('click', (e) => {
+            if (e.target.closest('button') || e.target === imageInput) return;
             imageInput.click();
         });
 
-        // Drag & Drop handlers
-
         ['dragenter', 'dragover'].forEach(name => {
-
             dropzone.addEventListener(name, (e) => {
-
                 e.preventDefault();
-
-                dropzone.classList.add('border-blue-500', 'bg-slate-900/80');
-
+                dropzone.classList.add('drag-active');
             });
-
         });
 
         ['dragleave', 'drop'].forEach(name => {
-
             dropzone.addEventListener(name, (e) => {
-
                 e.preventDefault();
-
-                dropzone.classList.remove('border-blue-500', 'bg-slate-900/80');
-
+                dropzone.classList.remove('drag-active');
             });
-
         });
 
         dropzone.addEventListener('drop', (e) => {
-
             if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-
                 loadImage(e.dataTransfer.files[0]);
-
             }
-
         });
 
         imageInput.addEventListener('change', (e) => {
@@ -697,13 +917,9 @@
             e.target.value = '';
         });
 
-
-
-        // Load and decode input image
-
         function loadImage(file) {
             if (!file || !file.type || !file.type.startsWith('image/')) {
-                fileSizeText.innerText = 'একটি বৈধ ছবি নির্বাচন করুন।';
+                fileSizeText.innerText = 'একটি সঠিক ইমেজ ফাইল নির্বাচন করুন।';
                 return;
             }
 
@@ -727,7 +943,7 @@
                     recalculateOrientationAndBounds();
                 };
                 img.onerror = () => {
-                    fileSizeText.innerText = 'ছবিটি খোলা যায়নি — অন্য ছবি দিন';
+                    fileSizeText.innerText = 'ছবিটি ওপেন করা সম্ভব হয়নি';
                 };
                 img.src = ev.target.result;
             };
@@ -735,264 +951,139 @@
             reader.readAsDataURL(file);
         }
 
-        // Handle rotation & orientation detection
-
         function recalculateOrientationAndBounds() {
-
             if (!rawImage) return;
 
-
-
-            // Compute effective width/height considering rotation
+            const targetW = currentMode.width;
+            const targetH = currentMode.height;
 
             const is90or270 = (rotationAngle % 180 !== 0);
-
             const effWidth = is90or270 ? rawImage.naturalHeight : rawImage.naturalWidth;
-
             const effHeight = is90or270 ? rawImage.naturalWidth : rawImage.naturalHeight;
 
-
-
             originalSizeText.innerText = `${rawImage.naturalWidth} × ${rawImage.naturalHeight} px`;
+            editorArea.style.display = 'flex';
 
-            editorArea.classList.remove('hidden');
+            const frameRatio = targetW / targetH;
+            const imgRatio = effWidth / effHeight;
 
+            if (imgRatio < frameRatio) {
+                // Image is taller than frame
+                isPortraitMode = true;
+                scaledWidth = targetW * zoomLevel;
+                scaledHeight = (effHeight / effWidth) * targetW * zoomLevel;
 
-
-            // Requirement 1 & 2:
-
-            // Vertical (H > W): Locks width to 300px, activates Y-axis vertical slider.
-
-            // Horizontal (W >= H): Locks height to 300px, activates X-axis horizontal slider.
-
-            if (effHeight > effWidth) {
-
-                isPortrait = true;
-
-                scaledWidth = TARGET_WIDTH * zoomLevel;
-
-                scaledHeight = (effHeight / effWidth) * TARGET_WIDTH * zoomLevel;
-
-
-
-                verticalSliderContainer.classList.remove('hidden');
-
-                horizontalSliderContainer.classList.add('hidden');
-
+                verticalSliderContainer.style.display = 'flex';
+                horizontalSliderContainer.style.display = 'none';
                 verticalSlider.value = 50;
-
                 vSliderVal.innerText = '50%';
-
             } else {
+                // Image is wider than frame
+                isPortraitMode = false;
+                scaledHeight = targetH * zoomLevel;
+                scaledWidth = (effWidth / effHeight) * targetH * zoomLevel;
 
-                isPortrait = false;
-
-                scaledHeight = TARGET_HEIGHT * zoomLevel;
-
-                scaledWidth = (effWidth / effHeight) * TARGET_HEIGHT * zoomLevel;
-
-
-
-                horizontalSliderContainer.classList.remove('hidden');
-
-                verticalSliderContainer.classList.add('hidden');
-
+                horizontalSliderContainer.style.display = 'flex';
+                verticalSliderContainer.style.display = 'none';
                 horizontalSlider.value = 50;
-
                 hSliderVal.innerText = '50%';
-
             }
-
-
 
             updateOffsetFromSliders();
-
             triggerHighQualityRender();
-
         }
-
-
 
         function updateOffsetFromSliders() {
+            const targetW = currentMode.width;
+            const targetH = currentMode.height;
 
-            if (isPortrait) {
-
-                const maxOffsetY = TARGET_HEIGHT - scaledHeight;
-
+            if (isPortraitMode) {
+                const maxOffsetY = targetH - scaledHeight;
                 const pct = parseFloat(verticalSlider.value) / 100;
-
                 offsetY = pct * maxOffsetY;
-
-                offsetX = (TARGET_WIDTH - scaledWidth) / 2;
-
+                offsetX = (targetW - scaledWidth) / 2;
                 vSliderVal.innerText = `${Math.round(pct * 100)}%`;
-
             } else {
-
-                const maxOffsetX = TARGET_WIDTH - scaledWidth;
-
+                const maxOffsetX = targetW - scaledWidth;
                 const pct = parseFloat(horizontalSlider.value) / 100;
-
                 offsetX = pct * maxOffsetX;
-
-                offsetY = (TARGET_HEIGHT - scaledHeight) / 2;
-
+                offsetY = (targetH - scaledHeight) / 2;
                 hSliderVal.innerText = `${Math.round(pct * 100)}%`;
-
             }
-
         }
-
-
 
         function syncSlidersFromOffset() {
+            const targetW = currentMode.width;
+            const targetH = currentMode.height;
 
-            if (isPortrait) {
-
-                const maxOffsetY = TARGET_HEIGHT - scaledHeight;
-
+            if (isPortraitMode) {
+                const maxOffsetY = targetH - scaledHeight;
                 if (maxOffsetY !== 0) {
-
                     let pct = (offsetY / maxOffsetY) * 100;
-
                     pct = Math.max(0, Math.min(100, pct));
-
                     verticalSlider.value = pct;
-
                     vSliderVal.innerText = `${Math.round(pct)}%`;
-
                 }
-
             } else {
-
-                const maxOffsetX = TARGET_WIDTH - scaledWidth;
-
+                const maxOffsetX = targetW - scaledWidth;
                 if (maxOffsetX !== 0) {
-
                     let pct = (offsetX / maxOffsetX) * 100;
-
                     pct = Math.max(0, Math.min(100, pct));
-
                     horizontalSlider.value = pct;
-
                     hSliderVal.innerText = `${Math.round(pct)}%`;
-
                 }
-
             }
-
         }
-
-
-
-        // Fast render for real-time smooth interactions (dragging, sliders)
 
         function renderFastPreview() {
-
             if (!rawImage) return;
-
-
+            const targetW = currentMode.width;
+            const targetH = currentMode.height;
 
             ctx.save();
-
             ctx.fillStyle = '#ffffff';
-
-            ctx.fillRect(0, 0, TARGET_WIDTH, TARGET_HEIGHT);
-
-
-
-            // Setup temporary rotated offscreen canvas or transform
+            ctx.fillRect(0, 0, targetW, targetH);
 
             ctx.translate(offsetX + scaledWidth / 2, offsetY + scaledHeight / 2);
-
             ctx.rotate((rotationAngle * Math.PI) / 180);
 
-
-
             const is90or270 = (rotationAngle % 180 !== 0);
-
             const drawW = is90or270 ? scaledHeight : scaledWidth;
-
             const drawH = is90or270 ? scaledWidth : scaledHeight;
 
-
-
             ctx.drawImage(rawImage, -drawW / 2, -drawH / 2, drawW, drawH);
-
             ctx.restore();
-
         }
-
-
-
-        // Unsharp Mask Filter (Ensures crystal clear facial & edge details at 300x300)
 
         function applySubtleSharpen(canvas) {
-
             const c = canvas.getContext('2d');
-
-            const imgData = c.getImageData(0, 0, 300, 300);
-
+            const w = canvas.width;
+            const h = canvas.height;
+            const imgData = c.getImageData(0, 0, w, h);
             const data = imgData.data;
-
             const copy = new Uint8ClampedArray(data);
 
-            const w = 300;
-
-            const h = 300;
-
-
-
-            // Convolution kernel: Subtle 3x3 unsharp mask
-
-            //  0  -0.3   0
-
-            // -0.3 2.2  -0.3
-
-            //  0  -0.3   0
-
-            const amount = 0.22;
-
+            const amount = 0.20;
             for (let y = 1; y < h - 1; y++) {
-
                 for (let x = 1; x < w - 1; x++) {
-
                     const idx = (y * w + x) * 4;
-
                     for (let cIdx = 0; cIdx < 3; cIdx++) {
-
                         const current = copy[idx + cIdx];
-
                         const neighbors = 
-
                             copy[((y - 1) * w + x) * 4 + cIdx] +
-
                             copy[((y + 1) * w + x) * 4 + cIdx] +
-
                             copy[(y * w + (x - 1)) * 4 + cIdx] +
-
                             copy[(y * w + (x + 1)) * 4 + cIdx];
-
                         const val = current + (current * 4 - neighbors) * amount;
-
                         data[idx + cIdx] = Math.max(0, Math.min(255, val));
-
                     }
-
                 }
-
             }
-
             c.putImageData(imgData, 0, 0);
-
         }
 
-
-
-        // High Quality Render Pipeline. Only the latest requested render is published.
         let renderDebounce;
         let renderRequestId = 0;
-        let completedRenderId = 0;
 
         function triggerHighQualityRender() {
             if (!rawImage) return;
@@ -1001,7 +1092,7 @@
             currentFinalBlob = null;
             downloadBtn.disabled = true;
             fileSizeText.innerText = 'অপটিমাইজ হচ্ছে...';
-            downloadSizePreview.innerText = 'অপেক্ষা করুন';
+            downloadSizePreview.innerText = 'প্রসেসিং...';
             clearTimeout(renderDebounce);
             renderDebounce = setTimeout(() => executePicaLanczosRender(), 120);
         }
@@ -1010,18 +1101,21 @@
             if (!rawImage || isProcessingHQ) return;
             isProcessingHQ = true;
             const thisRequest = renderRequestId;
-            processingLoader.classList.remove('hidden');
-            processingLoader.classList.add('flex');
+            processingLoader.style.display = 'flex';
+
+            const targetW = currentMode.width;
+            const targetH = currentMode.height;
 
             try {
                 const is90or270 = (rotationAngle % 180 !== 0);
                 const effWidth = is90or270 ? rawImage.naturalHeight : rawImage.naturalWidth;
                 const effHeight = is90or270 ? rawImage.naturalWidth : rawImage.naturalHeight;
                 const scaleRatio = scaledWidth / effWidth;
+
                 const srcCropX = Math.max(0, -offsetX / scaleRatio);
                 const srcCropY = Math.max(0, -offsetY / scaleRatio);
-                const srcCropW = Math.max(1, Math.min(effWidth, TARGET_WIDTH / scaleRatio));
-                const srcCropH = Math.max(1, Math.min(effHeight, TARGET_HEIGHT / scaleRatio));
+                const srcCropW = Math.max(1, Math.min(effWidth, targetW / scaleRatio));
+                const srcCropH = Math.max(1, Math.min(effHeight, targetH / scaleRatio));
 
                 sourceCanvas.width = Math.max(1, Math.round(effWidth));
                 sourceCanvas.height = Math.max(1, Math.round(effHeight));
@@ -1037,7 +1131,6 @@
                 subCanvas.width = Math.max(1, Math.round(srcCropW));
                 subCanvas.height = Math.max(1, Math.round(srcCropH));
                 const subCtx = subCanvas.getContext('2d');
-                if (!subCtx) throw new Error('ছবি প্রসেস করার জন্য Canvas তৈরি হয়নি।');
                 subCtx.fillStyle = '#ffffff';
                 subCtx.fillRect(0, 0, subCanvas.width, subCanvas.height);
                 subCtx.drawImage(
@@ -1046,42 +1139,41 @@
                     0, 0, subCanvas.width, subCanvas.height
                 );
 
+                cropCanvas.width = targetW;
+                cropCanvas.height = targetH;
+
                 if (picaRunner && typeof picaRunner.resize === 'function') {
                     try {
                         await picaRunner.resize(subCanvas, cropCanvas, {
                             filter: 'lanczos', unsharpAmount: 0, alpha: false
                         });
-                    } catch (picaError) {
-                        console.warn('Pica resize failed; using Canvas fallback:', picaError);
+                    } catch (picaErr) {
                         ctx.fillStyle = '#ffffff';
-                        ctx.fillRect(0, 0, TARGET_WIDTH, TARGET_HEIGHT);
-                        ctx.drawImage(subCanvas, 0, 0, TARGET_WIDTH, TARGET_HEIGHT);
+                        ctx.fillRect(0, 0, targetW, targetH);
+                        ctx.drawImage(subCanvas, 0, 0, targetW, targetH);
                     }
                 } else {
                     ctx.fillStyle = '#ffffff';
-                    ctx.fillRect(0, 0, TARGET_WIDTH, TARGET_HEIGHT);
-                    ctx.drawImage(subCanvas, 0, 0, TARGET_WIDTH, TARGET_HEIGHT);
+                    ctx.fillRect(0, 0, targetW, targetH);
+                    ctx.drawImage(subCanvas, 0, 0, targetW, targetH);
                 }
 
-                // If the user changed crop settings while processing, don't publish stale output.
                 if (thisRequest !== renderRequestId) return;
 
                 if (sharpenToggle.checked) applySubtleSharpen(cropCanvas);
                 await generateZeroLossTargetJpeg(thisRequest);
-                if (thisRequest === renderRequestId) completedRenderId = thisRequest;
 
             } catch (err) {
-                console.error('Image render error:', err);
+                console.error('Processing error:', err);
                 if (thisRequest === renderRequestId) {
                     currentFinalBlob = null;
                     downloadBtn.disabled = true;
-                    fileSizeText.innerText = 'প্রসেসিং ব্যর্থ — আবার চেষ্টা করুন';
+                    fileSizeText.innerText = 'ব্যর্থ হয়েছে';
                     downloadSizePreview.innerText = 'ত্রুটি';
                 }
             } finally {
                 isProcessingHQ = false;
-                processingLoader.classList.add('hidden');
-                processingLoader.classList.remove('flex');
+                processingLoader.style.display = 'none';
                 if (renderRequestId > thisRequest) {
                     clearTimeout(renderDebounce);
                     renderDebounce = setTimeout(() => executePicaLanczosRender(), 0);
@@ -1089,28 +1181,15 @@
             }
         }
 
-        /**
-
-         * Precision 80 KB - 90 KB Targetting with ZERO Quality Loss:
-
-         * 1. Encodes at pristine high quality (0.95 - 0.98).
-
-         * 2. If naturally less than 80 KB (standard for 300x300), injects standard safe JPEG APP1/COM chunks.
-
-         * 3. If larger than 90 KB, gently steps down quality until within 80-90 KB.
-
-         */
-
         function padJpegToExactRange(jpegUint8, targetBytes) {
             if (jpegUint8.length >= targetBytes) return jpegUint8;
             if (jpegUint8.length < 4 || jpegUint8[0] !== 0xFF || jpegUint8[1] !== 0xD8) {
-                throw new Error('তৈরি হওয়া JPG ফাইলটি বৈধ নয়।');
+                return jpegUint8;
             }
 
             const paddingNeeded = targetBytes - jpegUint8.length;
             if (paddingNeeded < 4) return jpegUint8;
 
-            // JPEG COM segments: each segment adds payload + 4 bytes, with max payload 65533.
             const segments = [];
             let remaining = paddingNeeded;
             while (remaining >= 4) {
@@ -1127,13 +1206,13 @@
                 remaining -= totalSegmentBytes;
             }
 
-            const totalPadding = segments.reduce((sum, segment) => sum + segment.length, 0);
+            const totalPadding = segments.reduce((sum, s) => sum + s.length, 0);
             const output = new Uint8Array(jpegUint8.length + totalPadding);
             output.set(jpegUint8.subarray(0, 2), 0);
             let offset = 2;
-            for (const segment of segments) {
-                output.set(segment, offset);
-                offset += segment.length;
+            for (const s of segments) {
+                output.set(s, offset);
+                offset += s.length;
             }
             output.set(jpegUint8.subarray(2), offset);
             return output;
@@ -1142,154 +1221,99 @@
         async function generateZeroLossTargetJpeg(requestId = renderRequestId) {
             fileSizeText.innerText = 'অপটিমাইজ হচ্ছে...';
 
-            const getBlob = (quality) => new Promise((resolve, reject) => {
-                cropCanvas.toBlob((blob) => {
-                    if (!blob) reject(new Error('ব্রাউজার JPG তৈরি করতে পারেনি।'));
-                    else resolve(blob);
-                }, 'image/jpeg', quality);
+            const getBlob = (quality) => new Promise((resolve) => {
+                cropCanvas.toBlob((blob) => resolve(blob), 'image/jpeg', quality);
             });
 
             let quality = 0.96;
             let blob = await getBlob(quality);
 
-            // Lower quality only when required; go down to 0.10 for difficult images.
-            while (blob.size > TARGET_MAX_BYTES && quality > 0.10) {
-                quality = Math.max(0.10, quality - 0.04);
+            // Step down if size exceeds target max limit
+            while (blob.size > currentMode.maxBytes && quality > 0.15) {
+                quality = Math.max(0.15, quality - 0.05);
                 blob = await getBlob(quality);
             }
 
-            // Add valid JPEG comment segments when the encoded file is below the requested range.
-            if (blob.size < TARGET_MIN_BYTES) {
+            // Pad file if Photo mode requires min standard (80-90 KB)
+            if (currentMode === MODES.PHOTO && blob.size < currentMode.minBytes) {
                 const bytes = new Uint8Array(await blob.arrayBuffer());
-                const padded = padJpegToExactRange(bytes, TARGET_EXACT_BYTES);
+                const padded = padJpegToExactRange(bytes, currentMode.exactBytes);
                 blob = new Blob([padded], { type: 'image/jpeg' });
             }
 
-            // Discard results from older render requests.
             if (requestId !== renderRequestId) return;
 
             const finalBytes = blob.size;
             const finalKb = (finalBytes / 1024).toFixed(1);
-            const inRange = finalBytes >= TARGET_MIN_BYTES && finalBytes <= TARGET_MAX_BYTES;
             currentFinalBlob = blob;
             downloadBtn.disabled = false;
-            fileSizeText.innerText = inRange
-                ? `${finalKb} KB`
-                : `${finalKb} KB (লক্ষ্য সাইজ পূরণ হয়নি)`;
+
+            fileSizeText.innerText = `${finalKb} KB`;
             downloadSizePreview.innerText = `${finalKb} KB`;
-            targetSizeBadge.className = inRange
-                ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-xl text-xs font-semibold flex items-center gap-1.5'
-                : 'bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-xl text-xs font-semibold flex items-center gap-1.5';
+
+            targetSizeBadge.className = 'badge badge-emerald';
         }
 
-        // Slider listeners
-
+        // Sliders & Zoom Handlers
         verticalSlider.addEventListener('input', () => {
-
             updateOffsetFromSliders();
-
             renderFastPreview();
-
         });
-
         verticalSlider.addEventListener('change', triggerHighQualityRender);
 
-
-
         horizontalSlider.addEventListener('input', () => {
-
             updateOffsetFromSliders();
-
             renderFastPreview();
-
         });
-
         horizontalSlider.addEventListener('change', triggerHighQualityRender);
 
-
-
-        // Zoom & Sharpen listeners
-
         zoomSlider.addEventListener('input', (e) => {
-
             zoomLevel = parseFloat(e.target.value);
-
             zoomVal.innerText = `${zoomLevel.toFixed(1)}x`;
-
             recalculateOrientationAndBounds();
-
         });
-
-
 
         sharpenToggle.addEventListener('change', triggerHighQualityRender);
 
-
-
-        // Rotation listeners
-
         rotateRightBtn.addEventListener('click', () => {
-
             rotationAngle = (rotationAngle + 90) % 360;
-
             recalculateOrientationAndBounds();
-
         });
 
         rotateLeftBtn.addEventListener('click', () => {
-
             rotationAngle = (rotationAngle - 90 + 360) % 360;
-
             recalculateOrientationAndBounds();
-
         });
-
-
 
         centerBtn.addEventListener('click', () => {
-
-            if (isPortrait) verticalSlider.value = 50;
-
+            if (isPortraitMode) verticalSlider.value = 50;
             else horizontalSlider.value = 50;
-
             updateOffsetFromSliders();
-
             triggerHighQualityRender();
-
         });
 
-
-
-        // Direct drag-to-pan in canvas preview
-
+        // Direct Touch & Mouse Pan Handlers
         function startDrag(x, y) {
-
             isDragging = true;
-
             dragStartX = x;
-
             dragStartY = y;
-
         }
-
-
 
         function moveDrag(x, y) {
             if (!isDragging || !rawImage) return;
             const rect = cropCanvas.getBoundingClientRect();
             if (!rect.width || !rect.height) return;
 
-            // Convert screen CSS pixels into the crop's logical 300x300 coordinates.
-            const dx = (x - dragStartX) * (TARGET_WIDTH / rect.width);
-            const dy = (y - dragStartY) * (TARGET_HEIGHT / rect.height);
+            const dx = (x - dragStartX) * (currentMode.width / rect.width);
+            const dy = (y - dragStartY) * (currentMode.height / rect.height);
 
-            if (isPortrait) {
+            if (isPortraitMode) {
                 offsetY += dy;
-                const minOffsetY = TARGET_HEIGHT - scaledHeight;
+                const minOffsetY = currentMode.height - scaledHeight;
                 offsetY = Math.max(minOffsetY, Math.min(0, offsetY));
             } else {
                 offsetX += dx;
-                const minOffsetX = TARGET_WIDTH - scaledWidth;
+                const minOffsetX = currentMode.width - scaledWidth;
                 offsetX = Math.max(minOffsetX, Math.min(0, offsetX));
             }
 
@@ -1302,20 +1326,12 @@
         }
 
         function stopDrag() {
-
             if (isDragging) {
-
                 isDragging = false;
-
                 triggerHighQualityRender();
-
             }
-
         }
 
-
-
-        // Unified Pointer Events work with mouse, pen and mobile touch.
         cropCanvas.addEventListener('pointerdown', (e) => {
             if (!rawImage) return;
             startDrag(e.clientX, e.clientY);
@@ -1331,37 +1347,21 @@
         cropCanvas.addEventListener('pointercancel', stopDrag);
         cropCanvas.addEventListener('lostpointercapture', stopDrag);
 
-        // Download Action
-
+        // Download Listener
         downloadBtn.addEventListener('click', () => {
-
             if (!currentFinalBlob) return;
-
             const url = URL.createObjectURL(currentFinalBlob);
-
             const a = document.createElement('a');
-
             const now = new Date();
-
             const dateStr = `${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}_${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}`;
-
             a.href = url;
-
-            a.download = `photo_300x300_${dateStr}.jpg`;
-
+            a.download = `${currentMode.name}_${dateStr}.jpg`;
             document.body.appendChild(a);
-
             a.click();
-
             document.body.removeChild(a);
-
             setTimeout(() => URL.revokeObjectURL(url), 2000);
-
         });
-
-
-
     </script>
-<div id="footer"></div>
+
 </body>
 </html>
