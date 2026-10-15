@@ -1,42 +1,70 @@
 [
   {
-    "storySlug": "bls-0006-hridoyer-rongin-canvas",
-    "indexPath": "stories/bangla-love-story/bls-0006-hridoyer-rongin-canvas/index.html"
-  },
-  {
-    "storySlug": "bls-0012-rajniti-bonam-premniti",
-    "indexPath": "stories/bangla-love-story/bls-0012-rajniti-bonam-premniti/index.html"
-  },
-  {
-    "storySlug": "sh-fam-0003-olpo-beimani-mon",
-    "indexPath": "short-stories/family/sh-fam-0003-olpo-beimani-mon/index.html"
-  },
-  {
-    "storySlug": "rt-0010-rokto-rekhar-arale",
-    "indexPath": "stories/romantic-thriller/rt-0010-rokto-rekhar-arale/index.html"
-  },
-  {
-    "storySlug": "bls-0014-ontoraler-pronoyini",
-    "indexPath": "stories/bangla-love-story/bls-0014-ontoraler-pronoyini/index.html"
-  },
-  {
-    "storySlug": "bls-0011-ocena-chaya-tumi",
-    "indexPath": "stories/bangla-love-story/bls-0011-ocena-chaya-tumi/index.html"
-  },
-  {
-    "storySlug": "rt-0004-she-is-my-obsession",
-    "indexPath": "stories/romantic-thriller/rt-0004-she-is-my-obsession/index.html"
-  },
-  {
     "storySlug": "bs-0001-hawar-sure-veshe",
     "indexPath": "stories/bangla-suspense/bs-0001-hawar-sure-veshe/index.html"
+  },
+  {
+    "storySlug": "fd-0004-mr-and-mrs-twins",
+    "indexPath": "stories/family-drama/fd-0004-mr-and-mrs-twins/index.html"
   },
   {
     "storySlug": "bls-0010-amar-priyota",
     "indexPath": "stories/bangla-love-story/bls-0010-amar-priyota/index.html"
   },
   {
-    "storySlug": "fd-0011-vromor-koiyo-giya",
-    "indexPath": "stories/family-drama/fd-0011-vromor-koiyo-giya/index.html"
+    "storySlug": "bs-0004-shotabdi-periye",
+    "indexPath": "stories/bangla-suspense/bs-0004-shotabdi-periye/index.html"
+  },
+  {
+    "storySlug": "sh-rom-0005-oprottasito-onurag",
+    "indexPath": "short-stories/romantic/sh-rom-0005-oprottasito-onurag/index.html"
+  },
+  {
+    "storySlug": "sp-0006-agnikonna-mohuya",
+    "indexPath": "stories/social-plot/sp-0006-agnikonna-mohuya/index.html"
+  },
+  {
+    "storySlug": "rt-0008-i-hate-red-flags",
+    "indexPath": "stories/romantic-thriller/rt-0008-i-hate-red-flags/index.html"
+  },
+  {
+    "storySlug": "sh-fam-0001-red-flags",
+    "indexPath": "short-stories/family/sh-fam-0001-red-flags/index.html"
+  },
+  {
+    "storySlug": "fd-0015-baro-mash-e-borsha",
+    "indexPath": "stories/family-drama/fd-0015-baro-mash-e-borsha/index.html"
+  },
+  {
+    "storySlug": "ts-0003-adrer-sommohini",
+    "indexPath": "stories/teenager-special/ts-0003-adrer-sommohini/index.html"
+  },
+  {
+    "storySlug": "fd-0009-olite-golite-prem",
+    "indexPath": "stories/family-drama/fd-0009-olite-golite-prem/index.html"
+  },
+  {
+    "storySlug": "bls-0012-rajniti-bonam-premniti",
+    "indexPath": "stories/bangla-love-story/bls-0012-rajniti-bonam-premniti/index.html"
+  },
+  {
+    "storySlug": "sp-0002-noishobder-premalap",
+    "indexPath": "stories/social-plot/sp-0002-noishobder-premalap/index.html"
+  },
+  {
+    "storySlug": "rt-0004-she-is-my-obsession",
+    "indexPath": "stories/romantic-thriller/rt-0004-she-is-my-obsession/index.html"
+  },
+  {
+    "storySlug": "sh-tr-0001-khujbe-amay-sedin",
+    "indexPath": "short-stories/tragedy/sh-tr-0001-khujbe-amay-sedin/index.html"
+  },
+  {
+    "storySlug": "bls-0011-ocena-chaya-tumi",
+    "indexPath": "stories/bangla-love-story/bls-0011-ocena-chaya-tumi/index.html"
+  },
+  {
+    "storySlug": "fd-0005-se-amar-apon-jon",
+    "indexPath": "stories/family-drama/fd-0005-se-amar-apon-jon/index.html"
   }
 ]
