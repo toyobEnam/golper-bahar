@@ -801,6 +801,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <li>আনলিমিটেড ইমেজ জেনারেট</li>
           <li>5TB ড্রাইভ স্টোরেজ</li>
           <li>আনলিমিটেড কোডিং ও রাইটিংস</li>
+          <li><b>গল্পের বাহার ভেরিফাইড সেলার (১০০% ট্রাস্টেড)</b></li>
         </ol>
         <div class="rimi-buy-label">এখনই কিনে নিন</div>
         <div class="rimi-contact-btns">
