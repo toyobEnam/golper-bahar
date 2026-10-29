@@ -793,8 +793,8 @@ document.addEventListener("DOMContentLoaded", function () {
         <button type="button" class="rimi-modal-close" id="rimiModalCloseBtn" aria-label="বন্ধ করুন">&times;</button>
         <div class="rimi-modal-header">
           <h4 class="rimi-modal-title">আজকেই শেষ দিন</h4><br>
-          <h3 class="rimi-modal-title">জেমিনি প্রো একাউন্ট ১৮ মাস</h3>
-          <span class="rimi-price-badge">মাত্র ২৫০ টাকা</span>
+          <h3 class="rimi-modal-title">জেমিনি প্রো একাউন্ট ১৮ মাস <br> (আজই অফারের শেষ দিন, রাত ১১ঃ৫৯ পর্যন্ত)</h3>
+          <span class="rimi-price-badge">মাত্র ৩৫০ টাকা</span>
         </div>
         <ol class="rimi-modal-features">
           <li>আনলিমিটেড ভিডিও জেনারেট (Veo লেটেস্ট) </li>
