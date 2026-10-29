@@ -793,7 +793,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <button type="button" class="rimi-modal-close" id="rimiModalCloseBtn" aria-label="বন্ধ করুন">&times;</button>
         <div class="rimi-modal-header">
           <h4 class="rimi-modal-title">আজকেই শেষ দিন</h4><br>
-          <h3 class="rimi-modal-title">জেমিনি প্রো একাউন্ট ১৮ মাস <br> (আজই অফারের শেষ দিন, রাত ১১ঃ৫৯ পর্যন্ত)</h3>
+          <h3 class="rimi-modal-title">জেমিনি প্রো একাউন্ট ১৮ মাস</h3>
           <span class="rimi-price-badge">মাত্র ৩৫০ টাকা</span>
         </div>
         <ol class="rimi-modal-features">
@@ -802,7 +802,8 @@ document.addEventListener("DOMContentLoaded", function () {
           <li>আনলিমিটেড ইমেজ জেনারেট</li>
           <li>5TB ড্রাইভ স্টোরেজ</li>
           <li>আনলিমিটেড কোডিং ও রাইটিংস</li>
-          <li><b>গল্পের বাহার ভেরিফাইড সেলার (১০০% ট্রাস্টেড)</b></li>
+          <li>আজই অফারের শেষ দিন, রাত ১১ঃ৫৯ পর্যন্ত</li>
+          <li>গল্পের বাহার ভেরিফাইড সেলার (১০০% ট্রাস্টেড)</li>
         </ol>
         <div class="rimi-buy-label">এখনই কিনে নিন</div>
         <div class="rimi-contact-btns">
