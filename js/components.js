@@ -75,6 +75,12 @@ function goBack() {
           <img src="https://golperbahar.com/favicon.ico" alt="লোগো" class="upnav-brand-img">
           <span class="upnav-brand-text">গল্পের বাহার</span>
         </a>
+        <a href="https://golperbahar.com/search/" class="upnav-search-toggle" aria-label="সার্চ করুন" title="সার্চ করুন">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-4-4"></path>
+          </svg>
+        </a>
         <button type="button" class="upnav-toggle" aria-label="মেনু খুলুন">
           <span></span>
           <span></span>
