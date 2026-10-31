@@ -794,7 +794,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="rimi-modal-header">
           <h4 class="rimi-modal-title">আজকেই শেষ দিন</h4><br>
           <h3 class="rimi-modal-title">জেমিনি প্রো একাউন্ট ১৮ মাস</h3>
-          <span class="rimi-price-badge">মাত্র ৩৫০ টাকা</span>
+          <span class="rimi-price-badge">মাত্র ৪৬০ টাকা</span>
         </div>
         <ol class="rimi-modal-features">
           <li>আনলিমিটেড ভিডিও জেনারেট (Veo লেটেস্ট) </li>
@@ -802,9 +802,9 @@ document.addEventListener("DOMContentLoaded", function () {
           <li>আনলিমিটেড ইমেজ জেনারেট</li>
           <li>5TB ড্রাইভ স্টোরেজ</li>
           <li>আনলিমিটেড কোডিং ও রাইটিংস</li>
-          <li>আজই অফারের শেষ দিন, রাত ১১ঃ৫৯ পর্যন্ত</li>
-          <li>গল্পের বাহার ভেরিফাইড সেলার (১০০% ট্রাস্টেড)</li>
         </ol>
+        <br>
+          <p>&#9989; গল্পের বাহার ভেরিফাইড সেলার</p>
         <div class="rimi-buy-label">এখনই কিনে নিন</div>
         <div class="rimi-contact-btns">
           <a href="https://wa.me/8801761748100?text=%E0%A6%86%E0%A6%AE%E0%A6%BF%20%E0%A6%AA%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%95%E0%A7%87%E0%A6%9C%20%E0%A6%9F%E0%A6%BF%20%E0%A6%95%E0%A6%BF%E0%A6%A8%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87" target="_blank" rel="noopener noreferrer" class="rimi-btn-contact rimi-btn-whatsapp">
