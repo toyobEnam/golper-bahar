@@ -286,5 +286,19 @@
             updateOrderBarPosition();
         })();
     </script>
+<script>
+(function () {
+    "use strict";
+    const currentPath = window.location.pathname.replace(/\/+$/, "");
+    if (currentPath !== "/offers") return;
+    const refreshKey = "gbOffersAutoRefreshed";
+    if (sessionStorage.getItem(refreshKey) === "1") return;
+    sessionStorage.setItem(refreshKey, "1");
+    window.setTimeout(function () {
+        window.location.reload();
+    }, 500);
+})();
+</script>
+
 </body>
 </html>
