@@ -787,3 +787,73 @@ document.addEventListener("DOMContentLoaded", function () {
     renderComments();
 
 });
+
+
+/* ==========================================================
+   Golper Bahar: Lightweight Social Offers Slider
+   ১৮ সেকেন্ড পর দেখাবে, ১০ সেকেন্ড পর নিজে থেকে লুকাবে
+========================================================== */
+
+(function () {
+    "use strict";
+
+    // একই পেজে একবারের বেশি চালু হবে না
+    if (window.__gbOffersSliderInitialized) return;
+    window.__gbOffersSliderInitialized = true;
+
+    const OFFER_URL = "https://golperbahar.com/offers/";
+    const WAIT_TIME = 18000;
+    const SHOW_TIME = 10000;
+
+    function initOffersSlider() {
+        // অফার পেজে এই স্লাইডার দেখানো হবে না
+        const currentPath = window.location.pathname.replace(/\/+$/, "");
+        if (currentPath === "/offers") return;
+
+        // একই পেজে স্লাইডার আগে তৈরি হয়ে থাকলে আর তৈরি করবে না
+        if (document.getElementById("gb-social-offers-slider")) return;
+
+        const slider = document.createElement("a");
+        slider.id = "gb-social-offers-slider";
+        slider.className = "gb-social-offers-slider";
+        slider.href = OFFER_URL;
+        slider.textContent = "সোশ্যাল মিডিয়ার বিভিন্ন অফার পেতে এখানে ক্লিক করুন";
+        slider.setAttribute("aria-label", "সোশ্যাল মিডিয়ার বিভিন্ন অফার দেখুন");
+
+        document.body.appendChild(slider);
+
+        let hideTimer;
+
+        // ১৮ সেকেন্ড পর স্লাইডার দেখানো হবে
+        window.setTimeout(function () {
+            if (!slider.isConnected) return;
+
+            slider.classList.add("gb-offers-visible");
+
+            // ১০ সেকেন্ড পর স্লাইডার লুকানো হবে
+            hideTimer = window.setTimeout(function () {
+                slider.classList.remove("gb-offers-visible");
+
+                // অ্যানিমেশন শেষ হলে DOM থেকে সরানো
+                window.setTimeout(function () {
+                    slider.remove();
+                }, 1000);
+
+            }, SHOW_TIME);
+
+        }, WAIT_TIME);
+
+        // পেজ বন্ধ বা নেভিগেট হলে টাইমার পরিষ্কার করা
+        window.addEventListener("pagehide", function () {
+            window.clearTimeout(hideTimer);
+        }, { once: true });
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initOffersSlider, {
+            once: true
+        });
+    } else {
+        initOffersSlider();
+    }
+})();

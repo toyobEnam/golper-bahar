@@ -944,3 +944,79 @@ body{
   display: block;
   margin: 0 auto;
 }
+
+
+
+/* ==========================================================
+   Golper Bahar: Lightweight Social Offers Slider
+========================================================== */
+
+.gb-social-offers-slider {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+    z-index: 99999;
+
+    width: calc(100% - 24px);
+    max-width: 440px;
+    min-height: 48px;
+    padding: 10px 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    border: 1px solid #dce9df;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+
+    background: #f7fbf8;
+    color: #245c31;
+    text-align: center;
+    text-decoration: none;
+
+    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+
+    /* শুরুতে স্ক্রিনের নিচে লুকানো থাকবে */
+    transform: translate(-50%, 100%);
+    visibility: hidden;
+    pointer-events: none;
+
+    /* শুধু প্রয়োজনীয় স্লাইড অ্যানিমেশন */
+    transition:
+        transform 1s ease,
+        visibility 0s linear 1s;
+}
+
+.gb-social-offers-slider.gb-offers-visible {
+    transform: translate(-50%, 0);
+    visibility: visible;
+    pointer-events: auto;
+
+    transition:
+        transform 1s ease,
+        visibility 0s;
+}
+
+/* ছোট মোবাইল স্ক্রিন */
+@media (max-width: 480px) {
+    .gb-social-offers-slider {
+        width: calc(100% - 20px);
+        min-height: 46px;
+        padding: 9px 12px;
+        font-size: 11.5px;
+        line-height: 1.45;
+    }
+}
+
+/* ব্যবহারকারীর Reduce Motion পছন্দ সম্মান করা */
+@media (prefers-reduced-motion: reduce) {
+    .gb-social-offers-slider,
+    .gb-social-offers-slider.gb-offers-visible {
+        transition: none;
+    }
+}
