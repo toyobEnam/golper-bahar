@@ -85,13 +85,7 @@
             align-items: center;
             justify-content: space-between;
             gap: 14px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-        }
-
-        .offer-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
         }
 
         .offer-info {
@@ -136,20 +130,19 @@
             flex-shrink: 0;
         }
 
-        /* Floating Bottom Bar */
+        /* Floating Bottom Bar - No Blur */
         .bottom-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
+            background: #ffffff;
             border-top: 1px solid var(--border);
             padding: 12px 16px;
             display: flex;
             justify-content: center;
             z-index: 50;
-            box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.04);
         }
 
         .order-btn {
@@ -163,15 +156,14 @@
             width: 100%;
             max-width: 450px;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
-            transition: background 0.15s ease;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.18);
         }
 
         .order-btn:hover {
             background: var(--primary-dark);
         }
 
-        /* Modal Overlay */
+        /* Modal Overlay - No Animation */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -186,7 +178,6 @@
             z-index: 100;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.2s ease;
         }
 
         .modal-overlay.active {
@@ -202,13 +193,7 @@
             padding: 24px;
             text-align: center;
             position: relative;
-            transform: scale(0.95);
-            transition: transform 0.2s ease;
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
-        }
-
-        .modal-overlay.active .modal-box {
-            transform: scale(1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
         }
 
         /* Offer details modal */
@@ -282,7 +267,6 @@
             padding: 12px;
             border-radius: 10px;
             color: #ffffff;
-            transition: opacity 0.15s ease;
         }
 
         .channel-btn:hover {
@@ -322,18 +306,12 @@
             font-weight: 700;
             line-height: 1;
             cursor: pointer;
-            transition:
-                background 0.2s ease,
-                color 0.2s ease,
-                border-color 0.2s ease,
-                transform 0.2s ease;
         }
 
         .offer-help-btn:hover {
             background: var(--primary);
             color: #ffffff;
             border-color: var(--primary);
-            transform: scale(1.06);
         }
 
         .offer-help-btn:focus-visible {
@@ -536,5 +514,16 @@
         width: 28px;
         height: 28px;
         font-size: 17px;
+    }
+}
+
+/* Accessibility: Reduce motion when requested by the user */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
     }
 }
