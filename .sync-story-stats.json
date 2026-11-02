@@ -1,10 +1,38 @@
 [
   {
+    "storySlug": "sh-rom-0003-oviman",
+    "indexPath": "short-stories/romantic/sh-rom-0003-oviman/index.html"
+  },
+  {
+    "storySlug": "bls-0010-amar-priyota",
+    "indexPath": "stories/bangla-love-story/bls-0010-amar-priyota/index.html"
+  },
+  {
+    "storySlug": "ts-0003-adrer-sommohini",
+    "indexPath": "stories/teenager-special/ts-0003-adrer-sommohini/index.html"
+  },
+  {
+    "storySlug": "sp-0006-agnikonna-mohuya",
+    "indexPath": "stories/social-plot/sp-0006-agnikonna-mohuya/index.html"
+  },
+  {
     "storySlug": "fd-0011-vromor-koiyo-giya",
     "indexPath": "stories/family-drama/fd-0011-vromor-koiyo-giya/index.html"
   },
   {
+    "storySlug": "bls-0015-e-ki-buddhi-dile-tumi",
+    "indexPath": "stories/bangla-love-story/bls-0015-e-ki-buddhi-dile-tumi/index.html"
+  },
+  {
     "storySlug": "bls-0014-ontoraler-pronoyini",
     "indexPath": "stories/bangla-love-story/bls-0014-ontoraler-pronoyini/index.html"
+  },
+  {
+    "storySlug": "bs-0001-hawar-sure-veshe",
+    "indexPath": "stories/bangla-suspense/bs-0001-hawar-sure-veshe/index.html"
+  },
+  {
+    "storySlug": "bls-0012-rajniti-bonam-premniti",
+    "indexPath": "stories/bangla-love-story/bls-0012-rajniti-bonam-premniti/index.html"
   }
 ]
