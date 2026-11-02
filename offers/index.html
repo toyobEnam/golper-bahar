@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>গল্পের বাহার ভেরিফাইড অফারস | Golper Bahar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/offers.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <script src="../js/components.js" defer></script>
+
+    <!-- Offers পেজের ক্যাশ কমানোর প্রাথমিক নির্দেশনা -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+</head>
+<body>
+    <div id="upNav"></div>
+
+    <div class="container">
+        <header>
+            <span class="badge">✓ ১০০% বিশ্বস্ত ও ভেরিফাইড</span>
+            <h1>গল্পের বাহার ভেরিফাইড অফারস</h1>
+            <p>আপনার প্রয়োজনীয় ডিজিটাল সার্ভিস বেছে নিন সেরা মূল্যে</p>
+        </header>
+
+        <main class="offers-list" id="offersList" aria-live="polite">
+            <p class="offers-loading">অফার লোড হচ্ছে...</p>
+        </main>
+    </div>
+
+    <!-- ফ্লোটিং বার -->
+    <div class="bottom-bar">
+        <button class="order-btn" id="openOrderModal">অর্ডার করতে চাই</button>
+    </div>
+
+    <!-- অফারের বিস্তারিত Modal -->
+    <div class="modal-overlay" id="offerDetailsModal">
+        <div class="modal-box offer-details-box"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="offerDetailsTitle"
+             aria-describedby="offerDetailsText">
+
+            <button class="close-btn"
+                    id="closeOfferDetails"
+                    type="button"
+                    aria-label="বিস্তারিত বন্ধ করুন">
+                &times;
+            </button>
+
+            <h3 id="offerDetailsTitle">অফারের বিস্তারিত</h3>
+
+            <div class="offer-details-content">
+                <p id="offerDetailsText"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- অর্ডার করার Modal -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-box">
+            <button class="close-btn" id="closeOrderModal">&times;</button>
+            <h3>অর্ডার কনফার্ম করতে সেলার কে মেসেজ দিন</h3>
+            <div class="channel-buttons">
+                <!-- WhatsApp Link -->
+                <a href="https://wa.me/8801761748100?text=%E0%A6%97%E0%A6%B2%E0%A7%8D%E0%A6%AA%E0%A7%87%E0%A6%B0%20%E0%A6%AC%E0%A6%BE%E0%A6%B9%E0%A6%BE%E0%A6%B0%20%E0%A6%8F%E0%A6%B0%20%E0%A6%8F%E0%A6%95%E0%A6%9F%E0%A6%BF%20%E0%A6%85%E0%A6%AB%E0%A6%BE%E0%A6%B0%20%E0%A6%B8%E0%A6%AE%E0%A7%8D%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A7%87%20%E0%A6%95%E0%A6%A5%E0%A6%BE%20%E0%A6%AC%E0%A6%B2%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%2C%20%E0%A6%86%E0%A6%AA%E0%A6%A8%E0%A6%BF%20%E0%A6%95%E0%A6%BF%20%E0%A6%AD%E0%A7%87%E0%A6%B0%E0%A6%BF%E0%A6%AB%E0%A6%BE%E0%A6%87%E0%A6%A1%20%E0%A6%B8%E0%A7%87%E0%A6%B2%E0%A6%BE%E0%A6%B0%3F" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="channel-btn btn-whatsapp">
+                    WhatsApp-এ মেসেজ দিন
+                </a>
+                
+                <!-- Telegram Link -->
+                <a href="https://t.me/obstacle79" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="channel-btn btn-telegram">
+                    Telegram-এ মেসেজ দিন
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+
+    <script>
+        // অর্ডার Modal
+        const modal = document.getElementById('orderModal');
+        const openBtn = document.getElementById('openOrderModal');
+        const closeBtn = document.getElementById('closeOrderModal');
+
+        // অফারের বিস্তারিত Modal
+        const detailsModal = document.getElementById('offerDetailsModal');
+        const closeDetailsBtn = document.getElementById('closeOfferDetails');
+        const detailsTitle = document.getElementById('offerDetailsTitle');
+        const detailsText = document.getElementById('offerDetailsText');
+
+
+        const offerDetails = {};
+
+        // অর্ডার Modal খোলা
+        openBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+        });
+
+        // অর্ডার Modal বন্ধ
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        // Google Sheets থেকে তৈরি JSON দিয়ে অফার লোড
+        async function loadOffers() {
+            const offersList = document.getElementById('offersList');
+
+            try {
+                const response = await fetch('./offers.json?ts=' + Date.now(), {
+                    cache: 'no-store'
+                });
+
+                if (!response.ok) {
+                    throw new Error('অফার JSON লোড করা যায়নি।');
+                }
+
+                const offers = await response.json();
+
+                if (!Array.isArray(offers)) {
+                    throw new Error('অফারের ডেটা সঠিক নয়।');
+                }
+
+                offersList.replaceChildren();
+
+                if (offers.length === 0) {
+                    const emptyMessage = document.createElement('p');
+                    emptyMessage.textContent = 'বর্তমানে কোনো অফার পাওয়া যাচ্ছে না।';
+                    offersList.appendChild(emptyMessage);
+                    return;
+                }
+
+                const bnDigits = '০১২৩৪৫৬৭৮৯';
+
+                function toBnNumber(value) {
+                    return String(value).replace(/\d/g, digit => bnDigits[digit]);
+                }
+
+                offers.forEach((item, index) => {
+                    const key = 'offer-' + index;
+
+                    offerDetails[key] = {
+                        title: String(item.title || ''),
+                        description: String(item.explanation || '')
+                    };
+
+                    const card = document.createElement('div');
+                    card.className = 'offer-card';
+
+                    const info = document.createElement('div');
+                    info.className = 'offer-info';
+
+                    const number = document.createElement('span');
+                    number.className = 'offer-num';
+                    number.textContent = toBnNumber(index + 1);
+
+                    const title = document.createElement('span');
+                    title.className = 'offer-title';
+                    title.textContent = String(item.title || '');
+
+                    info.append(number, title);
+
+                    const actions = document.createElement('div');
+                    actions.className = 'offer-actions';
+
+                    const price = document.createElement('div');
+                    price.className = 'offer-price';
+
+                    const priceText = String(item.price || '').trim();
+                    price.textContent = priceText
+                        ? (/টাকা/.test(priceText) ? priceText : priceText + ' টাকা')
+                        : '';
+
+                    const helpButton = document.createElement('button');
+                    helpButton.className = 'offer-help-btn';
+                    helpButton.type = 'button';
+                    helpButton.dataset.offer = key;
+                    helpButton.setAttribute('aria-label', title.textContent + ' অফারের বিস্তারিত দেখুন');
+                    helpButton.setAttribute('aria-haspopup', 'dialog');
+                    helpButton.textContent = '?';
+
+                    helpButton.addEventListener('click', () => {
+                        const offer = offerDetails[key];
+
+                        detailsTitle.textContent = offer.title;
+                        detailsText.textContent = offer.description;
+
+                        detailsModal.classList.add('active');
+                        closeDetailsBtn.focus();
+                    });
+
+                    actions.append(price, helpButton);
+                    card.append(info, actions);
+                    offersList.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error('অফার লোড করতে সমস্যা:', error);
+
+                offersList.replaceChildren();
+
+                const errorMessage = document.createElement('p');
+                errorMessage.textContent =
+                    'অফার লোড করা যায়নি। কিছুক্ষণ পর আবার চেষ্টা করুন।';
+
+                offersList.appendChild(errorMessage);
+            }
+        }
+
+        loadOffers();
+
+        // অফারের বিস্তারিত Modal বন্ধ
+        closeDetailsBtn.addEventListener('click', () => {
+            detailsModal.classList.remove('active');
+        });
+
+        // Modal-এর বাইরের অংশে ক্লিক করলে বন্ধ
+        [modal, detailsModal].forEach((overlay) => {
+            overlay.addEventListener('click', (event) => {
+                if (event.target === overlay) {
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+
+        // Escape চাপলে খোলা Modal বন্ধ
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                modal.classList.remove('active');
+                detailsModal.classList.remove('active');
+            }
+        });
+    </script>
+
+    <!-- অর্ডার বাটনকে ফুটারের সীমানায় সীমাবদ্ধ রাখা -->
+    <script>
+        (function () {
+            const orderBar = document.querySelector('.bottom-bar');
+            const footer = document.getElementById('footer');
+
+            if (!orderBar || !footer) return;
+
+            let ticking = false;
+
+            function updateOrderBarPosition() {
+                ticking = false;
+
+                const footerTop = footer.getBoundingClientRect().top;
+                const viewportHeight = window.innerHeight;
+
+                if (footerTop < viewportHeight) {
+                    orderBar.style.bottom =
+                        `${viewportHeight - footerTop}px`;
+                } else {
+                    orderBar.style.bottom = '0px';
+                }
+            }
+
+            function requestUpdate() {
+                if (!ticking) {
+                    ticking = true;
+                    window.requestAnimationFrame(updateOrderBarPosition);
+                }
+            }
+
+            window.addEventListener('scroll', requestUpdate, {
+                passive: true
+            });
+
+            window.addEventListener('resize', requestUpdate);
+
+            if ('ResizeObserver' in window) {
+                const observer = new ResizeObserver(requestUpdate);
+                observer.observe(footer);
+            }
+
+            updateOrderBarPosition();
+        })();
+    </script>
+</body>
+</html>

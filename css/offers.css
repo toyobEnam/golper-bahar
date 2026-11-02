@@ -1,0 +1,540 @@
+        
+        @font-face {
+            font-family: 'LiPurnoPran';
+            src: url('/assets/fonts/LiPurnoPran.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --whatsapp: #25D366;
+            --telegram: #229ED9;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Noto Serif Bengali', serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 90px;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 24px 16px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #dcfce7;
+            color: #166534;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.6;
+            padding: 5px 14px;
+            border-radius: 9999px;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.4;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .offers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 80px;
+        }
+
+        .offer-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .offer-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .offer-num {
+            width: 32px;
+            height: 32px;
+            background: #e0f2fe;
+            color: #0369a1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .offer-title {
+            font-family: 'LiPurnoPran', 'Noto Serif Bengali', serif;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-main);
+            overflow-wrap: anywhere;
+        }
+
+        .offer-price {
+            font-family: 'LiPurnoPran', 'Noto Serif Bengali', serif;
+            background: #f1f5f9;
+            color: #0f172a;
+            padding: 7px 12px;
+            border-radius: 8px;
+            font-weight: 400;
+            font-size: 19px;
+            line-height: 1.5;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* Floating Bottom Bar */
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid var(--border);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: center;
+            z-index: 50;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+        }
+
+        .order-btn {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 700;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 0;
+            width: 100%;
+            max-width: 450px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+            transition: background 0.15s ease;
+        }
+
+        .order-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.2s ease;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        /* Offer details modal */
+        .offer-details-box {
+            max-height: calc(100dvh - 32px);
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .offer-details-box h3 {
+            padding-right: 24px;
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        .offer-details-content {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+        }
+
+        .offer-details-content p {
+            font-family: 'Noto Serif Bengali', serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.9;
+            color: var(--text-main);
+            white-space: pre-line;
+            overflow-wrap: anywhere;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            background: transparent;
+            border: none;
+            font-size: 22px;
+            color: var(--text-muted);
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-box h3 {
+            font-size: 19px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .channel-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .channel-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 12px;
+            border-radius: 10px;
+            color: #ffffff;
+            transition: opacity 0.15s ease;
+        }
+
+        .channel-btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+        }
+
+        .btn-telegram {
+            background-color: var(--telegram);
+        }
+
+        /* Offer price and details button */
+        .offer-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .offer-help-btn {
+            width: 34px;
+            height: 34px;
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #94a3b8;
+            border-radius: 50%;
+            background: #ffffff;
+            color: #475569;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1;
+            cursor: pointer;
+            transition:
+                background 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .offer-help-btn:hover {
+            background: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            transform: scale(1.06);
+        }
+
+        .offer-help-btn:focus-visible {
+            outline: 3px solid rgba(16, 185, 129, 0.35);
+            outline-offset: 3px;
+        }
+
+        /* =====================================
+   Responsive layout: Tablet and Mobile
+===================================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .container {
+        max-width: 680px;
+        padding: 24px 18px;
+    }
+
+    header {
+        margin-bottom: 24px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    header p {
+        font-size: 17px;
+    }
+
+    .offer-card {
+        padding: 16px 18px;
+        gap: 12px;
+    }
+
+    .offer-title {
+        font-size: 19px;
+    }
+
+    .offer-price {
+        font-size: 18px;
+        padding: 7px 10px;
+    }
+
+    .offer-help-btn {
+        width: 33px;
+        height: 33px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    body {
+        padding-bottom: 84px;
+    }
+
+    .container {
+        padding: 22px 14px;
+    }
+
+    header {
+        margin-bottom: 22px;
+    }
+
+    header h1 {
+        font-size: 26px;
+        line-height: 1.5;
+    }
+
+    header p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .badge {
+        font-size: 13px;
+    }
+
+    .offers-list {
+        gap: 12px;
+    }
+
+    .offer-card {
+        padding: 15px 12px;
+        gap: 8px;
+        border-radius: 12px;
+    }
+
+    .offer-info {
+        flex: 1 1 auto;
+        min-width: 0;
+        gap: 9px;
+    }
+
+    .offer-num {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .offer-title {
+        font-size: 17px;
+        line-height: 1.7;
+        overflow-wrap: anywhere;
+    }
+
+    .offer-actions {
+        gap: 7px;
+    }
+
+    .offer-price {
+        padding: 6px 8px;
+        font-size: 16px;
+        border-radius: 7px;
+    }
+
+    .offer-help-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    .bottom-bar {
+        padding: 10px 14px;
+    }
+
+    .order-btn {
+        font-size: 17px;
+        padding: 11px 0;
+    }
+
+    .modal-overlay {
+        padding: 14px;
+    }
+
+    .modal-box {
+        padding: 22px 18px;
+        border-radius: 14px;
+    }
+
+    .modal-box h3 {
+        font-size: 19px;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+
+    .channel-btn {
+        font-size: 16px;
+        padding: 12px 10px;
+    }
+
+    .offer-details-box {
+        padding: 22px 16px;
+    }
+
+    .offer-details-box h3 {
+        font-size: 19px;
+    }
+
+    .offer-details-content {
+        padding: 13px;
+    }
+
+    .offer-details-content p {
+        font-size: 15px;
+        line-height: 1.9;
+    }
+}
+
+/* Extra-small phones */
+@media (max-width: 360px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .offer-card {
+        padding: 12px 9px;
+        gap: 6px;
+    }
+
+    .offer-info {
+        gap: 7px;
+    }
+
+    .offer-title {
+        font-size: 15px;
+    }
+
+    .offer-actions {
+        gap: 5px;
+    }
+
+    .offer-price {
+        padding: 5px 6px;
+        font-size: 14px;
+    }
+
+    .offer-help-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 17px;
+    }
+}

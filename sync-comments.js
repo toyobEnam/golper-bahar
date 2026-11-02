@@ -59,6 +59,31 @@ async function runSync() {
     const approvedComments = data.approvedComments;
     const storyStats = data.storyStats;
 
+    // ৩. Ads Control থেকে পাওয়া অফার দিয়ে সম্পূর্ণ নতুন offers.json তৈরি
+    if (!Array.isArray(data.offers)) {
+      throw new Error('Apps Script থেকে বৈধ offers array পাওয়া যায়নি।');
+    }
+
+    const offersPath = path.join(
+      process.cwd(),
+      'offers',
+      'offers.json'
+    );
+
+    // অফারের JSON রাখার ফোল্ডার না থাকলে তৈরি করা
+    fs.mkdirSync(path.dirname(offersPath), { recursive: true });
+
+    // পুরোনো কনটেন্টের সঙ্গে যোগ নয়—সম্পূর্ণ নতুন JSON লেখা হবে
+    fs.writeFileSync(
+      offersPath,
+      JSON.stringify(data.offers, null, 2) + '\n',
+      'utf8'
+    );
+
+    console.log(
+      `Ads Control থেকে ${data.offers.length}টি অফার নিয়ে offers/offers.json নতুন করে তৈরি হয়েছে।`
+    );
+
     console.log(`মোট অনুমোদিত মন্তব্য: ${approvedComments.length}`);
     console.log(`মোট গল্পের স্ট্যাটস: ${storyStats.length}`);
 
