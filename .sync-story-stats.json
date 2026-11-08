@@ -64,16 +64,28 @@
     "indexPath": "stories/social-plot/sp-0002-noishobder-premalap/index.html"
   },
   {
-    "storySlug": "bs-0007-case-17",
-    "indexPath": "stories/bangla-suspense/bs-0007-case-17/index.html"
-  },
-  {
-    "storySlug": "rt-0007-snigdho-premer-maya",
-    "indexPath": "stories/romantic-thriller/rt-0007-snigdho-premer-maya/index.html"
-  },
-  {
     "storySlug": "sh-soc-0002-fuli-o-suva",
     "indexPath": "short-stories/social/sh-soc-0002-fuli-o-suva/index.html"
+  },
+  {
+    "storySlug": "fd-0003-premvuboner-otoshi",
+    "indexPath": "stories/family-drama/fd-0003-premvuboner-otoshi/index.html"
+  },
+  {
+    "storySlug": "sp-0006-agnikonna-mohuya",
+    "indexPath": "stories/social-plot/sp-0006-agnikonna-mohuya/index.html"
+  },
+  {
+    "storySlug": "rt-0001-mon-chuyeche-se",
+    "indexPath": "stories/romantic-thriller/rt-0001-mon-chuyeche-se/index.html"
+  },
+  {
+    "storySlug": "fd-0007-hridoy-pothe-e-kar-chaya",
+    "indexPath": "stories/family-drama/fd-0007-hridoy-pothe-e-kar-chaya/index.html"
+  },
+  {
+    "storySlug": "sh-sus-0002-kuhok-rohosso",
+    "indexPath": "short-stories/suspense/sh-sus-0002-kuhok-rohosso/index.html"
   },
   {
     "storySlug": "sh-rom-0006-noishobde-valobasa",
@@ -82,5 +94,49 @@
   {
     "storySlug": "bls-0014-ontoraler-pronoyini",
     "indexPath": "stories/bangla-love-story/bls-0014-ontoraler-pronoyini/index.html"
+  },
+  {
+    "storySlug": "bls-0006-hridoyer-rongin-canvas",
+    "indexPath": "stories/bangla-love-story/bls-0006-hridoyer-rongin-canvas/index.html"
+  },
+  {
+    "storySlug": "3-cholo-kotha-rakhi",
+    "indexPath": "onugolpo/3-cholo-kotha-rakhi/index.html"
+  },
+  {
+    "storySlug": "bls-0008-mr-and-mrs-twins-return",
+    "indexPath": "stories/bangla-love-story/bls-0008-mr-and-mrs-twins-return/index.html"
+  },
+  {
+    "storySlug": "sh-rom-0003-oviman",
+    "indexPath": "short-stories/romantic/sh-rom-0003-oviman/index.html"
+  },
+  {
+    "storySlug": "sh-rom-0004-srabondharay",
+    "indexPath": "short-stories/romantic/sh-rom-0004-srabondharay/index.html"
+  },
+  {
+    "storySlug": "bs-0002-rekho-tomar-bahudore",
+    "indexPath": "stories/bangla-suspense/bs-0002-rekho-tomar-bahudore/index.html"
+  },
+  {
+    "storySlug": "sh-fam-0003-olpo-beimani-mon",
+    "indexPath": "short-stories/family/sh-fam-0003-olpo-beimani-mon/index.html"
+  },
+  {
+    "storySlug": "ts-0001-oporicitar-preme",
+    "indexPath": "stories/teenager-special/ts-0001-oporicitar-preme/index.html"
+  },
+  {
+    "storySlug": "sh-rom-0001-corabali",
+    "indexPath": "short-stories/romantic/sh-rom-0001-corabali/index.html"
+  },
+  {
+    "storySlug": "sh-fam-0002-choto-mamar-biye",
+    "indexPath": "short-stories/family/sh-fam-0002-choto-mamar-biye/index.html"
+  },
+  {
+    "storySlug": "rt-0002-udash-purobi-hawa",
+    "indexPath": "stories/romantic-thriller/rt-0002-udash-purobi-hawa/index.html"
   }
 ]
