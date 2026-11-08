@@ -124,5 +124,14 @@
   "categoryName": "ট্র্যাজেডি",
   "categorySlug": "tragedy",
   "storySlug": "sh-tr-0001-khujbe-amay-sedin"
+},
+{
+  "storyName": "নৈঃশব্দে ভালোবাসা",
+  "writerName": "সানা শেখ",
+  "writerSlug": "a018-sana-sheikh",
+  "storyType": "short-story",
+  "categoryName": "রোমান্টিক",
+  "categorySlug": "romantic",
+  "storySlug": "sh-rom-0006-noishobde-valobasa"
 }
 ]
