@@ -1,98 +1,126 @@
 [
   {
+    "storySlug": "fd-0005-se-amar-apon-jon",
+    "indexPath": "stories/family-drama/fd-0005-se-amar-apon-jon/index.html"
+  },
+  {
+    "storySlug": "bls-0007-sobkotha-nirobota",
+    "indexPath": "stories/bangla-love-story/bls-0007-sobkotha-nirobota/index.html"
+  },
+  {
     "storySlug": "bls-0009-neshamoy-asokti",
     "indexPath": "stories/bangla-love-story/bls-0009-neshamoy-asokti/index.html"
-  },
-  {
-    "storySlug": "fd-0014-dujone",
-    "indexPath": "stories/family-drama/fd-0014-dujone/index.html"
-  },
-  {
-    "storySlug": "sp-0005-tor-pirite-pagol-hoilam-re",
-    "indexPath": "stories/social-plot/sp-0005-tor-pirite-pagol-hoilam-re/index.html"
-  },
-  {
-    "storySlug": "bs-0007-case-17",
-    "indexPath": "stories/bangla-suspense/bs-0007-case-17/index.html"
-  },
-  {
-    "storySlug": "bls-0008-mr-and-mrs-twins-return",
-    "indexPath": "stories/bangla-love-story/bls-0008-mr-and-mrs-twins-return/index.html"
-  },
-  {
-    "storySlug": "fd-0015-baro-mash-e-borsha",
-    "indexPath": "stories/family-drama/fd-0015-baro-mash-e-borsha/index.html"
-  },
-  {
-    "storySlug": "bls-0016-bibosh-hridoye-bosonter-agomon",
-    "indexPath": "stories/bangla-love-story/bls-0016-bibosh-hridoye-bosonter-agomon/index.html"
-  },
-  {
-    "storySlug": "bls-0012-rajniti-bonam-premniti",
-    "indexPath": "stories/bangla-love-story/bls-0012-rajniti-bonam-premniti/index.html"
-  },
-  {
-    "storySlug": "bls-0004-pronoyer-sur",
-    "indexPath": "stories/bangla-love-story/bls-0004-pronoyer-sur/index.html"
   },
   {
     "storySlug": "fd-0010-dhulo-makha-golite",
     "indexPath": "stories/family-drama/fd-0010-dhulo-makha-golite/index.html"
   },
   {
+    "storySlug": "bls-0005-ek-faguner-golpo",
+    "indexPath": "stories/bangla-love-story/bls-0005-ek-faguner-golpo/index.html"
+  },
+  {
+    "storySlug": "bls-0006-hridoyer-rongin-canvas",
+    "indexPath": "stories/bangla-love-story/bls-0006-hridoyer-rongin-canvas/index.html"
+  },
+  {
     "storySlug": "rt-0001-mon-chuyeche-se",
     "indexPath": "stories/romantic-thriller/rt-0001-mon-chuyeche-se/index.html"
   },
   {
-    "storySlug": "28-opurno-valobasar-purno-shikkha",
-    "indexPath": "onugolpo/28-opurno-valobasar-purno-shikkha/index.html"
+    "storySlug": "rt-0002-udash-purobi-hawa",
+    "indexPath": "stories/romantic-thriller/rt-0002-udash-purobi-hawa/index.html"
+  },
+  {
+    "storySlug": "rt-0008-i-hate-red-flags",
+    "indexPath": "stories/romantic-thriller/rt-0008-i-hate-red-flags/index.html"
+  },
+  {
+    "storySlug": "rt-0009-hridoyer-ogocore",
+    "indexPath": "stories/romantic-thriller/rt-0009-hridoyer-ogocore/index.html"
+  },
+  {
+    "storySlug": "rt-0010-rokto-rekhar-arale",
+    "indexPath": "stories/romantic-thriller/rt-0010-rokto-rekhar-arale/index.html"
+  },
+  {
+    "storySlug": "thrill-0002-pronoy-prottaborton",
+    "indexPath": "stories/thriller/thrill-0002-pronoy-prottaborton/index.html"
+  },
+  {
+    "storySlug": "thrill-0001-sei-tomosay",
+    "indexPath": "stories/thriller/thrill-0001-sei-tomosay/index.html"
+  },
+  {
+    "storySlug": "bls-0015-e-ki-buddhi-dile-tumi",
+    "indexPath": "stories/bangla-love-story/bls-0015-e-ki-buddhi-dile-tumi/index.html"
+  },
+  {
+    "storySlug": "bls-0016-bibosh-hridoye-bosonter-agomon",
+    "indexPath": "stories/bangla-love-story/bls-0016-bibosh-hridoye-bosonter-agomon/index.html"
+  },
+  {
+    "storySlug": "bls-0017-surjosnato-valobasha",
+    "indexPath": "stories/bangla-love-story/bls-0017-surjosnato-valobasha/index.html"
+  },
+  {
+    "storySlug": "sh-rom-0003-oviman",
+    "indexPath": "short-stories/romantic/sh-rom-0003-oviman/index.html"
+  },
+  {
+    "storySlug": "fd-0004-mr-and-mrs-twins",
+    "indexPath": "stories/family-drama/fd-0004-mr-and-mrs-twins/index.html"
+  },
+  {
+    "storySlug": "bls-0012-rajniti-bonam-premniti",
+    "indexPath": "stories/bangla-love-story/bls-0012-rajniti-bonam-premniti/index.html"
+  },
+  {
+    "storySlug": "sh-tr-0001-khujbe-amay-sedin",
+    "indexPath": "short-stories/tragedy/sh-tr-0001-khujbe-amay-sedin/index.html"
+  },
+  {
+    "storySlug": "sh-sus-0001-balika-bodhu",
+    "indexPath": "short-stories/suspense/sh-sus-0001-balika-bodhu/index.html"
+  },
+  {
+    "storySlug": "sh-soc-0002-fuli-o-suva",
+    "indexPath": "short-stories/social/sh-soc-0002-fuli-o-suva/index.html"
+  },
+  {
+    "storySlug": "fd-0015-baro-mash-e-borsha",
+    "indexPath": "stories/family-drama/fd-0015-baro-mash-e-borsha/index.html"
+  },
+  {
+    "storySlug": "rt-0004-she-is-my-obsession",
+    "indexPath": "stories/romantic-thriller/rt-0004-she-is-my-obsession/index.html"
+  },
+  {
+    "storySlug": "sh-fam-0003-olpo-beimani-mon",
+    "indexPath": "short-stories/family/sh-fam-0003-olpo-beimani-mon/index.html"
+  },
+  {
+    "storySlug": "fd-0014-dujone",
+    "indexPath": "stories/family-drama/fd-0014-dujone/index.html"
   },
   {
     "storySlug": "bls-0014-ontoraler-pronoyini",
     "indexPath": "stories/bangla-love-story/bls-0014-ontoraler-pronoyini/index.html"
   },
   {
+    "storySlug": "ss-0009-opekkha-maha-aarat",
+    "indexPath": "stories/sangsarik/ss-0009-opekkha-maha-aarat/index.html"
+  },
+  {
+    "storySlug": "ss-0002-minus-minus-plus",
+    "indexPath": "stories/sangsarik/ss-0002-minus-minus-plus/index.html"
+  },
+  {
+    "storySlug": "bs-0004-shotabdi-periye",
+    "indexPath": "stories/bangla-suspense/bs-0004-shotabdi-periye/index.html"
+  },
+  {
     "storySlug": "bs-0003-biborno-bosonto",
     "indexPath": "stories/bangla-suspense/bs-0003-biborno-bosonto/index.html"
-  },
-  {
-    "storySlug": "ss-0010-amar-upoma-tumi",
-    "indexPath": "stories/sangsarik/ss-0010-amar-upoma-tumi/index.html"
-  },
-  {
-    "storySlug": "fd-0011-vromor-koiyo-giya",
-    "indexPath": "stories/family-drama/fd-0011-vromor-koiyo-giya/index.html"
-  },
-  {
-    "storySlug": "rt-0005-ora-moner-gopon-cene-na",
-    "indexPath": "stories/romantic-thriller/rt-0005-ora-moner-gopon-cene-na/index.html"
-  },
-  {
-    "storySlug": "43-icche-puron",
-    "indexPath": "onugolpo/43-icche-puron/index.html"
-  },
-  {
-    "storySlug": "10-dui-golpe-vinnota",
-    "indexPath": "onugolpo/10-dui-golpe-vinnota/index.html"
-  },
-  {
-    "storySlug": "ts-0003-adrer-sommohini",
-    "indexPath": "stories/teenager-special/ts-0003-adrer-sommohini/index.html"
-  },
-  {
-    "storySlug": "sp-0003-adhfota-premer-ful",
-    "indexPath": "stories/social-plot/sp-0003-adhfota-premer-ful/index.html"
-  },
-  {
-    "storySlug": "fd-0005-se-amar-apon-jon",
-    "indexPath": "stories/family-drama/fd-0005-se-amar-apon-jon/index.html"
-  },
-  {
-    "storySlug": "bls-0011-ocena-chaya-tumi",
-    "indexPath": "stories/bangla-love-story/bls-0011-ocena-chaya-tumi/index.html"
-  },
-  {
-    "storySlug": "rt-0010-rokto-rekhar-arale",
-    "indexPath": "stories/romantic-thriller/rt-0010-rokto-rekhar-arale/index.html"
   }
 ]
