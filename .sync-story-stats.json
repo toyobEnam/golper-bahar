@@ -1,70 +1,86 @@
 [
   {
-    "storySlug": "bs-0007-case-17",
-    "indexPath": "stories/bangla-suspense/bs-0007-case-17/index.html"
-  },
-  {
-    "storySlug": "sh-sus-0001-balika-bodhu",
-    "indexPath": "short-stories/suspense/sh-sus-0001-balika-bodhu/index.html"
-  },
-  {
-    "storySlug": "sh-rom-0005-oprottasito-onurag",
-    "indexPath": "short-stories/romantic/sh-rom-0005-oprottasito-onurag/index.html"
+    "storySlug": "bls-0012-rajniti-bonam-premniti",
+    "indexPath": "stories/bangla-love-story/bls-0012-rajniti-bonam-premniti/index.html"
   },
   {
     "storySlug": "bls-0016-bibosh-hridoye-bosonter-agomon",
     "indexPath": "stories/bangla-love-story/bls-0016-bibosh-hridoye-bosonter-agomon/index.html"
   },
   {
-    "storySlug": "fd-0015-baro-mash-e-borsha",
-    "indexPath": "stories/family-drama/fd-0015-baro-mash-e-borsha/index.html"
-  },
-  {
-    "storySlug": "bs-0001-hawar-sure-veshe",
-    "indexPath": "stories/bangla-suspense/bs-0001-hawar-sure-veshe/index.html"
-  },
-  {
-    "storySlug": "bls-0006-hridoyer-rongin-canvas",
-    "indexPath": "stories/bangla-love-story/bls-0006-hridoyer-rongin-canvas/index.html"
-  },
-  {
     "storySlug": "bls-0005-ek-faguner-golpo",
     "indexPath": "stories/bangla-love-story/bls-0005-ek-faguner-golpo/index.html"
-  },
-  {
-    "storySlug": "bls-0012-rajniti-bonam-premniti",
-    "indexPath": "stories/bangla-love-story/bls-0012-rajniti-bonam-premniti/index.html"
-  },
-  {
-    "storySlug": "35-vul-thikanay-kham",
-    "indexPath": "onugolpo/35-vul-thikanay-kham/index.html"
-  },
-  {
-    "storySlug": "sp-0003-adhfota-premer-ful",
-    "indexPath": "stories/social-plot/sp-0003-adhfota-premer-ful/index.html"
   },
   {
     "storySlug": "bls-0009-neshamoy-asokti",
     "indexPath": "stories/bangla-love-story/bls-0009-neshamoy-asokti/index.html"
   },
   {
-    "storySlug": "bs-0003-biborno-bosonto",
-    "indexPath": "stories/bangla-suspense/bs-0003-biborno-bosonto/index.html"
+    "storySlug": "fd-0011-vromor-koiyo-giya",
+    "indexPath": "stories/family-drama/fd-0011-vromor-koiyo-giya/index.html"
   },
   {
-    "storySlug": "fd-0001-se-amar-purnota",
-    "indexPath": "stories/family-drama/fd-0001-se-amar-purnota/index.html"
+    "storySlug": "bs-0007-case-17",
+    "indexPath": "stories/bangla-suspense/bs-0007-case-17/index.html"
+  },
+  {
+    "storySlug": "fd-0010-dhulo-makha-golite",
+    "indexPath": "stories/family-drama/fd-0010-dhulo-makha-golite/index.html"
+  },
+  {
+    "storySlug": "27-dena-paona",
+    "indexPath": "onugolpo/27-dena-paona/index.html"
+  },
+  {
+    "storySlug": "bls-0014-ontoraler-pronoyini",
+    "indexPath": "stories/bangla-love-story/bls-0014-ontoraler-pronoyini/index.html"
   },
   {
     "storySlug": "fd-0004-mr-and-mrs-twins",
     "indexPath": "stories/family-drama/fd-0004-mr-and-mrs-twins/index.html"
   },
   {
+    "storySlug": "sp-0003-adhfota-premer-ful",
+    "indexPath": "stories/social-plot/sp-0003-adhfota-premer-ful/index.html"
+  },
+  {
+    "storySlug": "bls-0006-hridoyer-rongin-canvas",
+    "indexPath": "stories/bangla-love-story/bls-0006-hridoyer-rongin-canvas/index.html"
+  },
+  {
     "storySlug": "rt-0010-rokto-rekhar-arale",
     "indexPath": "stories/romantic-thriller/rt-0010-rokto-rekhar-arale/index.html"
   },
   {
-    "storySlug": "bls-0007-sobkotha-nirobota",
-    "indexPath": "stories/bangla-love-story/bls-0007-sobkotha-nirobota/index.html"
+    "storySlug": "fd-0014-dujone",
+    "indexPath": "stories/family-drama/fd-0014-dujone/index.html"
+  },
+  {
+    "storySlug": "sp-0005-tor-pirite-pagol-hoilam-re",
+    "indexPath": "stories/social-plot/sp-0005-tor-pirite-pagol-hoilam-re/index.html"
+  },
+  {
+    "storySlug": "sh-fam-0003-olpo-beimani-mon",
+    "indexPath": "short-stories/family/sh-fam-0003-olpo-beimani-mon/index.html"
+  },
+  {
+    "storySlug": "sh-tr-0001-khujbe-amay-sedin",
+    "indexPath": "short-stories/tragedy/sh-tr-0001-khujbe-amay-sedin/index.html"
+  },
+  {
+    "storySlug": "sh-rom-0001-corabali",
+    "indexPath": "short-stories/romantic/sh-rom-0001-corabali/index.html"
+  },
+  {
+    "storySlug": "fd-0015-baro-mash-e-borsha",
+    "indexPath": "stories/family-drama/fd-0015-baro-mash-e-borsha/index.html"
+  },
+  {
+    "storySlug": "bls-0015-e-ki-buddhi-dile-tumi",
+    "indexPath": "stories/bangla-love-story/bls-0015-e-ki-buddhi-dile-tumi/index.html"
+  },
+  {
+    "storySlug": "bls-0008-mr-and-mrs-twins-return",
+    "indexPath": "stories/bangla-love-story/bls-0008-mr-and-mrs-twins-return/index.html"
   }
 ]
