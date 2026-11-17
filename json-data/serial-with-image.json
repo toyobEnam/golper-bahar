@@ -1,5 +1,12 @@
 [ 
-
+  
+{
+  "title": "দিল আওয়ারা",
+  "description": "বন্যা সিকদার-এর লেখা রোমান্টিক ও পারিবারিক উপন্যাস",
+  "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1794940404/dil-awara2_awlosb.webp",
+  "category": "family-drama",
+  "slug": "fd-0016-dil-awara"
+},
 {
   "title": "সাহেব বাবুর বিবি",
   "description": "মাহরিণ তৃণ-এর লেখা সামাজিক ও পারিবারিক গল্প",
