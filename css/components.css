@@ -815,6 +815,7 @@ body{
 
 .ad-box {
   width: 100%;
+  min-width: 300px;
   max-width: 340px;
   min-height: 290px;
   margin: 32px auto;
