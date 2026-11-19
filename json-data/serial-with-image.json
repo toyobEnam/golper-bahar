@@ -1,6 +1,13 @@
 [ 
   
 {
+  "title": "প্রেমবিন্দু",
+  "description": "সুমনা সাথী-এর লেখা পারিবারিক ও থ্রিলার গল্প",
+  "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1795111362/prembindu-golpo3_a3qaf6.webp",
+  "category": "romantic-thriller",
+  "slug": "rt-0012-prembindu"
+},
+{
   "title": "দিল আওয়ারা",
   "description": "বন্যা সিকদার-এর লেখা রোমান্টিক ও পারিবারিক উপন্যাস",
   "image": "https://res.cloudinary.com/dhj4ovvav/image/upload/v1794940404/dil-awara2_awlosb.webp",
