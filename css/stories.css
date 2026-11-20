@@ -1,3 +1,8 @@
+/* =====================================================================
+   Golper Bahar - All Serial Stories Directory CSS
+   Theme: Warm Editorial & Deep Forest Emerald (Sharp Modern Card Edition)
+===================================================================== */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,6 +16,7 @@ a {
 @font-face {
   font-family: "Kalpurush";
   src: url("../assets/fonts/kalpurush.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
@@ -18,233 +24,322 @@ a {
   src: url("../assets/fonts/LiPurnoPran.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
-
 
 #upNav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
-
 
 body {
   margin: 0;
-  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-  background: #e7e7e7;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  background: #faf8f5;
+  color: #18181b;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-
+/* ================= Modern Editorial Header ================= */
 header {
-    text-align: center;
-    padding: 30px 15px 10px;
-    background-color: #ccf1e8;
-    border-bottom: 1px solid black;
+  position: relative;
+  text-align: center;
+  padding: 46px 20px 36px;
+  background: radial-gradient(circle at top right, #d1fae5 0%, transparent 45%),
+              radial-gradient(circle at bottom left, #fef3c7 0%, transparent 45%),
+              linear-gradient(135deg, #f3f7f4 0%, #faf8f5 100%);
+  border-bottom: 1px solid rgba(19, 78, 58, 0.08);
 }
 
-/* =========================
-   Typography Scale
-========================= */
+header::before {
+  content: "গল্পের বাহার সিরিজ আর্কাইভ";
+  display: inline-block;
+  padding: 4px 14px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #134e3a;
+  background: rgba(19, 78, 58, 0.08);
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-radius: 6px;
+}
 
 /* Desktop >1000px */
 header h1 {
-    font-size: 30px;
-    margin-bottom: 0px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #0f3d2e;
+  margin-bottom: 6px;
+  line-height: 1.25;
 }
 
 header h2 {
-    font-size: 20px;
-    font-weight: normal;
-    color: #666;
-    margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #4b5563;
+  margin-bottom: 4px;
 }
 
-/* =========================
-   Notice + Navigation
-========================= */
-
+/* ================= Notice + Navigation ================= */
 notice {
-    display: block;
-    text-align: center;
-    padding: 10px 15px;
+  display: block;
+  max-width: 780px;
+  margin: 24px auto 16px;
+  padding: 16px 22px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid rgba(19, 78, 58, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(19, 78, 58, 0.04);
 }
 
 notice p {
-    font-size: 16px;
-    color: #555;
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: #3f3f46;
+}
+
+notice p + p {
+  margin-top: 4px;
+  font-size: 15px;
+  color: #71717a;
+}
+
+#storyCount,
+#updateDate {
+  font-weight: 700;
+  color: #134e3a;
 }
 
 navigation {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin: 15px 0 25px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 18px 15px 28px;
 }
 
 navigation a {
-    text-decoration: none;
-    background-color: #00553c;
-    padding: 6px 14px;
-    border-radius: 6px;
-    font-size: 15px;
-    color: #ffffff;
-    transition: 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background-color: #134e3a;
+  border: 1px solid #134e3a;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(19, 78, 58, 0.14);
 }
 
 navigation a:hover {
-    background-color: #014400;
-    box-shadow: 0 5px 12px #4f514f39
+  background-color: #1e6b50;
+  border-color: #1e6b50;
+  box-shadow: 0 6px 16px rgba(19, 78, 58, 0.22);
 }
 
-/* =========================
-   Grid Layout
-========================= */
-
+/* ================= Grid Layout ================= */
 .contents {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 12px;
-    padding: 0 15px 30px;
+  max-width: 1460px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 14px;
+  padding: 0 20px 48px;
 }
 
-/* =========================
-   Card Design
-========================= */
-
+/* ================= Sharp Modern Story Card (Static Hover) ================= */
 .story-card {
-    display: block;
-    text-decoration: none;
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 12px 10px;
-    border: 1px solid #598e50;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  background: linear-gradient(180deg, #ffffff 0%, #fcfbf9 100%);
+  border-radius: 6px;
+  padding: 15px 14px 13px;
+  border: 1px solid rgba(24, 24, 27, 0.1);
+
+  box-shadow: 0 2px 6px rgba(19, 78, 58, 0.03);
 }
 
 .story-card:hover {
-    background-color: #eeffde;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  background: #f4faf7;
+  border-color: rgba(19, 78, 58, 0.45);
+
+  box-shadow: 0 8px 20px rgba(19, 78, 58, 0.12);
 }
 
-
 .story-name p {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 6px;
-    color: #222;
+  font-size: 17.5px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 10px;
+  color: #18181b;
+}
+
+.story-card:hover .story-name p {
+  color: #134e3a;
 }
 
 .story-category {
-    display: inline-block;
-    font-size: 14px;
-    background-color: #1d5761;
-    padding: 3px 8px;
-    border-radius: 5px;
-    margin-bottom: 6px;
-    color: #ffffff;
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  background-color: #ecfdf5;
+  color: #134e3a;
+  border: 1px solid rgba(19, 78, 58, 0.18);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.story-card:hover .story-category {
+  background-color: #134e3a;
+  color: #ffffff;
+  border-color: #134e3a;
+}
+
+.author-name {
+  padding-top: 8px;
+  border-top: 1px dashed rgba(24, 24, 27, 0.1);
 }
 
 .author-name p {
-    font-size: 15px;
-    margin: 0;
-    color: #666;
+  font-size: 14.5px;
+  font-weight: 600;
+  margin: 0;
+  color: #3f3f46;
 }
 
 .total-episode p {
-    font-size: 14px;
-    margin: 2px 0 0;
-    color: #888;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 3px 0 0;
+  color: #71717a;
 }
 
-/* =========================
-   Tablet ≤1000px
-========================= */
-
+/* ================= Tablet ≤1000px ================= */
 @media (max-width: 1000px) {
+  header {
+    padding: 36px 16px 28px;
+  }
 
-    .contents {
-        grid-template-columns: repeat(4, 1fr);
-    }
+  .contents {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    padding: 0 16px 36px;
+  }
 
-    header h1 {
-        font-size: 26px;
-    }
+  notice {
+    margin: 20px 16px 14px;
+    padding: 14px 18px;
+  }
 
-    header h2 {
-        font-size: 18px;
-    }
+  header h1 {
+    font-size: 28px;
+  }
 
-    notice p {
-        font-size: 15px;
-    }
+  header h2 {
+    font-size: 18px;
+  }
 
-    navigation a {
-        font-size: 14px;
-    }
+  notice p {
+    font-size: 15px;
+  }
 
-    .story-name p {
-        font-size: 16px;
-    }
+  navigation a {
+    font-size: 14.5px;
+    padding: 7px 15px;
+  }
 
-    .story-category {
-        font-size: 13px;
-    }
+  .story-name p {
+    font-size: 16px;
+  }
 
-    .author-name p {
-        font-size: 14px;
-    }
+  .story-category {
+    font-size: 12px;
+  }
 
-    .total-episode p {
-        font-size: 13px;
-    }
+  .author-name p {
+    font-size: 14px;
+  }
+
+  .total-episode p {
+    font-size: 13px;
+  }
 }
 
-/* =========================
-   Mobile ≤600px
-========================= */
-
+/* ================= Mobile ≤600px ================= */
 @media (max-width: 600px) {
+  header {
+    padding: 28px 14px 22px;
+  }
 
-    .contents {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
+  .contents {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 0 12px 30px;
+  }
 
-    .story-card {
-        padding: 10px 8px;
-    }
+  notice {
+    margin: 16px 12px 12px;
+    padding: 12px 14px;
+    border-radius: 6px;
+  }
 
-    /* Your defined ratio */
-    header h1 {
-        font-size: 20px;
-    }
+  .story-card {
+    padding: 12px 10px 10px;
+    border-radius: 5px;
+  }
 
-    header h2 {
-        font-size: 16px;
-    }
+  header h1 {
+    font-size: 23px;
+  }
 
-    notice p {
-        font-size: 14px;
-    }
+  header h2 {
+    font-size: 16px;
+  }
 
-    navigation a {
-        font-size: 14px;
-    }
+  notice p {
+    font-size: 14px;
+  }
 
-    .story-name p {
-        font-size: 16px;
-    }
+  navigation {
+    gap: 8px;
+    margin: 14px 12px 22px;
+  }
 
-    .story-category {
-        font-size: 12px;
-    }
+  navigation a {
+    font-size: 13.5px;
+    padding: 6px 13px;
+  }
 
-    .author-name p {
-        font-size: 14px;
-    }
+  .story-name p {
+    font-size: 15.5px;
+    margin-bottom: 8px;
+  }
 
-    .total-episode p {
-        font-size: 14px;
-    }
+  .story-category {
+    font-size: 11.5px;
+    margin-bottom: 8px;
+  }
+
+  .author-name {
+    padding-top: 6px;
+  }
+
+  .author-name p {
+    font-size: 13.5px;
+  }
+
+  .total-episode p {
+    font-size: 12.5px;
+  }
 }

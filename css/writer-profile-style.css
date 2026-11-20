@@ -1,705 +1,856 @@
+/* =====================================================================
+   Golper Bahar - Full Writer Profile Page CSS
+   Theme: Warm Editorial & Deep Forest Emerald (Clean Sharp Card Edition)
+===================================================================== */
+
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  box-sizing: border-box;
 }
+
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
+
 @font-face {
   font-family: "LiPurnoPran";
   src: url("../../../../assets/fonts/LiPurnoPran.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
+
+body {
+  background-color: #faf8f5;
+  color: #18181b;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
 #upNav {
-    position: sticky;
-    top: 0;
-    z-index: 1009;
+  position: sticky;
+  top: 0;
+  z-index: 1009;
 }
+
+/* ================= Header ================= */
 header {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 25px 0px;
-    background-color: rgb(255, 184, 184);
-    min-height: 250px;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.566), rgba(255,255,255,0.25)), url("https://res.cloudinary.com/didbcg0dd/image/upload/q_auto/f_auto/v1781088454/writer-back_pohob7.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px 16px;
+  background-color: #f3f7f4;
+  min-height: 230px;
+  border-bottom: 1px solid rgba(19, 78, 58, 0.14);
+  background-image: linear-gradient(rgba(250, 248, 245, 0.78), rgba(236, 253, 245, 0.72)), url("https://res.cloudinary.com/didbcg0dd/image/upload/q_auto/f_auto/v1781088454/writer-back_pohob7.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* ============ Page Grid Start ============= */
 .main-container {
+  max-width: 1400px;
+  margin: 22px auto 32px;
+  padding: 0 18px;
   display: grid;
   grid-template-columns: 32% 68%;
-  gap: 0px;
+  gap: 18px;
+  align-items: start;
 }
+
 .left-col,
 .right-col {
   display: flex;
   flex-direction: column;
-  gap: 0px;
+  gap: 18px;
 }
+
 .card {
-  min-height: 150px;
-  background: #eaeaea;
-  padding: 10px;
-  font-size: 20px;
-}
-.left-col {
-    flex: 1 1 32%;
-}
-.right-col {
-    flex: 1 1 68%;
+  min-height: 120px;
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 27, 0.09);
+  border-radius: 8px;
+  padding: 24px;
+  font-size: 18px;
+  box-shadow: 0 4px 14px rgba(19, 78, 58, 0.03);
 }
 
+/* ================= Card A: Writer Profile Summary ================= */
 .cardA {
-    background: #ffffff;
-    padding: 35px 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    min-height: auto;
+  background: #ffffff;
+  padding: 34px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: auto;
 }
-/* Profile Image */
+
 .A-image {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 20px;
-    border: 5px solid #00521e;
-    background-color: #00521e;
+  width: 175px;
+  height: 175px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 18px;
+  border: 4px solid #134e3a;
+  background-color: #ecfdf5;
+  box-shadow: 0 6px 18px rgba(19, 78, 58, 0.15);
 }
+
 .writer-primary-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
+
 .cardA .A-bio .A-bio-up h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: #222;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #0f3d2e;
 }
+
 .cardA .id-number {
-    display: inline-block;
-    padding: 8px 18px;
-    background: #0b5009;
-    color: #ffffff;
-    border-radius: 50px;
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin-bottom: 25px;
+  display: inline-block;
+  padding: 6px 16px;
+  background: #134e3a;
+  color: #ffffff;
+  border-radius: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  margin-bottom: 22px;
 }
+
 .cardA .id-number p {
-    margin: 0;
+  margin: 0;
 }
+
 .cardA .A-bio-down {
-    max-width: 500px;
+  max-width: 500px;
 }
+
 .cardA .A-bio-down .hdline-bio {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #000000;
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #134e3a;
 }
+
 .cardA .A-bio-down p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #000000;
+  font-size: 17.5px;
+  line-height: 1.85;
+  color: #3f3f46;
 }
 
+/* ================= Card B: Contribution Notice ================= */
 .cardB {
-    background: rgb(255, 251, 251);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
-    padding-left: 30px;
+  background: linear-gradient(135deg, #ffffff 0%, #f4faf7 100%);
+  border: 1px solid rgba(19, 78, 58, 0.16);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 24px;
 }
+
 .cardB .contribution {
-    padding: 5px 20px;
-    font-size: 18px;
-    text-align: justify;
+  padding: 4px 8px;
+  font-size: 17.5px;
+  line-height: 1.75;
+  color: #27272a;
+  text-align: justify;
 }
 
+/* ================= Card C: Writer Stories Grid (Sharp Cards, Static Hover) ================= */
 .cardC {
-    background: #ffffff;
-    padding: 30px;
+  background: #ffffff;
+  padding: 28px;
 }
+
 .cardC .fixedText p {
-    font-size: 1.4rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 25px;
-    color: #222;
-    letter-spacing: 1px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 22px;
+  color: #134e3a;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(19, 78, 58, 0.14);
 }
+
 .cardC .storyBox {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
 }
+
 .shortS .storyBox {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
+
 .cardC .storyBox a {
-    text-decoration: none;
-    font-size: 18px;
-    text-align: center;
-    padding: 18px;
-    border-radius: 12px;
-    background: #dde3e9;
-    color: #333;
-    font-weight: 500;
-    transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 16.5px;
+  line-height: 1.45;
+  text-align: center;
+  padding: 14px 12px;
+  border-radius: 6px;
+  background: #faf8f5;
+  border: 1px solid rgba(19, 78, 58, 0.16);
+  color: #18181b;
+  font-weight: 600;
 }
+
 .cardC .storyBox a:hover {
-    background: #222;
-    color: #fff;
-    transform: translateY(-4px);
+  background: #134e3a;
+  border-color: #134e3a;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(19, 78, 58, 0.18);
 }
 
+/* ================= Card D: Reward / Recognition ================= */
 .cardD {
-    background: #ffffff;
+  background: #ffffff;
+  padding: 24px;
 }
+
 .cardD .rewardText {
-    padding-top: 25px;
-    padding-bottom: 0px;
+  padding-top: 4px;
+  padding-bottom: 14px;
 }
+
 .cardD .rewardText p {
-    font-size: 1.4rem;
-    font-weight: 600;
-    text-align: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #134e3a;
+  text-align: center;
 }
+
 .cardD .rewardBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
 }
+
 .cardD .rewardBox img {
-    max-width: 90%;
-    height: auto;
-    object-fit: contain;
+  max-width: 92%;
+  height: auto;
+  border-radius: 6px;
+  object-fit: contain;
 }
 
+/* ================= Card E: Writer Biodata & Large Photo ================= */
 .cardE {
-    background: #ffffff;
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    padding: 30px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  gap: 28px;
+  padding: 28px;
 }
+
 .cardE .writer-big-img {
-    width: 35%;
-    border-radius: 15px;
-    overflow: hidden;
-    height: fit-content;
+  width: 35%;
+  border-radius: 8px;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  overflow: hidden;
+  height: fit-content;
 }
+
 .cardE .writer-big-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-/* Biodata Section */
+
 .cardE .writer-biodata {
-    width: 65%;
-    display: flex;
-    align-items: center;
+  width: 65%;
+  display: flex;
+  align-items: center;
 }
+
 .cardE table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 17px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 17px;
 }
+
 .cardE th {
-    text-align: left;
-    padding: 10px 0;
-    color: #555;
-    font-weight: 600;
-    width: 35%;
-    vertical-align: top;
+  text-align: left;
+  padding: 11px 0;
+  color: #52525b;
+  font-weight: 600;
+  width: 35%;
+  vertical-align: top;
 }
+
 .cardE td {
-    padding: 10px 0;
-    color: #222;
-    line-height: 1.6;
-    padding-left: 5px;
-    vertical-align: top;
+  padding: 11px 0 11px 8px;
+  color: #18181b;
+  line-height: 1.6;
+  vertical-align: top;
 }
+
 .cardE tr:not(:last-child) {
-    border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(24, 24, 27, 0.08);
 }
-/* Link Style */
+
 .cardE a {
-    color: #0066cc;
-    text-decoration: none;
-    font-weight: 500;
+  color: #134e3a;
+  text-decoration: none;
+  font-weight: 600;
 }
+
 .cardE a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
+/* ================= Card F: Contact & Social Buttons (Static Hover) ================= */
 .cardF {
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    border-radius: 12px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 22px;
 }
-/* Header */
+
 .cardF .f-contact {
-    border-radius: 10px;
-    margin: 15px;
-    padding: 18px 25px;
-    font-size: 1.4rem;
-    font-weight: 600;
-    text-align: center;
+  border-radius: 6px;
+  margin: 0 0 14px;
+  padding: 12px 20px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #134e3a;
+  background: #f4faf7;
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  text-align: center;
 }
-/* Button container */
+
 .cardF .f-contact-icons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px 4px;
 }
-/* Buttons */
+
 .cardF .f-contact-icons a {
-    background: linear-gradient(135deg, #fff2dd, #dcffef);
-    padding: 12px 30px;
-    text-decoration: none;
-    border: 1px solid black;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #020202;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  background: #faf8f5;
+  padding: 10px 24px;
+  text-decoration: none;
+  border: 1px solid rgba(19, 78, 58, 0.22);
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #18181b;
+  box-shadow: 0 2px 8px rgba(19, 78, 58, 0.04);
 }
+
 .cardF .f-contact-icons a:hover {
-    transform: scaleX(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-    background: linear-gradient(135deg, #006837, #00a651);
-}
-.cardF .f-contact-icons #fb-btn:hover { background: #1877F2; color: white; font-weight: 600; }
-.cardF .f-contact-icons #mail-btn:hover { background: #000000; color: white; font-weight: 600; }
-.cardF .f-contact-icons #wp-btn:hover { background: #098436; color: white; font-weight: 600; }
-.cardF .f-contact-icons #bt-btn:hover { background: #005a70; color: white; font-weight: 600; }
-.cardF .f-contact-icons #ct-btn:hover { background: #731da2; color: white; font-weight: 600; }
-.cardF .f-contact-icons #ms-btn:hover { background: #0009bb; color: white; font-weight: 600; }
-.cardF .f-contact-icons #ph-btn:hover { background: #a30000; color: white; font-weight: 600; }
-.cardF .f-contact-icons a:active {
-    transform: scale(0.96);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background: #134e3a;
+  border-color: #134e3a;
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(19, 78, 58, 0.2);
 }
 
+.cardF .f-contact-icons #fb-btn:hover { background: #1877F2; border-color: #1877F2; color: #ffffff; }
+.cardF .f-contact-icons #mail-btn:hover { background: #18181b; border-color: #18181b; color: #ffffff; }
+.cardF .f-contact-icons #wp-btn:hover { background: #16a34a; border-color: #16a34a; color: #ffffff; }
+.cardF .f-contact-icons #bt-btn:hover { background: #0f766e; border-color: #0f766e; color: #ffffff; }
+.cardF .f-contact-icons #ct-btn:hover { background: #7e22ce; border-color: #7e22ce; color: #ffffff; }
+.cardF .f-contact-icons #ms-btn:hover { background: #1d4ed8; border-color: #1d4ed8; color: #ffffff; }
+.cardF .f-contact-icons #ph-btn:hover { background: #b91c1c; border-color: #b91c1c; color: #ffffff; }
+
+/* ================= Card G: Reader Reviews ================= */
 .cardG {
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
 }
+
 .cardG .g-up {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px 20px;
-    margin: 20px 25px 0px 25px;
-    border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 12px 18px;
+  margin: 0 0 18px;
+  background: #f4faf7;
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-radius: 6px;
 }
+
 .cardG .g-up h3 {
-    font-size: 1.4rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #134e3a;
 }
+
 .cardG .g-down {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    padding-top: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  padding: 0;
 }
+
 .cardG .g-down .reviewBox {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    padding: 25px;
-    gap: 10px;
-    border-bottom: 2px solid #007a3d71;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 16px;
+  background: #faf8f5;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  border-radius: 8px;
 }
-.cardG .g-down .reviewBox:last-child {
-    border-bottom: none;
-}
+
 .cardG .g-down .reviewBox .reader-image {
-    width: 10%;
-    height: fit-content;
-    display: flex;
-    justify-content: right;
-    border-radius: 50%;
-    overflow: hidden;
-    aspect-ratio: 1 / 1;
-    margin-top: 35px;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #ecfdf5;
+  margin-top: 4px;
 }
+
 .cardG .g-down .reviewBox .reader-image img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
+
 .cardG .g-down .reviewBox .reader-review {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    border-radius: 20px;
-    overflow: hidden;
-    padding: 20px;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
 }
+
 .cardG .g-down .reviewBox .reader-review .reader-name {
-    padding: 5px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.483);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(24, 24, 27, 0.1);
 }
+
 .cardG .g-down .reviewBox .reader-review .reader-name p {
-    font-size: 1.4rem;
+  font-size: 1.25rem;
+  font-weight: 700;
 }
+
 .cardG .g-down .reviewBox .reader-review .reader-name p a {
-    text-decoration: none;
-    color: #004522;
+  text-decoration: none;
+  color: #134e3a;
 }
+
 .cardG .g-down .reviewBox .reader-review .review-text {
-    padding: 5px;
-    text-align: left;
+  padding: 0;
+  text-align: left;
 }
+
 .cardG .g-down .reviewBox .reader-review .review-text p {
-    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
-    font-size: 1.1rem;
+  font-family: "LiPurnoPran", 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: #27272a;
 }
 
+/* ================= Card H: Published Books (Static Hover, Sharp Cards) ================= */
 .cardH {
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 22px;
 }
+
 .cardH .h-upper {
-    padding: 10px;
-    margin: 10px;
-    border-radius: 7px;
-    margin-bottom: 0px;
+  padding: 10px 14px;
+  margin: 0 0 16px;
+  background: #f4faf7;
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-radius: 6px;
 }
+
 .cardH .h-upper h4 {
-    text-align: center;
-    font-size: 1.5rem;
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #134e3a;
 }
+
 .cardH .h-lower {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding-top: 0px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
+
 .cardH .h-lower a {
-    display: block;
-    text-decoration: none;
-    padding: 20px;
-    margin: 0px;
-    border-radius: 10px;
-    background-color: rgb(255, 255, 255);
+  display: block;
+  text-decoration: none;
+  padding: 12px;
+  margin: 0;
+  border-radius: 8px;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  background-color: #faf8f5;
 }
+
+.cardH .h-lower a:hover {
+  background-color: #ecfdf5;
+  border-color: rgba(19, 78, 58, 0.4);
+  box-shadow: 0 8px 20px rgba(19, 78, 58, 0.12);
+}
+
 .cardH .h-lower .book-image {
-    width: 100%;
-    aspect-ratio: 282 / 451;
-    overflow: hidden;
-    box-shadow: 0 0 10px #4343437e;
-    transition: box-shadow 0.6s ease, transform 0.3s ease;
+  width: 100%;
+  aspect-ratio: 282 / 451;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-.cardH .h-lower a:hover .book-image {
-    box-shadow: 0 0 25px #1b00b1dc;
-    transform: scale(1.015);
-}
+
 .cardH .h-lower .book-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
+
 .cardH .h-lower .book-name {
-    text-align: center;
-    padding: 12px;
+  text-align: center;
+  padding: 10px 4px 2px;
 }
+
 .cardH .h-lower .book-name p {
-    font-size: 1.4rem;
-    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #18181b;
+  font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
 }
 
-/* ============ Page Grid End ============= */
+.cardH .h-lower a:hover .book-name p {
+  color: #134e3a;
+}
 
-/* ========= Mini Nav Start =========== */
+/* Single Book Layout */
+.cardH .h-lower.one-book {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 8px;
+}
+
+.cardH .h-lower.one-book a {
+  width: min(100%, 300px);
+  padding: 14px;
+}
+
+.cardH .h-lower.one-book .book-image {
+  width: 100%;
+}
+
+.cardH .h-lower.one-book .book-name p {
+  font-size: 1.3rem;
+}
+
+/* ===== Author Bio Section ===== */
+.cardAuthorBio {
+  background: #ffffff;
+  padding: 28px 30px;
+}
+
+.author-bio-title h2 {
+  text-align: center;
+  font-size: 1.65rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(19, 78, 58, 0.14);
+  color: #134e3a;
+}
+
+.author-bio-content {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.author-bio-content p {
+  font-size: 1.08rem;
+  line-height: 1.9;
+  color: #3f3f46;
+  text-align: justify;
+}
+
+/* ========= Mini Nav Start (Static Hover) =========== */
 .mini-episode-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  padding: 12px 10px;
+  gap: 8px;
+  padding: 14px 12px;
   margin-bottom: 0;
-  background-color: #0f0f0f;
+  background-color: #0d261d;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
+
 .mini-nav-item {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 72px;
-  padding: 6px 12px;
-  background-color: #1e1e1e;
-  color: #ffffff;
-  font-size: 0.85rem;
+  min-width: 74px;
+  padding: 6px 13px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ecfdf5;
+  font-size: 0.86rem;
   font-weight: 500;
   line-height: 1.2;
-  border-radius: 5px;
+  border-radius: 6px;
   text-decoration: none;
-  transition: color 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease, transform 0.18s ease;
 }
+
 .mini-nav-item:hover {
-  color: #2f80ff;
-  background-color: #e6e6e6;
-  box-shadow: 0 0 0 1px rgba(47, 128, 255, 0.35), 0 0 8px rgba(47, 128, 255, 0.3);
-  transform: translateY(-1px);
+  color: #06281e;
+  background-color: #10b981;
+  border-color: #10b981;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }
 
 /* ============================
-   ALL MEDIA QUERIES (Merged)
-   ============================ */
+   LOGICAL MEDIA QUERIES
+============================ */
+@media (max-width: 1100px) {
+  .main-container {
+    grid-template-columns: 36% 64%;
+    gap: 14px;
+    padding: 0 14px;
+  }
 
-@media (max-width: 1000px) {
-    header {
-        min-height: 180px;
-    }
-    .main-container {
-        grid-template-columns: 100%;
-    }
-    .left-col,
-    .right-col {
-        display: block;
-    }
-    .cardA .A-bio-down p {
-        font-size: 16px;
-    }
-    .cardB {
-        flex-direction: column;
-    }
-    .cardB .contribution {
-        font-size: 16px;
-    }
-    /* সাধারণ storyBox */
-    .cardC .storyBox {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    /* অনুগল্প section */
-    .shortS .storyBox {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .cardD .rewardText {
-        padding-top: 0px;
-    }
-    .cardD .rewardText p {
-        font-size: 1.4rem;
-        font-weight: 600;
-        text-align: center;
-    }
-    .cardD .rewardBox {
-        max-width: 100%;
-    }
-    .cardE {
-        flex-direction: column;
-    }
-    .cardE .writer-big-img,
-    .cardE .writer-biodata {
-        width: 100%;
-    }
-    .cardF .f-contact-icons a {
-        font-size: 1.1rem;
-    }
-    .cardG .g-down {
-        padding: 0;
-        margin: 0;
-    }
-    .cardG .g-down .reviewBox {
-        flex-direction: column;
-        padding: 10px;
-        margin: 10px;
-        background-color: #e7f3ff;
-        border-radius: 10px;
-        gap: 0px;
-    }
-    .cardG .g-down .reviewBox .reader-review {
-        width: 100%;
-        padding: 10px;
-    }
-    .cardG .g-down .reviewBox .reader-image {
-        width: 30%;
-        margin-left: 15px;
-        margin-top: 10px;
-    }
-    .cardG .g-down .reviewBox:last-child {
-        border-bottom: 2px solid #007a3d71;
-    }
-    .cardG .g-down .reviewBox .reader-review .reader-name p {
-        font-size: 1.5rem;
-    }
-    .cardG .g-down .reviewBox .reader-review .review-text p {
-        font-size: 16px;
-    }
+  .cardC .storyBox {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .shortS .storyBox {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  header {
+    min-height: 170px;
+  }
+
+  .main-container {
+    grid-template-columns: 100%;
+    margin: 16px auto 26px;
+    padding: 0 14px;
+    gap: 14px;
+  }
+
+  .left-col,
+  .right-col {
+    display: flex;
+    gap: 14px;
+  }
+
+  .cardA .A-bio-down p {
+    font-size: 16px;
+  }
+
+  .cardB {
+    flex-direction: column;
+    padding: 16px 18px;
+  }
+
+  .cardB .contribution {
+    font-size: 16px;
+    padding: 0;
+  }
+
+  .cardC .storyBox {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .shortS .storyBox {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cardD .rewardText {
+    padding-top: 0;
+  }
+
+  .cardD .rewardText p {
+    font-size: 1.3rem;
+  }
+
+  .cardD .rewardBox {
+    max-width: 100%;
+  }
+
+  .cardE {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .cardE .writer-big-img,
+  .cardE .writer-biodata {
+    width: 100%;
+  }
+
+  .cardF .f-contact-icons a {
+    font-size: 1rem;
+    padding: 9px 18px;
+  }
+
+  .cardG {
+    padding: 18px;
+  }
+
+  .cardG .g-down .reviewBox {
+    flex-direction: column;
+    padding: 16px;
+    gap: 10px;
+  }
+
+  .cardG .g-down .reviewBox .reader-image {
+    width: 56px;
+    height: 56px;
+    margin: 0;
+  }
+
+  .cardG .g-down .reviewBox .reader-review {
+    width: 100%;
+  }
+
+  .cardG .g-down .reviewBox .reader-review .reader-name p {
+    font-size: 1.2rem;
+  }
+
+  .cardG .g-down .reviewBox .reader-review .review-text p {
+    font-size: 16px;
+  }
+
+  .cardAuthorBio {
+    padding: 20px 18px;
+  }
+
+  .author-bio-title h2 {
+    font-size: 1.45rem;
+  }
+
+  .author-bio-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
 }
 
 @media (max-width: 768px) {
-    .mini-episode-nav {
-        gap: 8px;
-        padding: 10px 8px;
-    }
-    .mini-nav-item {
-        min-width: 68px;
-        padding: 6px 10px;
-        font-size: 0.8rem;
-    }
+  .mini-episode-nav {
+    gap: 8px;
+    padding: 10px 8px;
+  }
+
+  .mini-nav-item {
+    min-width: 68px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 600px) {
+  .card {
+    min-height: min-content;
+    padding: 16px 14px;
+    border-radius: 6px;
+  }
 
-    .cardC{
-        padding:15px;
-    }
+  .cardC {
+    padding: 16px 14px;
+  }
 
-    /* সাধারণ storyBox */
-    .cardC .storyBox {
-        grid-template-columns: 1fr;
-    }
-    /* অনুগল্প section */
-    .shortS .storyBox {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .cardH .h-upper h4 {
-        font-size: 1.4rem;
-    }
-    .cardH .h-lower {
-        padding: 0px;
-        gap: 5px;
-    }
-    .cardH .h-lower a {
-        padding: 10px;
-    }
-    .cardH .h-lower .book-name p {
-        font-size: 1.1rem;
-    }
-    .card {
-        min-height: min-content;
-    }
+  .cardC .storyBox {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .shortS .storyBox {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .cardC .storyBox a {
+    font-size: 15.5px;
+    padding: 11px 10px;
+  }
+
+  .cardH .h-upper h4 {
+    font-size: 1.25rem;
+  }
+
+  .cardH .h-lower {
+    padding: 0;
+    gap: 8px;
+  }
+
+  .cardH .h-lower a {
+    padding: 8px;
+  }
+
+  .cardH .h-lower .book-name p {
+    font-size: 1.05rem;
+  }
+
+  .cardH .h-lower.one-book {
+    padding: 6px;
+  }
+
+  .cardH .h-lower.one-book a {
+    width: min(100%, 240px);
+    padding: 10px;
+  }
+
+  .cardH .h-lower.one-book .book-name p {
+    font-size: 1.15rem;
+  }
+
+  .cardE th {
+    width: 45%;
+    font-size: 15.5px;
+  }
+
+  .cardE td {
+    font-size: 15.5px;
+  }
 }
 
 @media (max-width: 480px) {
-    .mini-episode-nav {
-        gap: 6px;
-        padding: 8px 6px;
-    }
-    .mini-nav-item {
-        min-width: auto;
-        padding: 5px 9px;
-        font-size: 0.78rem;
-        border-radius: 4px;
-    }
-}
+  .mini-episode-nav {
+    gap: 6px;
+    padding: 8px 6px;
+  }
 
-
-
-            /* ================ 
-            Single Book Layout
-            =================== */
-
-.cardH .h-lower.one-book {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-}
-
-.cardH .h-lower.one-book a {
-    width: min(100%, 340px);
-    padding: 20px;
-}
-
-.cardH .h-lower.one-book .book-image {
-    width: 100%;
-}
-
-.cardH .h-lower.one-book .book-name p {
-    font-size: 1.5rem;
-}
-
-@media (max-width: 600px) {
-    .cardH .h-lower.one-book {
-        padding: 10px;
-    }
-
-    .cardH .h-lower.one-book a {
-        width: min(100%, 260px);
-        padding: 10px;
-    }
-
-    .cardH .h-lower.one-book .book-name p {
-        font-size: 1.2rem;
-    }
-
-    .cardE th{
-    width: 50%;
-    }
-}
-
-
-/* ===== Author Bio Section ===== */
-
-.cardAuthorBio{
-    background:#ffffff;
-    padding:30px;
-}
-
-.author-bio-title h2{
-    text-align:center;
-    font-size:1.8rem;
-    margin-bottom:20px;
-    color:#0b5009;
-}
-
-.author-bio-content{
-    max-width:1000px;
-    margin:auto;
-}
-
-.author-bio-content p{
-    font-size:1.1rem;
-    line-height:1.9;
-    color:#222;
-    text-align:justify;
-}
-
-@media (max-width:1000px){
-
-    .cardAuthorBio{
-        padding:20px;
-    }
-
-    .author-bio-title h2{
-        font-size:1.5rem;
-    }
-
-    .author-bio-content p{
-        font-size:1rem;
-        line-height:1.8;
-    }
-
+  .mini-nav-item {
+    min-width: auto;
+    padding: 5px 9px;
+    font-size: 0.78rem;
+    border-radius: 5px;
+  }
 }

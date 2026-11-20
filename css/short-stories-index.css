@@ -1,525 +1,480 @@
-/* ==================================================
-   SHORT STORY INDEX
-================================================== */
+/* =====================================================================
+   Golper Bahar - Short Story Index CSS
+   Theme: Warm Editorial & Deep Forest Emerald (Clean Sharp Card Edition)
+===================================================================== */
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-  background:#f8f8f8;
-  color:#222;
-  font-family:'Noto Serif Bengali', serif;
-  line-height:1.8;
+body {
+  background: #faf8f5;
+  color: #18181b;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none !important;
+}
+
+span, h1, h2, h4, h5, h6 {
+  cursor: default;
+}
+
+a, button {
+  cursor: pointer !important;
+  user-select: auto;
 }
 
 /* ==================================================
    COVER
 ================================================== */
-
-/* ==================================================
-   COVER
-================================================== */
-
-.story-cover{
-  max-width:1200px;
-  margin:20px auto;
-  padding:0 20px;
+.story-cover {
+  max-width: 1160px;
+  margin: 24px auto 16px;
+  padding: 0 20px;
 }
 
-.cover-image{
-  display:block;
-
-  width:100%;
-  height:auto;
-
-  aspect-ratio:3/1;
-  object-fit:cover;
-
-  border-radius:12px;
-
-  box-shadow:
-    0 4px 12px rgba(0,0,0,0.12);
+.cover-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  box-shadow: 0 6px 18px rgba(19, 78, 58, 0.06);
 }
 
-/* Mobile */
-
-@media (max-width:767px){
-
-  .story-cover{
-    padding:0 12px;
-    margin:12px auto;
+@media (max-width: 767px) {
+  .story-cover {
+    padding: 0 12px;
+    margin: 14px auto 10px;
   }
 
-  .cover-image{
-    aspect-ratio:3/1;
+  .cover-image {
+    aspect-ratio: 3 / 1;
+    border-radius: 6px;
   }
-
 }
 
 /* ==================================================
    HEADER
 ================================================== */
-
-.story-header{
-  max-width:1000px;
-  margin:30px auto 10px;
-  padding:0 16px;
-  text-align:center;
+.story-header {
+  max-width: 960px;
+  margin: 22px auto 12px;
+  padding: 0 16px;
+  text-align: center;
 }
 
-.story-title{
-  font-size:2.6rem;
-  line-height:1.2;
-  margin-bottom:10px;
+.story-title {
+  font-size: 2.55rem;
+  font-weight: 700;
+  color: #0f3d2e;
+  line-height: 1.25;
+  margin-bottom: 10px;
 }
 
-.story-author{
-  font-size:1rem;
-  color:#666;
+.story-author {
+  font-size: 1.08rem;
+  color: #52525b;
 }
 
-.story-author a{
-  color:#00695c;
-  text-decoration:none;
-  font-weight:600;
+.story-author a {
+  display: inline-block;
+  color: #134e3a;
+  background: #ecfdf5;
+  border: 1px solid rgba(19, 78, 58, 0.18);
+  padding: 2px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.story-author a:hover {
+  background: #134e3a;
+  color: #ffffff;
 }
 
 /* ==================================================
-   META
+   META & TAG
 ================================================== */
-
-.story-meta{
-  max-width:700px;
-  margin:25px auto;
-  padding:0 16px;
-
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
+.story-meta {
+  max-width: 740px;
+  margin: 20px auto;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-.meta-item{
-  background:#fff;
-  border:1px solid #e5e5e5;
-  border-radius:12px;
-  padding:12px 20px;
-  min-width:140px;
-  text-align:center;
+.meta-item {
+  background: #ffffff;
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-radius: 8px;
+  padding: 11px 20px;
+  min-width: 140px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(19, 78, 58, 0.03);
 }
 
-.meta-item strong{
-  display:block;
-  font-size:.9rem;
-  color:#666;
-  margin-bottom:4px;
+.meta-item strong {
+  display: block;
+  font-size: 0.86rem;
+  color: #71717a;
+  margin-bottom: 3px;
 }
 
-.meta-item span{
-  font-weight:600;
+.meta-item span {
+  font-weight: 700;
+  color: #134e3a;
 }
 
-
-/* ==== tag ==== */
-
-.short-story-tag{
-  display:inline-block;
-
-  margin:8px 0 10px;
-
-  padding:4px 12px;
-
-  background:#0b6b3a;
-  color:#ffffff;
-
-  font-size:0.85rem;
-  font-weight:600;
-  line-height:1;
-
-  border-radius:999px;
-
-  letter-spacing:.3px;
-
-  box-shadow:
-    0 2px 6px rgba(11,107,58,.18);
+.short-story-tag {
+  display: inline-block;
+  margin: 6px 0 10px;
+  padding: 5px 14px;
+  background: #134e3a;
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
 }
-/* ==== tag over ==== */
-
-
 
 /* ==================================================
-   INTRO
+   INTRO (Clean Sharp Card, No Left Bar)
 ================================================== */
-
 .story-intro {
-  max-width: 760px;
-  margin: 12px auto 26px auto;
-  padding: 14px 18px;
-
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #333;
-
+  max-width: 820px;
+  margin: 14px auto 26px;
+  padding: 20px 24px;
+  font-size: 1.06rem;
+  line-height: 1.85;
+  color: #27272a;
   text-align: center;
   font-style: italic;
-
   background: #ffffff;
-  border-radius: 10px;
-
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  border: 1px solid rgba(24, 24, 27, 0.09);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(19, 78, 58, 0.04);
 }
 
-/* ===== Tablet ===== */
 @media (max-width: 1199px) {
   .story-intro {
     max-width: 100%;
-    margin: 12px 20px 26px 20px;
+    margin: 14px 20px 24px;
   }
 
   .story-title {
-  font-size: 2.3rem;
-  margin-bottom: 6px;
-}
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+  }
 }
 
-/* ===== Mobile ===== */
 @media (max-width: 767px) {
   .story-intro {
-    margin: 12px 19px 22px 19px;
-    font-size: 1rem;
-    padding: 12px 14px;
+    margin: 12px 12px 20px;
+    font-size: 0.98rem;
+    padding: 15px 14px;
+    border-radius: 6px;
   }
 
   .story-title {
-  font-size: 2rem;
-  margin-bottom: 4px;
-}
+    font-size: 1.85rem;
+    margin-bottom: 6px;
+  }
 }
 
 /* ===== Episode Grid ===== */
 .episode-grid {
   display: grid;
-  gap: 20px;
-  padding: 20px;
+  gap: 16px;
+  padding: 18px 20px;
   grid-auto-rows: min-content;
   align-items: start;
 }
 
-/* Desktop */
 @media (min-width: 1200px) {
   .episode-grid {
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
-
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-/* Tablet */
 @media (min-width: 768px) and (max-width: 1199px) {
   .episode-grid {
     max-width: 900px;
     margin: 0 auto;
-
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-/* Mobile */
 @media (max-width: 767px) {
   .episode-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 12px;
+    gap: 10px;
   }
 }
 
-/* ===== Episode Card ===== */
+/* ===== Episode Card (Sharp Low Border Radius, Static Hover) ===== */
 .episode-card {
   display: flex;
   flex-direction: column;
-
-  background: #d7d7d7;
-
-  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 27, 0.1);
+  border-radius: 8px;
   overflow: hidden;
-
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-
-  transition:
-    transform 0.18s ease,
-    background-color 0.22s ease,
-    box-shadow 0.22s ease;
+  box-shadow: 0 2px 8px rgba(19, 78, 58, 0.04);
 }
 
 .episode-card:hover {
-  transform: scale(1.01);
-
-  background: #000000;
-
-  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  cursor: pointer;
+  background: #ecfdf5;
+  border-color: rgba(19, 78, 58, 0.42);
+  box-shadow: 0 10px 22px rgba(19, 78, 58, 0.13);
 }
 
-
-/* 16:9 image */
 .episode-thumb {
   position: relative;
   aspect-ratio: 3 / 2;
   overflow: hidden;
+  background: #f3f0ea;
 }
 
 .episode-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-/* Text */
 .episode-info {
-  padding: 5px 8px;
+  padding: 13px 10px 15px;
   text-align: center;
 }
 
 .episode-info h3 {
-  margin: 15px 0px 0px 0px;
+  margin: 0 0 8px 0;
   padding: 0;
-  line-height: 1.2;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #240000;
-
-  transition: color 0.22s ease;
+  line-height: 1.3;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #134e3a;
 }
-
 
 .episode-info p {
-  font-size: 0.85rem;
-  color: #700000;
-  line-height: 1.2;
-  margin-bottom: 20px;
-
-  transition: color 0.22s ease;
+  display: inline-block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #52525b;
+  background: #faf8f5;
+  border: 1px solid rgba(24, 24, 27, 0.09);
+  padding: 3px 11px;
+  border-radius: 5px;
+  line-height: 1.3;
+  margin: 0;
 }
 
-.episode-card:hover .episode-info h3,
+.episode-card:hover .episode-info h3 {
+  color: #0f3d2e;
+}
+
 .episode-card:hover .episode-info p {
+  background: #134e3a;
   color: #ffffff;
+  border-color: #134e3a;
 }
 
-/* Force remove underline everywhere */
-a, a:hover, a:focus, a:active {
-  text-decoration: none !important;
+@media (max-width: 1024px) {
+  .story-title {
+    font-size: 2.05rem;
+  }
 }
 
-/* ============= Mouse Pointer Default Start ================ */
-
-/* ===== Disable Text Selection ===== */
-body {
-  user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-/* ===== Disable cursor change on text ===== */
-span, h1, h2, h4, h5, h6 {
-  cursor: default;
-}
-
-
-/* ===== Allow pointer only on links & buttons ===== */
-a, button {
-  cursor: pointer !important;
-  user-select: auto;
-}
-
-.episode-card:hover {
-  cursor: pointer;
-}
-
-/* ============== Mouse Pointer Default End ================= */
-
-
-
-/* ==================================================
-   TABLET
-================================================== */
-
-@media (max-width:1024px){
-
-  .story-title{
-    font-size:2rem;
+@media (max-width: 768px) {
+  .story-header {
+    margin-top: 16px;
   }
 
-}
-
-/* ==================================================
-   MOBILE
-================================================== */
-
-@media (max-width:768px){
-
-  .story-header{
-    margin-top:20px;
+  .story-title {
+    font-size: 1.7rem;
   }
 
-  .story-title{
-    font-size:1.7rem;
+  .story-meta {
+    gap: 10px;
   }
 
-  .story-meta{
-    gap:10px;
+  .meta-item {
+    flex: 1;
+    min-width: 120px;
+    padding: 9px 12px;
+    border-radius: 6px;
   }
 
-  .meta-item{
-    flex:1;
-    min-width:120px;
+  .episode-card {
+    border-radius: 6px;
   }
 
   .story-intro h2,
-  .story-episodes h2{
-    font-size:1.3rem;
+  .story-episodes h2 {
+    font-size: 1.3rem;
   }
 }
-
 
 /* =========================================================
    MINI NAV
 ========================================================= */
+.back-btn {
+  border: none;
+  background: none;
+  font-family: inherit;
+  cursor: pointer;
+}
 
 .mini-episode-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-
-  padding: 12px 10px;
+  gap: 8px;
+  padding: 14px 12px;
   margin-bottom: 0;
-
-  background-color: #0f0f0f; /* footer match */
+  background-color: #0d261d;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ===== Single Item ===== */
 .mini-nav-item {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  min-width: 72px;           /* 👈 desktop smaller */
-  padding: 6px 12px;         /* 👈 compact */
-
-  background-color: #1e1e1e;
-  color: #ffffff;
-
-  font-size: 0.85rem;        /* 👈 desktop smaller text */
+  min-width: 74px;
+  padding: 6px 13px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ecfdf5;
+  font-size: 0.86rem;
   font-weight: 500;
   line-height: 1.2;
-
-  border-radius: 5px;
+  border-radius: 6px;
   text-decoration: none;
-
-  transition:
-    color 0.22s ease,
-    background-color 0.22s ease,
-    box-shadow 0.22s ease,
-    transform 0.18s ease;
 }
 
-
-
-/* ===== Hover Effect ===== */
 .mini-nav-item:hover {
-  color: #2f80ff;
-  background-color: #e6e6e6;
-
-  box-shadow:
-    0 0 0 1px rgba(47, 128, 255, 0.35),
-    0 0 8px rgba(47, 128, 255, 0.3);
-
-  transform: translateY(-1px);
+  color: #06281e;
+  background-color: #10b981;
+  border-color: #10b981;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }
 
-/* ================= Tablet ================= */
 @media (max-width: 1000px) {
   .mini-episode-nav {
     gap: 8px;
-    padding: 10px 8px;
+    padding: 12px 10px;
   }
 
   .mini-nav-item {
     min-width: 68px;
-    padding: 6px 10px;
-    font-size: 0.8rem;
+    padding: 6px 11px;
+    font-size: 0.82rem;
   }
 }
 
-/* ================= Mobile ================= */
 @media (max-width: 600px) {
   .mini-episode-nav {
     gap: 6px;
-    padding: 8px 6px;
+    padding: 10px 8px;
   }
 
   .mini-nav-item {
-    min-width: auto;       /* text-based width */
+    min-width: auto;
     padding: 5px 9px;
     font-size: 0.78rem;
-    border-radius: 4px;
+    border-radius: 5px;
   }
 }
-
 
 /* =========================
    Story Information Boxes
 ========================= */
-
 .info-box {
-  max-width: 900px;
-  margin: 22px auto;
-  padding: 20px 24px;
-
+  max-width: 920px;
+  margin: 24px auto;
+  padding: 28px 32px;
   background: #ffffff;
-  border-radius: 12px;
-
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  border: 1px solid rgba(24, 24, 27, 0.09);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(19, 78, 58, 0.04);
 }
 
 .info-box h2 {
   margin-bottom: 14px;
-
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  color: #0b6b3a;
-
+  color: #134e3a;
   text-align: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.info-box h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 2.5px;
+  border-radius: 2px;
+  background: #134e3a;
 }
 
 .info-box p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #333;
-
+  font-size: 1.06rem;
+  line-height: 1.9;
+  color: #3f3f46;
   text-align: justify;
 }
 
 @media (max-width: 1199px) {
   .info-box {
     margin: 20px;
+    padding: 24px;
   }
 }
 
 @media (max-width: 767px) {
   .info-box {
-    margin: 16px;
-    padding: 16px;
+    margin: 14px 12px;
+    padding: 18px 15px;
+    border-radius: 6px;
   }
 
   .info-box h2 {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
   }
 
   .info-box p {
-    font-size: 1rem;
-    line-height: 1.75;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+
+  .episode-info h3 {
+    font-size: 1.05rem;
+  }
+
+  .episode-info p {
+    font-size: 0.78rem;
   }
 }

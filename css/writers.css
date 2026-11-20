@@ -1,12 +1,15 @@
+/* =====================================================================
+   Golper Bahar - All Writers Directory Page CSS
+   Theme: Warm Editorial & Deep Forest Emerald (Clean Sharp Card Edition)
+===================================================================== */
+
 :root {
-  --bg-main: #f7f7f7;
+  --bg-main: #faf8f5;
   --bg-white: #ffffff;
-
-  --text-main: #222;
-  --text-muted: #555;
-
-  --border-light: #ddd;
-  --hover-bg: #f1f5ff;
+  --text-main: #18181b;
+  --text-muted: #52525b;
+  --border-light: rgba(24, 24, 27, 0.1);
+  --accent-emerald: #134e3a;
 }
 
 * {
@@ -15,113 +18,134 @@
 
 body {
   margin: 0;
-  font-family: 'Kalpurush','Noto Serif Bengali',serif;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
   background-color: var(--bg-main);
   color: var(--text-main);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
 
 #upNav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
+/* ================= Modern Editorial Header ================= */
 .page-header {
   text-align: center;
-  padding: 36px 20px 28px;
-  background: var(--bg-white);
-  border-bottom: 1px solid var(--border-light);
+  padding: 46px 20px 36px;
+  background: radial-gradient(circle at top right, #d1fae5 0%, transparent 45%),
+              radial-gradient(circle at bottom left, #fef3c7 0%, transparent 45%),
+              linear-gradient(135deg, #f3f7f4 0%, #faf8f5 100%);
+  border-bottom: 1px solid rgba(19, 78, 58, 0.08);
+}
+
+.page-header::before {
+  content: "গল্পের বাহার লেখক তালিকা";
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #134e3a;
+  background: rgba(19, 78, 58, 0.08);
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-radius: 6px;
 }
 
 .page-header h1 {
   margin: 0;
-  font-size: 30px;
-  font-weight: normal;
+  font-size: 36px;
+  font-weight: 700;
+  color: #0f3d2e;
+  line-height: 1.25;
 }
 
 .page-header p {
-  margin-top: 8px;
-  font-size: 15px;
-  color: var(--text-muted);
+  margin: 10px auto 0;
+  max-width: 640px;
+  font-size: 18px;
+  color: #4b5563;
 }
 
+/* ================= Writers Grid Container ================= */
 .writers-container {
   width: 100%;
-  margin: 30px auto 40px;
+  max-width: 1380px;
+  margin: 32px auto 48px;
   padding: 0 22px;
-
   display: grid;
-  gap: 22px;
+  gap: 18px;
 }
 
 @media (min-width: 1200px) {
   .writers-container {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
   .writers-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 767px) {
   .writers-container {
     grid-template-columns: 1fr;
+    padding: 0 14px;
+    gap: 12px;
   }
 }
 
+/* ================= Sharp Modern Writer Card (Static Hover) ================= */
 .writer-card {
   display: flex;
   align-items: center;
   gap: 16px;
-
-  padding: 20px;
-  border-radius: 12px;
-
+  padding: 18px 20px;
+  border-radius: 8px;
   text-decoration: none;
-  color: #222;
-
+  background: var(--bg-white);
+  color: var(--text-main);
   border: 1px solid var(--border-light);
-
-  transition:
-    background-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.25s ease;
+  box-shadow: 0 2px 8px rgba(19, 78, 58, 0.03);
 }
 
 .writer-card:hover {
   color: #ffffff;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(19, 78, 58, 0.16);
 }
 
-.writer-card:nth-child(1n):hover { background: #4a78ff; }
-.writer-card:nth-child(2n):hover { background: #ce5a0d; }
-.writer-card:nth-child(3n):hover { background: #0f884e; }
-.writer-card:nth-child(4n):hover { background: #d63b7c; }
-.writer-card:nth-child(5n):hover { background: #6b4fd6; }
+.writer-card:nth-child(5n+1):hover { background: #1d4ed8; border-color: #1d4ed8; }
+.writer-card:nth-child(5n+2):hover { background: #b45309; border-color: #b45309; }
+.writer-card:nth-child(5n+3):hover { background: #134e3a; border-color: #134e3a; }
+.writer-card:nth-child(5n+4):hover { background: #be185d; border-color: #be185d; }
+.writer-card:nth-child(5n+5):hover { background: #5b21b6; border-color: #5b21b6; }
 
 .writer-card:hover .writer-info h1,
 .writer-card:hover .writer-info h3 {
   color: #ffffff;
 }
 
+.writer-card:hover .avatar {
+  border-color: rgba(255, 255, 255, 0.6);
+}
 
 .avatar {
-  width: 82px;
-  height: 82px;
+  width: 78px;
+  height: 78px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid var(--border-light);
+  border: 2.5px solid #ecfdf5;
+  box-shadow: 0 3px 10px rgba(19, 78, 58, 0.1);
   flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #eee;
+  background: #f3f0ea;
 }
 
 .avatar img {
@@ -130,25 +154,66 @@ body {
   object-fit: cover;
 }
 
+.writer-info {
+  min-width: 0;
+  flex: 1;
+}
+
 .writer-info h1 {
   margin: 0 0 6px;
-  font-size: 21px;
-  font-weight: normal;
+  font-size: 20.5px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #18181b;
 }
 
 .writer-info h3 {
   margin: 0;
   font-size: 14.5px;
-  font-weight: normal;
+  font-weight: 400;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ================= Tablet & Mobile Typography ================= */
+@media (max-width: 1000px) {
+  .page-header {
+    padding: 36px 16px 28px;
+  }
+
+  .page-header h1 {
+    font-size: 30px;
+  }
+
+  .page-header p {
+    font-size: 16.5px;
+  }
 }
 
 @media (max-width: 520px) {
+  .page-header {
+    padding: 28px 14px 24px;
+  }
+
+  .page-header h1 {
+    font-size: 25px;
+  }
+
+  .page-header p {
+    font-size: 15px;
+  }
+
   .writer-card {
     flex-direction: column;
     text-align: center;
-    padding: 18px;
+    padding: 18px 16px;
+    border-radius: 6px;
+    gap: 12px;
   }
 
   .avatar {
@@ -157,7 +222,7 @@ body {
   }
 
   .writer-info h1 {
-    font-size: 20px;
+    font-size: 19.5px;
   }
 
   .writer-info h3 {
@@ -165,7 +230,7 @@ body {
   }
 }
 
-
+/* ================= Mini Navigation (Static Hover) ================= */
 .back-btn {
   border: none;
   background: none;
@@ -177,61 +242,47 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-
-  padding: 12px 10px;
+  gap: 8px;
+  padding: 14px 12px;
   margin-bottom: 0;
-
-  background-color: #0f0f0f;
+  background-color: #0d261d;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .mini-nav-item {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  min-width: 72px;
-  padding: 6px 12px;
-
-  background-color: #1e1e1e;
-  color: #ffffff;
-
-  font-size: 0.85rem;
+  min-width: 74px;
+  padding: 6px 13px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ecfdf5;
+  font-size: 0.86rem;
   font-weight: 500;
   line-height: 1.2;
-
-  border-radius: 5px;
+  border-radius: 6px;
   text-decoration: none;
-
-  transition:
-    color 0.22s ease,
-    background-color 0.22s ease,
-    box-shadow 0.22s ease,
-    transform 0.18s ease;
 }
 
 .mini-nav-item:hover {
-  color: #2f80ff;
-  background-color: #e6e6e6;
-
-  box-shadow:
-    0 0 0 1px rgba(47, 128, 255, 0.35),
-    0 0 8px rgba(47, 128, 255, 0.3);
-
-  transform: translateY(-1px);
+  color: #06281e;
+  background-color: #10b981;
+  border-color: #10b981;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }
 
 /* Tablet */
 @media (max-width: 768px) {
   .mini-episode-nav {
     gap: 8px;
-    padding: 10px 8px;
+    padding: 12px 10px;
   }
 
   .mini-nav-item {
     min-width: 68px;
-    padding: 6px 10px;
-    font-size: 0.8rem;
+    padding: 6px 11px;
+    font-size: 0.82rem;
   }
 }
 
@@ -239,13 +290,13 @@ body {
 @media (max-width: 480px) {
   .mini-episode-nav {
     gap: 6px;
-    padding: 8px 6px;
+    padding: 10px 8px;
   }
 
   .mini-nav-item {
     min-width: auto;
     padding: 5px 9px;
     font-size: 0.78rem;
-    border-radius: 4px;
+    border-radius: 5px;
   }
 }

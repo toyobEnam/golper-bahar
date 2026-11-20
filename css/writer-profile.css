@@ -1,10 +1,17 @@
+/* =====================================================================
+   Golper Bahar - Writer Profile (Compact Layout) CSS
+   Theme: Warm Editorial & Deep Forest Emerald (Clean Sharp Card Edition)
+===================================================================== */
+
 :root {
-  --bg-main: #f2f2f2;
+  --bg-main: #faf8f5;
   --bg-white: #ffffff;
-  --text-main: #222;
-  --text-muted: #555;
-  --border-light: #ddd;
-  --neon-blue: rgba(47, 128, 255, 0.55);
+  --text-main: #18181b;
+  --text-muted: #52525b;
+  --border-light: rgba(24, 24, 27, 0.1);
+  --accent-emerald: #134e3a;
+  --accent-emerald-light: #1e6b50;
+  --accent-emerald-soft: #ecfdf5;
 }
 
 * {
@@ -13,82 +20,100 @@
 
 body {
   margin: 0;
-  font-family: 'Kalpurush','Noto Serif Bengali', serif;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
   background: var(--bg-main);
   color: var(--text-main);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 }
-
 
 #upNav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
-
 
 /* Header */
 .site-header {
   text-align: center;
-  padding: 40px 20px 25px;
-  background: var(--bg-white);
-  border-bottom: 1px solid var(--border-light);
+  padding: 44px 20px 34px;
+  background: radial-gradient(circle at top right, #d1fae5 0%, transparent 45%),
+              radial-gradient(circle at bottom left, #fef3c7 0%, transparent 45%),
+              linear-gradient(135deg, #f3f7f4 0%, #faf8f5 100%);
+  border-bottom: 1px solid rgba(19, 78, 58, 0.08);
 }
 
 .site-header p {
-  font-size: 20px;
+  font-size: 19px;
+  color: #4b5563;
+  margin-top: 8px;
 }
 
 /* Layout */
 .writer-layout {
-  max-width: 1100px;
-  margin: 20px auto 50px;
+  max-width: 1120px;
+  margin: 28px auto 52px;
   padding: 0 20px;
   display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 40px;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
 }
 
 /* Writer Card */
 .writer-card {
   background: var(--bg-white);
   border: 1px solid var(--border-light);
-  border-radius: 10px;
-  padding: 25px;
+  border-radius: 8px;
+  padding: 26px 22px;
   text-align: center;
+  box-shadow: 0 4px 16px rgba(19, 78, 58, 0.04);
 }
 
 .writer-photo {
-  width: 170px;
-  height: 170px;
+  width: 165px;
+  height: 165px;
   border-radius: 50%;
   object-fit: cover;
+  border: 4px solid #ecfdf5;
+  box-shadow: 0 4px 14px rgba(19, 78, 58, 0.14);
 }
 
 .writer-name {
-  margin: 5px 0 10px;
-  font-size: 30px;
+  margin: 12px 0 8px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f3d2e;
 }
 
 .writer-bio {
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.8;
   color: var(--text-muted);
 }
 
 .verified {
-  border: 0.5px solid rgb(0, 119, 14);
-  background-color: #dfffdf;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 1.2rem;
+  margin-top: 14px;
+  border: 1px solid rgba(19, 78, 58, 0.25);
+  background-color: var(--accent-emerald-soft);
+  color: var(--accent-emerald);
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 1.05rem;
 }
 
 /* Content */
 .writer-content > div {
-  margin-bottom: 40px;
+  margin-bottom: 32px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 24px 26px;
+  box-shadow: 0 4px 16px rgba(19, 78, 58, 0.03);
 }
 
-/* Writer Story Buttons */
+/* Writer Story Buttons (Strictly Static Hover, Low Border Radius) */
 .writer-stories {
   display: flex;
   flex-direction: column;
@@ -97,86 +122,81 @@ body {
 
 .story-btn {
   display: block;
-  padding: 12px 14px;
-  border: 1px solid var(--border-light);
+  padding: 12px 15px;
+  border: 1px solid rgba(19, 78, 58, 0.16);
   border-radius: 6px;
-  background: var(--bg-white);
+  background: #faf8f5;
   text-decoration: none;
   color: var(--text-main);
-  font-size: 15px;
-  transition: background-color 0.2s ease, transform 0.15s ease;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .story-btn:hover {
-  background-color: #f7f7f7;
-  transform: translateY(-1px);
+  background-color: var(--accent-emerald-soft);
+  border-color: rgba(19, 78, 58, 0.42);
+  color: var(--accent-emerald);
+  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.08);
 }
 
 /* Gallery */
 .writer-gallery {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
 }
 
 .writer-gallery img {
   width: 100%;
   max-width: 600px;
-  border-radius: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border-light);
   margin: 0 auto;
+  display: block;
 }
 
 /* =======================
-   Contact Section (Neon)
+   Contact Section (Clean Emerald Static Hover)
 ======================= */
-
 .writer-contact .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
+  gap: 10px;
 }
 
 .contact-item {
-  padding: 12px 10px;
+  padding: 11px 10px;
   text-align: center;
-  border: 1px solid var(--border-light);
+  border: 1px solid rgba(19, 78, 58, 0.18);
   border-radius: 6px;
   text-decoration: none;
-  color: var(--text-main);
-  background: var(--bg-white);
-
-  transition:
-    transform 0.22s ease,
-    box-shadow 0.22s ease,
-    border-color 0.22s ease,
-    color 0.22s ease;
+  font-weight: 600;
+  color: var(--accent-emerald);
+  background: #faf8f5;
 }
 
-/* ===== Neon Hover Effect ===== */
 .contact-item:hover {
-  transform: translateY(-3px);
-
-  border-color: rgba(47, 128, 255, 0.6);
-
-  box-shadow:
-    0 0 0 1px rgba(47, 128, 255, 0.35),
-    0 0 10px rgba(47, 128, 255, 0.45),
-    0 6px 16px rgba(47, 128, 255, 0.25);
-
-  color: #2f80ff;
+  background: var(--accent-emerald);
+  border-color: var(--accent-emerald);
+  color: #ffffff;
+  box-shadow: 0 6px 14px rgba(19, 78, 58, 0.18);
 }
 
-/* Optional: click feel */
 .contact-item:active {
-  transform: translateY(-1px);
-  box-shadow:
-    0 0 6px rgba(47, 128, 255, 0.35);
+  background: #0f3d2e;
 }
 
 /* Responsive */
 @media (max-width: 900px) {
   .writer-layout {
     grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 14px;
+  }
+
+  .writer-content > div {
+    padding: 18px 16px;
+    margin-bottom: 22px;
   }
 
   .writer-gallery {
@@ -184,11 +204,33 @@ body {
   }
 }
 
+@media (max-width: 600px) {
+  .site-header {
+    padding: 30px 14px 24px;
+  }
+
+  .site-header p {
+    font-size: 16px;
+  }
+
+  .writer-name {
+    font-size: 24px;
+  }
+
+  .writer-bio {
+    font-size: 16px;
+  }
+
+  .story-btn {
+    font-size: 15px;
+    padding: 10px 12px;
+  }
+}
+
 /* ==================================================
    Optional Mini Navigation (Compact Version)
    (UNCHANGED – as requested)
 ================================================== */
-
 .back-btn {
   border: none;
   background: none;
