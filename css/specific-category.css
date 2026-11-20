@@ -1,109 +1,169 @@
+/* =====================================================================
+   Golper Bahar - Specific Category Page CSS
+   Theme: Warm Editorial & Deep Forest Emerald (Static Hover Edition)
+===================================================================== */
+
 * {
   box-sizing: border-box;
 }
 
 #upNav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 body {
   margin: 0;
-  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-  background-color: #f7f7f7;
-  color: #222;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  background-color: #faf8f5;
+  color: #18181b;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Header */
+/* ================= Modern Editorial Category Header ================= */
 .category-header {
-  background: #ffffff;
-  padding: 30px 15px;
+  position: relative;
   text-align: center;
-  border-bottom: 1px solid #ddd;
+  padding: 48px 20px 40px;
+  background: radial-gradient(circle at top right, #d1fae5 0%, transparent 45%),
+              radial-gradient(circle at bottom left, #fef3c7 0%, transparent 45%),
+              linear-gradient(135deg, #f3f7f4 0%, #faf8f5 100%);
+  border-bottom: 1px solid rgba(19, 78, 58, 0.08);
+}
+
+.category-header::before {
+  content: "গল্পের বাহার বিভাগসমূহ";
+  display: inline-block;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #134e3a;
+  background: rgba(19, 78, 58, 0.08);
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-radius: 999px;
 }
 
 .category-header h1 {
   margin: 0;
-  font-size: 28px;
+  font-size: 38px;
+  font-weight: 700;
+  color: #0f3d2e;
+  line-height: 1.25;
 }
 
 .category-header p {
-  margin-top: 8px;
-  color: #555;
-  font-size: 14px;
+  margin: 10px auto 0;
+  max-width: 680px;
+  color: #4b5563;
+  font-size: 18px;
 }
 
-/* Story list */
+/* ================= Story List Grid ================= */
 .story-list {
-  max-width: 1200px;
-  margin: 30px auto;
-  padding: 0 15px;
-
+  max-width: 1280px;
+  margin: 36px auto;
+  padding: 0 24px;
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Desktop: 5 columns */
-  gap: 10px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
 }
 
-/* Story card */
+/* ================= Story Card (Static Hover, Rich Editorial Colors) ================= */
 .story-card {
-  display: block;
-  padding: 18px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 78px;
+  padding: 18px 16px;
   text-decoration: none;
   background: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  color: inherit;
-
-  transition:
-    box-shadow 0.2s ease,
-    transform 0.2s ease,
-    background-color 0.4s ease,
-    color 0.4s ease;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  border-radius: 14px;
+  color: #18181b;
+  box-shadow: 0 3px 10px rgba(19, 78, 58, 0.04);
 }
 
 .story-card h2 {
   margin: 0;
-  font-size: 20px;
-  font-weight: normal;
-  line-height: 1.5;
+  font-size: 18.5px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: inherit;
 }
 
-/* Hover effect */
-.story-card:hover {
-  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
-  transform: translateY(-4px);
+/* Soft Editorial Pastel Tints (Repeating 5-card cycle) */
+.story-card:nth-child(5n+1) {
+  background: #eef6ff;
+  border-color: rgba(30, 136, 229, 0.18);
+  color: #0f2942;
 }
 
-
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .story-list {
-    grid-template-columns: repeat(2, 1fr); /* Tablet: 2 columns */
-  }
+.story-card:nth-child(5n+2) {
+  background: #fdf2f6;
+  border-color: rgba(216, 27, 96, 0.18);
+  color: #4a0e24;
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-  .category-header h1 {
-    font-size: 22px;
-  }
-
-  .story-list {
-    grid-template-columns: 1fr; /* Mobile: 1 column */
-  }
-
-  .story-card h2 {
-    font-size: 18px;
-  }
+.story-card:nth-child(5n+3) {
+  background: #ecfdf5;
+  border-color: rgba(19, 78, 58, 0.18);
+  color: #0f3d2e;
 }
 
+.story-card:nth-child(5n+4) {
+  background: #f5f3ff;
+  border-color: rgba(94, 53, 177, 0.18);
+  color: #2e1065;
+}
 
-/* ==================================================
-   Optional Mini Navigation (Compact Version) Start
-================================================== */
+.story-card:nth-child(5n+5) {
+  background: #fffbeb;
+  border-color: rgba(217, 119, 6, 0.2);
+  color: #451a03;
+}
 
+/* Hover Deep Color Shift (Strictly Static - No Transform/Scale/Animation) */
+.story-card:nth-child(5n+1):hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(29, 78, 216, 0.22);
+}
+
+.story-card:nth-child(5n+2):hover {
+  background: #be185d;
+  border-color: #be185d;
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(190, 24, 93, 0.22);
+}
+
+.story-card:nth-child(5n+3):hover {
+  background: #134e3a;
+  border-color: #134e3a;
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(19, 78, 58, 0.24);
+}
+
+.story-card:nth-child(5n+4):hover {
+  background: #5b21b6;
+  border-color: #5b21b6;
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(91, 33, 182, 0.22);
+}
+
+.story-card:nth-child(5n+5):hover {
+  background: #b45309;
+  border-color: #b45309;
+  color: #ffffff;
+  box-shadow: 0 10px 22px rgba(180, 83, 9, 0.22);
+}
+
+/* ================= Optional Mini Navigation (Compact Version) ================= */
 .back-btn {
   border: none;
   background: none;
@@ -111,150 +171,70 @@ body {
   cursor: pointer;
 }
 
-
 .mini-episode-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-
-  padding: 12px 10px;
+  padding: 14px 12px;
   margin-bottom: 0;
-
-  background-color: #0f0f0f; /* footer match */
+  background-color: #0d261d;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ===== Single Item ===== */
 .mini-nav-item {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  min-width: 72px;           /* 👈 desktop smaller */
-  padding: 6px 12px;         /* 👈 compact */
-
-  background-color: #1e1e1e;
-  color: #ffffff;
-
-  font-size: 0.85rem;        /* 👈 desktop smaller text */
+  min-width: 74px;
+  padding: 7px 14px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ecfdf5;
+  font-size: 0.88rem;
   font-weight: 500;
   line-height: 1.2;
-
-  border-radius: 5px;
+  border-radius: 8px;
   text-decoration: none;
-
-  transition:
-    color 0.22s ease,
-    background-color 0.22s ease,
-    box-shadow 0.22s ease,
-    transform 0.18s ease;
 }
 
-
-
-/* ===== Hover Effect ===== */
 .mini-nav-item:hover {
-  color: #2f80ff;
-  background-color: #e6e6e6;
-
-  box-shadow:
-    0 0 0 1px rgba(47, 128, 255, 0.35),
-    0 0 8px rgba(47, 128, 255, 0.3);
-
-  transform: translateY(-1px);
+  color: #06281e;
+  background-color: #10b981;
+  border-color: #10b981;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }
 
-/* ================= Tablet ================= */
-@media (max-width: 768px) {
-  .mini-episode-nav {
-    gap: 8px;
-    padding: 10px 8px;
-  }
-
-  .mini-nav-item {
-    min-width: 68px;
-    padding: 6px 10px;
-    font-size: 0.8rem;
-  }
-}
-
-/* ================= Mobile ================= */
-@media (max-width: 480px) {
-  .mini-episode-nav {
-    gap: 6px;
-    padding: 8px 6px;
-  }
-
-  .mini-nav-item {
-    min-width: auto;       /* text-based width */
-    padding: 5px 9px;
-    font-size: 0.78rem;
-    border-radius: 4px;
-  }
-}
-
-/* ==================================================
-   Optional Mini Navigation (Compact Version) End
-================================================== */
-
-/* Soft colors */
-.story-card:nth-child(1)  { background:#e3f2fd; }
-.story-card:nth-child(2)  { background:#fce4ec; }
-.story-card:nth-child(3)  { background:#e8f5e9; }
-.story-card:nth-child(4)  { background:#ede7f6; }
-.story-card:nth-child(5)  { background:#fff3e0; }
-.story-card:nth-child(6)  { background:#e0f2f1; }
-.story-card:nth-child(7)  { background:#f3e5f5; }
-.story-card:nth-child(8)  { background:#fbe9e7; }
-.story-card:nth-child(9)  { background:#e1f5fe; }
-.story-card:nth-child(10) { background:#ede7f6; }
-
-/* Hover deep color */
-.story-card:nth-child(1):hover  { background:#1e88e5; color:white; }
-.story-card:nth-child(2):hover  { background:#d81b60; color:white; }
-.story-card:nth-child(3):hover  { background:#43a047; color:white; }
-.story-card:nth-child(4):hover  { background:#5e35b1; color:white; }
-.story-card:nth-child(5):hover  { background:#ef6c00; color:white; }
-.story-card:nth-child(6):hover  { background:#00897b; color:white; }
-.story-card:nth-child(7):hover  { background:#8e24aa; color:white; }
-.story-card:nth-child(8):hover  { background:#e53935; color:white; }
-.story-card:nth-child(9):hover  { background:#039be5; color:white; }
-.story-card:nth-child(10):hover { background:#5e35b1; color:white; }
-
-
-/* ===== Soft repeating colors ===== */
-.story-card:nth-child(5n+1) { background:#e3f2fd; }
-.story-card:nth-child(5n+2) { background:#fce4ec; }
-.story-card:nth-child(5n+3) { background:#e8f5e9; }
-.story-card:nth-child(5n+4) { background:#ede7f6; }
-.story-card:nth-child(5n+5) { background:#fff3e0; }
-
-/* ===== Hover deep colors ===== */
-.story-card:nth-child(5n+1):hover { background:#1e88e5; color:white; }
-.story-card:nth-child(5n+2):hover { background:#d81b60; color:white; }
-.story-card:nth-child(5n+3):hover { background:#43a047; color:white; }
-.story-card:nth-child(5n+4):hover { background:#5e35b1; color:white; }
-.story-card:nth-child(5n+5):hover { background:#ef6c00; color:white; }
-
-
-
-/* ==================================
-   Genre Information Section
-================================== */
-
+/* ================= Genre Information Editorial Section ================= */
 .genre-info {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 28px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  max-width: 1140px;
+  margin: 48px auto 60px;
+  padding: 38px 42px;
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 27, 0.07);
+  border-radius: 22px;
+  box-shadow: 0 12px 32px rgba(19, 78, 58, 0.05);
 }
 
 .genre-info h2 {
-  margin: 35px 0 15px;
-  font-size: 28px;
+  margin: 36px 0 14px;
+  font-size: 26px;
+  font-weight: 700;
   line-height: 1.4;
+  color: #134e3a;
+  position: relative;
+  padding-left: 14px;
+}
+
+.genre-info h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14%;
+  height: 72%;
+  width: 4px;
+  background: #134e3a;
+  border-radius: 4px;
 }
 
 .genre-info h2:first-child {
@@ -263,71 +243,169 @@ body {
 
 .genre-info p {
   margin: 0;
-  font-size: 18px;
-  line-height: 1.9;
-  color: #333;
+  font-size: 17.5px;
+  line-height: 2;
+  color: #3f3f46;
   text-align: justify;
 }
 
 .faq-item {
-  margin-top: 20px;
-  padding: 18px;
-  border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  background: #fafafa;
+  margin-top: 18px;
+  padding: 20px 22px;
+  border: 1px solid rgba(19, 78, 58, 0.12);
+  border-left: 4px solid #134e3a;
+  border-radius: 14px;
+  background: #faf8f5;
 }
 
 .faq-item h3 {
-  margin: 0 0 10px;
-  font-size: 20px;
+  margin: 0 0 8px;
+  font-size: 19.5px;
+  font-weight: 700;
+  color: #18181b;
 }
 
 .faq-item p {
   margin: 0;
+  font-size: 16.5px;
+  line-height: 1.85;
+  color: #3f3f46;
 }
 
-/* Tablet */
-@media (max-width: 768px) {
+/* ================= Tablet Breakpoint (<= 1024px) ================= */
+@media (max-width: 1024px) {
+  .category-header {
+    padding: 38px 18px 32px;
+  }
+
+  .category-header h1 {
+    font-size: 32px;
+  }
+
+  .category-header p {
+    font-size: 16.5px;
+  }
+
+  .story-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0 18px;
+    gap: 12px;
+  }
+
+  .story-card h2 {
+    font-size: 17.5px;
+  }
 
   .genre-info {
-    margin: 25px 15px;
-    padding: 20px;
+    margin: 34px 18px 46px;
+    padding: 28px 26px;
+    border-radius: 18px;
   }
 
   .genre-info h2 {
-    font-size: 24px;
+    font-size: 23px;
   }
 
   .genre-info p {
-    font-size: 17px;
+    font-size: 16.5px;
   }
 
   .faq-item h3 {
     font-size: 18px;
   }
+
+  .faq-item p {
+    font-size: 15.5px;
+  }
 }
 
-/* Mobile */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  .story-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mini-episode-nav {
+    gap: 8px;
+    padding: 10px 8px;
+  }
+
+  .mini-nav-item {
+    min-width: 68px;
+    padding: 6px 10px;
+    font-size: 0.82rem;
+  }
+}
+
+/* ================= Mobile Breakpoint (<= 600px) ================= */
+@media (max-width: 600px) {
+  .category-header {
+    padding: 30px 14px 26px;
+  }
+
+  .category-header h1 {
+    font-size: 26px;
+  }
+
+  .category-header p {
+    font-size: 15px;
+  }
+
+  .story-list {
+    grid-template-columns: 1fr;
+    margin: 24px auto;
+    padding: 0 14px;
+    gap: 10px;
+  }
+
+  .story-card {
+    min-height: 62px;
+    padding: 14px 16px;
+    border-radius: 12px;
+  }
+
+  .story-card h2 {
+    font-size: 17px;
+  }
 
   .genre-info {
-    padding: 16px;
+    margin: 26px 14px 36px;
+    padding: 20px 16px;
+    border-radius: 16px;
   }
 
   .genre-info h2 {
-    font-size: 21px;
+    margin: 26px 0 12px;
+    font-size: 20px;
+    padding-left: 11px;
   }
 
   .genre-info p {
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 15.5px;
+    line-height: 1.85;
   }
 
   .faq-item {
-    padding: 14px;
+    padding: 15px 14px;
+    border-radius: 12px;
   }
 
   .faq-item h3 {
     font-size: 17px;
+  }
+
+  .faq-item p {
+    font-size: 15px;
+  }
+
+  .mini-episode-nav {
+    gap: 6px;
+    padding: 8px 6px;
+  }
+
+  .mini-nav-item {
+    min-width: auto;
+    padding: 5px 9px;
+    font-size: 0.78rem;
+    border-radius: 6px;
   }
 }

@@ -1,38 +1,36 @@
-
 @font-face {
   font-family: "Kalpurush";
   src: url("../assets/fonts/kalpurush.ttf") format("truetype");
+  font-display: swap;
 }
-
-
 
 @font-face {
   font-family: "LiPurnoPran";
   src: url("../assets/fonts/LiPurnoPran.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
-
 
 /* ---------------------------------------------------------------------
 -------------------    Footer Component    -----------------------------
 --------------------------------------------------------------------- */
 #upNav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 * {
-    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-    box-sizing: border-box;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  box-sizing: border-box;
 }
 
 .site-footer {
-  background: #142018;
-  color: #c9d6ce;
-  padding: 55px 20px 25px;
-  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+  background: linear-gradient(180deg, #0d261d 0%, #081812 100%);
+  color: #d1fae5;
+  padding: 64px 24px 30px;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -41,7 +39,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
-  gap: 32px;
+  gap: 36px;
   align-items: flex-start;
 }
 
@@ -49,37 +47,37 @@
 .footer-about {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .footer-title {
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #ffffff;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  transition: color 0.2s ease;
+  gap: 10px;
 }
 
 .footer-title:hover {
-  color: #81c784;
+  color: #6ee7b7;
 }
 
 .footer-logo-img {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .footer-desc {
-  font-size: 0.95rem;
-  color: #9cb1a4;
-  line-height: 1.7;
+  font-size: 0.96rem;
+  color: #a7f3d0;
+  opacity: 0.82;
+  line-height: 1.75;
   margin: 0 0 10px;
-  max-width: 90%;
+  max-width: 92%;
 }
 
 /* সোশ্যাল বাটন */
@@ -89,35 +87,33 @@
 }
 
 .footer-icon-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #e8f5e9;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ecfdf5;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  transition: all 0.25s ease;
 }
 
 .footer-icon-btn:hover {
-  background: #2e7d32;
-  border-color: #2e7d32;
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.35);
+  background: #10b981;
+  border-color: #10b981;
+  color: #06281e;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
 }
 
 /* কলাম ২ ও ৩: হেডিং ও লিংক লিস্ট */
 .footer-heading {
-  font-size: 1.15rem;
+  font-size: 1.18rem;
   font-weight: 700;
   color: #ffffff;
-  margin: 0 0 16px;
+  margin: 0 0 18px;
   position: relative;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
 }
 
 .footer-heading::after {
@@ -125,9 +121,9 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 32px;
-  height: 2px;
-  background: #2e7d32;
+  width: 36px;
+  height: 2.5px;
+  background: #10b981;
   border-radius: 2px;
 }
 
@@ -137,28 +133,28 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 11px;
 }
 
 .footer-links a {
-  color: #b0c4b7;
+  color: #a7f3d0;
+  opacity: 0.85;
   text-decoration: none;
-  font-size: 0.93rem;
-  transition: all 0.2s ease;
+  font-size: 0.95rem;
   display: inline-block;
 }
 
 .footer-links a:hover {
   color: #ffffff;
-  transform: translateX(4px);
+  opacity: 1;
 }
 
 /* বটম এরিয়া */
 .footer-bottom {
-  max-width: 1200px;
-  margin: 45px auto 0;
-  padding-top: 25px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: 1240px;
+  margin: 44px auto 0;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-bottom-inner {
@@ -170,20 +166,22 @@
 }
 
 .footer-disclaimer {
-  font-size: 0.85rem;
-  color: #8da496;
+  font-size: 0.86rem;
+  color: #a7f3d0;
+  opacity: 0.75;
   margin: 0;
   line-height: 1.6;
 }
 
 .footer-copy {
-  font-size: 0.85rem;
-  color: #6c8475;
+  font-size: 0.86rem;
+  color: #6ee7b7;
+  opacity: 0.7;
   margin: 0;
   white-space: nowrap;
 }
 
-/* 💻 ট্যাবলেট ও ল্যাপটপ রেসপন্সিভ */
+/* ট্যাবলেট ও ল্যাপটপ রেসপন্সিভ */
 @media (max-width: 992px) {
   .footer-inner {
     grid-template-columns: 1fr 1fr;
@@ -197,14 +195,14 @@
   }
 }
 
-/* 📱 মোবাইল রেসপন্সিভ */
+/* মোবাইল রেসপন্সিভ */
 @media (max-width: 600px) {
   .site-footer {
-    padding: 40px 16px 20px;
+    padding: 46px 16px 24px;
   }
   .footer-inner {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 28px;
   }
   .footer-about {
     grid-column: span 1;
@@ -221,9 +219,6 @@
   .footer-links {
     align-items: center;
   }
-  .footer-links a:hover {
-    transform: none;
-  }
   .footer-bottom-inner {
     flex-direction: column;
     text-align: center;
@@ -235,450 +230,445 @@
 }
 
 
-.upnav-wrap{
-  width:100%;
-  background:rgba(255, 255, 255, 0.96);
-  backdrop-filter:blur(10px);
-  -webkit-backdrop-filter:blur(10px);
-  position:sticky;
-  top:0;
-  z-index:999;
-  border-bottom:1px solid #ebebeb;
-  box-shadow:0 2px 14px rgba(0, 0, 0, 0.05);
-  pointer-events:auto;
+.upnav-wrap {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: 1px solid rgba(24, 24, 27, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  pointer-events: auto;
 }
 
-.upnav-inner{
-  width:100%;
-  max-width:1280px;
-  margin:0 auto;
-  box-sizing:border-box;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:relative;
+.upnav-inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
 }
 
-.upnav-brand{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  text-decoration:none;
-  font-weight:700;
-  color:#1b5e20;
-  white-space:nowrap;
-  flex-shrink:0;
-  user-select:none;
-  transition:opacity .2s ease;
+.upnav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #134e3a;
+  white-space: nowrap;
+  flex-shrink: 0;
+  user-select: none;
+  letter-spacing: -0.01em;
 }
 
-.upnav-brand:hover{
-  opacity:.88;
-  text-decoration:none;
+.upnav-brand:hover {
+  opacity: 0.9;
+  text-decoration: none;
 }
 
-.upnav-brand-img{
-  width:28px;
-  height:28px;
-  object-fit:contain;
-  border-radius:4px;
+.upnav-brand-img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(19, 78, 58, 0.15);
 }
 
-.upnav{
-  display:flex;
-  align-items:center;
+.upnav {
+  display: flex;
+  align-items: center;
 }
 
-.upnav a{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  font-weight:600;
-  color:#424242;
-  border-radius:8px;
-  white-space:nowrap;
-  transition:all .2s ease;
-  background:transparent;
+.upnav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 600;
+  color: #3f3f46;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: transparent;
 }
 
-.upnav a:hover{
-  background:#f1f8f3;
-  color:#1b5e20;
+.upnav a:hover {
+  background: #ecfdf5;
+  color: #134e3a;
 }
 
-.upnav a.active{
-  background:#e8f5e9;
-  color:#1b5e20;
-  font-weight:700;
+.upnav a.active {
+  background: #134e3a;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.22);
 }
 
-/* 🔍 Search Icon Button */
-.upnav-search-toggle{
-  display:none;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-  width:38px;
-  height:38px;
-  padding:0;
-  margin:0;
-  color:#1b5e20;
-  background:#f4f6f8;
-  border:1px solid #e0e0e0;
-  border-radius:8px;
-  text-decoration:none;
-  cursor:pointer;
-  transition:background .2s ease;
+/* Search Icon Button */
+.upnav-search-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  color: #134e3a;
+  background: #f3f0ea;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.upnav-search-toggle:hover{
-  background:#e8f5e9;
-  color:#1b5e20;
+.upnav-search-toggle:hover {
+  background: #ecfdf5;
+  color: #134e3a;
+  border-color: rgba(19, 78, 58, 0.2);
 }
 
-.upnav-search-toggle svg{
-  display:block;
-  width:20px;
-  height:20px;
-  flex-shrink:0;
+.upnav-search-toggle svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
 }
 
-/* ☰ ৩-বার হ্যামবার্গার টগল বাটন */
-.upnav-toggle{
-  display:none;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  gap:5px;
-  width:38px;
-  height:38px;
-  background:#f4f6f8;
-  border:1px solid #e0e0e0;
-  border-radius:8px;
-  cursor:pointer;
-  padding:0;
-  transition:background .2s ease;
+/* ৩-বার হ্যামবার্গার টগল বাটন */
+.upnav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: #f3f0ea;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0;
 }
 
-.upnav-toggle:hover{
-  background:#e8f5e9;
+.upnav-toggle:hover {
+  background: #ecfdf5;
 }
 
-.upnav-toggle span{
-  display:block;
-  width:20px;
-  height:2px;
-  background-color:#1b5e20;
-  border-radius:2px;
-  transition:transform .25s ease, opacity .25s ease;
+.upnav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #134e3a;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 /* অ্যানিমেশন: ক্লিক করলে 'X' হওয়া */
-.upnav-toggle.open span:nth-child(1){
-  transform:translateY(7px) rotate(45deg);
+.upnav-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
 }
 
-.upnav-toggle.open span:nth-child(2){
-  opacity:0;
+.upnav-toggle.open span:nth-child(2) {
+  opacity: 0;
 }
 
-.upnav-toggle.open span:nth-child(3){
-  transform:translateY(-7px) rotate(-45deg);
+.upnav-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-/* 🖥️ Desktop / Large Screen (1201px+) */
-@media (min-width: 1201px){
-  .upnav-inner{
-    height:64px;
-    padding:0 24px;
-    gap:24px;
+/* Desktop / Large Screen (1201px+) */
+@media (min-width: 1201px) {
+  .upnav-inner {
+    height: 68px;
+    padding: 0 28px;
+    gap: 24px;
   }
-  .upnav-brand{
-    font-size:1.6rem;
+  .upnav-brand {
+    font-size: 1.65rem;
   }
-  .upnav-brand-icon{
-    font-size:1.4rem;
+  .upnav-brand-icon {
+    font-size: 1.4rem;
   }
-  .upnav{
-    gap:8px;
+  .upnav {
+    gap: 6px;
   }
-  .upnav a{
-    font-size:16px;
-    padding:9px 16px;
-  }
-}
-
-/* 💻 Laptop Screen (993px - 1200px) */
-@media (min-width: 993px) and (max-width: 1200px){
-  .upnav-inner{
-    height:58px;
-    padding:0 18px;
-    gap:16px;
-  }
-  .upnav-brand{
-    font-size:1.4rem;
-  }
-  .upnav-brand-icon{
-    font-size:1.2rem;
-  }
-  .upnav{
-    gap:6px;
-  }
-  .upnav a{
-    font-size:14.5px;
-    padding:7px 13px;
+  .upnav a {
+    font-size: 16px;
+    padding: 8px 18px;
   }
 }
 
-/* 📱 Tablet & Mobile Dropdown View (<= 992px) */
-@media (max-width: 992px){
-  .upnav-search-toggle{
-    display:flex;
-    margin-left:auto;
-    margin-right:6px;
+/* Laptop Screen (993px - 1200px) */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .upnav-inner {
+    height: 62px;
+    padding: 0 20px;
+    gap: 16px;
   }
-
-  .upnav-toggle{
-    display:flex;
-    margin-left:0;
-    flex-shrink:0;
+  .upnav-brand {
+    font-size: 1.45rem;
   }
-
-  .upnav a[href="https://golperbahar.com/search/"]{
-    display:none;
+  .upnav-brand-icon {
+    font-size: 1.2rem;
   }
-
-  .upnav{
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-    right:0;
-    width:100%;
-    background:#ffffff;
-    border-bottom:1px solid #ebebeb;
-    box-shadow:0 10px 25px rgba(0, 0, 0, 0.1);
-    flex-direction:column;
-    align-items:stretch;
-    padding:12px 14px 16px;
-    gap:6px;
-    box-sizing:border-box;
-    animation:upnavSlide .25s ease-out;
+  .upnav {
+    gap: 4px;
   }
-
-  .upnav.show{
-    display:flex;
-  }
-
-  .upnav a{
-    width:100%;
-    justify-content:flex-start;
-    padding:11px 16px;
-    font-size:14.5px;
-    border-radius:8px;
-    background:#f8f9fa;
-    box-sizing:border-box;
-  }
-
-  .upnav a:hover{
-    background:#f1f8f3;
-  }
-
-  .upnav a.active{
-    background:#e8f5e9;
+  .upnav a {
+    font-size: 14.5px;
+    padding: 7px 14px;
   }
 }
 
-@keyframes upnavSlide{
-  from{
-    opacity:0;
-    transform:translateY(-8px);
+/* Tablet & Mobile Dropdown View (<= 992px) */
+@media (max-width: 992px) {
+  .upnav-search-toggle {
+    display: flex;
+    margin-left: auto;
+    margin-right: 8px;
   }
-  to{
-    opacity:1;
-    transform:translateY(0);
+
+  .upnav-toggle {
+    display: flex;
+    margin-left: 0;
+    flex-shrink: 0;
+  }
+
+  .upnav a[href="https://golperbahar.com/search/"] {
+    display: none;
+  }
+
+  .upnav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(24, 24, 27, 0.08);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.08);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px 16px 18px;
+    gap: 8px;
+    box-sizing: border-box;
+    animation: upnavSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .upnav.show {
+    display: flex;
+  }
+
+  .upnav a {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 12px 16px;
+    font-size: 15px;
+    border-radius: 10px;
+    background: #faf8f5;
+    box-sizing: border-box;
+  }
+
+  .upnav a:hover {
+    background: #ecfdf5;
+    color: #134e3a;
+  }
+
+  .upnav a.active {
+    background: #134e3a;
+    color: #ffffff;
   }
 }
 
-/* 📱 Tablet Specific Height (601px - 992px) */
-@media (min-width: 601px) and (max-width: 992px){
-  .upnav-inner{
-    height:56px;
-    padding:0 18px;
-    justify-content:flex-start;
+@keyframes upnavSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  .upnav-brand{
-    font-size:1.35rem;
-  }
-  .upnav-brand-icon{
-    font-size:1.15rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* 📱 Mobile Specific Height (Up to 600px) */
-@media (max-width: 600px){
-  .upnav-inner{
-    height:50px;
-    padding:0 12px;
-    justify-content:flex-start;
+/* Tablet Specific Height (601px - 992px) */
+@media (min-width: 601px) and (max-width: 992px) {
+  .upnav-inner {
+    height: 58px;
+    padding: 0 20px;
+    justify-content: flex-start;
   }
-  .upnav-brand{
-    font-size:1.2rem;
-    gap:6px;
+  .upnav-brand {
+    font-size: 1.4rem;
   }
-  .upnav-brand-img{
-    width:24px;
-    height:24px;
+  .upnav-brand-icon {
+    font-size: 1.15rem;
   }
-  .upnav-search-toggle{
-    width:35px;
-    height:35px;
+}
+
+/* Mobile Specific Height (Up to 600px) */
+@media (max-width: 600px) {
+  .upnav-inner {
+    height: 54px;
+    padding: 0 14px;
+    justify-content: flex-start;
+  }
+  .upnav-brand {
+    font-size: 1.25rem;
+    gap: 7px;
+  }
+  .upnav-brand-img {
+    width: 26px;
+    height: 26px;
+  }
+  .upnav-search-toggle {
+    width: 36px;
+    height: 36px;
   }
 
-  .upnav-toggle{
-    width:35px;
-    height:35px;
+  .upnav-toggle {
+    width: 36px;
+    height: 36px;
   }
-  .upnav a{
-    font-size:13.5px;
-    padding:10px 14px;
+  .upnav a {
+    font-size: 14px;
+    padding: 10px 14px;
   }
 }
 
 
 /* ===== Minimal Breadcrumb Nav ===== */
-
-
 .gb-breadcrumb-wrap {
-    width: 100%;
-    padding: 6px;
-    background: #ffffff;
-    border-bottom: 1px solid #f1f1f1;
-    box-sizing: border-box;
+  width: 100%;
+  padding: 8px 16px;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(24, 24, 27, 0.08);
+  box-sizing: border-box;
 }
 
 .gb-breadcrumb {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    font-size: 14.5px;
-    color: #666;
-    overflow-x: auto;
-    padding: 3px 0;
-    gap: 3px;
-    font-family:'Kalpurush','Noto Serif Bengali',serif;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: 14.5px;
+  color: #71717a;
+  overflow-x: auto;
+  padding: 2px 0;
+  gap: 4px;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
 }
 
 .gb-breadcrumb a,
 .gb-breadcrumb .current {
-    color: #222;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 6px;
-    border-radius: 6px;
-    transition: all 0.25s ease;
-    white-space: nowrap;
+  color: #3f3f46;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
 }
 
 .gb-breadcrumb a:hover {
-    background: #f8f8f8;
-    color: #206400;
+  background: #ecfdf5;
+  color: #134e3a;
 }
 
 .gb-breadcrumb .current {
-    background: #f5f5f5;
-    font-weight: 600;
-    color: #111;
+  background: #f3f0ea;
+  font-weight: 600;
+  color: #18181b;
 }
 
-
 .gb-breadcrumb a::after {
-    content: "›";
-    margin-left: 8px;
-    color: #33907f;
-    font-size: 18px;
-    line-height: 1;
+  content: "›";
+  margin-left: 8px;
+  color: #1e6b50;
+  font-size: 17px;
+  line-height: 1;
 }
 
 .gb-breadcrumb a:last-child::after {
-    display: none;
+  display: none;
 }
 
 .gb-breadcrumb span {
-    display: none;
+  display: none;
 }
 
 @media (max-width: 600px) {
-    .gb-breadcrumb-wrap {
-        padding: 10px;
-    }
-    .gb-breadcrumb {
-        font-size: 13.5px;
-        gap: 2px;
-    }
-    .gb-breadcrumb a,
-    .gb-breadcrumb .current {
-        padding: 5px 10px;
-    }
-    .gb-breadcrumb a::after {
-        margin-left: 3px;
-        font-size: 14px;
-    }
+  .gb-breadcrumb-wrap {
+    padding: 8px 10px;
+  }
+  .gb-breadcrumb {
+    font-size: 13.5px;
+    gap: 2px;
+  }
+  .gb-breadcrumb a,
+  .gb-breadcrumb .current {
+    padding: 4px 8px;
+  }
+  .gb-breadcrumb a::after {
+    margin-left: 3px;
+    font-size: 14px;
+  }
 }
 
 /* ===== Copy Link ===== */
+#copy-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 
-#copy-link{
-display:flex;
-flex-direction:row;
-align-items:center;
-justify-content:center;
-gap:6px;
+  margin: 30px auto;
+  padding: 12px 20px;
+  width: 135px;
 
-margin:28px auto;
-padding:14px 18px;
-width:120px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 27, 0.14);
+  box-shadow: 0 2px 8px rgba(19, 78, 58, 0.04);
 
-border-radius:14px;
-background:#ffffff;
-border:1px solid #e5e5e5;
-
-cursor:pointer;
-text-align:center;
-
-transition:
-background-color .25s ease,
-border-color .25s ease,
-box-shadow .25s ease;
+  cursor: pointer;
+  text-align: center;
 }
 
-#copy-link:hover{
-background:#d7ffd3;
-border-color:#044b00;
-box-shadow:0 0 12px rgba(0, 156, 18, 0.436);
+#copy-link:hover {
+  background: #134e3a;
+  border-color: #134e3a;
+  box-shadow: 0 8px 20px rgba(19, 78, 58, 0.25);
 }
 
-#copy-link svg{
-width:22px;
-height:22px;
-color:#044b00;
-transition:color .25s ease;
+#copy-link svg {
+  width: 20px;
+  height: 20px;
+  color: #134e3a;
 }
 
-#copy-link:hover svg{
-color:#000000;
+#copy-link:hover svg {
+  color: #ffffff;
 }
 
-#copy-link span{
-font-size:0.78rem;
-color:#044b00;
-line-height:1;
-transition:color .25s ease;
+#copy-link span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #134e3a;
+  line-height: 1;
 }
 
-#copy-link:hover span{
-color:#000000;
+#copy-link:hover span {
+  color: #ffffff;
 }
 
 /* গল্প ইনডেক্স ও অনুগল্পের মোট ভিউ ও কমেন্ট স্ট্যাটস বার (সেন্টারড) */
@@ -688,14 +678,15 @@ color:#000000;
   justify-content: center;
   gap: 16px;
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 8px 18px;
-  margin: 30px auto 10px;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  border-radius: 999px;
+  padding: 8px 22px;
+  margin: 30px auto 12px;
   width: fit-content;
   font-size: 14px;
-  color: #475569;
+  color: #3f3f46;
   font-weight: 500;
+  box-shadow: 0 2px 8px rgba(19, 78, 58, 0.04);
 }
 
 .gb-stat-item {
@@ -705,67 +696,68 @@ color:#000000;
 }
 
 .gb-stat-divider {
-  color: #cbd5e1;
+  color: rgba(24, 24, 27, 0.14);
 }
 
 /* কাস্টম রেসপন্সিভ মোডাল */
 .gb-custom-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(15, 23, 20, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 16px;
   z-index: 999999;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(6px);
 }
 
 .gb-custom-modal {
   width: 100%;
-  max-width: 380px;
+  max-width: 390px;
   background: #ffffff;
-  border-radius: 16px;
-  padding: 24px 20px;
+  border-radius: 20px;
+  padding: 28px 24px;
   box-sizing: border-box;
   text-align: center;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-  animation: gbModalPop 0.2s ease;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+  animation: gbModalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes gbModalPop {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.94) translateY(8px);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateY(0);
   }
 }
 
 .gb-custom-modal-msg {
-  font-size: 15px;
-  color: #1f2937;
+  font-size: 15.5px;
+  color: #18181b;
   line-height: 1.7;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .gb-custom-modal-btn {
-  background: #2e7d32;
+  background: #134e3a;
   color: #ffffff;
   border: none;
-  border-radius: 8px;
-  padding: 9px 24px;
-  font-size: 14.5px;
+  border-radius: 999px;
+  padding: 10px 28px;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-  transition: background 0.2s ease;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.25);
 }
 
 .gb-custom-modal-btn:hover {
-  background: #1b5e20;
+  background: #1e6b50;
 }
 
 body.gb-modal-open {
@@ -775,44 +767,41 @@ body.gb-modal-open {
 /* কপি লিংক রেসপন্সিভ স্টাইল অক্ষত রাখা */
 @media (max-width: 600px) {
   #copy-link {
-    width: 110px;
-    padding: 12px 16px;
+    width: 120px;
+    padding: 10px 16px;
   }
   #copy-link svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
   }
 }
 
 @media (min-width: 1001px) {
   #copy-link {
-    width: 130px;
-    padding: 16px 20px;
+    width: 140px;
+    padding: 13px 22px;
   }
   #copy-link svg {
-    width: 24px;
-    height: 24px;
+    width: 21px;
+    height: 21px;
   }
 }
 
 
-
 /* =========== right click and select off ============= */
-
 html,
-body{
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none;
-    -webkit-touch-callout:none;
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
 
 /* =====================================================================
    Adsterra 300x250 Ad Box (Story Episode & Sidebar)
 ===================================================================== */
-
 .ad-box {
   width: 100%;
   min-width: 300px;
@@ -822,9 +811,9 @@ body{
   padding: 14px 12px 16px;
   box-sizing: border-box;
   background: #ffffff;
-  border: 1px solid #e3e8e5;
-  border-radius: 10px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(19, 78, 58, 0.04);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -840,9 +829,9 @@ body{
   gap: 12px;
   width: 100%;
   margin-bottom: 12px;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
-  color: #7b8e83;
+  color: #71717a;
   letter-spacing: 0.8px;
   text-transform: uppercase;
   user-select: none;
@@ -853,7 +842,7 @@ body{
   content: "";
   flex: 1;
   height: 1px;
-  background: #e2e8e4;
+  background: rgba(24, 24, 27, 0.08);
 }
 
 /* ৩০০x২৫০ আইফ্রেম সেন্টার ও রেসপন্সিভ নিশ্চিত করা */
@@ -874,52 +863,50 @@ body{
 
 
 /* ======== Inline Ep ad ========= */
-
-.inline-ad{
-    width:100%;
-    margin:28px auto;
-    padding:14px;
-    box-sizing:border-box;
-    background:#ffffff40;
-    border:1px solid #00000076;
-    border-radius:12px;
-    text-align:center;
+.inline-ad {
+  width: 100%;
+  margin: 28px auto;
+  padding: 16px;
+  box-sizing: border-box;
+  background: #f3f0ea;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  border-radius: 14px;
+  text-align: center;
 }
 
-.inline-ad-label{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    margin-bottom:12px;
-    font-size:13px;
-    font-weight:600;
-    color:#666;
-    user-select:none;
+.inline-ad-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #71717a;
+  user-select: none;
 }
 
 .inline-ad-label::before,
-.inline-ad-label::after{
-    content:"";
-    flex:1;
-    height:1px;
-    background:#ddd;
+.inline-ad-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(24, 24, 27, 0.14);
 }
 
 /* Adsterra iframe সবসময় মাঝখানে থাকবে */
-.inline-ad iframe{
-    display:block;
-    margin:0 auto;
-    max-width:100%;
+.inline-ad iframe {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
 }
-
 
 
 /* ইন-ফুটার ইন্টিগ্রেটেড বিজ্ঞাপন */
 .footer-ad-container {
   max-width: 1240px;
-  margin: 35px auto 0;
-  padding: 10px 0 0;
+  margin: 36px auto 0;
+  padding: 12px 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -927,9 +914,10 @@ body{
 }
 
 .footer-ad-label {
-  font-size: 11.5px;
-  color: #7a9485;
-  letter-spacing: 0.6px;
+  font-size: 11px;
+  color: #6ee7b7;
+  opacity: 0.7;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
@@ -947,78 +935,77 @@ body{
 }
 
 
-
 /* ==========================================================
    Golper Bahar: Lightweight Social Offers Slider
 ========================================================== */
-
 .gb-social-offers-slider {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 99999;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
 
-    width: 100%;
-    max-width: none;
-    min-height: 48px;
-    padding: 10px 14px;
+  width: 100%;
+  max-width: none;
+  min-height: 48px;
+  padding: 10px 16px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    box-sizing: border-box;
-    border: none;
-    border-radius: 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 0;
 
-    background: #8B0000;
-    color: #FFFFFF;
-    text-align: center;
-    text-decoration: none;
+  background: linear-gradient(90deg, #7f1d1d 0%, #991b1b 100%);
+  color: #FFFFFF;
+  text-align: center;
+  text-decoration: none;
 
-    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.5;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
 
-    /* শুরুতে স্ক্রিনের নিচে লুকানো থাকবে */
-    transform: translateY(100%);
-    visibility: hidden;
-    pointer-events: none;
+  /* শুরুতে স্ক্রিনের নিচে লুকানো থাকবে */
+  transform: translateY(100%);
+  visibility: hidden;
+  pointer-events: none;
 
-    /* শুধু প্রয়োজনীয় স্লাইড অ্যানিমেশন */
-    transition:
-        transform 1s ease,
-        visibility 0s linear 1s;
+  /* শুধু প্রয়োজনীয় স্লাইড অ্যানিমেশন */
+  transition:
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s linear 0.8s;
 }
 
 .gb-social-offers-slider.gb-offers-visible {
-    transform: translateY(0);
-    visibility: visible;
-    pointer-events: auto;
+  transform: translateY(0);
+  visibility: visible;
+  pointer-events: auto;
 
-    transition:
-        transform 1s ease,
-        visibility 0s;
+  transition:
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0s;
 }
 
 /* ছোট মোবাইল স্ক্রিন */
 @media (max-width: 480px) {
-    .gb-social-offers-slider {
-        width: 100%;
-        max-width: none;
-        min-height: 46px;
-        padding: 9px 12px;
-        font-size: 12px;
-        line-height: 1.45;
-    }
+  .gb-social-offers-slider {
+    width: 100%;
+    max-width: none;
+    min-height: 44px;
+    padding: 8px 12px;
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
 }
 
 /* ব্যবহারকারীর Reduce Motion পছন্দ সম্মান করা */
 @media (prefers-reduced-motion: reduce) {
-    .gb-social-offers-slider,
-    .gb-social-offers-slider.gb-offers-visible {
-        transition: none;
-    }
+  .gb-social-offers-slider,
+  .gb-social-offers-slider.gb-offers-visible {
+    transition: none;
+  }
 }

@@ -1,7 +1,12 @@
+/* =====================================================================
+   Golper Bahar - About, Publisher, Gift & Author Submit Page CSS
+   Theme: Warm Editorial & Deep Forest Emerald (Static Hover Edition)
+===================================================================== */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @font-face {
@@ -9,6 +14,7 @@
   src: url("../assets/fonts/LiPurnoPran.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -16,217 +22,280 @@
   src: url("../assets/fonts/Kalpurush.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
 body {
-    background: #dfe0e6;
-    color: #222;
-    line-height: 1.7;
-    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+  background: #faf8f5;
+  color: #18181b;
+  line-height: 1.75;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 #upNav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
+/* ================= Modern Editorial About Header ================= */
 .about-header {
-    text-align: center;
-    padding: 60px 20px 40px;
+  position: relative;
+  text-align: center;
+  padding: 54px 20px 42px;
+  background: radial-gradient(circle at top right, #d1fae5 0%, transparent 45%),
+              radial-gradient(circle at bottom left, #fef3c7 0%, transparent 45%),
+              linear-gradient(135deg, #f3f7f4 0%, #faf8f5 100%);
+  border-bottom: 1px solid rgba(19, 78, 58, 0.08);
+  margin-bottom: 36px;
+}
+
+.about-header::before {
+  content: "গল্পের বাহার পরিচিতি ও তথ্য";
+  display: inline-block;
+  padding: 4px 14px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #134e3a;
+  background: rgba(19, 78, 58, 0.08);
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-radius: 999px;
 }
 
 .about-header h1 {
-    font-size: 38px;
+  font-size: 40px;
+  font-weight: 700;
+  color: #0f3d2e;
+  line-height: 1.25;
 }
 
 .about-header p {
-    font-size: 20px;
-    color: #262525;
+  margin: 10px auto 0;
+  max-width: 680px;
+  font-size: 19px;
+  color: #4b5563;
 }
 
-/* Container */
+/* ================= Container & Editorial Sections ================= */
 .about-container {
-    max-width: 900px;
-    margin: auto;
-    padding: 0 20px 40px;
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 20px 56px;
 }
 
-/* Section */
 .about-section {
-    background: #fff;
-    padding: 28px;
-    margin-bottom: 25px;
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+  background: #ffffff;
+  padding: 32px 36px;
+  margin-bottom: 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(24, 24, 27, 0.07);
+  box-shadow: 0 8px 24px rgba(19, 78, 58, 0.04);
 }
 
 .about-section h2 {
-    font-size: 24px;
-    margin-bottom: 12px;
+  font-size: 25px;
+  font-weight: 700;
+  color: #134e3a;
+  margin-bottom: 14px;
 }
 
 .about-section p {
-    font-size: 22px;
-    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
-    text-align: justify;
+  font-size: 20.5px;
+  line-height: 1.95;
+  color: #27272a;
+  font-family: "LiPurnoPran", 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  text-align: justify;
 }
 
 .about-section li {
-    font-size: 18px;
-    margin-bottom: 8px;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #27272a;
 }
 
-/* Highlight */
+/* Highlight Callout Card */
 .highlight {
-    border-left: 5px solid #007517;
+  background: linear-gradient(135deg, #ffffff 0%, #f4faf7 100%);
+  border-left: 5px solid #134e3a;
+}
+
+/* Live Stats Highlight Card (.blue) */
+.blue {
+  background: linear-gradient(135deg, #134e3a 0%, #0d3829 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(19, 78, 58, 0.18);
+}
+
+.blue p {
+  color: #ecfdf5;
+}
+
+.blue span {
+  color: #fcd34d;
+  font-weight: 700;
 }
 
 /* Links */
 .about-section a {
-    color: #7d5f1d;
-    text-decoration: none;
+  color: #134e3a;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .about-section a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-/* Contact */
+/* ================= Contact & Social Buttons ================= */
 .contact {
-    text-align: center;
-}
-.contact p {
-    text-align: center;
+  text-align: center;
 }
 
+.contact p {
+  text-align: center;
+}
+
+.contact hr {
+  border: none;
+  border-top: 1px solid rgba(24, 24, 27, 0.08);
+  margin: 8px 0;
+}
 
 .contact-btn {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 7px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 14px;
 }
 
 .contact-btn a {
-    background-color: #007517;
-    color: white;
-    font-size: 17px;
-    text-decoration: none;
-    padding: 7px 30px;
-    border-radius: 10px;
-    transition: all 0.4s ease;
+  background-color: #134e3a;
+  color: #ffffff;
+  font-size: 16.5px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 9px 26px;
+  border-radius: 999px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
 .contact-btn a:hover {
-    text-decoration: none;
-    background-color: #004f10;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.501);
+  text-decoration: none;
+  background-color: #0d3829;
+  box-shadow: 0 8px 18px rgba(19, 78, 58, 0.25);
 }
 
 /* WhatsApp */
-.wa-btn{
-    background:#1cc55a !important;
+.wa-btn {
+  background: #16a34a !important;
 }
 
-.wa-btn:hover{
-    background:#109c48 !important;
+.wa-btn:hover {
+  background: #15803d !important;
+  box-shadow: 0 8px 18px rgba(22, 163, 74, 0.28) !important;
 }
 
 /* Facebook Page */
-.fb-btn{
-    background:#1877F2 !important;
+.fb-btn {
+  background: #1877F2 !important;
 }
 
-.fb-btn:hover{
-    background:#0f63d8 !important;
+.fb-btn:hover {
+  background: #1462c9 !important;
+  box-shadow: 0 8px 18px rgba(24, 119, 242, 0.28) !important;
 }
 
 /* Facebook Group */
-.group-btn{
-    background:#4267B2 !important;
+.group-btn {
+  background: #134e3a !important;
 }
 
-.group-btn:hover{
-    background:#34518d !important;
+.group-btn:hover {
+  background: #1e6b50 !important;
+  box-shadow: 0 8px 18px rgba(19, 78, 58, 0.28) !important;
 }
 
 /* Telegram */
-.tg-btn{
-    background:#229ED9 !important;
+.tg-btn {
+  background: #0284c7 !important;
 }
 
-.tg-btn:hover{
-    background:#1787bc !important;
+.tg-btn:hover {
+  background: #0369a1 !important;
+  box-shadow: 0 8px 18px rgba(2, 132, 199, 0.28) !important;
 }
 
 /* Email */
-.mail-btn{
-    background:#EA4335 !important;
+.mail-btn {
+  background: #dc2626 !important;
 }
 
-.mail-btn:hover{
-    background:#c73629 !important;
+.mail-btn:hover {
+  background: #b91c1c !important;
+  box-shadow: 0 8px 18px rgba(220, 38, 38, 0.28) !important;
 }
 
-
-
-.blue {
-    background-color: rgb(0, 93, 45);
-    color: white;
-}
-
-
-/* =============== gift page special ============== */
-
+/* =============== Gift Page Special ============== */
 .numberboard {
-    text-align: center;
+  text-align: center;
 }
 
 .numberboard p {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .numx {
-    font-size: 35px;
-    background-color: #ffffff;
-    border-radius: 10px;
+  font-size: 34px;
+  font-weight: 700;
+  color: #134e3a;
+  background-color: #f3f0ea;
+  border: 1px solid rgba(19, 78, 58, 0.16);
+  padding: 8px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  margin: 8px 0;
 }
 
 .cp-btn {
-    padding: 0.5rem 0.7rem;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(0, 64, 7);
-    color: white;
-    border: 1px solid black;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+  padding: 0.55rem 1.1rem;
+  font-family: 'Kalpurush', 'Hind Siliguri', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #134e3a;
+  color: #ffffff;
+  border: 1px solid #134e3a;
+  border-radius: 999px;
+  cursor: pointer;
 }
 
 .cp-btn:hover {
-    cursor: pointer;
-    background-color: rgb(0, 129, 15);
-    box-shadow: 0 0 5px rgba(19, 0, 0, 0.557);
+  background-color: #1e6b50;
+  box-shadow: 0 6px 14px rgba(19, 78, 58, 0.22);
 }
 
 .cp-btn:active {
-    background-color: rgb(255, 255, 255);
-    color: black;
+  background-color: #ecfdf5;
+  color: #134e3a;
 }
-
-
 
 #toast {
   position: fixed;
   top: 90px;
   right: 20px;
-  background: #006408;
-  color: #fff;
-  padding: 10px 18px;
-  border-radius: 6px;
+  background: #134e3a;
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 15px;
+  box-shadow: 0 10px 24px rgba(19, 78, 58, 0.28);
   opacity: 0;
-  transition: 0.3s;
+  z-index: 99999;
+  transition: opacity 0.25s ease;
 }
 
 #toast.show {
@@ -234,252 +303,237 @@ body {
 }
 
 .midtext {
-    text-align: center;
+  text-align: center;
 }
-
 
 #serialCount,
+#shortStoryCount,
 #shortCount,
+#onuCount,
 #totalCount,
 #updateDate {
-    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
+  font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
 }
 
+#founder-name {
+  font-size: 38px;
+  font-weight: 700;
+  color: #134e3a;
+  margin: 4px 0;
+  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+}
 
-
- /* ============ Author Form Submit Page =========== */
-
-
- /* ================= FORM STYLE ================= */
-
+/* ============ Author Form Submit Page =========== */
 .form-group {
-    margin-bottom: 25px;
+  margin-bottom: 24px;
 }
 
 .form-group label {
-
-    display: block;
-
-    margin-bottom: 10px;
-
-    font-size: 20px;
-
-    font-weight: bold;
-
-    color: #222;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #18181b;
 }
 
 .form-group small {
-
-    display: block;
-
-    margin-top: 5px;
-
-    color: #555;
-
-    font-size: 15px;
+  display: block;
+  margin-top: 6px;
+  color: #71717a;
+  font-size: 14.5px;
 }
 
 .form-group input,
 .form-group textarea,
 .form-group select {
-
-    width: 100%;
-
-    padding: 14px;
-
-    border-radius: 10px;
-
-    border: 1px solid #c7c7c7;
-
-    background: #fafafa;
-
-    font-size: 18px;
-
-    line-height: 1.6;
-
-    font-family:
-    "LiPurnoPran",
-    "Kalpurush",
-    sans-serif;
-
-    transition: 0.3s;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(24, 24, 27, 0.16);
+  background: #faf8f5;
+  color: #18181b;
+  font-size: 17.5px;
+  line-height: 1.6;
+  font-family: "LiPurnoPran", "Kalpurush", 'Hind Siliguri', sans-serif;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-
-    outline: none;
-
-    border-color: #007517;
-
-    background: #fff;
-
-    box-shadow: 0 0 5px rgba(0,117,23,0.2);
+  outline: none;
+  border-color: #134e3a;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(19, 78, 58, 0.12);
 }
 
 .form-group textarea {
-    min-height: 140px;
-    resize: vertical;
+  min-height: 140px;
+  resize: vertical;
 }
 
 .submit-btn {
-
-    width: 100%;
-    border: none;
-    background: #007517;
-    color: white;
-    padding: 14px;
-    border-radius: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: 0.3s;
+  width: 100%;
+  border: none;
+  background: #134e3a;
+  color: #ffffff;
+  padding: 14px 20px;
+  border-radius: 999px;
+  font-size: 19px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(19, 78, 58, 0.22);
 }
 
 .submit-btn:hover {
-    background: #004f10;
+  background: #1e6b50;
+  box-shadow: 0 10px 22px rgba(19, 78, 58, 0.28);
 }
 
 .loading {
-    opacity: 0.7;
-    pointer-events: none;
-} 
+  opacity: 0.7;
+  pointer-events: none;
+}
 
 .smallText {
-    margin-top: 12px;
-    padding-left: 12px;
-    border-left: 3px solid rgba(0, 117, 23, 0.25);
-    font-size: 16px;
-    line-height: 1.8;
-    opacity: 0.8;
-    color: #222;
-    font-family:
-    "LiPurnoPran",
-    "Kalpurush",
-    sans-serif;
+  margin-top: 12px;
+  padding-left: 14px;
+  border-left: 3px solid rgba(19, 78, 58, 0.3);
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #52525b;
+  font-family: "LiPurnoPran", "Kalpurush", 'Hind Siliguri', sans-serif;
 }
 
+/* ================= Tablet Breakpoint (<= 1000px) ================= */
 @media (max-width: 1000px) {
+  .about-header {
+    padding: 42px 18px 34px;
+    margin-bottom: 28px;
+  }
 
-    .about-header h1 {
-        font-size: 30px;
-    }
+  .about-header h1 {
+    font-size: 32px;
+  }
 
-    .about-header p {
-        font-size: 17px;
-    }
+  .about-header p {
+    font-size: 17px;
+  }
 
-    .about-section p,
-    .about-section li {
-        font-size: 16px;
-    }
+  .about-section {
+    padding: 26px 24px;
+    border-radius: 16px;
+  }
 
-    .contact-btn {
-    gap: 17px;
-    }
+  .about-section h2 {
+    font-size: 22px;
+  }
 
-    .contact-btn a {
+  .about-section p,
+  .about-section li {
+    font-size: 18px;
+  }
+
+  .contact-btn {
+    gap: 10px;
+  }
+
+  .contact-btn a {
     font-size: 15px;
-    padding: 6px 20px;
-    border-radius: 7px;
-    }
+    padding: 8px 20px;
+  }
 
+  .numberboard p {
+    font-size: 17px;
+  }
 
-    .numberboard p {
-        font-size: 17px;
-    }
+  .smallText {
+    font-size: 14.5px;
+  }
 
-    .smallText {
-    font-size: 14px;
+  .numx {
+    font-size: 30px;
+  }
+
+  #founder-name {
+    font-size: 33px;
+  }
 }
 
-    .numx {
-        font-size: 33px;
-    }
-}
-
+/* ================= Mobile Breakpoint (<= 600px) ================= */
 @media (max-width: 600px) {
-    .about-header h1 {
-        font-size: 26px;
-    }
+  .about-header {
+    padding: 32px 14px 26px;
+    margin-bottom: 22px;
+  }
 
-    .about-header p {
-        font-size: 15px;
-    }
+  .about-header h1 {
+    font-size: 26px;
+  }
 
-    .about-section {
-        padding: 20px;
-    }
+  .about-header p {
+    font-size: 15px;
+  }
 
-    .about-section p,
-    .about-section li {
-        font-size: 16px;
-    }
+  .about-container {
+    padding: 0 14px 40px;
+  }
 
-    .contact-btn {
-    gap: 12px;
-    }
+  .about-section {
+    padding: 20px 18px;
+    margin-bottom: 18px;
+    border-radius: 14px;
+  }
 
-    .contact-btn a {
+  .about-section h2 {
+    font-size: 20px;
+  }
+
+  .about-section p,
+  .about-section li {
+    font-size: 16.5px;
+    line-height: 1.85;
+  }
+
+  .contact-btn {
+    gap: 8px;
+  }
+
+  .contact-btn a {
+    font-size: 13.5px;
+    padding: 7px 16px;
+  }
+
+  .form-group label {
+    font-size: 17px;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 15.5px;
+    padding: 12px;
+  }
+
+  .submit-btn {
+    font-size: 17px;
+    padding: 12px 16px;
+  }
+
+  .numberboard p {
+    font-size: 15.5px;
+  }
+
+  .smallText {
     font-size: 13px;
-    padding: 5px 15px;
-    border-radius: 5px;
-    }
-
-
-    .form-group label {
-        font-size: 17px;
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-        font-size: 15px;
-        padding: 12px;
-    }
-
-    .submit-btn {
-        font-size: 17px;
-    }
-
-
-    .numberboard p {
-        font-size: 15px;
-    }
-
-    .smallText {
-    font-size: 12px;
     padding-left: 10px;
-}
+  }
 
-    .numx {
-        font-size: 30px;
-    }
-}
+  .numx {
+    font-size: 26px;
+    padding: 6px 14px;
+  }
 
-#serialCount,
-#shortStoryCount,
-#onuCount,
-#totalCount,
-#updateDate {
-    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
-}
-
-#founder-name {
-    font-size: 40px;
-    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-}
-
-@media (max-width: 1000px) {
-    #founder-name {
-        font-size: 35px;
-    }
-}
-
-
-@media (max-width: 600px) {
-    #founder-name {
-        font-size: 30px;
-    }
+  #founder-name {
+    font-size: 28px;
+  }
 }
