@@ -1,21 +1,18 @@
+/* =====================================================================
+   Golper Bahar - Onugolpo Single Story Reading Page CSS
+   Theme: Warm Editorial & Deep Forest Emerald (Clean Sharp Card Edition)
+===================================================================== */
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @font-face {
   font-family: "Kalpurush";
   src: url("../assets/fonts/Kalpurush.ttf") format("truetype");
-}
-
-body {
-    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-    background-color: rgb(233, 228, 223);
-}
-
-a {
-    text-decoration: none;
+  font-display: swap;
 }
 
 @font-face {
@@ -23,530 +20,584 @@ a {
   src: url("../assets/fonts/LiPurnoPran.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
 
+body {
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  background-color: #faf8f5;
+  color: #18181b;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+}
 
 #upNav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
-/* body {
-    background-color: rgb(233, 228, 223);
-} */
-
-
+/* ================= Modern Editorial Header ================= */
 header {
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(233, 244, 240);
+  min-height: 190px;
+  padding: 38px 20px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  background: radial-gradient(circle at top right, #d1fae5 0%, transparent 45%),
+              radial-gradient(circle at bottom left, #fef3c7 0%, transparent 45%),
+              linear-gradient(135deg, #f3f7f4 0%, #faf8f5 100%);
+  border-bottom: 1px solid rgba(19, 78, 58, 0.1);
+}
+
+header::before {
+  content: "অণুগল্প পাঠ";
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #134e3a;
+  background: rgba(19, 78, 58, 0.08);
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-radius: 6px;
 }
 
 header h1 {
-    font-size: 35px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #0f3d2e;
+  line-height: 1.25;
 }
 
 header h2 {
-    font-size: 23px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #134e3a;
+  background: #ecfdf5;
+  border: 1px solid rgba(19, 78, 58, 0.18);
+  padding: 3px 18px;
+  border-radius: 6px;
 }
 
+/* ================= Navigation Mover Buttons (Static Hover, Sharp Radius) ================= */
 .mover-btn {
-    background-color: rgb(233, 228, 223);
-    margin: 12px;
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
+  background-color: transparent;
+  margin: 18px auto 14px;
+  padding: 6px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
 }
 
 .mover-btn a {
-    background-color: rgb(0, 42, 180);
-    color: rgb(235, 235, 235);
-    text-decoration: none;
-    padding: 5px 50px;
-    border-radius: 7px;
-    font-size: 20px;
-    transition: all 0.3s ease;
+  background-color: #134e3a;
+  border: 1px solid #134e3a;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 8px 36px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(19, 78, 58, 0.16);
 }
 
 .mover-btn a:hover {
-    background-color: rgb(12, 58, 0);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.448);
+  background-color: #1e6b50;
+  border-color: #1e6b50;
+  box-shadow: 0 6px 16px rgba(19, 78, 58, 0.24);
 }
 
 @media (max-width: 1000px) {
+  .mover-btn {
+    gap: 14px;
+  }
 
-    .mover-btn {
-        gap: 20px;
-    }
+  .mover-btn a {
+    padding: 7px 28px;
+    border-radius: 6px;
+    font-size: 16.5px;
+  }
 
-    .mover-btn a {
-        padding: 5px 40px;
-        border-radius: 7px;
-        font-size: 17px;
-    }
-
-    header {
-        min-height: 180px;
-    }
+  header {
+    min-height: 165px;
+  }
 }
 
 @media (max-width: 600px) {
+  .mover-btn {
+    gap: 10px;
+    margin: 14px auto 10px;
+  }
 
-    .mover-btn {
-        gap: 15px;
-    }
+  .mover-btn a {
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-size: 14.5px;
+  }
 
-    .mover-btn a {
-        padding: 5px 20px;
-        border-radius: 6px;
-        font-size: 14px;
-    }
-    header {
-        min-height: 140px;
-    }
-
+  header {
+    min-height: 140px;
+    padding: 26px 14px 22px;
+  }
 }
 
+/* ================= Story Container & Reading Card ================= */
 .story-container {
-    background-color: rgb(233, 228, 223);
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    min-height: 200px;
+  max-width: 1460px;
+  margin: 0 auto;
+  padding: 8px 18px 24px;
+  background-color: #faf8f5;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 22px;
+  min-height: 200px;
+  align-items: start;
 }
 
 .story-container .left-bar {
-    display: block;
+  display: block;
 }
 
 .story-container .story-bar {
-    padding: 10px 30px;
-}
-
-.story-container .story-bar p {
-    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
-    font-size: 26px;
-    line-height: 1.5;
-    margin-bottom: 1.3em;
-    letter-spacing: 0.01em;
-}
-
-@media (max-width: 1000px) {
-    .story-container .story-bar p {
-        font-size: 19px;
-        line-height: 1.5;
-    }
-
-    header h1 {
-        font-size: 30px;
-    }
-
-    header h2 {
-    font-size: 20px;
-}
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .story-container .story-bar p {
-        font-size: 17px;
-        line-height: 1.4;
-    }
-
-    .story-container .story-bar {
-    padding: 30px 30px;
-}
-
-    header h1 {
-        font-size: 28px;
-    }
-
-    header h2 {
-    font-size: 18px;
-}
-}
-
-.story-image {
-    margin: 20px 0px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.story-image img {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 6px;
-}
-
-.story-container .right-bar {
-    min-width: 300px;
-}
-
-@media (max-width: 1200px) {
-
-    .story-container .left-bar {
-        display: none;
-    }
-
-    .story-container {
-        grid-template-columns: 3fr 1fr;
-    }
-
-    .gb-story-footer-section {
-        width: 75%;
-    }
-}
-
-
-
-@media (max-width: 1000px) {
-    .story-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-.story-bar {
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  border-radius: 8px;
+  padding: 36px 46px;
+  box-shadow: 0 6px 22px rgba(19, 78, 58, 0.04);
   user-select: none;
 }
 
+.story-container .story-bar p {
+  font-family: "LiPurnoPran", 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  font-size: 26px;
+  line-height: 1.65;
+  color: #1f2328;
+  margin-bottom: 1.35em;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 1000px) {
+  .story-container .story-bar p {
+    font-size: 19px;
+    line-height: 1.65;
+  }
+
+  header h1 {
+    font-size: 30px;
+  }
+
+  header h2 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .story-container {
+    padding: 6px 10px 18px;
+    gap: 16px;
+  }
+
+  .story-container .story-bar p {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .story-container .story-bar {
+    padding: 22px 18px;
+    border-radius: 6px;
+  }
+
+  header h1 {
+    font-size: 25px;
+  }
+
+  header h2 {
+    font-size: 16.5px;
+  }
+}
+
+.story-image {
+  margin: 22px 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-image img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(19, 78, 58, 0.08);
+}
+
+.story-container .right-bar {
+  min-width: 300px;
+}
+
+@media (max-width: 1200px) {
+  .story-container .left-bar {
+    display: none;
+  }
+
+  .story-container {
+    grid-template-columns: 3fr 1fr;
+  }
+
+  .gb-story-footer-section {
+    width: 75%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .story-container {
+    grid-template-columns: 1fr;
+  }
+}
 
 #theEndText {
   text-align: center;
   font-size: 26px;
+  font-weight: 700;
+  color: #134e3a;
+  margin: 20px 0 8px;
 }
 
 @media (max-width: 1000px) {
-    #theEndText {
-        font-size: 19px;
-    }
+  #theEndText {
+    font-size: 19px;
+  }
 }
 
 @media (max-width: 600px) {
-    #theEndText {
-        font-size: 17px;
-    }
+  #theEndText {
+    font-size: 17px;
+  }
 }
 
-
-/* ============ Story Comments Component ============= */
-
-/* ===== Story Comments Position & Design ===== */
-
-#story-comments{
-    width: 100%;
-    margin: 55px 0 30px;
-    padding-top: 30px;
-    box-sizing: border-box;
-    border-top: 1px solid rgb(205, 200, 195);
+/* ============ Story Comments Component (Clean Sharp Cards, No Left Bar) ============= */
+#story-comments {
+  width: 100%;
+  margin: 48px 0 28px;
+  padding-top: 28px;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(24, 24, 27, 0.1);
 }
 
 .gb-story-stats-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 auto 24px;
-    padding: 8px 16px;
-    background: rgb(248, 245, 241);
-    border: 1px solid rgb(190, 184, 178);
-    border-radius: 6px;
-    font-size: 16px;
-    color: rgb(65, 60, 56);
-    font-weight: 500;
-    box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 22px;
+  padding: 7px 18px;
+  background: #ffffff;
+  border: 1px solid rgba(19, 78, 58, 0.16);
+  border-radius: 6px;
+  font-size: 15.5px;
+  color: #134e3a;
+  font-weight: 600;
+  box-sizing: border-box;
 }
 
 .gb-stat-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .gb-stat-divider {
-    color: rgb(150, 145, 140);
+  color: rgba(19, 78, 58, 0.25);
 }
 
 .gb-story-footer-section {
-    width: 60%;
-    margin: 0 auto;
-    padding: 10px;
-    box-sizing: border-box;
+  width: 60%;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .gb-comment-box-card {
-    width: 100%;
-    background: rgb(248, 245, 241);
-    border: 1px solid rgb(190, 184, 178);
-    border-radius: 6px;
-    padding: 22px 20px;
-    box-sizing: border-box;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-radius: 8px;
+  padding: 24px 22px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 16px rgba(19, 78, 58, 0.04);
 }
 
 .gb-comment-heading {
-    font-size: 30px;
-    font-weight: 700;
-    color: rgb(55, 50, 46);
-    margin: 0 0 18px 0;
-    line-height: 1.4;
-    text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  color: #134e3a;
+  margin: 0 0 18px 0;
+  line-height: 1.4;
+  text-align: center;
 }
 
 .gb-comment-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
 }
 
 .gb-form-input {
-    width: 100%;
-    border: 1px solid rgb(160, 154, 148);
-    border-radius: 4px;
-    padding: 10px 13px;
-    background: rgb(255, 255, 255);
-    font-size: 25px;
-    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-    color: rgb(45, 42, 39);
-    box-sizing: border-box;
-    outline: none;
+  width: 100%;
+  border: 1px solid rgba(24, 24, 27, 0.18);
+  border-radius: 6px;
+  padding: 11px 14px;
+  background: #faf8f5;
+  font-size: 22px;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  color: #18181b;
+  box-sizing: border-box;
+  outline: none;
 }
 
 .gb-form-input:focus {
-    border-color: rgb(90, 84, 79);
+  border-color: #134e3a;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(19, 78, 58, 0.12);
 }
 
 .gb-form-textarea {
-    width: 100%;
-    height: 150px;
-    min-height: 150px;
-    max-height: 150px;
-    resize: none;
-    border: 1px solid rgb(160, 154, 148);
-    border-radius: 4px;
-    padding: 11px 13px;
-    background: rgb(255, 255, 255);
-    font-size: 25px;
-    font-family: 'LiPurnoPran', 'Kalpurush', 'Noto Serif Bengali', serif;
-    color: rgb(45, 42, 39);
-    box-sizing: border-box;
-    outline: none;
-    line-height: 1.5;
+  width: 100%;
+  height: 150px;
+  min-height: 150px;
+  max-height: 150px;
+  resize: none;
+  border: 1px solid rgba(24, 24, 27, 0.18);
+  border-radius: 6px;
+  padding: 12px 14px;
+  background: #faf8f5;
+  font-size: 22px;
+  font-family: 'LiPurnoPran', 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  color: #18181b;
+  box-sizing: border-box;
+  outline: none;
+  line-height: 1.55;
 }
 
 .gb-form-textarea:focus {
-    border-color: rgb(90, 84, 79);
+  border-color: #134e3a;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(19, 78, 58, 0.12);
 }
 
 .gb-comment-btn {
-    width: 100%;
-    align-self: stretch;
-    background: rgb(0, 42, 180);
-    color: rgb(255, 255, 255);
-    border: 1px solid rgb(0, 42, 180);
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-    box-sizing: border-box;
+  width: 100%;
+  align-self: stretch;
+  background: #134e3a;
+  color: #ffffff;
+  border: 1px solid #134e3a;
+  border-radius: 6px;
+  padding: 11px 22px;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.18);
 }
 
 .gb-comment-btn:hover {
-    background: rgb(12, 58, 0);
-    border-color: rgb(12, 58, 0);
+  background: #1e6b50;
+  border-color: #1e6b50;
+  box-shadow: 0 6px 16px rgba(19, 78, 58, 0.24);
 }
 
 .gb-comment-btn:disabled {
-    background: rgb(150, 150, 150);
-    border-color: rgb(150, 150, 150);
-    cursor: not-allowed;
+  background: #a1a1aa;
+  border-color: #a1a1aa;
+  box-shadow: none;
+  cursor: not-allowed;
 }
 
 .gb-comment-note {
-    font-size: 16px;
-    font-style: italic;
-    color: rgb(100, 95, 90);
-    line-height: 1.6;
-    margin-top: 14px;
-    padding-top: 12px;
-    border-top: 1px dashed rgb(190, 184, 178);
-    text-align: center;
+  font-size: 15.5px;
+  font-style: italic;
+  color: #52525b;
+  line-height: 1.65;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(24, 24, 27, 0.15);
+  text-align: center;
 }
 
 .gb-comments-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    width: 100%;
-    margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-top: 24px;
 }
 
 .gb-comments-more {
-    display: none;
-    width: 100%;
-    margin: 18px 0 0;
-    padding: 10px 18px;
-    background: rgb(255, 255, 255);
-    color: rgb(0, 42, 180);
-    border: 1px solid rgb(0, 42, 180);
-    border-radius: 4px;
-    font-size: 25px;
-    font-weight: 600;
-    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-    cursor: pointer;
-    box-sizing: border-box;
+  display: none;
+  width: 100%;
+  margin: 16px 0 0;
+  padding: 10px 18px;
+  background: #ffffff;
+  color: #134e3a;
+  border: 1.5px solid #134e3a;
+  border-radius: 6px;
+  font-size: 21px;
+  font-weight: 600;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
 .gb-comments-more:hover {
-    background: rgb(0, 42, 180);
-    color: rgb(255, 255, 255);
+  background: #134e3a;
+  color: #ffffff;
 }
 
 .gb-comment {
-    width: 100%;
-    background: rgb(248, 245, 241);
-    border: 1px solid rgb(190, 184, 178);
-    border-radius: 6px;
-    padding: 16px 18px;
-    box-sizing: border-box;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 27, 0.1);
+  border-radius: 6px;
+  padding: 15px 18px;
+  box-sizing: border-box;
 }
 
 .gb-comment-author {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 7px;
 }
 
 .gb-comment-author-name {
-    font-weight: 700;
-    font-size: 19px;
-    color: rgb(55, 50, 46);
+  font-weight: 700;
+  font-size: 18.5px;
+  color: #134e3a;
 }
 
 .gb-comment-date {
-    font-size: 14px;
-    color: rgb(115, 110, 105);
+  font-size: 14px;
+  color: #71717a;
 }
 
 .gb-comment-text {
-    font-size: 25px;
-    color: rgb(60, 55, 51);
-    font-family: 'LiPurnoPran', 'Kalpurush', 'Noto Serif Bengali', serif;
+  font-size: 22px;
+  color: #27272a;
+  font-family: 'LiPurnoPran', 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  line-height: 1.55;
+  word-break: break-word;
+}
+
+@media (max-width: 1000px) {
+  .gb-story-footer-section {
+    width: 100%;
+  }
+
+  #story-comments {
+    width: 100%;
+    margin: 40px 0 22px;
+    padding-top: 24px;
+  }
+
+  .gb-comment-box-card {
+    padding: 20px 18px;
+  }
+
+  .gb-comment-heading {
+    font-size: 22px;
+  }
+
+  .gb-form-input,
+  .gb-form-textarea,
+  .gb-comment-btn,
+  .gb-comments-more {
+    font-size: 18px;
+  }
+
+  .gb-form-textarea {
+    height: 130px;
+    min-height: 130px;
+    max-height: 130px;
+  }
+
+  .gb-comment-text {
+    font-size: 18px;
     line-height: 1.5;
-    word-break: break-word;
+  }
+
+  .gb-comment-author-name {
+    font-size: 17px;
+  }
+
+  .gb-comment-date {
+    font-size: 13px;
+  }
 }
 
-@media (max-width:1000px){
+@media (max-width: 600px) {
+  #story-comments {
+    margin: 32px 0 18px;
+    padding-top: 18px;
+  }
 
-    .gb-story-footer-section {
-        width: 100%;
-    }
+  .gb-comment-box-card {
+    padding: 16px 14px;
+  }
 
-    #story-comments{
-        width: 100%;
-        margin: 45px 0 25px;
-        padding-top: 25px;
-    }
+  .gb-comment-heading {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
 
-    .gb-comment-box-card {
-        padding: 20px 18px;
-    }
+  .gb-form-input,
+  .gb-form-textarea,
+  .gb-comment-btn,
+  .gb-comments-more {
+    font-size: 16px;
+  }
 
-    .gb-comment-heading {
-        font-size: 22px;
-    }
+  .gb-form-textarea {
+    height: 120px;
+    min-height: 120px;
+    max-height: 120px;
+  }
 
-    .gb-form-input,
-    .gb-form-textarea,
-    .gb-comment-btn,
-    .gb-comments-more {
-        font-size: 18px;
-    }
+  .gb-comment-note {
+    font-size: 13.5px;
+  }
 
-    .gb-form-textarea {
-        height: 130px;
-        min-height: 130px;
-        max-height: 130px;
-    }
+  .gb-comment {
+    padding: 14px 15px;
+  }
 
-    .gb-comment-text {
-        font-size: 18px;
-        line-height: 1.5;
-    }
+  .gb-comment-text {
+    font-size: 16px;
+    line-height: 1.45;
+  }
 
-    .gb-comment-author-name {
-        font-size: 17px;
-    }
+  .gb-comment-author-name {
+    font-size: 16px;
+  }
 
-    .gb-comment-date {
-        font-size: 13px;
-    }
-
-}
-
-@media (max-width:600px){
-
-    #story-comments{
-        margin: 35px 0 20px;
-        padding-top: 20px;
-    }
-
-    .gb-comment-box-card {
-        padding: 16px 14px;
-    }
-
-    .gb-comment-heading {
-        font-size: 21px;
-        margin-bottom: 14px;
-    }
-
-    .gb-form-input,
-    .gb-form-textarea,
-    .gb-comment-btn,
-    .gb-comments-more {
-        font-size: 16px;
-    }
-
-    .gb-form-textarea {
-        height: 120px;
-        min-height: 120px;
-        max-height: 120px;
-    }
-
-    .gb-comment-note {
-        font-size: 13px;
-    }
-
-    .gb-comment {
-        padding: 14px 15px;
-    }
-
-    .gb-comment-text {
-        font-size: 16px;
-        line-height: 1.4;
-    }
-
-    .gb-comment-author-name {
-        font-size: 16px;
-    }
-
-    .gb-comment-date {
-        font-size: 12px;
-    }
-
+  .gb-comment-date {
+    font-size: 12px;
+  }
 }
