@@ -1,3 +1,8 @@
+/* =====================================================================
+   Golper Bahar - Story Reading Page CSS
+   Theme: Warm Editorial & Deep Forest Emerald (Static Hover Edition)
+===================================================================== */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,6 +16,7 @@ a {
 @font-face {
   font-family: "Kalpurush";
   src: url("../assets/fonts/kalpurush.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
@@ -18,134 +24,156 @@ a {
   src: url("../assets/fonts/LiPurnoPran.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
-
 
 #upNav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
-
 
 body {
   margin: 0;
-  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-  background: #dbdbdb;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  background: #faf8f5;
+  color: #18181b;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+p, span, h1, h2, h3, h4, h5, h6, div {
+  cursor: default;
+}
+
+a, button {
+  cursor: pointer !important;
+  user-select: auto;
+}
+
+.story-content {
+  user-select: none;
 }
 
 /* ===== Grid Container ===== */
 .gridContainer {
   min-height: 100vh;
   display: grid;
-
-  /* Desktop layout */
-  grid-template-columns: 350px 1fr 350px;
+  grid-template-columns: 340px 1fr 350px;
   grid-template-rows: auto 1fr auto;
-
   grid-template-areas:
     "header header header"
     "left   main   right"
     "footer footer footer";
 }
 
-/* ===== Grid Areas ===== */
+/* ===== Grid Areas: Editorial Cover Header ===== */
 .header {
   grid-area: header;
-  padding: 20px;
-  background: #eaeaea;
+  padding: 28px 20px;
+  background: #f3f7f4;
   text-align: center;
-  height: 200px;
+  min-height: 210px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 6px;
-  border-bottom: 1px solid black;
-
-  background-image: linear-gradient(rgba(255, 255, 255, 0.566), rgba(255,255,255,0.25)), url("https://res.cloudinary.com/dhj4ovvav/image/upload/v1781107408/image_dhu7fx.webp");
-  background-size: cover;      /* পুরো header ভরবে */
-  background-position: center; /* মাঝখানে থাকবে */
+  gap: 10px;
+  border-bottom: 1px solid rgba(19, 78, 58, 0.14);
+  background-image: linear-gradient(rgba(250, 248, 245, 0.78), rgba(236, 253, 245, 0.72)), url("https://res.cloudinary.com/dhj4ovvav/image/upload/v1781107408/image_dhu7fx.webp");
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
 .header h1 {
-  font-size: 35px;
+  font-size: 38px;
+  font-weight: 700;
+  color: #0f3d2e;
+  line-height: 1.25;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .header p {
-  font-size: 20px;
-  border: 1px solid rgba(5, 5, 5, 0.301);
-  padding: 7px 35px;
-  border-radius: 7px;
-  background-color: #ffffffa3;
+  font-size: 19px;
+  font-weight: 600;
+  color: #134e3a;
+  border: 1px solid rgba(19, 78, 58, 0.25);
+  padding: 6px 32px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.08);
 }
 
 @media (max-width: 700px) {
-  .header p {
-    font-size: 15px;
+  .header {
+    min-height: 155px;
+    padding: 20px 14px;
   }
 
   .header h1 {
-    font-size: 25px;
+    font-size: 26px;
   }
 
-  .header {
-    height: 150px;
+  .header p {
+    font-size: 15.5px;
+    padding: 5px 22px;
   }
 }
 
 body.dark .header,
-body.dark .header *{
-  color: #000;
+body.dark .header * {
+  color: #0f3d2e;
 }
-
-
 
 .leftBar {
   grid-area: left;
-  padding: 20px;
-  background: #dbdbdb;
+  padding: 24px 16px;
+  background: #faf8f5;
 }
 
 .mainContent {
-  font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
+  font-family: "LiPurnoPran", 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
   grid-area: main;
-  padding: 25px 80px;
-  background: #dbdbdb;
+  margin: 26px 0 36px;
+  padding: 40px 64px;
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 27, 0.07);
+  border-radius: 22px;
+  box-shadow: 0 10px 30px rgba(19, 78, 58, 0.04);
 }
 
 .rightBar {
   grid-area: right;
-  padding: 20px;
-  background: #dbdbdb;
+  padding: 26px 20px;
+  background: #faf8f5;
+  height: auto;
+  align-self: start;
 }
 
 .footer {
   grid-area: footer;
-  padding: 0px;
-  background: #eaeaea;
+  padding: 0;
+  background: #faf8f5;
   text-align: center;
-}
-
-@media (max-width: 1000px) {
-    .mainContent {
-    grid-area: main;
-    padding: 25px 25px;
-    background: #dbdbdb;
-}
 }
 
 @media (max-width: 1400px) {
   .leftBar {
     display: none;
   }
-  .gridContainer{
-  grid-template-columns: auto 350px;
-  grid-template-areas:
-    "header header"
-    "main   right"
-    "footer footer";
+  .gridContainer {
+    grid-template-columns: 1fr 350px;
+    grid-template-areas:
+      "header header"
+      "main   right"
+      "footer footer";
+  }
+  .mainContent {
+    margin: 24px 0 32px 24px;
+    padding: 34px 44px;
   }
 }
 
@@ -164,95 +192,115 @@ body.dark .header *{
     display: none;
   }
 
+  .mainContent {
+    margin: 18px 16px 24px;
+    padding: 26px 24px;
+    border-radius: 18px;
+  }
+
   .rightBar {
     display: block;
+    padding: 10px 60px 24px;
   }
 }
 
-.rightBar {
-  height: auto;
-  align-self: start;
+@media (max-width: 600px) {
+  .mainContent {
+    margin: 14px 10px 20px;
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .rightBar {
+    padding: 10px 14px 20px;
+  }
 }
 
+/* ===== Reading Typography (Device-Specific Sizes Preserved) ===== */
 .mainContent p {
-    font-family: "LiPurnoPran", 'Kalpurush', 'Noto Serif Bengali', serif;
-    font-size: 26px;
-    line-height: 1.5;
-    margin-bottom: 1.3em;
-    letter-spacing: 0.01em;
-    overflow-wrap: anywhere;      
-    word-break: break-word;
+  font-family: "LiPurnoPran", 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  font-size: 26px;
+  line-height: 1.65;
+  color: #1f2328;
+  margin-bottom: 1.35em;
+  letter-spacing: 0.01em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 @media (max-width: 1000px) {
-    .mainContent p {
-        font-size: 19px;
-        line-height: 1.5;
-    }
+  .mainContent p {
+    font-size: 19px;
+    line-height: 1.65;
+  }
 }
 
-/* Mobile */
 @media (max-width: 600px) {
-    .mainContent p {
-        font-size: 17px;
-        line-height: 1.4;
-    }
+  .mainContent p {
+    font-size: 17px;
+    line-height: 1.6;
+  }
 }
 
 .story-image {
-    margin: 2.2em 0;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin: 2.2em 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .story-image img {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 6px;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(19, 78, 58, 0.08);
 }
 
-.episode-switch {
-  margin: 60px 0 30px;
-  padding-top: 20px;
-  border-top: 1px solid #ddd;
+/* ===== Top & Bottom Episode Navigation Buttons ===== */
+.topSwitch {
+  margin: 0 0 26px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(24, 24, 27, 0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.topNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+}
+
+.episode-switch {
+  margin: 52px 0 28px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(24, 24, 27, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
 }
 
 .upperNAV {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px; 
-  margin: 10px 0;
-}
-
-.topSwitch {
-  margin: 2px 0 10px;
-  padding-top: 0px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.topNav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px; 
-  margin: 0;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
 }
 
 .ep-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 10px;
-  
+  justify-content: center;
+  gap: 8px;
 }
 
 .ep-list.start {
@@ -260,47 +308,124 @@ body.dark .header *{
 }
 
 .ep-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  font-size: 16px;
-  color: #333;
-  border: 1px solid #ccc;
-  padding: 8px 14px;
-  border-radius: 4px;
-  background: #fff;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #134e3a;
+  border: 1px solid rgba(19, 78, 58, 0.2);
+  padding: 7px 15px;
+  border-radius: 999px;
+  background: #faf8f5;
 }
 
 .ep-btn:hover {
-  background: #f0f0f0;
+  background: #134e3a;
+  color: #ffffff;
+  border-color: #134e3a;
+  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.18);
 }
 
+.ep-btn.active,
+.active {
+  background-color: #134e3a;
+  border-color: #134e3a;
+  color: #ffffff;
+}
+
+.ep-btn.active:hover,
+.active:hover {
+  background-color: #0f3d2e;
+  border-color: #0f3d2e;
+  color: #ffffff;
+}
 
 #theEndText {
   text-align: center;
   font-size: 26px;
+  font-weight: 700;
+  color: #134e3a;
+  margin: 24px 0;
 }
 
 @media (max-width: 1000px) {
-    #theEndText {
-        font-size: 19px;
-    }
+  #theEndText {
+    font-size: 19px;
+  }
 }
 
 @media (max-width: 600px) {
-    #theEndText {
-        font-size: 17px;
-    }
+  #theEndText {
+    font-size: 17px;
+  }
+
+  .ep-btn {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
 }
 
+/* ===== Writer Note Callout ===== */
+.writer-note {
+  background: #f4faf7;
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-left: 4px solid #134e3a;
+  padding: 16px 18px;
+  margin-bottom: 26px;
+  border-radius: 12px;
+}
 
-          /* ডান পাশে থাকা আরও গল্পের কার্ড ডিজাইন Start */
+.writer-note p {
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #1f2328;
+  margin: 0;
+}
+
+.writer-note .tag-btn {
+  display: inline-block;
+  background: #134e3a;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 3px 10px;
+  margin: 0 2px;
+  border-radius: 999px;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.writer-note .tag-btn:hover {
+  background: #0f3d2e;
+}
+
+@media (max-width: 600px) {
+  .writer-note {
+    padding: 12px 14px;
+    margin-bottom: 20px;
+  }
+
+  .writer-note p {
+    font-size: 15.5px;
+  }
+}
+
+/* ============================================================
+   Right Sidebar: More Stories Cards (Strictly Static Hover)
+============================================================ */
 .rightLinks {
-  padding: 20px;
-  margin-top: 50px;
+  padding: 16px 8px;
+  margin-top: 32px;
   text-align: center;
 }
 
 .bigP {
-  font-size: 1.8rem;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #134e3a;
+  margin-bottom: 18px;
 }
 
 .rightStoryCards {
@@ -308,56 +433,49 @@ body.dark .header *{
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  padding: 10px;
+  padding: 4px;
   text-align: center;
-  gap: 30px;
+  gap: 18px;
   align-items: stretch;
 }
 
-/* anchor = real grid item */
 .rightStoryCards a {
   display: block;
   width: 100%;
-  text-decoration: none;   /* underline off */
-  color: inherit;          /* text color inherit */
-  cursor: pointer;         /* hand cursor */
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
   height: 100%;
 }
 
 .story-card {
-  border: 1px solid #2e7d32;
-  border-radius: 10px;
-  margin: 7px 0;
-  padding: 7px;
+  border: 1px solid rgba(19, 78, 58, 0.16);
+  border-radius: 16px;
+  padding: 10px;
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: white;
-  transition: 
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.04);
 }
 
-/* hover effect */
 .rightStoryCards a:hover .story-card {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  border-color: #1b5e20;
+  background-color: #f4faf7;
+  border-color: #134e3a;
+  box-shadow: 0 10px 22px rgba(19, 78, 58, 0.14);
 }
 
-/* keyboard accessibility */
 .rightStoryCards a:focus-visible .story-card {
-  outline: 2px solid #1b5e20;
+  outline: 2px solid #134e3a;
   outline-offset: 3px;
 }
 
-/* image square */
 .cardImg {
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 12px;
+  background: #f3f0ea;
 }
 
 .cardImg img {
@@ -368,38 +486,82 @@ body.dark .header *{
 }
 
 .cardInfo h3 {
-  font-size: 1.3rem;
-  margin: 15px 0px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #18181b;
+  margin: 14px 0 8px;
+}
+
+.rightStoryCards a:hover .cardInfo h3 {
+  color: #134e3a;
 }
 
 .cardInfo p {
-  margin-bottom: 10px;
-  color: #4f4f4f;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  color: #52525b;
 }
 
+@media (max-width: 1000px) {
+  .story-image img {
+    max-width: 420px;
+  }
 
-
-
-p, span, h1, h2, h3, h4, h5, h6, div {
-  cursor: default;
+  .rightStoryCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
 }
 
-a, button {
-  cursor: pointer !important;
-  user-select: auto;
+@media (max-width: 600px) {
+  .story-image {
+    margin: 1.8em 0;
+  }
+
+  .story-image img {
+    max-width: 96%;
+    border-radius: 10px;
+  }
+
+  .story-card {
+    padding: 8px;
+    border-radius: 12px;
+  }
+
+  .rightLinks {
+    padding: 0;
+    margin-top: 14px;
+  }
+
+  .bigP {
+    font-size: 1.35rem;
+  }
+
+  .rightStoryCards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 12px 0;
+    gap: 12px;
+  }
+
+  .rightStoryCards a {
+    width: auto;
+  }
+
+  .cardInfo h3 {
+    font-size: 1.05rem;
+    margin: 8px 0 4px;
+  }
+
+  .cardInfo p {
+    margin-bottom: 4px;
+    font-size: 0.85rem;
+  }
 }
 
-
-body {
-  user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-.story-content {
-  user-select: none;
-}
-
+/* ==================================================
+   Optional Mini Navigation (Compact Version)
+================================================== */
 .back-btn {
   border: none;
   background: none;
@@ -407,515 +569,372 @@ body {
   cursor: pointer;
 }
 
-
 .mini-episode-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-
-  padding: 12px 10px;
+  padding: 16px 12px;
   margin-bottom: 0;
-
-  background-color: #0f0f0f; /* footer match */
+  background-color: #0d261d;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ===== Single Item ===== */
 .mini-nav-item {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  min-width: 72px;           /* 👈 desktop smaller */
-  padding: 6px 12px;         /* 👈 compact */
-
-  background-color: #1e1e1e;
-  color: #ffffff;
-
-  font-size: 0.85rem;        /* 👈 desktop smaller text */
+  min-width: 76px;
+  padding: 7px 14px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ecfdf5;
+  font-size: 0.88rem;
   font-weight: 500;
   line-height: 1.2;
-
-  border-radius: 5px;
+  border-radius: 8px;
   text-decoration: none;
-
-  transition:
-    color 0.22s ease,
-    background-color 0.22s ease,
-    box-shadow 0.22s ease,
-    transform 0.18s ease;
 }
 
-
-
-/* ===== Hover Effect ===== */
 .mini-nav-item:hover {
-  color: #2f80ff;
-  background-color: #e6e6e6;
-
-  box-shadow:
-    0 0 0 1px rgba(47, 128, 255, 0.35),
-    0 0 8px rgba(47, 128, 255, 0.3);
-
-  transform: translateY(-1px);
+  color: #06281e;
+  background-color: #10b981;
+  border-color: #10b981;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }
 
-/* ================= Tablet ================= */
 @media (max-width: 1000px) {
   .mini-episode-nav {
     gap: 8px;
-    padding: 10px 8px;
+    padding: 12px 10px;
   }
 
   .mini-nav-item {
     min-width: 68px;
-    padding: 6px 10px;
-    font-size: 0.8rem;
+    padding: 6px 12px;
+    font-size: 0.82rem;
   }
 }
 
-/* ================= Mobile ================= */
 @media (max-width: 600px) {
   .mini-episode-nav {
     gap: 6px;
-    padding: 8px 6px;
+    padding: 10px 8px;
   }
 
   .mini-nav-item {
-    min-width: auto;       /* text-based width */
-    padding: 5px 9px;
+    min-width: auto;
+    padding: 5px 10px;
     font-size: 0.78rem;
-    border-radius: 4px;
+    border-radius: 6px;
   }
 }
-
-
-.active {
-  background-color: #2f80ff;
-  color: white;
-}
-
-.active:hover {
-  background-color: #ff0000;
-  color: #ffffff;
-}
-
-
-/* Tablet */
-@media (max-width: 1000px) {
-  .story-image img {
-    max-width: 380px;
-  }
-
-  .rightBar {
-    padding: 0px 100px;
-  }
-
-  .rightStoryCards {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    padding: 10px;
-    text-align: center;
-    gap: 30px;
-  }
-}
-
-/* Mobile */
-  @media (max-width: 600px) {
-    .rightBar {
-      padding: 10px 16px;
-    }
-    .story-image {
-      margin: 1.8em 0;
-    }
-
-    .story-image img {
-      max-width: 92%;
-      border-radius: 4px;
-    }
-    .story-card {
-      margin: 0;
-      padding: 5px;
-    }
-
-  .rightLinks {
-    padding: 0px;
-    margin-top: 10px;
-  }
-
-  .rightStoryCards {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: stretch;
-    padding: 20px 0px;
-    text-align: center;
-    gap: 12px;
-  }
-    .rightStoryCards a {
-      width: auto;
-    }
-
-    .cardInfo h3 {
-    font-size: 1.1rem;
-    margin: 6px 0px;
-  }
-
-  .cardInfo p {
-    margin-bottom: 3px;
-    font-size: 0.9rem;
-  }
-}
-
-
-
-/* ===== Writer Note ===== */
-.writer-note {
-  background: #ffffff;
-  padding: 12px 15px;
-  margin-bottom: 25px;
-  border-radius: 6px;
-}
-
-.writer-note p {
-  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-  font-size: 18px;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.writer-note .tag-btn {
-  display: inline-block;
-  background: #002c73;
-  color: #ffffff;
-  text-decoration: none;
-  padding: 3px 8px;
-  margin: 0 2px;
-  border-radius: 4px;
-  font-size: 0.9em;
-  font-weight: 600;
-}
-
-.writer-note .tag-btn:hover {
-  background: #000000;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .writer-note {
-        padding: 10px 12px;
-        margin-bottom: 20px;
-    }
-
-    .writer-note p {
-        font-size: 15px;
-    }
-}
-
 
 /* ============================================================
-   Story Comments Component
-   ============================================================ */
-
+   Story Comments Component (Warm Editorial Styling)
+============================================================ */
 #story-comments {
-    width: 100%;
-    margin: 55px 0 30px;
-    padding-top: 30px;
-    border-top: 1px solid #c8c8c8;
-    box-sizing: border-box;
+  width: 100%;
+  margin: 48px 0 28px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(24, 24, 27, 0.1);
+  box-sizing: border-box;
 }
 
 .gb-story-stats-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 auto 24px;
-    padding: 8px 16px;
-    background: #ffffff;
-    border: 1px solid #c8c8c8;
-    border-radius: 6px;
-    font-size: 16px;
-    color: #333333;
-    font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 24px;
+  padding: 8px 22px;
+  background: #faf8f5;
+  border: 1px solid rgba(19, 78, 58, 0.16);
+  border-radius: 999px;
+  font-size: 15.5px;
+  color: #134e3a;
+  font-weight: 600;
 }
 
 .gb-stat-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .gb-stat-divider {
-    color: #999999;
+  color: rgba(19, 78, 58, 0.25);
 }
 
 .gb-story-footer-section {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .gb-comment-box-card {
-    width: 100%;
-    background: #ffffff;
-    border: 1px solid #bdbdbd;
-    border-radius: 6px;
-    padding: 22px 20px;
-    box-sizing: border-box;
+  width: 100%;
+  background: #faf8f5;
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-radius: 18px;
+  padding: 26px 24px;
+  box-sizing: border-box;
 }
 
 .gb-comment-heading {
-    font-size: 25px;
-    font-weight: 700;
-    color: #222222;
-    margin: 0 0 18px 0;
-    line-height: 1.4;
-    text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #134e3a;
+  margin: 0 0 18px 0;
+  line-height: 1.4;
+  text-align: center;
 }
 
 .gb-comment-form {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
 }
 
 .gb-form-input {
-    width: 100%;
-    border: 1px solid #a9a9a9;
-    border-radius: 4px;
-    padding: 10px 13px;
-    background: #ffffff;
-    font-size: 25px;
-    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-    color: #222222;
-    box-sizing: border-box;
-    outline: none;
+  width: 100%;
+  border: 1px solid rgba(24, 24, 27, 0.16);
+  border-radius: 12px;
+  padding: 12px 15px;
+  background: #ffffff;
+  font-size: 22px;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  color: #18181b;
+  box-sizing: border-box;
+  outline: none;
 }
 
 .gb-form-input:focus {
-    border-color: #555555;
+  border-color: #134e3a;
+  box-shadow: 0 0 0 3px rgba(19, 78, 58, 0.12);
 }
 
 .gb-form-textarea {
-    width: 100%;
-    height: 150px;
-    min-height: 150px;
-    max-height: 150px;
-    resize: none;
-    border: 1px solid #a9a9a9;
-    border-radius: 4px;
-    padding: 11px 13px;
-    background: #ffffff;
-    font-size: 25px;
-    font-family: 'LiPurnoPran', 'Kalpurush', 'Noto Serif Bengali', serif;
-    color: #222222;
-    box-sizing: border-box;
-    outline: none;
-    line-height: 1.5;
+  width: 100%;
+  height: 150px;
+  min-height: 150px;
+  max-height: 150px;
+  resize: none;
+  border: 1px solid rgba(24, 24, 27, 0.16);
+  border-radius: 12px;
+  padding: 12px 15px;
+  background: #ffffff;
+  font-size: 22px;
+  font-family: 'LiPurnoPran', 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  color: #18181b;
+  box-sizing: border-box;
+  outline: none;
+  line-height: 1.55;
 }
 
 .gb-form-textarea:focus {
-    border-color: #555555;
+  border-color: #134e3a;
+  box-shadow: 0 0 0 3px rgba(19, 78, 58, 0.12);
 }
 
 .gb-comment-btn {
-    width: 100%;
-    align-self: stretch;
-    background: #2e7d32;
-    color: #ffffff;
-    border: 1px solid #2e7d32;
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-    box-sizing: border-box;
+  width: 100%;
+  align-self: stretch;
+  background: #134e3a;
+  color: #ffffff;
+  border: 1px solid #134e3a;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.2);
 }
 
 .gb-comment-btn:hover {
-    background: #1b5e20;
-    border-color: #1b5e20;
+  background: #1e6b50;
+  border-color: #1e6b50;
+  box-shadow: 0 8px 18px rgba(19, 78, 58, 0.26);
 }
 
 .gb-comment-btn:disabled {
-    background: #9e9e9e;
-    border-color: #9e9e9e;
-    cursor: not-allowed;
+  background: #a1a1aa;
+  border-color: #a1a1aa;
+  box-shadow: none;
+  cursor: not-allowed;
 }
 
 .gb-comment-note {
-    font-size: 16px;
-    font-style: italic;
-    color: #666666;
-    line-height: 1.6;
-    margin-top: 14px;
-    padding-top: 12px;
-    border-top: 1px dashed #c8c8c8;
-    text-align: center;
+  font-size: 15.5px;
+  font-style: italic;
+  color: #52525b;
+  line-height: 1.65;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(24, 24, 27, 0.15);
+  text-align: center;
 }
 
 .gb-comments-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    width: 100%;
-    margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  margin-top: 26px;
 }
 
 .gb-comments-more {
-    display: none;
-    width: 100%;
-    margin: 18px 0 0;
-    padding: 10px 18px;
-    background: #ffffff;
-    color: #2e7d32;
-    border: 1px solid #2e7d32;
-    border-radius: 4px;
-    font-size: 25px;
-    font-weight: 600;
-    font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-    cursor: pointer;
-    box-sizing: border-box;
+  display: none;
+  width: 100%;
+  margin: 18px 0 0;
+  padding: 11px 20px;
+  background: #ffffff;
+  color: #134e3a;
+  border: 1.5px solid #134e3a;
+  border-radius: 999px;
+  font-size: 21px;
+  font-weight: 600;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  cursor: pointer;
+  box-sizing: border-box;
 }
 
 .gb-comments-more:hover {
-    background: #2e7d32;
-    color: #ffffff;
+  background: #134e3a;
+  color: #ffffff;
 }
 
 .gb-comment {
-    width: 100%;
-    background: #ffffff;
-    border: 1px solid #bdbdbd;
-    border-radius: 6px;
-    padding: 16px 18px;
-    box-sizing: border-box;
+  width: 100%;
+  background: #faf8f5;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  border-left: 3.5px solid #134e3a;
+  border-radius: 14px;
+  padding: 16px 20px;
+  box-sizing: border-box;
 }
 
 .gb-comment-author {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
 .gb-comment-author-name {
-    font-weight: 700;
-    font-size: 19px;
-    color: #222222;
+  font-weight: 700;
+  font-size: 18.5px;
+  color: #134e3a;
 }
 
 .gb-comment-date {
-    font-size: 14px;
-    color: #777777;
+  font-size: 14px;
+  color: #71717a;
 }
 
 .gb-comment-text {
-    font-size: 25px;
-    color: #333333;
-    font-family: 'LiPurnoPran', 'Kalpurush', 'Noto Serif Bengali', serif;
-    line-height: 1.5;
-    word-break: break-word;
+  font-size: 22px;
+  color: #27272a;
+  font-family: 'LiPurnoPran', 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  line-height: 1.55;
+  word-break: break-word;
 }
 
 @media (max-width: 1000px) {
+  #story-comments {
+    margin: 40px 0 22px;
+    padding-top: 24px;
+  }
 
-    #story-comments {
-        margin: 45px 0 25px;
-        padding-top: 25px;
-    }
+  .gb-comment-box-card {
+    padding: 20px 18px;
+  }
 
-    .gb-comment-box-card {
-        padding: 20px 18px;
-    }
+  .gb-comment-heading {
+    font-size: 22px;
+  }
 
-    .gb-comment-heading {
-        font-size: 23px;
-    }
+  .gb-form-input,
+  .gb-form-textarea,
+  .gb-comment-btn,
+  .gb-comments-more {
+    font-size: 18px;
+  }
 
-    .gb-form-input,
-    .gb-form-textarea,
-    .gb-comment-btn,
-    .gb-comments-more {
-        font-size: 18px;
-    }
+  .gb-form-textarea {
+    height: 130px;
+    min-height: 130px;
+    max-height: 130px;
+  }
 
-    .gb-form-textarea {
-        height: 130px;
-        min-height: 130px;
-        max-height: 130px;
-    }
+  .gb-comment-text {
+    font-size: 18px;
+    line-height: 1.5;
+  }
 
-    .gb-comment-text {
-        font-size: 18px;
-        line-height: 1.5;
-    }
+  .gb-comment-author-name {
+    font-size: 17px;
+  }
 
-    .gb-comment-author-name {
-        font-size: 17px;
-    }
-
-    .gb-comment-date {
-        font-size: 13px;
-    }
+  .gb-comment-date {
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 600px) {
+  #story-comments {
+    margin: 32px 0 18px;
+    padding-top: 18px;
+  }
 
-    #story-comments {
-        margin: 35px 0 20px;
-        padding-top: 20px;
-    }
+  .gb-comment-box-card {
+    padding: 16px 14px;
+    border-radius: 14px;
+  }
 
-    .gb-comment-box-card {
-        padding: 16px 14px;
-    }
+  .gb-comment-heading {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
 
-    .gb-comment-heading {
-        font-size: 21px;
-        margin-bottom: 14px;
-    }
+  .gb-form-input,
+  .gb-form-textarea,
+  .gb-comment-btn,
+  .gb-comments-more {
+    font-size: 16px;
+  }
 
-    .gb-form-input,
-    .gb-form-textarea,
-    .gb-comment-btn,
-    .gb-comments-more {
-        font-size: 16px;
-    }
+  .gb-form-textarea {
+    height: 120px;
+    min-height: 120px;
+    max-height: 120px;
+  }
 
-    .gb-form-textarea {
-        height: 120px;
-        min-height: 120px;
-        max-height: 120px;
-    }
+  .gb-comment-note {
+    font-size: 13.5px;
+  }
 
-    .gb-comment-note {
-        font-size: 13px;
-    }
+  .gb-comment {
+    padding: 14px 15px;
+  }
 
-    .gb-comment {
-        padding: 14px 15px;
-    }
+  .gb-comment-text {
+    font-size: 16px;
+    line-height: 1.45;
+  }
 
-    .gb-comment-text {
-        font-size: 16px;
-        line-height: 1.4;
-    }
+  .gb-comment-author-name {
+    font-size: 16px;
+  }
 
-    .gb-comment-author-name {
-        font-size: 16px;
-    }
-
-    .gb-comment-date {
-        font-size: 12px;
-    }
+  .gb-comment-date {
+    font-size: 12px;
+  }
 }
