@@ -1,3 +1,7 @@
+/* =====================================================================
+   Golper Bahar - Modern Home Layout & Editorial Cards CSS
+   Hover Mode: Strictly Static (Original V1 Hover Colors & Shadows Preserved)
+===================================================================== */
 
 * {
   box-sizing: border-box;
@@ -7,55 +11,74 @@
 @font-face {
   font-family: "Kalpurush";
   src: url("assets/fonts/kalpurush.ttf") format("truetype");
+  font-display: swap;
 }
-
-
 
 @font-face {
   font-family: "LiPurnoPran";
   src: url("assets/fonts/LiPurnoPran.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
-}
-
-#upNav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  font-display: swap;
 }
 
 body {
   margin: 0;
-  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-  background-color: var(--bg-main);
-  color: var(--text-main);
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  background-color: #faf8f5;
+  color: #18181b;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ================= Header ================= */
+h1, h2, h3 {
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  color: #18181b;
+}
+
+/* ================= Modern Editorial Header ================= */
 .site-header {
+  position: relative;
   text-align: center;
-  padding: 40px 20px 25px;
-  background: linear-gradient(to right, #cafff3, #c0d2ff);
-
+  padding: 54px 20px 44px;
+  background: radial-gradient(circle at top right, #d1fae5 0%, transparent 45%),
+              radial-gradient(circle at bottom left, #fef3c7 0%, transparent 45%),
+              linear-gradient(135deg, #f3f7f4 0%, #faf8f5 100%);
+  border-bottom: 1px solid rgba(19, 78, 58, 0.08);
+  overflow: hidden;
 }
 
-h2 {
-  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
+.site-header::before {
+  content: "বাংলা সাহিত্যের ডিজিটাল আসর";
+  display: inline-block;
+  padding: 5px 14px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #134e3a;
+  background: rgba(19, 78, 58, 0.08);
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-radius: 999px;
 }
 
 .site-header h1 {
   margin: 0;
-  font-size: 40px;
-  font-weight: normal;
+  font-size: 46px;
+  font-weight: 700;
+  color: #0f3d2e;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .site-header p {
-  margin-top: 8px;
-  font-size: 21px;
-  color: #2a2a2a;
+  margin: 12px auto 0;
+  max-width: 640px;
+  font-size: 20px;
+  color: #4b5563;
 }
 
-/* ================= Navigation ================= */
+/* ================= Navigation (Legacy Fallback) ================= */
 .site-nav {
   display: flex;
   flex-wrap: wrap;
@@ -63,258 +86,234 @@ h2 {
   gap: 12px;
   padding: 15px;
   background: #ffffff;
-
 }
 
 .nav-item {
-  color: #000000;
-  padding: 8px 14px;
-  border-radius: 6px;
+  color: #18181b;
+  padding: 8px 16px;
+  border-radius: 999px;
   border: 1px solid transparent;
   font-size: 15px;
-  transition: border-color 0.2s ease;
 }
 
 .nav-item:hover {
-  border-color: #000000;
+  background: #ecfdf5;
+  color: #134e3a;
 }
 
-.nav-item.active {
-  border-color: #222;
-}
-
-/* ================= Home Grid ================= */
+/* ================= Home Container Grid ================= */
 .homeContainer {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
+  max-width: 1380px;
+  margin: 0 auto;
 }
 
-/* .spaceA { grid-column: 1 / 3; } */
-.intro  { grid-column: 1 / 9; }
-/* .spaceC { grid-column: 7 / 9; } */
+.spaceA,
+.spaceC {
+  display: none;
+}
 
-.spaceD { grid-column: 1 / 3; }
-.spaceMiddle { grid-column: 3 / 5; }
-.spaceWriter { grid-column: 5 / 7; }
-.spaceE { grid-column: 7 / 9; }
+.intro {
+  grid-column: 1 / 9;
+  padding: 36px 24px 16px;
+}
 
-.spaceF { grid-column: 1 / 5; }
-.spaceG { grid-column: 5 / 9; }
+/* ================= Hero Site Summary Card ================= */
+.site-summary {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  background: #ffffff;
+  border-radius: 22px;
+  border: 1px solid rgba(24, 24, 27, 0.07);
+  box-shadow: 0 12px 32px rgba(19, 78, 58, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  font-style: normal;
+}
 
+.site-summary .cover-image-main {
+  flex: 0 0 43%;
+  max-width: 43%;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
 
-/* ================= Button Group ================= */
+.site-summary .cover-image-main img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 1;
+  object-fit: cover;
+}
 
-.button-group{
+.site-summary p {
+  flex: 1;
+  margin: 0;
+  font-size: 17.5px;
+  line-height: 1.95;
+  color: #3f3f46;
+  text-align: left;
+}
+
+/* ================= Quick Category Action Buttons ================= */
+.button-group {
   grid-column: 1 / 9;
   width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 20px 20px 20px;
+  max-width: 1280px;
+  margin: 12px auto 36px;
+  padding: 0 24px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-
-  box-sizing: border-box;
-
-  /* Same background as Site Intro */
-  background-color: #d6e6ff;
+  gap: 16px;
+  background-color: transparent;
 }
 
 .button-group .spaceD,
 .button-group .spaceMiddle,
 .button-group .spaceWriter,
-.button-group .spaceE{
+.button-group .spaceE {
   padding: 0;
   min-width: 0;
   width: 100%;
   grid-column: auto;
-}
-
-.button-group .bigBtn{
-  width: 100%;
-  min-width: 0;
-  height: 62px;
-  box-sizing: border-box;
-}
-
-/* ================= Site Summary ================= */
-
-.site-summary{
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    font-style: italic;
-}
-
-/* Image - PC */
-.site-summary .cover-image-main{
-    flex: 0 0 42%;
-    max-width: 42%;
-    overflow: hidden;
-    border-radius: 14px;
-}
-
-.site-summary .cover-image-main img{
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 1;
-    object-fit: cover;
-}
-
-/* Text - PC */
-.site-summary p{
-    flex: 1;
-    margin: 0;
-    font-size: 17px;
-    line-height: 2;
-    text-align: left;
-}
-
-
-/* ================= Tablet & Mobile ================= */
-
-@media (max-width: 900px){
-
-    .site-summary{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 18px;
-        padding: 15px 20px 25px;
-        text-align: center;
-    }
-
-    .site-summary .cover-image-main{
-        width: 100%;
-        max-width: 700px;
-        flex: none;
-    }
-
-    .site-summary .cover-image-main img{
-        aspect-ratio: 3 / 1;
-        object-fit: cover;
-    }
-
-    .site-summary p{
-        width: 100%;
-        max-width: 800px;
-        font-size: 16px;
-        line-height: 1.9;
-        text-align: center;
-    }
-
-}
-
-
-/* ================= Small Mobile ================= */
-
-@media (max-width: 600px){
-
-    .site-summary{
-        padding: 10px 0px 20px;
-        gap: 15px;
-    }
-
-    .site-summary .cover-image-main{
-        border-radius: 10px;
-    }
-
-    .site-summary p{
-        font-size: 15px;
-        line-height: 1.5;
-    }
-
+  background: transparent;
 }
 
 .bigBtn {
   width: 100%;
-  height: 100%;
-  padding: 14px 22px;
-  font-size: 16px;
-  font-weight: 500;
-  color: #000000;
+  height: 64px;
+  padding: 14px 20px;
+  font-size: 16.5px;
+  font-weight: 600;
+  color: #134e3a;
   background: #ffffff;
-  border: 1.5px solid #000000;
-  border-radius: 10px;
+  border: 1.5px solid rgba(19, 78, 58, 0.18);
+  border-radius: 16px;
   text-align: center;
   cursor: pointer;
-  transition: all 0.25s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(19, 78, 58, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.bigBtn::after {
+  content: "→";
+  font-size: 18px;
+  opacity: 0.65;
 }
 
 .bigBtn:hover {
-  background-color: #faeeff;
-  border-color: #af0568;
-  box-shadow: 0 6px 18px rgba(47, 128, 255, 0.25);
-  /* transform: translateY(-2px); */
+  background: #134e3a;
+  color: #ffffff;
+  border-color: #134e3a;
+  box-shadow: 0 12px 24px rgba(19, 78, 58, 0.2);
 }
 
-.bigBtn:active {
-  transform: translateY(0);
+.bigBtn:hover::after {
+  opacity: 1;
 }
 
-/* ================= Content Blocks ================= */
+/* ================= Recent & Featured Content Blocks ================= */
+.spaceF {
+  grid-column: 1 / 5;
+  background: linear-gradient(180deg, #fff8f3 0%, #fff2e8 100%);
+  border: 1px solid rgba(217, 119, 6, 0.14);
+  border-radius: 24px;
+  margin: 0 12px 36px 24px;
+  padding: 26px 22px;
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.04);
+}
+
+.spaceG {
+  grid-column: 5 / 9;
+  background: linear-gradient(180deg, #f4faf7 0%, #e9f5ef 100%);
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-radius: 24px;
+  margin: 0 24px 36px 12px;
+  padding: 26px 22px;
+  box-shadow: 0 8px 24px rgba(19, 78, 58, 0.04);
+}
+
 .content-block {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 20px;
 }
 
 .upperHead {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
 .upperHead h2 {
-  margin: 30px 0 0;
-  font-size: 1.5rem;
+  margin: 4px 0 0;
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: #18181b;
+  position: relative;
+  padding-bottom: 10px;
 }
 
-/* ================= Section Background ================= */
-.spaceF {
-  background-color: #ffd3bb;
-  padding: 10px;
+.spaceF .upperHead h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  border-radius: 99px;
+  background: #d97706;
 }
 
-.spaceG {
-  background-color: #eec8ff;
-  padding: 10px;
+.spaceG .upperHead h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  border-radius: 99px;
+  background: #134e3a;
 }
 
-/* ================= Story Grid ================= */
+/* ================= Story Grid & Modern Cards ================= */
 .spaceF .lowerBox,
 .spaceG .lowerBox {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin: 20px;
+  gap: 18px;
+  margin: 6px 0 0;
 }
 
-/* ================= Story Card ================= */
 .storyCard {
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.25s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  border: 1px solid rgba(24, 24, 27, 0.07);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
-.storyCard:hover {
-  transform: translateY(-2px);
-}
-
-/* image */
 .storyImg {
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
+  background: #f3f0ea;
+  position: relative;
 }
 
 .storyImg img {
@@ -323,290 +322,401 @@ h2 {
   object-fit: cover;
 }
 
-/* info */
 .storyInfo {
-  padding: 10px 12px 14px;
+  padding: 13px 12px 15px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
 }
 
 .storyInfo h3 {
   margin: 0;
-  font-size: 15px;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #18181b;
+  line-height: 1.4;
 }
 
 .storyInfo p {
   margin: 0;
   font-size: 13px;
-  color: #666;
+  color: #71717a;
 }
 
-/* ================= Hover Light Shift ================= */
 .spaceF .storyCard:hover {
-  box-shadow:
-    0 10px 28px rgba(0,0,0,0.30),
-    0 0 0 1px rgba(47,128,255,0.45);
+  border-color: rgba(217, 119, 6, 0.4);
+  box-shadow: 0 14px 28px rgba(217, 119, 6, 0.14);
+}
+
+.spaceF .storyCard:hover .storyInfo h3 {
+  color: #b45309;
 }
 
 .spaceG .storyCard:hover {
-  box-shadow:
-    0 10px 28px rgba(0,0,0,0.30),
-    0 0 0 1px rgba(72,180,140,0.45);
+  border-color: rgba(19, 78, 58, 0.4);
+  box-shadow: 0 14px 28px rgba(19, 78, 58, 0.14);
 }
 
-
-
-
-/* ================= Tablet ================= */
-@media (max-width: 1000px) {
-
-  .spaceA,
-  .spaceC {
-    display: none;
-  }
-
-  .homeContainer {
-    grid-template-columns: repeat(2, 1fr);
-    margin: 0px;
-  }
-
-  .intro,
-  .spaceF,
-  .spaceG {
-    grid-column: 1 / -1;
-    padding: 10px;
-  }
-
-.spaceD,
-.spaceMiddle,
-.spaceWriter,
-.spaceE {
-  padding: 5px;
+.spaceG .storyCard:hover .storyInfo h3 {
+  color: #134e3a;
 }
 
-  .spaceD { grid-column: 1; }
-  .spaceMiddle { grid-column: 2; }
-  .spaceWriter { grid-column: 1; }
-  .spaceE { grid-column: 2; }
-
-  .spaceF .lowerBox,
-  .spaceG .lowerBox {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-  }
-
-  .button-group{
-  grid-column: 1 / -1;
-
+/* ================= All Stories Index Directory ================= */
+.allStoriesSection {
   width: 100%;
-  max-width: none;
+  max-width: 1332px;
+  margin: 24px auto 48px;
+  padding: 0 24px;
+}
 
-  padding: 15px 25px 20px;
+.allStoriesSection .upperHead h2 {
+  font-size: 1.75rem;
+  color: #134e3a;
+}
 
+.allStoriesSection .upperHead h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 3px;
+  border-radius: 99px;
+  background: #134e3a;
+}
+
+.storyIndexGrid {
+  display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-
-  background-color: #d6e6ff;
-}
-
-.button-group .spaceD,
-.button-group .spaceMiddle,
-.button-group .spaceWriter,
-.button-group .spaceE{
-  grid-column: auto;
-  padding: 0;
-}
-}
-
-
-
-/* ================= Mobile ================= */
-@media (max-width: 600px) {
-
-  .button-group{
-  grid-column: 1 / -1;
-  width: 100%;
-  max-width: none;
-  padding: 10px 12px 18px;
   gap: 10px;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  background-color: #d6e6ff;
+  margin-top: 28px;
 }
 
-.button-group .spaceD,
-.button-group .spaceMiddle,
-.button-group .spaceWriter,
-.button-group .spaceE{
-  grid-column: auto;
-  padding: 0;
+.storyIndexCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 27, 0.09);
+  border-left: 3.5px solid #0284c7;
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
 }
 
-.button-group .bigBtn{
-  height: 58px;
+.storyIndexCard:hover {
+  background: #f0f9ff;
+  border-color: #0284c7;
+  box-shadow: 0 8px 18px rgba(2, 132, 199, 0.12);
 }
 
-  .site-header h1 {
+.storyIndexCard h3 {
   margin: 0;
-  font-size: 32px;
-  font-weight: normal;
+  font-size: 13.5px;
+  line-height: 1.45;
+  font-weight: 700;
+  color: #18181b;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
 }
 
-.site-header p {
-  margin-top: 8px;
-  font-size: 15px;
-  color: #2a2a2a;
-  }
-
-  body {
-    overflow-x: hidden;
-  }
-
-
-
-.spaceF,
-.spaceG {
-  padding: 15px;
+.storyIndexCard p {
+  margin: 5px 0 0;
+  font-size: 11.5px;
+  line-height: 1.3;
+  color: #6b7280;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-  .intro {
-    padding: 20px;
-  }
-
-  .spaceF .lowerBox,
-  .spaceG .lowerBox {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-    margin: 0;
-  }
+/* Onugolpo Variant */
+.onucard {
+  background-color: #ffffff;
+  border-left: 3.5px solid #16a34a;
 }
 
-/* ================= Force Light Card in Dark Mode ================= */
-@media (prefers-color-scheme: dark) {
-
-  .storyCard {
-    background-color: #ffffff;
-    color: #222;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
-  }
-
-  .aboutCard{
-  background:#ffffff;
-  color:#222;
+.onucard:hover {
+  background-color: #f0fdf4;
+  border-color: #16a34a;
+  box-shadow: 0 8px 18px rgba(22, 163, 74, 0.12);
 }
 
-  .storyCard:hover {
-    box-shadow:
-      0 12px 30px rgba(0,0,0,0.55),
-      0 0 0 1px rgba(255,255,255,0.12);
+/* Short Story Variant */
+.shortcard {
+  background-color: #ffffff;
+  border-left: 3.5px solid #db2777;
+}
+
+.shortcard:hover {
+  background-color: #fdf2f8;
+  border-color: #db2777;
+  box-shadow: 0 8px 18px rgba(219, 39, 119, 0.12);
+}
+
+@media (min-width: 768px) {
+  .storyIndexGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
   }
 }
 
-/* =========================
-   Top Unified Section Color
-========================= */
-
-.spaceA,
-.intro,
-.spaceC,
-.spaceD,
-.spaceMiddle,
-.spaceWriter,
-.spaceE {
-  background-color: #d6e6ff;
+@media (min-width: 992px) {
+  .storyIndexGrid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
 }
 
-/* ================= About Section ================= */
-
-.about-screen{
-  background: #f8f1d8;
-  padding: 35px 0;
+@media (min-width: 1400px) {
+  .storyIndexGrid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
 }
 
-.aboutGolperBahar{
-  max-width: 1100px;
+/* =====================================================================
+   Popular Bengali Blog Section
+===================================================================== */
+.popularBlogSection {
+  max-width: 1332px;
+  margin: 56px auto;
+  padding: 0 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #18181b;
+  position: relative;
+  padding-left: 14px;
+}
+
+.sectionHeader h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15%;
+  height: 70%;
+  width: 4px;
+  background: #134e3a;
+  border-radius: 4px;
+}
+
+.allblogbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 20px;
+  background: #134e3a;
+  color: #ffffff !important;
+  border: 1px solid #134e3a;
+  border-radius: 999px;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.18);
+}
+
+.allblogbtn::after {
+  content: "→";
+}
+
+.allblogbtn:hover {
+  background: #1e6b50;
+  border-color: #1e6b50;
+  box-shadow: 0 8px 18px rgba(19, 78, 58, 0.25);
+}
+
+.popularBlogGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.popularBlogCard {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  color: inherit;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.popularBlogCard:hover {
+  background: #ffffff;
+  border-color: rgba(19, 78, 58, 0.35);
+  box-shadow: 0 16px 32px rgba(19, 78, 58, 0.12);
+}
+
+.popularBlogCard img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.blogCardContent {
+  padding: 15px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.blogCategory {
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 8px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #ecfdf5;
+  color: #134e3a;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.blogCardContent h3 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.48;
+  font-weight: 700;
+  color: #18181b;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.popularBlogCard:hover .blogCardContent h3 {
+  color: #134e3a;
+}
+
+.blogCardContent p {
+  margin: 8px 0 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #6b7280;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* =====================================================================
+   About Golper Bahar Editorial Section
+===================================================================== */
+.about-screen {
+  background: linear-gradient(180deg, #f4efe6 0%, #ede6d8 100%);
+  padding: 56px 20px;
+  border-top: 1px solid rgba(24, 24, 27, 0.06);
+}
+
+.aboutGolperBahar {
+  max-width: 1060px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 
-.aboutGolperBahar h2{
-  text-align:center;
-  margin:0 0 20px;
-  font-size:32px;
-  font-weight:600;
+.aboutGolperBahar h2 {
+  text-align: center;
+  margin: 0 0 26px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #134e3a;
 }
 
-.aboutGolperBahar p{
-  margin:0;
-  font-size:18px;
-  line-height:2;
-  text-align:justify;
+.aboutCard {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 38px 42px;
+  box-shadow: 0 14px 36px rgba(19, 78, 58, 0.06);
+  border: 1px solid rgba(24, 24, 27, 0.06);
 }
 
-.aboutCard{
-  background:#ffffff;
-  border-radius:18px;
-  padding:30px;
-  box-shadow:0 4px 16px rgba(0,0,0,.08);
-  border:1px solid rgba(0,0,0,.08);
+.aboutGolperBahar p {
+  margin: 0;
+  font-size: 17.5px;
+  line-height: 2.05;
+  color: #3f3f46;
+  text-align: justify;
 }
 
-/* ================= About Social ================= */
-
-.aboutSocial{
-  margin-top:30px;
-  padding-top:25px;
-  border-top:1px solid rgba(0,0,0,.08);
-  text-align:center;
+.aboutSocial {
+  margin-top: 32px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(24, 24, 27, 0.08);
+  text-align: center;
 }
 
-.aboutSocial h3{
-  margin:0 0 18px;
-  font-size:22px;
-  font-weight:600;
+.aboutSocial h3 {
+  margin: 0 0 18px;
+  font-size: 21px;
+  font-weight: 700;
+  color: #18181b;
 }
 
-.aboutSocialIcons{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  flex-wrap:wrap;
+.aboutSocialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-.aboutSocialIcons a{
-  width:52px;
-  height:52px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:24px;
-  background:#fff;
-  border-radius:50%;
-  border:1px solid rgba(0,0,0,.10);
-  box-shadow:0 2px 8px rgba(0,0,0,.08);
-  transition:all .2s ease;
+.aboutSocialIcons a {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background: #faf8f5;
+  border-radius: 50%;
+  border: 1px solid rgba(19, 78, 58, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
-.aboutSocialIcons a:hover{
-  transform:translateY(-2px);
-  box-shadow:0 5px 12px rgba(0,0,0,.12);
+.aboutSocialIcons a:hover {
+  background: #134e3a;
+  box-shadow: 0 10px 20px rgba(19, 78, 58, 0.2);
 }
 
-/* ================= Social Connect ================= */
-
+/* ================= Social Connect (If Used) ================= */
 .socialConnect {
-  background: #eef5ff;
-  padding: 40px 20px;
+  background: #f3f7f4;
+  padding: 44px 20px;
   text-align: center;
 }
 
 .socialConnect h3 {
-  margin: 0 0 25px;
+  margin: 0 0 26px;
   font-size: 28px;
 }
 
 .socialGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
+  gap: 16px;
   max-width: 1200px;
   margin: auto;
 }
@@ -615,349 +725,238 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 70px;
+  min-height: 68px;
   padding: 15px;
-  border-radius: 12px;
+  border-radius: 14px;
   color: #fff;
   font-size: 18px;
   font-weight: 600;
-  transition: all 0.25s ease;
 }
 
 .socialBtn:hover {
-  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* Facebook */
 .facebookPage,
 .facebookGroup {
   background: #1877f2;
 }
 
-/* Telegram */
 .telegramChannel,
 .telegramGroup {
-  background: #229ED9;
+  background: #229ed9;
 }
 
-/* Responsive */
+/* =====================================================================
+   Responsive Breakpoints
+===================================================================== */
+@media (max-width: 1100px) {
+  .popularBlogGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 1000px) {
-  .socialGrid {
-    grid-template-columns: repeat(2, 1fr);
+  .homeContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .intro {
+    grid-column: 1 / -1;
+    padding: 24px 16px 12px;
+  }
+
+  .site-summary {
+    flex-direction: column;
+    padding: 22px;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .site-summary .cover-image-main {
+    width: 100%;
+    max-width: 720px;
+    flex: none;
+  }
+
+  .site-summary p {
+    width: 100%;
+    font-size: 16.5px;
+    text-align: center;
+  }
+
+  .button-group {
+    grid-column: 1 / -1;
+    padding: 0 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .spaceF,
+  .spaceG {
+    grid-column: 1 / -1;
+    margin: 0 16px 24px;
+    padding: 22px 18px;
+  }
+
+  .spaceF .lowerBox,
+  .spaceG .lowerBox {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .popularBlogGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
   }
 }
 
 @media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
 
-  .aboutGolperBahar{
-  margin:25px auto;
-  padding:0 12px;
-}
+  .site-header {
+    padding: 36px 16px 30px;
+  }
 
-.aboutGolperBahar h2{
-  font-size:24px;
-  margin-bottom:14px;
-}
+  .site-header h1 {
+    font-size: 34px;
+  }
 
-.aboutGolperBahar p{
-  font-size:16px;
-  line-height:1.9;
-}
+  .site-header p {
+    font-size: 16px;
+  }
 
-.aboutCard{
-  padding:20px;
-  border-radius:14px;
-}
+  .site-summary {
+    padding: 16px;
+    border-radius: 16px;
+  }
 
-.aboutSocial{
-  margin-top:20px;
-  padding-top:20px;
-}
+  .site-summary .cover-image-main {
+    border-radius: 12px;
+  }
 
-.aboutSocial h3{
-  font-size:18px;
-}
+  .site-summary p {
+    font-size: 15.5px;
+    line-height: 1.75;
+  }
 
-.aboutSocialIcons a{
-  width:46px;
-  height:46px;
-  font-size:22px;
-}
+  .button-group {
+    padding: 0 14px;
+    gap: 10px;
+  }
+
+  .button-group .bigBtn {
+    height: 54px;
+    font-size: 14.5px;
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+
+  .spaceF,
+  .spaceG {
+    margin: 0 14px 20px;
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+
+  .upperHead h2 {
+    font-size: 1.45rem;
+  }
+
+  .spaceF .lowerBox,
+  .spaceG .lowerBox {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .storyInfo {
+    padding: 10px 8px 12px;
+  }
+
+  .storyInfo h3 {
+    font-size: 14.5px;
+  }
+
+  .storyInfo p {
+    font-size: 12px;
+  }
+
+  .allStoriesSection {
+    padding: 0 14px;
+  }
+
+  .popularBlogSection {
+    padding: 0 14px;
+    margin: 36px auto;
+  }
+
+  .sectionHeader h2 {
+    font-size: 1.4rem;
+  }
+
+  .allblogbtn {
+    font-size: 13.5px;
+    padding: 7px 14px;
+  }
+
+  .blogCardContent {
+    padding: 11px 12px 14px;
+  }
+
+  .blogCardContent h3 {
+    font-size: 14.5px;
+  }
+
+  .blogCardContent p {
+    font-size: 12.5px;
+  }
+
+  .about-screen {
+    padding: 36px 14px;
+  }
+
+  .aboutGolperBahar h2 {
+    font-size: 25px;
+    margin-bottom: 18px;
+  }
+
+  .aboutCard {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .aboutGolperBahar p {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .aboutSocial h3 {
+    font-size: 18.5px;
+  }
+
+  .aboutSocialIcons a {
+    width: 46px;
+    height: 46px;
+    font-size: 20px;
+  }
 
   .socialGrid {
     grid-template-columns: 1fr;
   }
+}
 
-  .socialConnect h3 {
-    font-size: 24px;
+/* ================= Force Light Editorial Cards in Dark Mode ================= */
+@media (prefers-color-scheme: dark) {
+  .storyCard,
+  .aboutCard,
+  .site-summary,
+  .popularBlogCard,
+  .storyIndexCard {
+    background-color: #ffffff;
+    color: #18181b;
   }
-
-  .socialBtn {
-    font-size: 16px;
-    min-height: 60px;
-  }
-}
-
-
-/* ======= সব গল্পের কার্ড একসাথে ========= */
-
-.allStoriesSection{
-    width:100%;
-    margin:10px 0;
-    padding:0 10px;
-}
-
-.storyIndexGrid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:8px;
-    margin-top: 30px;
-}
-
-.storyIndexCard {
-    display:block;
-    text-decoration:none;
-    background:var(--card-bg,#e4f5ff);
-    border:1px solid var(--border-color,#ddd);
-    border-radius:8px;
-    padding:7px 9px;
-    transition:background-color .18s ease,border-color .18s ease;
-}
-
-.storyIndexCard:hover{
-    background:var(--primary-light,#ffffff);
-    border-color:var(--primary-color,#4f7cff);
-}
-
-.storyIndexCard h3{
-    margin:0;
-    font-size:13px;
-    line-height:1.5;
-    font-weight:600;
-    color:var(--text-color,#222);
-
-    display:-webkit-box;
-    -webkit-box-orient:vertical;
-    -webkit-line-clamp:2;
-    line-clamp: 2;
-    overflow:hidden;
-}
-
-.storyIndexCard p{
-    margin:4px 0 0;
-    font-size:11px;
-    line-height:1.3;
-    color:var(--text-muted,#777);
-
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-}
-
-.onucard {
-  background-color: #f5ffd8;
-}
-
-.shortcard {
-  background-color: #ffe3f3f3;
-}
-
-@media (min-width:768px){
-    .storyIndexGrid{
-        grid-template-columns:repeat(4,minmax(0,1fr));
-        gap:10px;
-    }
-}
-
-@media (min-width:992px){
-    .storyIndexGrid{
-        grid-template-columns:repeat(6,minmax(0,1fr));
-    }
-}
-
-@media (min-width:1400px){
-    .storyIndexGrid{
-        grid-template-columns:repeat(8,minmax(0,1fr));
-    }
-}
-
-/* ===============================
-   Popular Bengali Blog Section
-================================ */
-
-.popularBlogSection{
-    margin:40px 0;
-    padding: 0 10px;
-}
-
-.sectionHeader{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
-    margin-bottom:20px;
-    flex-wrap:wrap;
-    flex-direction: column;
-}
-
-.sectionHeader h2{
-    margin:0;
-    font-size:1.7rem;
-    font-weight:600;
-    /* text-align: center; */
-}
-
-.sectionHeader a{
-    color:var(--primary-color,#2d62ff);
-    font-size:15px;
-    text-decoration:none;
-}
-
-
-/* Grid */
-
-.popularBlogGrid{
-    display:grid;
-    grid-template-columns:repeat(6,minmax(0,1fr));
-    gap:12px;
-}
-
-
-/* Card */
-
-.popularBlogCard{
-    display:block;
-    background:var(--card-bg,#ffffff);
-    border:1px solid var(--border-color,#ddd);
-    border-radius:10px;
-    overflow:hidden;
-    color:inherit;
-    transition:
-        background-color .18s ease,
-        border-color .18s ease,
-        box-shadow .18s ease;
-}
-
-.popularBlogCard:hover{
-    background:#f8fbff;
-    border-color:var(--primary-color,#4f7cff);
-    box-shadow:0 6px 18px rgba(0,0,0,.10);
-}
-
-.popularBlogCard img{
-    width:100%;
-    display:block;
-    aspect-ratio:16/10;
-    object-fit:cover;
-}
-
-.blogCardContent{
-    padding:10px;
-}
-
-.blogCategory{
-    display:inline-block;
-    margin-bottom:6px;
-    font-size:11px;
-    color:var(--text-muted,#666);
-}
-
-.blogCardContent h3{
-    margin:0;
-    font-size:15px;
-    line-height:1.45;
-    font-weight:600;
-
-    display:-webkit-box;
-    -webkit-box-orient:vertical;
-    -webkit-line-clamp:2;
-    line-clamp:2;
-    overflow:hidden;
-}
-
-.blogCardContent p{
-    margin:7px 0 0;
-    font-size:13px;
-    line-height:1.5;
-    color:var(--text-muted,#777);
-
-    display:-webkit-box;
-    -webkit-box-orient:vertical;
-    -webkit-line-clamp:2;
-    line-clamp:2;
-    overflow:hidden;
-}
-
-.allblogbtn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:8px 16px;
-    background:#fffbe7;
-    color:#fff;
-    border:1px solid #4f7cff;
-    border-radius:999px;
-    font-size:14px;
-    font-weight:600;
-    text-decoration:none;
-    transition:
-        background-color .18s ease,
-        border-color .18s ease,
-        color .18s ease;
-}
-
-.allblogbtn:hover{
-    background:#ffd6d6;
-    border-color:#3468f0;
-    color:#000000;
-    text-decoration:none;
-}
-
-/* ===============================
-   Responsive
-================================ */
-
-@media (max-width:1400px){
-
-    .popularBlogGrid{
-        grid-template-columns:repeat(4,minmax(0,1fr));
-    }
-
-}
-
-@media (max-width:900px){
-
-    .popularBlogGrid{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-    }
-
-}
-
-@media (max-width:600px){
-
-    .popularBlogGrid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:10px;
-    }
-
-    .sectionHeader h2{
-        font-size:1.35rem;
-    }
-
-    .sectionHeader a{
-        font-size:14px;
-    }
-
-    .blogCardContent{
-        padding:8px;
-    }
-
-    .blogCardContent h3{
-        font-size:14px;
-    }
-
-    .blogCardContent p{
-        font-size:12px;
-    }
-
 }
