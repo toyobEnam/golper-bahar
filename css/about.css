@@ -1,6 +1,6 @@
 /* =====================================================================
    Golper Bahar - About, Publisher, Gift & Author Submit Page CSS
-   Theme: Warm Editorial & Deep Forest Emerald (Static Hover Edition)
+   Theme: Warm Editorial & Deep Forest Emerald (Clean Sharp Card Edition)
 ===================================================================== */
 
 * {
@@ -43,30 +43,30 @@ body {
 .about-header {
   position: relative;
   text-align: center;
-  padding: 54px 20px 42px;
+  padding: 50px 20px 38px;
   background: radial-gradient(circle at top right, #d1fae5 0%, transparent 45%),
               radial-gradient(circle at bottom left, #fef3c7 0%, transparent 45%),
               linear-gradient(135deg, #f3f7f4 0%, #faf8f5 100%);
   border-bottom: 1px solid rgba(19, 78, 58, 0.08);
-  margin-bottom: 36px;
+  margin-bottom: 32px;
 }
 
 .about-header::before {
   content: "গল্পের বাহার পরিচিতি ও তথ্য";
   display: inline-block;
-  padding: 4px 14px;
-  margin-bottom: 12px;
+  padding: 4px 12px;
+  margin-bottom: 10px;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.03em;
   color: #134e3a;
   background: rgba(19, 78, 58, 0.08);
   border: 1px solid rgba(19, 78, 58, 0.14);
-  border-radius: 999px;
+  border-radius: 6px;
 }
 
 .about-header h1 {
-  font-size: 40px;
+  font-size: 38px;
   font-weight: 700;
   color: #0f3d2e;
   line-height: 1.25;
@@ -75,7 +75,7 @@ body {
 .about-header p {
   margin: 10px auto 0;
   max-width: 680px;
-  font-size: 19px;
+  font-size: 18.5px;
   color: #4b5563;
 }
 
@@ -83,27 +83,27 @@ body {
 .about-container {
   max-width: 940px;
   margin: 0 auto;
-  padding: 0 20px 56px;
+  padding: 0 20px 52px;
 }
 
 .about-section {
   background: #ffffff;
-  padding: 32px 36px;
-  margin-bottom: 24px;
-  border-radius: 20px;
-  border: 1px solid rgba(24, 24, 27, 0.07);
-  box-shadow: 0 8px 24px rgba(19, 78, 58, 0.04);
+  padding: 30px 34px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(24, 24, 27, 0.09);
+  box-shadow: 0 4px 16px rgba(19, 78, 58, 0.04);
 }
 
 .about-section h2 {
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 700;
   color: #134e3a;
   margin-bottom: 14px;
 }
 
 .about-section p {
-  font-size: 20.5px;
+  font-size: 20px;
   line-height: 1.95;
   color: #27272a;
   font-family: "LiPurnoPran", 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
@@ -116,18 +116,18 @@ body {
   color: #27272a;
 }
 
-/* Highlight Callout Card */
+/* Highlight Callout Card (Clean Uniform Border, No Left Bar) */
 .highlight {
   background: linear-gradient(135deg, #ffffff 0%, #f4faf7 100%);
-  border-left: 5px solid #134e3a;
+  border: 1px solid rgba(19, 78, 58, 0.22);
 }
 
 /* Live Stats Highlight Card (.blue) */
 .blue {
   background: linear-gradient(135deg, #134e3a 0%, #0d3829 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  box-shadow: 0 12px 28px rgba(19, 78, 58, 0.18);
+  box-shadow: 0 8px 22px rgba(19, 78, 58, 0.16);
 }
 
 .blue p {
@@ -168,7 +168,7 @@ body {
 .contact-btn {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   justify-content: center;
   margin-top: 14px;
 }
@@ -176,18 +176,18 @@ body {
 .contact-btn a {
   background-color: #134e3a;
   color: #ffffff;
-  font-size: 16.5px;
+  font-size: 16px;
   font-weight: 600;
   text-decoration: none;
-  padding: 9px 26px;
-  border-radius: 999px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 9px 22px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .contact-btn a:hover {
   text-decoration: none;
   background-color: #0d3829;
-  box-shadow: 0 8px 18px rgba(19, 78, 58, 0.25);
+  box-shadow: 0 6px 16px rgba(19, 78, 58, 0.24);
 }
 
 /* WhatsApp */
@@ -197,7 +197,7 @@ body {
 
 .wa-btn:hover {
   background: #15803d !important;
-  box-shadow: 0 8px 18px rgba(22, 163, 74, 0.28) !important;
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.26) !important;
 }
 
 /* Facebook Page */
@@ -207,7 +207,7 @@ body {
 
 .fb-btn:hover {
   background: #1462c9 !important;
-  box-shadow: 0 8px 18px rgba(24, 119, 242, 0.28) !important;
+  box-shadow: 0 6px 16px rgba(24, 119, 242, 0.26) !important;
 }
 
 /* Facebook Group */
@@ -217,7 +217,7 @@ body {
 
 .group-btn:hover {
   background: #1e6b50 !important;
-  box-shadow: 0 8px 18px rgba(19, 78, 58, 0.28) !important;
+  box-shadow: 0 6px 16px rgba(19, 78, 58, 0.26) !important;
 }
 
 /* Telegram */
@@ -227,7 +227,7 @@ body {
 
 .tg-btn:hover {
   background: #0369a1 !important;
-  box-shadow: 0 8px 18px rgba(2, 132, 199, 0.28) !important;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.26) !important;
 }
 
 /* Email */
@@ -237,7 +237,7 @@ body {
 
 .mail-btn:hover {
   background: #b91c1c !important;
-  box-shadow: 0 8px 18px rgba(220, 38, 38, 0.28) !important;
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.26) !important;
 }
 
 /* =============== Gift Page Special ============== */
@@ -246,17 +246,17 @@ body {
 }
 
 .numberboard p {
-  font-size: 20px;
+  font-size: 19.5px;
 }
 
 .numx {
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 700;
   color: #134e3a;
   background-color: #f3f0ea;
   border: 1px solid rgba(19, 78, 58, 0.16);
-  padding: 8px 20px;
-  border-radius: 12px;
+  padding: 8px 18px;
+  border-radius: 6px;
   display: inline-block;
   margin: 8px 0;
 }
@@ -269,13 +269,13 @@ body {
   background-color: #134e3a;
   color: #ffffff;
   border: 1px solid #134e3a;
-  border-radius: 999px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 .cp-btn:hover {
   background-color: #1e6b50;
-  box-shadow: 0 6px 14px rgba(19, 78, 58, 0.22);
+  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.2);
 }
 
 .cp-btn:active {
@@ -289,10 +289,10 @@ body {
   right: 20px;
   background: #134e3a;
   color: #ffffff;
-  padding: 12px 22px;
-  border-radius: 999px;
+  padding: 11px 20px;
+  border-radius: 6px;
   font-size: 15px;
-  box-shadow: 0 10px 24px rgba(19, 78, 58, 0.28);
+  box-shadow: 0 8px 20px rgba(19, 78, 58, 0.26);
   opacity: 0;
   z-index: 99999;
   transition: opacity 0.25s ease;
@@ -316,7 +316,7 @@ body {
 }
 
 #founder-name {
-  font-size: 38px;
+  font-size: 36px;
   font-weight: 700;
   color: #134e3a;
   margin: 4px 0;
@@ -325,13 +325,13 @@ body {
 
 /* ============ Author Form Submit Page =========== */
 .form-group {
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  font-size: 19px;
+  font-size: 18.5px;
   font-weight: 700;
   color: #18181b;
 }
@@ -347,12 +347,12 @@ body {
 .form-group textarea,
 .form-group select {
   width: 100%;
-  padding: 14px 16px;
-  border-radius: 12px;
-  border: 1px solid rgba(24, 24, 27, 0.16);
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: 1px solid rgba(24, 24, 27, 0.18);
   background: #faf8f5;
   color: #18181b;
-  font-size: 17.5px;
+  font-size: 17px;
   line-height: 1.6;
   font-family: "LiPurnoPran", "Kalpurush", 'Hind Siliguri', sans-serif;
 }
@@ -376,17 +376,17 @@ body {
   border: none;
   background: #134e3a;
   color: #ffffff;
-  padding: 14px 20px;
-  border-radius: 999px;
-  font-size: 19px;
+  padding: 13px 20px;
+  border-radius: 6px;
+  font-size: 18.5px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(19, 78, 58, 0.22);
+  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.2);
 }
 
 .submit-btn:hover {
   background: #1e6b50;
-  box-shadow: 0 10px 22px rgba(19, 78, 58, 0.28);
+  box-shadow: 0 8px 18px rgba(19, 78, 58, 0.26);
 }
 
 .loading {
@@ -396,9 +396,11 @@ body {
 
 .smallText {
   margin-top: 12px;
-  padding-left: 14px;
-  border-left: 3px solid rgba(19, 78, 58, 0.3);
-  font-size: 15.5px;
+  padding: 10px 14px;
+  background: #faf8f5;
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  border-radius: 6px;
+  font-size: 15px;
   line-height: 1.8;
   color: #52525b;
   font-family: "LiPurnoPran", "Kalpurush", 'Hind Siliguri', sans-serif;
@@ -407,12 +409,12 @@ body {
 /* ================= Tablet Breakpoint (<= 1000px) ================= */
 @media (max-width: 1000px) {
   .about-header {
-    padding: 42px 18px 34px;
-    margin-bottom: 28px;
+    padding: 40px 18px 32px;
+    margin-bottom: 24px;
   }
 
   .about-header h1 {
-    font-size: 32px;
+    font-size: 31px;
   }
 
   .about-header p {
@@ -420,12 +422,12 @@ body {
   }
 
   .about-section {
-    padding: 26px 24px;
-    border-radius: 16px;
+    padding: 24px 22px;
+    border-radius: 8px;
   }
 
   .about-section h2 {
-    font-size: 22px;
+    font-size: 21.5px;
   }
 
   .about-section p,
@@ -439,7 +441,7 @@ body {
 
   .contact-btn a {
     font-size: 15px;
-    padding: 8px 20px;
+    padding: 8px 18px;
   }
 
   .numberboard p {
@@ -451,23 +453,23 @@ body {
   }
 
   .numx {
-    font-size: 30px;
+    font-size: 28px;
   }
 
   #founder-name {
-    font-size: 33px;
+    font-size: 32px;
   }
 }
 
 /* ================= Mobile Breakpoint (<= 600px) ================= */
 @media (max-width: 600px) {
   .about-header {
-    padding: 32px 14px 26px;
-    margin-bottom: 22px;
+    padding: 30px 14px 24px;
+    margin-bottom: 20px;
   }
 
   .about-header h1 {
-    font-size: 26px;
+    font-size: 25px;
   }
 
   .about-header p {
@@ -475,17 +477,17 @@ body {
   }
 
   .about-container {
-    padding: 0 14px 40px;
+    padding: 0 12px 36px;
   }
 
   .about-section {
-    padding: 20px 18px;
-    margin-bottom: 18px;
-    border-radius: 14px;
+    padding: 18px 16px;
+    margin-bottom: 16px;
+    border-radius: 6px;
   }
 
   .about-section h2 {
-    font-size: 20px;
+    font-size: 19.5px;
   }
 
   .about-section p,
@@ -500,7 +502,8 @@ body {
 
   .contact-btn a {
     font-size: 13.5px;
-    padding: 7px 16px;
+    padding: 7px 14px;
+    border-radius: 5px;
   }
 
   .form-group label {
@@ -511,12 +514,12 @@ body {
   .form-group textarea,
   .form-group select {
     font-size: 15.5px;
-    padding: 12px;
+    padding: 11px 12px;
   }
 
   .submit-btn {
     font-size: 17px;
-    padding: 12px 16px;
+    padding: 11px 16px;
   }
 
   .numberboard p {
@@ -524,16 +527,15 @@ body {
   }
 
   .smallText {
-    font-size: 13px;
-    padding-left: 10px;
+    font-size: 13.5px;
   }
 
   .numx {
-    font-size: 26px;
-    padding: 6px 14px;
+    font-size: 24px;
+    padding: 6px 12px;
   }
 
   #founder-name {
-    font-size: 28px;
+    font-size: 27px;
   }
 }

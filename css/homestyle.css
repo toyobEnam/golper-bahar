@@ -1,6 +1,6 @@
 /* =====================================================================
    Golper Bahar - Modern Home Layout & Editorial Cards CSS
-   Hover Mode: Strictly Static (Original V1 Hover Colors & Shadows Preserved)
+   Theme: Warm Editorial & Deep Forest Emerald (Clean Sharp Card Edition)
 ===================================================================== */
 
 * {
@@ -40,7 +40,7 @@ h1, h2, h3 {
 .site-header {
   position: relative;
   text-align: center;
-  padding: 54px 20px 44px;
+  padding: 50px 20px 40px;
   background: radial-gradient(circle at top right, #d1fae5 0%, transparent 45%),
               radial-gradient(circle at bottom left, #fef3c7 0%, transparent 45%),
               linear-gradient(135deg, #f3f7f4 0%, #faf8f5 100%);
@@ -51,20 +51,20 @@ h1, h2, h3 {
 .site-header::before {
   content: "বাংলা সাহিত্যের ডিজিটাল আসর";
   display: inline-block;
-  padding: 5px 14px;
-  margin-bottom: 14px;
+  padding: 4px 12px;
+  margin-bottom: 12px;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.03em;
   color: #134e3a;
   background: rgba(19, 78, 58, 0.08);
   border: 1px solid rgba(19, 78, 58, 0.14);
-  border-radius: 999px;
+  border-radius: 6px;
 }
 
 .site-header h1 {
   margin: 0;
-  font-size: 46px;
+  font-size: 44px;
   font-weight: 700;
   color: #0f3d2e;
   letter-spacing: -0.01em;
@@ -72,9 +72,9 @@ h1, h2, h3 {
 }
 
 .site-header p {
-  margin: 12px auto 0;
+  margin: 10px auto 0;
   max-width: 640px;
-  font-size: 20px;
+  font-size: 19.5px;
   color: #4b5563;
 }
 
@@ -83,15 +83,15 @@ h1, h2, h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
-  padding: 15px;
+  gap: 10px;
+  padding: 14px;
   background: #ffffff;
 }
 
 .nav-item {
   color: #18181b;
-  padding: 8px 16px;
-  border-radius: 999px;
+  padding: 7px 14px;
+  border-radius: 6px;
   border: 1px solid transparent;
   font-size: 15px;
 }
@@ -116,7 +116,7 @@ h1, h2, h3 {
 
 .intro {
   grid-column: 1 / 9;
-  padding: 36px 24px 16px;
+  padding: 32px 24px 14px;
 }
 
 /* ================= Hero Site Summary Card ================= */
@@ -124,14 +124,14 @@ h1, h2, h3 {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 28px 32px;
+  padding: 26px 30px;
   background: #ffffff;
-  border-radius: 22px;
-  border: 1px solid rgba(24, 24, 27, 0.07);
-  box-shadow: 0 12px 32px rgba(19, 78, 58, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(24, 24, 27, 0.09);
+  box-shadow: 0 6px 22px rgba(19, 78, 58, 0.04);
   display: flex;
   align-items: center;
-  gap: 34px;
+  gap: 30px;
   font-style: normal;
 }
 
@@ -139,8 +139,9 @@ h1, h2, h3 {
   flex: 0 0 43%;
   max-width: 43%;
   overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
 .site-summary .cover-image-main img {
@@ -165,11 +166,11 @@ h1, h2, h3 {
   grid-column: 1 / 9;
   width: 100%;
   max-width: 1280px;
-  margin: 12px auto 36px;
+  margin: 10px auto 32px;
   padding: 0 24px;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  gap: 14px;
   background-color: transparent;
 }
 
@@ -186,21 +187,21 @@ h1, h2, h3 {
 
 .bigBtn {
   width: 100%;
-  height: 64px;
-  padding: 14px 20px;
+  height: 60px;
+  padding: 12px 18px;
   font-size: 16.5px;
   font-weight: 600;
   color: #134e3a;
   background: #ffffff;
-  border: 1.5px solid rgba(19, 78, 58, 0.18);
-  border-radius: 16px;
+  border: 1.5px solid rgba(19, 78, 58, 0.22);
+  border-radius: 8px;
   text-align: center;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 14px rgba(19, 78, 58, 0.04);
+  box-shadow: 0 3px 10px rgba(19, 78, 58, 0.04);
   position: relative;
   overflow: hidden;
 }
@@ -215,7 +216,7 @@ h1, h2, h3 {
   background: #134e3a;
   color: #ffffff;
   border-color: #134e3a;
-  box-shadow: 0 12px 24px rgba(19, 78, 58, 0.2);
+  box-shadow: 0 10px 22px rgba(19, 78, 58, 0.2);
 }
 
 .bigBtn:hover::after {
@@ -226,27 +227,27 @@ h1, h2, h3 {
 .spaceF {
   grid-column: 1 / 5;
   background: linear-gradient(180deg, #fff8f3 0%, #fff2e8 100%);
-  border: 1px solid rgba(217, 119, 6, 0.14);
-  border-radius: 24px;
-  margin: 0 12px 36px 24px;
-  padding: 26px 22px;
-  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.04);
+  border: 1px solid rgba(217, 119, 6, 0.16);
+  border-radius: 8px;
+  margin: 0 10px 32px 24px;
+  padding: 24px 20px;
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.04);
 }
 
 .spaceG {
   grid-column: 5 / 9;
   background: linear-gradient(180deg, #f4faf7 0%, #e9f5ef 100%);
-  border: 1px solid rgba(19, 78, 58, 0.14);
-  border-radius: 24px;
-  margin: 0 24px 36px 12px;
-  padding: 26px 22px;
-  box-shadow: 0 8px 24px rgba(19, 78, 58, 0.04);
+  border: 1px solid rgba(19, 78, 58, 0.16);
+  border-radius: 8px;
+  margin: 0 24px 32px 10px;
+  padding: 24px 20px;
+  box-shadow: 0 6px 20px rgba(19, 78, 58, 0.04);
 }
 
 .content-block {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
 .upperHead {
@@ -257,7 +258,7 @@ h1, h2, h3 {
 }
 
 .upperHead h2 {
-  margin: 4px 0 0;
+  margin: 2px 0 0;
   font-size: 1.65rem;
   font-weight: 700;
   color: #18181b;
@@ -272,8 +273,8 @@ h1, h2, h3 {
   left: 50%;
   transform: translateX(-50%);
   width: 48px;
-  height: 3px;
-  border-radius: 99px;
+  height: 2.5px;
+  border-radius: 2px;
   background: #d97706;
 }
 
@@ -284,28 +285,28 @@ h1, h2, h3 {
   left: 50%;
   transform: translateX(-50%);
   width: 48px;
-  height: 3px;
-  border-radius: 99px;
+  height: 2.5px;
+  border-radius: 2px;
   background: #134e3a;
 }
 
-/* ================= Story Grid & Modern Cards ================= */
+/* ================= Story Grid & Sharp Modern Cards ================= */
 .spaceF .lowerBox,
 .spaceG .lowerBox {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin: 6px 0 0;
+  gap: 16px;
+  margin: 4px 0 0;
 }
 
 .storyCard {
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
-  border: 1px solid rgba(24, 24, 27, 0.07);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(24, 24, 27, 0.09);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
 }
 
 .storyImg {
@@ -323,7 +324,7 @@ h1, h2, h3 {
 }
 
 .storyInfo {
-  padding: 13px 12px 15px;
+  padding: 12px 10px 14px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -347,8 +348,8 @@ h1, h2, h3 {
 }
 
 .spaceF .storyCard:hover {
-  border-color: rgba(217, 119, 6, 0.4);
-  box-shadow: 0 14px 28px rgba(217, 119, 6, 0.14);
+  border-color: rgba(217, 119, 6, 0.45);
+  box-shadow: 0 12px 24px rgba(217, 119, 6, 0.14);
 }
 
 .spaceF .storyCard:hover .storyInfo h3 {
@@ -356,19 +357,19 @@ h1, h2, h3 {
 }
 
 .spaceG .storyCard:hover {
-  border-color: rgba(19, 78, 58, 0.4);
-  box-shadow: 0 14px 28px rgba(19, 78, 58, 0.14);
+  border-color: rgba(19, 78, 58, 0.45);
+  box-shadow: 0 12px 24px rgba(19, 78, 58, 0.14);
 }
 
 .spaceG .storyCard:hover .storyInfo h3 {
   color: #134e3a;
 }
 
-/* ================= All Stories Index Directory ================= */
+/* ================= All Stories Index Directory (Clean Sharp Cards, No Left Bar) ================= */
 .allStoriesSection {
   width: 100%;
   max-width: 1332px;
-  margin: 24px auto 48px;
+  margin: 24px auto 44px;
   padding: 0 24px;
 }
 
@@ -384,8 +385,8 @@ h1, h2, h3 {
   left: 50%;
   transform: translateX(-50%);
   width: 56px;
-  height: 3px;
-  border-radius: 99px;
+  height: 2.5px;
+  border-radius: 2px;
   background: #134e3a;
 }
 
@@ -393,7 +394,7 @@ h1, h2, h3 {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 .storyIndexCard {
@@ -402,9 +403,8 @@ h1, h2, h3 {
   justify-content: space-between;
   text-decoration: none;
   background: #ffffff;
-  border: 1px solid rgba(24, 24, 27, 0.09);
-  border-left: 3.5px solid #0284c7;
-  border-radius: 12px;
+  border: 1px solid rgba(2, 132, 199, 0.22);
+  border-radius: 6px;
   padding: 10px 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
 }
@@ -441,7 +441,7 @@ h1, h2, h3 {
 /* Onugolpo Variant */
 .onucard {
   background-color: #ffffff;
-  border-left: 3.5px solid #16a34a;
+  border: 1px solid rgba(22, 163, 74, 0.24);
 }
 
 .onucard:hover {
@@ -453,7 +453,7 @@ h1, h2, h3 {
 /* Short Story Variant */
 .shortcard {
   background-color: #ffffff;
-  border-left: 3.5px solid #db2777;
+  border: 1px solid rgba(219, 39, 119, 0.24);
 }
 
 .shortcard:hover {
@@ -482,11 +482,11 @@ h1, h2, h3 {
 }
 
 /* =====================================================================
-   Popular Bengali Blog Section
+   Popular Bengali Blog Section (Clean Sharp Cards, No Left Bar)
 ===================================================================== */
 .popularBlogSection {
   max-width: 1332px;
-  margin: 56px auto;
+  margin: 52px auto;
   padding: 0 24px;
 }
 
@@ -496,7 +496,7 @@ h1, h2, h3 {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  margin-bottom: 26px;
+  margin-bottom: 24px;
   flex-wrap: wrap;
 }
 
@@ -504,20 +504,9 @@ h1, h2, h3 {
   margin: 0;
   font-size: 1.75rem;
   font-weight: 700;
-  color: #18181b;
-  position: relative;
-  padding-left: 14px;
-}
-
-.sectionHeader h2::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 15%;
-  height: 70%;
-  width: 4px;
-  background: #134e3a;
-  border-radius: 4px;
+  color: #134e3a;
+  padding-bottom: 6px;
+  border-bottom: 2.5px solid #134e3a;
 }
 
 .allblogbtn {
@@ -525,15 +514,15 @@ h1, h2, h3 {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 9px 20px;
+  padding: 9px 18px;
   background: #134e3a;
   color: #ffffff !important;
   border: 1px solid #134e3a;
-  border-radius: 999px;
+  border-radius: 6px;
   font-size: 14.5px;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.18);
+  box-shadow: 0 3px 10px rgba(19, 78, 58, 0.16);
 }
 
 .allblogbtn::after {
@@ -543,30 +532,30 @@ h1, h2, h3 {
 .allblogbtn:hover {
   background: #1e6b50;
   border-color: #1e6b50;
-  box-shadow: 0 8px 18px rgba(19, 78, 58, 0.25);
+  box-shadow: 0 8px 18px rgba(19, 78, 58, 0.24);
 }
 
 .popularBlogGrid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+  gap: 18px;
 }
 
 .popularBlogCard {
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  border: 1px solid rgba(24, 24, 27, 0.08);
-  border-radius: 16px;
+  border: 1px solid rgba(24, 24, 27, 0.09);
+  border-radius: 8px;
   overflow: hidden;
   color: inherit;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
 }
 
 .popularBlogCard:hover {
   background: #ffffff;
-  border-color: rgba(19, 78, 58, 0.35);
-  box-shadow: 0 16px 32px rgba(19, 78, 58, 0.12);
+  border-color: rgba(19, 78, 58, 0.4);
+  box-shadow: 0 14px 28px rgba(19, 78, 58, 0.12);
 }
 
 .popularBlogCard img {
@@ -577,7 +566,7 @@ h1, h2, h3 {
 }
 
 .blogCardContent {
-  padding: 15px 16px 18px;
+  padding: 14px 15px 16px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -587,10 +576,11 @@ h1, h2, h3 {
   display: inline-block;
   align-self: flex-start;
   margin-bottom: 8px;
-  padding: 3px 10px;
-  border-radius: 999px;
+  padding: 3px 9px;
+  border-radius: 4px;
   background: #ecfdf5;
   color: #134e3a;
+  border: 1px solid rgba(19, 78, 58, 0.16);
   font-size: 11.5px;
   font-weight: 600;
 }
@@ -629,7 +619,7 @@ h1, h2, h3 {
 ===================================================================== */
 .about-screen {
   background: linear-gradient(180deg, #f4efe6 0%, #ede6d8 100%);
-  padding: 56px 20px;
+  padding: 52px 20px;
   border-top: 1px solid rgba(24, 24, 27, 0.06);
 }
 
@@ -640,18 +630,18 @@ h1, h2, h3 {
 
 .aboutGolperBahar h2 {
   text-align: center;
-  margin: 0 0 26px;
-  font-size: 32px;
+  margin: 0 0 24px;
+  font-size: 31px;
   font-weight: 700;
   color: #134e3a;
 }
 
 .aboutCard {
   background: #ffffff;
-  border-radius: 24px;
-  padding: 38px 42px;
-  box-shadow: 0 14px 36px rgba(19, 78, 58, 0.06);
-  border: 1px solid rgba(24, 24, 27, 0.06);
+  border-radius: 8px;
+  padding: 34px 38px;
+  box-shadow: 0 8px 26px rgba(19, 78, 58, 0.05);
+  border: 1px solid rgba(24, 24, 27, 0.08);
 }
 
 .aboutGolperBahar p {
@@ -663,15 +653,15 @@ h1, h2, h3 {
 }
 
 .aboutSocial {
-  margin-top: 32px;
-  padding-top: 26px;
+  margin-top: 28px;
+  padding-top: 24px;
   border-top: 1px solid rgba(24, 24, 27, 0.08);
   text-align: center;
 }
 
 .aboutSocial h3 {
-  margin: 0 0 18px;
-  font-size: 21px;
+  margin: 0 0 16px;
+  font-size: 20.5px;
   font-weight: 700;
   color: #18181b;
 }
@@ -679,44 +669,44 @@ h1, h2, h3 {
 .aboutSocialIcons {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
 .aboutSocialIcons a {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 21px;
   background: #faf8f5;
-  border-radius: 50%;
-  border: 1px solid rgba(19, 78, 58, 0.15);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  border: 1px solid rgba(19, 78, 58, 0.18);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .aboutSocialIcons a:hover {
   background: #134e3a;
-  box-shadow: 0 10px 20px rgba(19, 78, 58, 0.2);
+  box-shadow: 0 8px 18px rgba(19, 78, 58, 0.2);
 }
 
 /* ================= Social Connect (If Used) ================= */
 .socialConnect {
   background: #f3f7f4;
-  padding: 44px 20px;
+  padding: 40px 20px;
   text-align: center;
 }
 
 .socialConnect h3 {
-  margin: 0 0 26px;
-  font-size: 28px;
+  margin: 0 0 24px;
+  font-size: 27px;
 }
 
 .socialGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 14px;
   max-width: 1200px;
   margin: auto;
 }
@@ -725,16 +715,16 @@ h1, h2, h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 68px;
-  padding: 15px;
-  border-radius: 14px;
+  min-height: 64px;
+  padding: 14px;
+  border-radius: 8px;
   color: #fff;
-  font-size: 18px;
+  font-size: 17.5px;
   font-weight: 600;
 }
 
 .socialBtn:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
 }
 
 .facebookPage,
@@ -763,13 +753,13 @@ h1, h2, h3 {
 
   .intro {
     grid-column: 1 / -1;
-    padding: 24px 16px 12px;
+    padding: 22px 16px 12px;
   }
 
   .site-summary {
     flex-direction: column;
-    padding: 22px;
-    gap: 20px;
+    padding: 20px;
+    gap: 18px;
     text-align: center;
   }
 
@@ -795,14 +785,14 @@ h1, h2, h3 {
   .spaceF,
   .spaceG {
     grid-column: 1 / -1;
-    margin: 0 16px 24px;
-    padding: 22px 18px;
+    margin: 0 16px 22px;
+    padding: 20px 16px;
   }
 
   .spaceF .lowerBox,
   .spaceG .lowerBox {
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 14px;
   }
 }
 
@@ -819,11 +809,11 @@ h1, h2, h3 {
   }
 
   .site-header {
-    padding: 36px 16px 30px;
+    padding: 34px 16px 28px;
   }
 
   .site-header h1 {
-    font-size: 34px;
+    font-size: 33px;
   }
 
   .site-header p {
@@ -831,12 +821,12 @@ h1, h2, h3 {
   }
 
   .site-summary {
-    padding: 16px;
-    border-radius: 16px;
+    padding: 15px;
+    border-radius: 6px;
   }
 
   .site-summary .cover-image-main {
-    border-radius: 12px;
+    border-radius: 6px;
   }
 
   .site-summary p {
@@ -845,22 +835,22 @@ h1, h2, h3 {
   }
 
   .button-group {
-    padding: 0 14px;
+    padding: 0 12px;
     gap: 10px;
   }
 
   .button-group .bigBtn {
-    height: 54px;
+    height: 52px;
     font-size: 14.5px;
     padding: 10px 12px;
-    border-radius: 12px;
+    border-radius: 6px;
   }
 
   .spaceF,
   .spaceG {
-    margin: 0 14px 20px;
-    padding: 18px 14px;
-    border-radius: 18px;
+    margin: 0 12px 18px;
+    padding: 16px 12px;
+    border-radius: 6px;
   }
 
   .upperHead h2 {
@@ -870,7 +860,11 @@ h1, h2, h3 {
   .spaceF .lowerBox,
   .spaceG .lowerBox {
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 10px;
+  }
+
+  .storyCard {
+    border-radius: 6px;
   }
 
   .storyInfo {
@@ -886,16 +880,16 @@ h1, h2, h3 {
   }
 
   .allStoriesSection {
-    padding: 0 14px;
+    padding: 0 12px;
   }
 
   .popularBlogSection {
-    padding: 0 14px;
-    margin: 36px auto;
+    padding: 0 12px;
+    margin: 34px auto;
   }
 
   .sectionHeader h2 {
-    font-size: 1.4rem;
+    font-size: 1.38rem;
   }
 
   .allblogbtn {
@@ -903,8 +897,12 @@ h1, h2, h3 {
     padding: 7px 14px;
   }
 
+  .popularBlogCard {
+    border-radius: 6px;
+  }
+
   .blogCardContent {
-    padding: 11px 12px 14px;
+    padding: 10px 11px 13px;
   }
 
   .blogCardContent h3 {
@@ -916,17 +914,17 @@ h1, h2, h3 {
   }
 
   .about-screen {
-    padding: 36px 14px;
+    padding: 34px 12px;
   }
 
   .aboutGolperBahar h2 {
-    font-size: 25px;
-    margin-bottom: 18px;
+    font-size: 24px;
+    margin-bottom: 16px;
   }
 
   .aboutCard {
-    padding: 22px 18px;
-    border-radius: 18px;
+    padding: 20px 16px;
+    border-radius: 6px;
   }
 
   .aboutGolperBahar p {
@@ -935,12 +933,12 @@ h1, h2, h3 {
   }
 
   .aboutSocial h3 {
-    font-size: 18.5px;
+    font-size: 18px;
   }
 
   .aboutSocialIcons a {
-    width: 46px;
-    height: 46px;
+    width: 44px;
+    height: 44px;
     font-size: 20px;
   }
 
