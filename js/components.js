@@ -16,7 +16,7 @@ function loadComponent(id, file) {
             const adScript = document.createElement("script");
             adScript.async = true;
             adScript.setAttribute("data-cfasync", "false");
-            adScript.src = "https://pl30115573.profitableratecpmnetwork.com/09d5b3dba081e537545c7fc7fa968737/invoke.js";
+            adScript.src = "https://bauval.org/21/09d5b3dba081e537545c7fc7fa968737";
             document.body.appendChild(adScript);
           }
         }
