@@ -1,3 +1,7 @@
+/* =====================================================================
+   Golper Bahar - Story Submission Rules Page CSS
+   Theme: Warm Editorial & Deep Forest Emerald (Clean Sharp Card Edition)
+===================================================================== */
 
 * {
   box-sizing: border-box;
@@ -6,213 +10,235 @@
 }
 
 #upNav {
-    position: sticky;
-    top: 0;
-    z-index: 999;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 /* ===== Body ===== */
 body {
-  font-family: 'Kalpurush', 'Noto Serif Bengali', serif;
-  background: #f3f4f6;
-  color: #1f2937;
-  line-height: 1.7;
+  font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
+  background: #faf8f5;
+  color: #18181b;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ===== Main Grid ===== */
 .ruleBox {
-  max-width: 100%;
-  margin: auto;
-  padding: 24px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 20px 44px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-template-rows: auto;
-  gap: 16px;
+  gap: 18px;
 }
 
-/* ===== Common Card Style ===== */
+/* ===== Common Card Style (Sharp Low Border Radius, No Left Bar) ===== */
 .ruleBox > div {
   background: #ffffff;
-  border-radius: 14px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  border: 1px solid rgba(24, 24, 27, 0.09);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(19, 78, 58, 0.04);
 }
 
 /* ===== Header ===== */
-.header {
+.ruleBox > div.header {
   grid-column: span 4;
-  background: linear-gradient(135deg, #10b981, #059669);
-  color: rgb(0, 0, 0);
+  background: radial-gradient(circle at top right, #d1fae5 0%, transparent 45%),
+              radial-gradient(circle at bottom left, #fef3c7 0%, transparent 45%),
+              linear-gradient(135deg, #f3f7f4 0%, #ffffff 100%);
+  border: 1px solid rgba(19, 78, 58, 0.14);
+  color: #18181b;
   text-align: center;
-  padding: 40px 20px;
+  padding: 42px 20px;
 }
 
 .header h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
+  font-weight: 700;
   margin-bottom: 8px;
-  color: #1f2937;
+  color: #0f3d2e;
 }
 
 .header p {
-  opacity: 0.95;
-  font-size: 1rem;
+  font-size: 1.08rem;
+  color: #4b5563;
 }
 
 /* ===== Sections ===== */
 .sendRule {
   grid-column: span 2;
   display: flex;
-  flex-wrap: wrap;
-  float: inline-start;
-  padding: 30px;
+  flex-direction: column;
+  padding: 28px 30px;
 }
 
 .firstSubmit {
   grid-column: span 2;
-  padding: 30px;
+  padding: 28px 30px;
 }
 
 .benefits {
   grid-column: span 2;
-  padding: 30px;
+  padding: 28px 30px;
 }
 
 .plesiarism {
   grid-column: span 2;
-  padding: 30px;
+  padding: 28px 30px;
 }
 
 /* ===== Footer ===== */
-.footer {
+.ruleBox > div.footer {
   grid-column: span 4;
   text-align: center;
-  background: #111827;
-  color: #d1d5db;
-  font-size: 0.9rem;
-  border-radius: 14px;
+  background: #0d261d;
+  border: none;
+  color: #d1fae5;
+  font-size: 0.92rem;
+  border-radius: 8px;
 }
 
 /* ===== Headings ===== */
 .ruleBox h2 {
-  font-size: 1.3rem;
-  margin-bottom: 12px;
-  color: #047857;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(19, 78, 58, 0.14);
+  color: #134e3a;
 }
 
 /* ===== Responsive: Tablet ===== */
 @media (max-width: 900px) {
   .ruleBox {
     grid-template-columns: 1fr;
+    padding: 18px 14px 32px;
   }
 
   .ruleBox > div {
     grid-column: span 1 !important;
   }
 
-  .header {
+  .ruleBox > div.header {
     padding: 32px 16px;
+  }
+
+  .sendRule,
+  .firstSubmit,
+  .benefits,
+  .plesiarism {
+    padding: 22px 20px;
   }
 }
 
 /* ===== Responsive: Mobile ===== */
 @media (max-width: 480px) {
   .ruleBox {
-    padding: 16px;
+    padding: 14px 12px 26px;
     gap: 12px;
   }
 
-  /* .ruleBox > div {
-    padding: 18px;
-  } */
+  .ruleBox > div {
+    border-radius: 6px;
+  }
+
+  .sendRule,
+  .firstSubmit,
+  .benefits,
+  .plesiarism {
+    padding: 18px 15px;
+  }
 
   .footer {
-    padding: 0px;
-  }  
+    padding: 0;
+  }
 
   .header h1 {
-    font-size: 1.6rem;
+    font-size: 1.65rem;
   }
 }
 
 /* ===== List Polish ===== */
 .ruleBox ul {
-  padding-left: 18px;
+  padding-left: 20px;
 }
 
 .ruleBox ul li {
   margin-bottom: 10px;
+  font-size: 1rem;
+  color: #27272a;
 }
 
 /* ===== Paragraph Polish ===== */
 .ruleBox p {
   margin-bottom: 14px;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  color: #3f3f46;
 }
 
-/* ===== Special Note ===== */
+/* ===== Special Note (Clean Sharp Box, No Left Bar) ===== */
 .special-note {
-  margin-top: 18px;
+  margin-top: 16px;
   padding: 14px 16px;
-  background: #f0fdfa;
-  border-left: 4px solid #10b981;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  background: #f4faf7;
+  border: 1px solid rgba(19, 78, 58, 0.18);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #134e3a;
 }
 
-/* ===== Connect Buttons ===== */
+/* ===== Connect Buttons (Static Hover, Sharp Radius) ===== */
 .connect {
-  margin-top: 20px;
+  margin-top: 18px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 .connect-btn {
   border: none;
   padding: 10px 22px;
-  border-radius: 999px;
-  font-size: 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
   font-family: inherit;
   cursor: pointer;
-  transition: all 0.25s ease;
 }
 
 /* Email Button */
 .connect-btn.email {
-  background: #2563eb;
-  color: white;
+  background: #134e3a;
+  color: #ffffff;
 }
 
 .connect-btn.email:hover {
-  background: #1d4ed8;
-  transform: translateY(-2px);
+  background: #1e6b50;
+  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.22);
 }
 
 /* WhatsApp Button */
 .connect-btn.whatsapp {
-  background: #25D366;
-  color: white;
+  background: #16a34a;
+  color: #ffffff;
 }
 
 .connect-btn.whatsapp:hover {
-  background: #1ebe5d;
-  transform: translateY(-2px);
+  background: #15803d;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.22);
 }
 
-/* ===== Card Hover (Very Subtle) ===== */
+/* ===== Card Hover (Strictly Static Subtle Shadow) ===== */
 .ruleBox > div:not(.header):not(.footer):hover {
-  box-shadow: 0 14px 30px rgba(0,0,0,0.08);
+  border-color: rgba(19, 78, 58, 0.28);
+  box-shadow: 0 10px 24px rgba(19, 78, 58, 0.08);
 }
-
-
-
-
-
-
 
 /* ==================================================
-   Optional Mini Navigation (Compact Version) Start
+   Optional Mini Navigation (Compact Version - Static Hover)
 ================================================== */
-
 .back-btn {
   border: none;
   background: none;
@@ -220,88 +246,63 @@ body {
   cursor: pointer;
 }
 
-
 .mini-episode-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-
-  padding: 12px 10px;
+  gap: 8px;
+  padding: 14px 12px;
   margin-bottom: 0;
-
-  background-color: #0f0f0f; /* footer match */
+  background-color: #0d261d;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ===== Single Item ===== */
 .mini-nav-item {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  min-width: 72px;           /* 👈 desktop smaller */
-  padding: 6px 12px;         /* 👈 compact */
-
-  background-color: #1e1e1e;
-  color: #ffffff;
-
-  font-size: 0.85rem;        /* 👈 desktop smaller text */
+  min-width: 74px;
+  padding: 6px 13px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #ecfdf5;
+  font-size: 0.86rem;
   font-weight: 500;
   line-height: 1.2;
-
-  border-radius: 5px;
+  border-radius: 6px;
   text-decoration: none;
-
-  transition:
-    color 0.22s ease,
-    background-color 0.22s ease,
-    box-shadow 0.22s ease,
-    transform 0.18s ease;
 }
 
-
-
-/* ===== Hover Effect ===== */
 .mini-nav-item:hover {
-  color: #2f80ff;
-  background-color: #e6e6e6;
-
-  box-shadow:
-    0 0 0 1px rgba(47, 128, 255, 0.35),
-    0 0 8px rgba(47, 128, 255, 0.3);
-
-  transform: translateY(-1px);
+  color: #06281e;
+  background-color: #10b981;
+  border-color: #10b981;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }
 
-/* ================= Tablet ================= */
 @media (max-width: 768px) {
   .mini-episode-nav {
     gap: 8px;
-    padding: 10px 8px;
+    padding: 12px 10px;
   }
 
   .mini-nav-item {
     min-width: 68px;
-    padding: 6px 10px;
-    font-size: 0.8rem;
+    padding: 6px 11px;
+    font-size: 0.82rem;
   }
 }
 
-/* ================= Mobile ================= */
 @media (max-width: 480px) {
   .mini-episode-nav {
     gap: 6px;
-    padding: 8px 6px;
+    padding: 10px 8px;
   }
 
   .mini-nav-item {
-    min-width: auto;       /* text-based width */
+    min-width: auto;
     padding: 5px 9px;
     font-size: 0.78rem;
-    border-radius: 4px;
+    border-radius: 5px;
   }
 }
-
-/* ==================================================
-   Optional Mini Navigation (Compact Version) End
-================================================== */
