@@ -19,7 +19,7 @@
 
 /* ========== ROOT VARIABLES ========== */
 :root {
-  --bg-primary: #faf8f5;
+  --bg-primary: #ffffff;
   --bg-content: #ffffff;
   --text-primary: #18181b;
   --text-secondary: #52525b;
@@ -56,12 +56,12 @@
 /* Dark Mode Support (Preserved) */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-primary: #0f172a;
-    --bg-content: #1e293b;
-    --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --surface: #1e293b;
-    --surface-alt: #334155;
+    --bg-primary: #ffffff;
+    --bg-content: #fcfdff;
+    --text-primary: #000000;
+    --text-secondary: #414141;
+    --surface: #fafcff;
+    --surface-alt: #e6e6e6;
     --border-color: #475569;
     --border-light: #475569;
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
