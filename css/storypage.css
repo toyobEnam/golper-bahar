@@ -1,6 +1,6 @@
 /* =====================================================================
    Golper Bahar - Story Reading Page CSS
-   Theme: Warm Editorial & Deep Forest Emerald (Static Hover Edition)
+   Theme: Warm Editorial & Deep Forest Emerald (Clean Sharp Card Edition)
 ===================================================================== */
 
 * {
@@ -75,7 +75,7 @@ a, button {
   padding: 28px 20px;
   background: #f3f7f4;
   text-align: center;
-  min-height: 210px;
+  min-height: 205px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,19 +97,19 @@ a, button {
 }
 
 .header p {
-  font-size: 19px;
+  font-size: 18.5px;
   font-weight: 600;
   color: #134e3a;
-  border: 1px solid rgba(19, 78, 58, 0.25);
-  padding: 6px 32px;
-  border-radius: 999px;
-  background-color: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.08);
+  border: 1px solid rgba(19, 78, 58, 0.24);
+  padding: 5px 24px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 3px 10px rgba(19, 78, 58, 0.07);
 }
 
 @media (max-width: 700px) {
   .header {
-    min-height: 155px;
+    min-height: 150px;
     padding: 20px 14px;
   }
 
@@ -118,8 +118,8 @@ a, button {
   }
 
   .header p {
-    font-size: 15.5px;
-    padding: 5px 22px;
+    font-size: 15px;
+    padding: 4px 16px;
   }
 }
 
@@ -137,17 +137,17 @@ body.dark .header * {
 .mainContent {
   font-family: "LiPurnoPran", 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
   grid-area: main;
-  margin: 26px 0 36px;
-  padding: 40px 64px;
+  margin: 24px 0 34px;
+  padding: 38px 56px;
   background: #ffffff;
-  border: 1px solid rgba(24, 24, 27, 0.07);
-  border-radius: 22px;
-  box-shadow: 0 10px 30px rgba(19, 78, 58, 0.04);
+  border: 1px solid rgba(24, 24, 27, 0.09);
+  border-radius: 8px;
+  box-shadow: 0 6px 22px rgba(19, 78, 58, 0.04);
 }
 
 .rightBar {
   grid-area: right;
-  padding: 26px 20px;
+  padding: 24px 20px;
   background: #faf8f5;
   height: auto;
   align-self: start;
@@ -172,8 +172,8 @@ body.dark .header * {
       "footer footer";
   }
   .mainContent {
-    margin: 24px 0 32px 24px;
-    padding: 34px 44px;
+    margin: 22px 0 30px 22px;
+    padding: 32px 40px;
   }
 }
 
@@ -194,25 +194,25 @@ body.dark .header * {
 
   .mainContent {
     margin: 18px 16px 24px;
-    padding: 26px 24px;
-    border-radius: 18px;
+    padding: 26px 22px;
+    border-radius: 8px;
   }
 
   .rightBar {
     display: block;
-    padding: 10px 60px 24px;
+    padding: 10px 48px 24px;
   }
 }
 
 @media (max-width: 600px) {
   .mainContent {
-    margin: 14px 10px 20px;
-    padding: 20px 16px;
-    border-radius: 14px;
+    margin: 12px 10px 18px;
+    padding: 18px 15px;
+    border-radius: 6px;
   }
 
   .rightBar {
-    padding: 10px 14px 20px;
+    padding: 10px 12px 20px;
   }
 }
 
@@ -256,11 +256,11 @@ body.dark .header * {
   height: auto;
   display: block;
   margin: 0 auto;
-  border-radius: 14px;
-  box-shadow: 0 8px 22px rgba(19, 78, 58, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(19, 78, 58, 0.08);
 }
 
-/* ===== Top & Bottom Episode Navigation Buttons ===== */
+/* ===== Top & Bottom Episode Navigation Buttons (Sharp Low Radius) ===== */
 .topSwitch {
   margin: 0 0 26px;
   padding-bottom: 18px;
@@ -279,12 +279,12 @@ body.dark .header * {
 }
 
 .episode-switch {
-  margin: 52px 0 28px;
-  padding-top: 26px;
+  margin: 48px 0 26px;
+  padding-top: 24px;
   border-top: 1px solid rgba(24, 24, 27, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   align-items: center;
 }
 
@@ -292,7 +292,7 @@ body.dark .header * {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
 }
 
@@ -315,9 +315,9 @@ body.dark .header * {
   font-size: 15.5px;
   font-weight: 600;
   color: #134e3a;
-  border: 1px solid rgba(19, 78, 58, 0.2);
-  padding: 7px 15px;
-  border-radius: 999px;
+  border: 1px solid rgba(19, 78, 58, 0.22);
+  padding: 7px 14px;
+  border-radius: 6px;
   background: #faf8f5;
 }
 
@@ -363,18 +363,18 @@ body.dark .header * {
 
   .ep-btn {
     font-size: 14px;
-    padding: 6px 12px;
+    padding: 6px 11px;
+    border-radius: 5px;
   }
 }
 
-/* ===== Writer Note Callout ===== */
+/* ===== Writer Note Callout (Clean Uniform Border, No Left Bar) ===== */
 .writer-note {
   background: #f4faf7;
-  border: 1px solid rgba(19, 78, 58, 0.14);
-  border-left: 4px solid #134e3a;
-  padding: 16px 18px;
-  margin-bottom: 26px;
-  border-radius: 12px;
+  border: 1px solid rgba(19, 78, 58, 0.18);
+  padding: 15px 18px;
+  margin-bottom: 24px;
+  border-radius: 8px;
 }
 
 .writer-note p {
@@ -390,9 +390,9 @@ body.dark .header * {
   background: #134e3a;
   color: #ffffff;
   text-decoration: none;
-  padding: 3px 10px;
+  padding: 2px 10px;
   margin: 0 2px;
-  border-radius: 999px;
+  border-radius: 5px;
   font-size: 0.9em;
   font-weight: 600;
 }
@@ -404,7 +404,8 @@ body.dark .header * {
 @media (max-width: 600px) {
   .writer-note {
     padding: 12px 14px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+    border-radius: 6px;
   }
 
   .writer-note p {
@@ -413,19 +414,19 @@ body.dark .header * {
 }
 
 /* ============================================================
-   Right Sidebar: More Stories Cards (Strictly Static Hover)
+   Right Sidebar: More Stories Cards (Sharp Low Radius, Static Hover)
 ============================================================ */
 .rightLinks {
-  padding: 16px 8px;
-  margin-top: 32px;
+  padding: 12px 6px;
+  margin-top: 28px;
   text-align: center;
 }
 
 .bigP {
-  font-size: 1.55rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #134e3a;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .rightStoryCards {
@@ -435,7 +436,7 @@ body.dark .header * {
   justify-items: center;
   padding: 4px;
   text-align: center;
-  gap: 18px;
+  gap: 16px;
   align-items: stretch;
 }
 
@@ -450,31 +451,31 @@ body.dark .header * {
 
 .story-card {
   border: 1px solid rgba(19, 78, 58, 0.16);
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 10px;
   height: 100%;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.04);
+  box-shadow: 0 2px 8px rgba(19, 78, 58, 0.04);
 }
 
 .rightStoryCards a:hover .story-card {
   background-color: #f4faf7;
   border-color: #134e3a;
-  box-shadow: 0 10px 22px rgba(19, 78, 58, 0.14);
+  box-shadow: 0 8px 20px rgba(19, 78, 58, 0.13);
 }
 
 .rightStoryCards a:focus-visible .story-card {
   outline: 2px solid #134e3a;
-  outline-offset: 3px;
+  outline-offset: 2px;
 }
 
 .cardImg {
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 6px;
   background: #f3f0ea;
 }
 
@@ -486,10 +487,10 @@ body.dark .header * {
 }
 
 .cardInfo h3 {
-  font-size: 1.25rem;
+  font-size: 1.22rem;
   font-weight: 700;
   color: #18181b;
-  margin: 14px 0 8px;
+  margin: 12px 0 6px;
 }
 
 .rightStoryCards a:hover .cardInfo h3 {
@@ -497,9 +498,9 @@ body.dark .header * {
 }
 
 .cardInfo p {
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   line-height: 1.5;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: #52525b;
 }
 
@@ -510,7 +511,7 @@ body.dark .header * {
 
   .rightStoryCards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    gap: 16px;
   }
 }
 
@@ -521,12 +522,12 @@ body.dark .header * {
 
   .story-image img {
     max-width: 96%;
-    border-radius: 10px;
+    border-radius: 6px;
   }
 
   .story-card {
     padding: 8px;
-    border-radius: 12px;
+    border-radius: 6px;
   }
 
   .rightLinks {
@@ -540,8 +541,8 @@ body.dark .header * {
 
   .rightStoryCards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    padding: 12px 0;
-    gap: 12px;
+    padding: 10px 0;
+    gap: 10px;
   }
 
   .rightStoryCards a {
@@ -573,8 +574,8 @@ body.dark .header * {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  padding: 16px 12px;
+  gap: 8px;
+  padding: 14px 12px;
   margin-bottom: 0;
   background-color: #0d261d;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -584,15 +585,15 @@ body.dark .header * {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 76px;
-  padding: 7px 14px;
+  min-width: 74px;
+  padding: 6px 13px;
   background-color: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #ecfdf5;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 500;
   line-height: 1.2;
-  border-radius: 8px;
+  border-radius: 6px;
   text-decoration: none;
 }
 
@@ -611,7 +612,7 @@ body.dark .header * {
 
   .mini-nav-item {
     min-width: 68px;
-    padding: 6px 12px;
+    padding: 6px 11px;
     font-size: 0.82rem;
   }
 }
@@ -624,19 +625,19 @@ body.dark .header * {
 
   .mini-nav-item {
     min-width: auto;
-    padding: 5px 10px;
+    padding: 5px 9px;
     font-size: 0.78rem;
-    border-radius: 6px;
+    border-radius: 5px;
   }
 }
 
 /* ============================================================
-   Story Comments Component (Warm Editorial Styling)
+   Story Comments Component (Clean Sharp Cards, No Left Bar)
 ============================================================ */
 #story-comments {
   width: 100%;
-  margin: 48px 0 28px;
-  padding-top: 30px;
+  margin: 44px 0 26px;
+  padding-top: 28px;
   border-top: 1px solid rgba(24, 24, 27, 0.1);
   box-sizing: border-box;
 }
@@ -645,14 +646,14 @@ body.dark .header * {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 14px;
   width: fit-content;
   max-width: 100%;
-  margin: 0 auto 24px;
-  padding: 8px 22px;
+  margin: 0 auto 22px;
+  padding: 7px 18px;
   background: #faf8f5;
   border: 1px solid rgba(19, 78, 58, 0.16);
-  border-radius: 999px;
+  border-radius: 6px;
   font-size: 15.5px;
   color: #134e3a;
   font-weight: 600;
@@ -679,8 +680,8 @@ body.dark .header * {
   width: 100%;
   background: #faf8f5;
   border: 1px solid rgba(19, 78, 58, 0.14);
-  border-radius: 18px;
-  padding: 26px 24px;
+  border-radius: 8px;
+  padding: 24px 22px;
   box-sizing: border-box;
 }
 
@@ -696,15 +697,15 @@ body.dark .header * {
 .gb-comment-form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   width: 100%;
 }
 
 .gb-form-input {
   width: 100%;
-  border: 1px solid rgba(24, 24, 27, 0.16);
-  border-radius: 12px;
-  padding: 12px 15px;
+  border: 1px solid rgba(24, 24, 27, 0.18);
+  border-radius: 6px;
+  padding: 11px 14px;
   background: #ffffff;
   font-size: 22px;
   font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
@@ -724,9 +725,9 @@ body.dark .header * {
   min-height: 150px;
   max-height: 150px;
   resize: none;
-  border: 1px solid rgba(24, 24, 27, 0.16);
-  border-radius: 12px;
-  padding: 12px 15px;
+  border: 1px solid rgba(24, 24, 27, 0.18);
+  border-radius: 6px;
+  padding: 12px 14px;
   background: #ffffff;
   font-size: 22px;
   font-family: 'LiPurnoPran', 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
@@ -747,20 +748,20 @@ body.dark .header * {
   background: #134e3a;
   color: #ffffff;
   border: 1px solid #134e3a;
-  border-radius: 999px;
-  padding: 12px 24px;
+  border-radius: 6px;
+  padding: 11px 22px;
   font-size: 22px;
   font-weight: 600;
   cursor: pointer;
   font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
   box-sizing: border-box;
-  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.2);
+  box-shadow: 0 4px 12px rgba(19, 78, 58, 0.18);
 }
 
 .gb-comment-btn:hover {
   background: #1e6b50;
   border-color: #1e6b50;
-  box-shadow: 0 8px 18px rgba(19, 78, 58, 0.26);
+  box-shadow: 0 6px 16px rgba(19, 78, 58, 0.24);
 }
 
 .gb-comment-btn:disabled {
@@ -775,8 +776,8 @@ body.dark .header * {
   font-style: italic;
   color: #52525b;
   line-height: 1.65;
-  margin-top: 16px;
-  padding-top: 14px;
+  margin-top: 14px;
+  padding-top: 12px;
   border-top: 1px dashed rgba(24, 24, 27, 0.15);
   text-align: center;
 }
@@ -784,20 +785,20 @@ body.dark .header * {
 .gb-comments-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   width: 100%;
-  margin-top: 26px;
+  margin-top: 24px;
 }
 
 .gb-comments-more {
   display: none;
   width: 100%;
-  margin: 18px 0 0;
-  padding: 11px 20px;
+  margin: 16px 0 0;
+  padding: 10px 18px;
   background: #ffffff;
   color: #134e3a;
   border: 1.5px solid #134e3a;
-  border-radius: 999px;
+  border-radius: 6px;
   font-size: 21px;
   font-weight: 600;
   font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif;
@@ -813,10 +814,9 @@ body.dark .header * {
 .gb-comment {
   width: 100%;
   background: #faf8f5;
-  border: 1px solid rgba(24, 24, 27, 0.08);
-  border-left: 3.5px solid #134e3a;
-  border-radius: 14px;
-  padding: 16px 20px;
+  border: 1px solid rgba(24, 24, 27, 0.1);
+  border-radius: 6px;
+  padding: 15px 18px;
   box-sizing: border-box;
 }
 
@@ -825,7 +825,7 @@ body.dark .header * {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
 }
 
 .gb-comment-author-name {
@@ -896,7 +896,7 @@ body.dark .header * {
 
   .gb-comment-box-card {
     padding: 16px 14px;
-    border-radius: 14px;
+    border-radius: 6px;
   }
 
   .gb-comment-heading {

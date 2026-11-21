@@ -70,7 +70,7 @@ body {
   margin: 0 auto;
   padding: 20px;
   display: grid;
-  grid-template-columns: 260px minmax(0, 880px) 240px;
+  grid-template-columns: 260px minmax(0, 880px) 260px;
   justify-content: center;
   gap: 24px;
   align-items: start;
@@ -214,6 +214,12 @@ body {
   margin-top: 48px;
   padding-top: 24px;
   border-top: 1px solid var(--border-color);
+}
+
+.upperNAV {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .ep-list {
@@ -610,10 +616,10 @@ body {
 }
 
 /* ========== LOGICAL RESPONSIVE LAYOUT ========== */
-/* Laptop / Small Desktop: Collapse Left Sidebar First */
-@media (max-width: 1240px) {
+/* Laptop / Small Desktop: Collapse Left Sidebar First, Keep Right Ad Sidebar Visible */
+@media (max-width: 1280px) {
   .gridContainer {
-    grid-template-columns: minmax(0, 1fr) 260px;
+    grid-template-columns: minmax(0, 1fr) 310px;
     gap: 20px;
   }
 
@@ -626,8 +632,8 @@ body {
   }
 }
 
-/* Tablet & Mobile: Single Column Reading Flow, Sidebar Below */
-@media (max-width: 860px) {
+/* Tablet & Mobile: Single Column Reading Flow, Cover & Sidebar Below */
+@media (max-width: 900px) {
   .gridContainer {
     grid-template-columns: 1fr;
     padding: 14px;
@@ -635,12 +641,15 @@ body {
   }
 
   .leftBar {
-    display: none;
+    display: block;
+    order: 2;
+    max-width: 440px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .rightBar {
-    order: 2;
-    max-width: 680px;
+    order: 3;
     width: 100%;
     margin: 0 auto;
   }
@@ -788,7 +797,7 @@ a:hover {
   color: #71717a;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
   .nearby-story-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

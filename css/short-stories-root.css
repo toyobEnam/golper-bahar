@@ -39,7 +39,6 @@ body {
 /* =========================
    Short Stories Root Containers
 ========================= */
-.short-hero,
 .short-info,
 .genre-section,
 .popular-stories,
@@ -53,10 +52,10 @@ body {
    Modern Editorial Hero
 ========================= */
 .short-hero {
-  max-width: 100%;
+  width: 100%;
   text-align: center;
-  padding: 48px 20px 38px;
-  margin-bottom: 10px;
+  padding: 46px 20px 36px;
+  margin-bottom: 0;
   background: radial-gradient(circle at top right, #d1fae5 0%, transparent 45%),
               radial-gradient(circle at bottom left, #fef3c7 0%, transparent 45%),
               linear-gradient(135deg, #f3f7f4 0%, #faf8f5 100%);
@@ -126,7 +125,7 @@ body {
   line-height: 1.85;
   font-size: 17.5px;
   color: #3f3f46;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 /* =========================
@@ -136,7 +135,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
-  margin-top: 22px;
+  margin-top: 20px;
 }
 
 .stat-card {
@@ -150,10 +149,10 @@ body {
 
 .stat-card strong {
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.55rem;
   font-weight: 700;
   color: #134e3a;
-  margin-bottom: 4px;
+  margin-top: 4px;
 }
 
 .stat-card span {
@@ -226,17 +225,28 @@ body {
   gap: 16px;
 }
 
+.story-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
 .story-card {
   background: #ffffff;
   border: 1px solid rgba(24, 24, 27, 0.1);
   border-radius: 8px;
   overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   box-shadow: 0 2px 8px rgba(19, 78, 58, 0.03);
 }
 
+.story-card-link:hover .story-card,
 .story-card:hover {
   background: #f4faf7;
-  border-color: rgba(19, 78, 58, 0.4);
+  border-color: rgba(19, 78, 58, 0.42);
   box-shadow: 0 10px 22px rgba(19, 78, 58, 0.12);
 }
 
@@ -250,6 +260,10 @@ body {
 
 .story-content {
   padding: 13px 12px 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .story-content h3 {
@@ -265,6 +279,7 @@ body {
   color: inherit;
 }
 
+.story-card-link:hover .story-content h3,
 .story-card:hover .story-content h3,
 .story-content h3 a:hover {
   color: #134e3a;
@@ -318,7 +333,7 @@ body {
 .story-list a {
   text-decoration: none;
   color: #18181b;
-  font-size: 19px;
+  font-size: 18.5px;
   font-weight: 500;
 }
 
@@ -345,8 +360,8 @@ body {
 }
 
 .root-info {
-  max-width: 1160px;
-  margin: 0 auto 2rem;
+  max-width: 1200px;
+  margin: 0 auto 24px;
   padding: 0 20px;
 }
 
@@ -502,7 +517,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  .short-hero,
   .short-info,
   .genre-section,
   .popular-stories,
