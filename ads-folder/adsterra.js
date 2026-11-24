@@ -12,19 +12,18 @@ document.body.appendChild(nativeBannerScript);
    GOLPER BAHAR - ADSTERRA ADS
    =========================================================
 
-   এখানে শুধু নতুন Adsterra Ads থাকবে।
+   IMPORTANT:
+   Adsterra 320x50 / 300x250 / 160x600
+   একই page-এ থাকলে atOptions conflict এড়ানোর জন্য
+   সব ad sequentially load করা হবে।
 
-   ব্যবহার:
+   HTML Placeholder:
+
    <div class="adsterra-slot" data-ad="320x50"></div>
    <div class="adsterra-slot" data-ad="300x250"></div>
    <div class="adsterra-slot" data-ad="160x600"></div>
 
-   নতুন Ad Code এলে:
-   1. নিচে নতুন একটি AD BLOCK তৈরি করবে
-   2. AD TYPE অনুযায়ী নাম দিবে
-   3. প্রয়োজন হলে শুধু সেই Block-এর code replace করবে
-
-   Native Banner এখানে রাখা হয়নি।
+   Native Banner-এর কোনো code এখানে নেই।
    Native Banner আগের মতোই থাকবে।
 ========================================================= */
 
@@ -48,7 +47,14 @@ function loadAd320x50(container) {
     script.setAttribute('data-cfasync', 'false');
     script.src = 'https://bauval.org/22/40dc1ad928dae0ae6748bec4e1a074f8';
 
-    container.appendChild(script);
+    return new Promise(function (resolve, reject) {
+
+        script.onload = resolve;
+        script.onerror = reject;
+
+        container.appendChild(script);
+
+    });
 }
 
 
@@ -71,7 +77,14 @@ function loadAd300x250(container) {
     script.setAttribute('data-cfasync', 'false');
     script.src = 'https://bauval.org/22/d842d2a7b0a66324471688b86c6073ca';
 
-    container.appendChild(script);
+    return new Promise(function (resolve, reject) {
+
+        script.onload = resolve;
+        script.onerror = reject;
+
+        container.appendChild(script);
+
+    });
 }
 
 
@@ -94,27 +107,31 @@ function loadAd160x600(container) {
     script.setAttribute('data-cfasync', 'false');
     script.src = 'https://bauval.org/22/39fbfbae2dd36256117a3c77122b9dd3';
 
-    container.appendChild(script);
+    return new Promise(function (resolve, reject) {
+
+        script.onload = resolve;
+        script.onerror = reject;
+
+        container.appendChild(script);
+
+    });
 }
 
 
 /* =========================================================
-   AD INITIALIZER
+   AD LOADER
    ========================================================= */
 
-function initAdsterraAds() {
+async function loadAdsterraSlot(container) {
 
-    const adSlots = document.querySelectorAll('.adsterra-slot');
+    // একই slot দ্বিতীয়বার load হবে না
+    if (container.dataset.loaded === 'true') {
+        return;
+    }
 
-    adSlots.forEach(function (container) {
+    const adType = container.dataset.ad;
 
-        // একই Ad যেন দ্বিতীয়বার Load না হয়
-        if (container.dataset.loaded === 'true') {
-            return;
-        }
-
-        const adType = container.dataset.ad;
-
+    try {
 
         /* -------------------------------------------------
            320 × 50
@@ -122,7 +139,7 @@ function initAdsterraAds() {
 
         if (adType === '320x50') {
 
-            loadAd320x50(container);
+            await loadAd320x50(container);
 
         }
 
@@ -133,7 +150,7 @@ function initAdsterraAds() {
 
         else if (adType === '300x250') {
 
-            loadAd300x250(container);
+            await loadAd300x250(container);
 
         }
 
@@ -144,33 +161,76 @@ function initAdsterraAds() {
 
         else if (adType === '160x600') {
 
-            loadAd160x600(container);
+            await loadAd160x600(container);
 
         }
 
 
-        // Ad successfully initialized
-        if (
-            adType === '320x50' ||
-            adType === '300x250' ||
-            adType === '160x600'
-        ) {
-            container.dataset.loaded = 'true';
+        else {
+
+            return;
+
         }
 
-    });
+
+        container.dataset.loaded = 'true';
+
+    }
+
+    catch (error) {
+
+        console.error(
+            'Adsterra ad load failed:',
+            adType,
+            error
+        );
+
+    }
 }
 
 
 /* =========================================================
-   START ADS
+   INITIALIZE ALL ADS
+   ========================================================= */
+
+async function initAdsterraAds() {
+
+    const adSlots = document.querySelectorAll('.adsterra-slot');
+
+    /*
+       গুরুত্বপূর্ণ:
+
+       এখানে forEach ব্যবহার করা হয়নি।
+
+       কারণ 320x50 load হওয়ার আগেই 300x250-এর
+       atOptions সেট হয়ে গেলে conflict হতে পারে।
+
+       তাই একটার পর একটা load হবে।
+    */
+
+    for (const container of adSlots) {
+
+        await loadAdsterraSlot(container);
+
+    }
+
+}
+
+
+/* =========================================================
+   START
    ========================================================= */
 
 if (document.readyState === 'loading') {
 
-    document.addEventListener('DOMContentLoaded', initAdsterraAds);
+    document.addEventListener(
+        'DOMContentLoaded',
+        initAdsterraAds
+    );
 
-} else {
+}
+
+else {
 
     initAdsterraAds();
 
