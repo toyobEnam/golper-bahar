@@ -1,5 +1,12 @@
 [ 
-
+  
+{
+  "title": "শুকনো বকুলের মালা",
+  "description": "সারা মেহেক-এর লেখা সামাজিক রোমান্টিক গল্প",
+  "image": "https://res.cloudinary.com/didbcg0dd/image/upload/v1795497779/shukno-bokuler-mala2_itrp45.webp",
+  "category": "bangla-love-story",
+  "slug": "bls-0019-shukno-bokuler-mala"
+},
 {
   "title": "নির্বাণের পথে",
   "description": "সুমনা সাথী-এর লেখা পারিবারিক থ্রিলার গল্প",
