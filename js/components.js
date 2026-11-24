@@ -9,17 +9,6 @@ function loadComponent(id, file) {
       if (el) {
         el.innerHTML = html;
 
-        // ফুটার লোড হওয়ার পর Adsterra স্ক্রিপ্ট এক্সিকিউট করা
-        if (id === "footer") {
-          const adContainer = document.getElementById("container-09d5b3dba081e537545c7fc7fa968737");
-          if (adContainer) {
-            const adScript = document.createElement("script");
-            adScript.async = true;
-            adScript.setAttribute("data-cfasync", "false");
-            adScript.src = "https://bauval.org/21/09d5b3dba081e537545c7fc7fa968737";
-            document.body.appendChild(adScript);
-          }
-        }
       }
     })
     .catch(err => console.error("Component load error:", err));
