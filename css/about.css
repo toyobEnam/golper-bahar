@@ -539,3 +539,201 @@ body {
     font-size: 27px;
   }
 }
+
+
+
+/* ================= Gratitude Section ================= */
+  .gratitude-section {
+    background: radial-gradient(circle at top right, rgba(209, 250, 229, 0.65) 0%, transparent 45%),
+                radial-gradient(circle at bottom left, rgba(254, 243, 199, 0.7) 0%, transparent 45%),
+                #ffffff;
+    border: 1px solid rgba(19, 78, 58, 0.16);
+    padding: 32px 34px;
+  }
+
+  .gratitude-header {
+    text-align: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(19, 78, 58, 0.12);
+  }
+
+  .gratitude-header h2 {
+    margin-bottom: 6px;
+  }
+
+  .gratitude-subtitle {
+    text-align: center !important;
+    font-size: 17.5px !important;
+    line-height: 1.7 !important;
+    color: #52525b !important;
+    font-family: 'Kalpurush', 'Hind Siliguri', 'Noto Serif Bengali', serif !important;
+    margin: 0 auto;
+  }
+
+  .gratitude-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .gratitude-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 22px;
+    background: linear-gradient(135deg, #f0fdf4 0%, #faf8f5 55%, #fef9ee 100%);
+    border: 1px solid rgba(19, 78, 58, 0.22);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(19, 78, 58, 0.05);
+  }
+
+  .gratitude-img {
+    flex: 0 0 212px;
+    width: 212px;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid rgba(19, 78, 58, 0.24);
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(19, 78, 58, 0.08);
+  }
+
+  .gratitude-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gratitude-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .gratitude-name {
+    font-size: 23px;
+    font-weight: 700;
+    color: #0f3d2e;
+    line-height: 1.35;
+    margin: 0 0 4px;
+  }
+
+  .gratitude-role {
+    font-size: 15.5px;
+    font-weight: 500;
+    color: #b45309;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+
+  .gratitude-desc {
+    text-align: justify !important;
+    font-size: 18px !important;
+    line-height: 1.88 !important;
+    color: #27272a !important;
+    margin: 0 0 16px;
+  }
+
+  .gratitude-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .gratitude-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .gratitude-btn-profile {
+    background: #134e3a;
+    border: 1px solid #134e3a;
+  }
+
+  .gratitude-btn-profile:hover {
+    background: #1e6b50;
+    border-color: #1e6b50;
+    box-shadow: 0 6px 14px rgba(19, 78, 58, 0.22);
+  }
+
+  .gratitude-btn-fb {
+    background: #1877F2;
+    border: 1px solid #1877F2;
+  }
+
+  .gratitude-btn-fb:hover {
+    background: #1462c9;
+    border-color: #1462c9;
+    box-shadow: 0 6px 14px rgba(24, 119, 242, 0.24);
+  }
+
+  @media (max-width: 1000px) {
+    .gratitude-section {
+      padding: 24px 22px;
+    }
+
+    .gratitude-img {
+      flex: 0 0 132px;
+      width: 132px;
+    }
+
+    .gratitude-name {
+      font-size: 21px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .gratitude-section {
+      padding: 18px 16px;
+    }
+
+    .gratitude-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 6px;
+    }
+
+    .gratitude-img {
+      flex: none;
+      width: 148px;
+      height: 148px;
+    }
+
+    .gratitude-name {
+      font-size: 20px;
+    }
+
+    .gratitude-role {
+      font-size: 14.5px;
+      margin-bottom: 10px;
+    }
+
+    .gratitude-desc {
+      text-align: justify !important;
+      font-size: 16.5px !important;
+      line-height: 1.82 !important;
+      margin-bottom: 14px;
+    }
+
+    .gratitude-actions {
+      justify-content: center;
+      width: 100%;
+    }
+
+    .gratitude-btn {
+      font-size: 14px;
+      padding: 7px 14px;
+    }
+  }
