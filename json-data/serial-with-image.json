@@ -1,6 +1,13 @@
 [ 
   
 {
+  "title": "প্রেমযাতনা",
+  "description": "আজেরিন হিরানুর-এর লেখা থ্রিলার বেইজড রোমান্টিক গল্প",
+  "image": "https://res.cloudinary.com/utofjg0n/image/upload/v1795804200/cdex1txcokptxemtgdfo.webp",
+  "category": "romantic-thriller",
+  "slug": "rt-0014-premjatona"
+},  
+{
   "title": "শুকনো বকুলের মালা",
   "description": "সারা মেহেক-এর লেখা সামাজিক রোমান্টিক গল্প",
   "image": "https://res.cloudinary.com/didbcg0dd/image/upload/v1795497779/shukno-bokuler-mala2_itrp45.webp",
