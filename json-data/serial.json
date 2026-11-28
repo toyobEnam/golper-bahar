@@ -691,5 +691,14 @@
   "categoryName": "রোমান্টিক থ্রিলার",
   "categorySlug": "romantic-thriller",
   "storySlug": "rt-0014-premjatona"
+},
+{
+  "storyName": "রুপকথার প্রেমে",
+  "writerName": "সূচনা জাফরিন",
+  "writerSlug": "a015-suchana-jafrin",
+  "storyType": "serial",
+  "categoryName": "রহস্যের বেড়াজাল",
+  "categorySlug": "bangla-suspense",
+  "storySlug": "bs-0008-rupkothar-preme"
 }
 ]
